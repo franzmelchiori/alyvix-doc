@@ -1,2 +1,2 @@
 # alyvix-doc
-Alyvix source documentation
+This is the official source documentation of Alyvix.
