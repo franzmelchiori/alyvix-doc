@@ -1,6 +1,6 @@
-***************************
+###########################
 Visual Synthetic Monitoring
-***************************
+###########################
 
 This is the official documentation of Alyvix.
 
@@ -15,6 +15,7 @@ Alyvix provides **certifications on user perceived quality of IT services**. Aly
 Get started with Alyvix!
 
 
+=================
 Use case examples
 =================
 
@@ -31,6 +32,7 @@ Alyvix automates and measures Word through Citrix and RDWebAccess:
 .. image:: pictures/alyvix_rdwa_word_201702.gif
 
 
+======================
 Documentation contents
 ======================
 
@@ -40,8 +42,10 @@ Documentation contents
 
    basic_principles.rst
    system_requirements.rst
+   getting_started.rst
 
 
+===================
 System requirements
 ===================
 
@@ -57,6 +61,7 @@ System requirements
   * OS: **Windows 64bit** 7, 8, 10, Server 2012 or Server 2016, with .NET v4.x; WinOS 32bit versions are not compatible
 
 
+==================
 Indices and tables
 ==================
 

@@ -1,6 +1,6 @@
-***********************
-Alyvix basic principles
-***********************
+################
+Basic principles
+################
 
 .. toctree::
    :maxdepth: 2

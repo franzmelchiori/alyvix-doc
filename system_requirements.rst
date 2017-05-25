@@ -1,6 +1,6 @@
-**************************
-Alyvix system requirements
-**************************
+###################
+System requirements
+###################
 
 .. note::
   * **1 virtual or physical machine**, exclusively dedicated to serially run a number of Alyvix test cases
