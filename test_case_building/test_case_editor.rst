@@ -26,51 +26,81 @@ Now, in the *RIDE main window* on the left there is a *tree view pane*: it lists
 
   .. image:: pictures/ride_01a_project_window.png
 
-Clicking on the *Library button* you can import either the necessary Alyvix library of system keywords, typing ``alyvixlib``, visual ones and others. When you define at least one Alyvix keyword within a test case, RIDE saves a Python module as the Alyvix library of visual keywords for that test case. That is a .py file within the robotproxy folder and with a filename like AlyvixProxy<project_name> (e.g. ``AlyvixProxyguide_project``):
+Clicking on the *Library button* you can import external libraries of keywords that you can use to build the test case. It is necessary to import the Alyvix library of system keywords: type ``alyvixlib`` and press *OK*. Define at least one visual keyword for a test case and then RIDE saves its Alyvix library of visual keywords. That library is a Python module, it has a filename like *AlyvixProxy<project_name>* and it is a .py file (e.g. ``AlyvixProxyguide_project.py``) within the ''\robotproxy'' folder:
 
   .. image:: pictures/ride_01c_import_library.png
 
-Type a library name (alyvixlib at the beginning of a test case building, then AlyvixProxy<project_name> when you define at least one Alyvix keyword) and click on OK to import it: the library name will be listed in black or in red, if RIDE has not been able to find it.
-
-ride_01d_toolbar_save
+Type a library name (``alyvixlib`` at the beginning of a test case building, then ``AlyvixProxy<project_name>`` when you will define at least one visual keyword) and click on *OK* to import it: the library name will be listed in black (or in red, if RIDE has not been able to find it).
 
 
+Editor buttons
+--------------
 
-Save buttons allows users to save current .robot file, they are working on, or all project .robot files. Remember to click on disk-with-star icon to apply all changes you have done on a test case in order to run the up-to-date version of that test case.
+The most useful *editor buttons* are the following ones:
 
-ride_01e_toolbar_alyvix
+  +-------------------------------------------------+
+  | .. image:: pictures/ride_01e_toolbar_alyvix.png |
+  +-------------------------------------------------+
+
+    *Alyvix button* opens the **Alyvix** keyword selector, where the *visual keywords* (you have created for the current project) are listed. Visual keywords can be edited and new ones can be added (clicking on the *New* button to open the *Alyvix Finder selector*).
+
+  +-----------------------------------------------+
+  | .. image:: pictures/ride_01d_toolbar_save.png |
+  +-----------------------------------------------+
+
+    **Save** buttons allows users to save *current* ``.robot`` file, they are working on, or *all* ``.robot`` project files. Remember to click on the disk-with-star icon to apply all changes you have done on a test case for running the up-to-date version of the test case.
+
+  +------------------------------------------------+
+  | .. image:: pictures/ride_01f_toolbar_start.png |
+  +------------------------------------------------+
+
+    **Run** and **stop** buttons can execute (click on play button) or terminate (double click on stop button) the current project running (its current test cases).
 
 
+Editor shortcuts
+----------------
 
-Alyvix button opens the Alyvix keyword selector, where the custom keywords (you have created for that project) are listed, can be edited and can be added (clicking on the ‘New’ button to open the Alyvix Finder selector).
+The most useful *editor and Alyvix shortcuts* are the following ones:
 
-ride_01f_toolbar_start
-
-
-
-Run and stop buttons can execute (click on play button) or terminate (double click
-on stop button) the current project (so its selected test cases).
-
-The most useful RIDE shortcuts are the following ones:
-
-Autocomplete keyword from imported libraries: CTRL + Space
-Comment the selected row(s): CTRL + 3
-Uncomment the selected row(s): CTRL + 4
-Copy selected cell/row(s): CTRL + C
-Cut selected cell/row(s): CTRL + X
-Paste selected cell/row(s): CTRL + V
-Undo last operation: CTRL + Z
-Save current file: CTRL + S
-Save all project files: CTRL + SHIFT + S
-Insert a blank row above the selected row: CTRL + I
-Insert a blank cell left to the selected cell: CTRL + SHIFT + I
-Delete the selected row(s): CTRL + D
-Delete the selected cell(s): CTRL + SHIFT + D
-Move up the selected row(s): ALT + ↑
-Move down the selected row(s): ALT + ↓
-Run test cases of the current project: F8
-Stop test cases of the current running project: CTRL + F8
-Open the last produced report: CTRL + L
+  +-------------------------------------------------------+---------------------+
+  | Accept and exit **Alyvix** visual selection mode      | :kbd:`CTRL+O`       |
+  +-------------------------------------------------------+---------------------+
+  | **Copy** selected cell/row(s)                         | :kbd:`CTRL+C`       |
+  +-------------------------------------------------------+---------------------+
+  | **Cut** selected cell/row(s)                          | :kbd:`CTRL+X`       |
+  +-------------------------------------------------------+---------------------+
+  | **Paste** selected cell/row(s)                        | :kbd:`CTRL+V`       |
+  +-------------------------------------------------------+---------------------+
+  | **Undo** last operation                               | :kbd:`CTRL+Z`       |
+  +-------------------------------------------------------+---------------------+
+  | **Insert** a blank **row** above the selected row     | :kbd:`CTRL+I`       |
+  +-------------------------------------------------------+---------------------+
+  | **Insert** a blank **cell** left to the selected cell | :kbd:`CTRL+SHIFT+I` |
+  +-------------------------------------------------------+---------------------+
+  | **Delete** the selected :strong:`row`\ (s)            | :kbd:`CTRL+D`       |
+  +-------------------------------------------------------+---------------------+
+  | **Delete** the selected :strong:`cell`\ (s)           | :kbd:`CTRL+SHIFT+D` |
+  +-------------------------------------------------------+---------------------+
+  | **Move up** the selected row(s)                       | :kbd:`ALT+↑`        |
+  +-------------------------------------------------------+---------------------+
+  | **Move down** the selected row(s)                     | :kbd:`ALT+↓`        |
+  +-------------------------------------------------------+---------------------+
+  | **Comment** the selected row(s)                       | :kbd:`CTRL+3`       |
+  +-------------------------------------------------------+---------------------+
+  | **Uncomment** the selected row(s)                     | :kbd:`CTRL+4`       |
+  +-------------------------------------------------------+---------------------+
+  | **Autocomplete** keyword from imported libraries      | :kbd:`CTRL+SPACE`   |
+  +-------------------------------------------------------+---------------------+
+  | **Save** current file                                 | :kbd:`CTRL+S`       |
+  +-------------------------------------------------------+---------------------+
+  | **Save all** project files                            | :kbd:`CTRL+SHIFT+S` |
+  +-------------------------------------------------------+---------------------+
+  | **Run** test cases of the current project             | :kbd:`F8`           |
+  +-------------------------------------------------------+---------------------+
+  | **Stop** test cases of the current running project    | :kbd:`CTRL+F8`      |
+  +-------------------------------------------------------+---------------------+
+  | Open the last produced **report**                     | :kbd:`CTRL+L`       |
+  +-------------------------------------------------------+---------------------+
 
 
 Test case editing
@@ -78,7 +108,7 @@ Test case editing
 
 Right click on the project name in the left pane of the RIDE main window and click on ‘New test case’ option. Insert a name for the test case you are creating (recommendation: lowercased, with underscores instead of spaces).
 
-ride_02a_test_window
+  .. image:: pictures/ride_02a_test_window.png
 
 Now, clicking on the test case name you visualize its main table on the right (as an edit tab).
 
