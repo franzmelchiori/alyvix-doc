@@ -8,4 +8,4 @@ Getting started
 
    getting_started/install_with_internet.rst
    getting_started/install_without_internet.rst
-   getting_started/check_deployment.rst
+   getting_started/deployment_check.rst

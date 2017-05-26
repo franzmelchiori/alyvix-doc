@@ -43,6 +43,7 @@ Documentation contents
    basic_principles.rst
    system_requirements.rst
    getting_started.rst
+   test_case_building.rst
 
 
 ===================
