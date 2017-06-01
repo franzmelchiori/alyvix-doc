@@ -57,6 +57,8 @@ The most useful *editor buttons* are the following ones:
     **Run** and **stop** buttons can execute (click on play button) or terminate (double click on stop button) the current project running (its current test cases).
 
 
+.. _test_case_editor-editor_shortcuts:
+
 Editor shortcuts
 ----------------
 
@@ -106,52 +108,58 @@ The most useful *editor and Alyvix shortcuts* are the following ones:
 Test case editing
 =================
 
-Right click on the project name in the left pane of the RIDE main window and click on ‘New test case’ option. Insert a name for the test case you are creating (recommendation: lowercased, with underscores instead of spaces).
+Right click on the project name (e.g. ``guide_project``) in the left pane of the RIDE main window and click on *New test case* option. Insert a name for the test case you are creating (recommendation: lowercased, with underscores instead of spaces, e.g. ``guide_project``, the same as the project name).
 
   .. image:: pictures/ride_02a_test_window.png
 
 Now, clicking on the test case name you visualize its main table on the right (as an edit tab).
 
-ride_02b_test_window
+  .. image:: pictures/ride_02b_test_window.png
 
-This is the space where to edit the test case, typing keywords in different kind of syntaxes. For the Alyvix basic keywords, the main syntax is the following one: a keyword in a cell of the first column and the keyword arguments (one or more) in the subsequent cells. For example, the following test case scripts one single Alyvix basic keyword that is ‘Create Process’ of alyvixlib: it takes two arguments, the first one is the process you want to run (e.g. Internet Explorer) and the second one is the Internet address you want to browse (e.g. the Alyvix website).
+This is the space where to edit the test case, typing keywords in different kind of syntaxes. For the Alyvix basic keywords, the main syntax is the following one: a keyword in a cell of the first column and the keyword arguments (one or more) in the subsequent cells.
 
-ride_03a_test_case
+For example, in the following test case script there is one single Alyvix basic keyword which is ``Create Process`` from ``alyvixlib``: it takes two arguments, the first one is the process you want to run (e.g. Internet Explorer) and the second one is the Internet address you want to browse (e.g. the Alyvix website).
 
-In the reference section about alyvixlib you can find the complete list of the Alyvix basic keywords and their how-to-use description (e.g. syntax, mandatory or optional arguments and their values, effects).
+  .. image:: pictures/ride_03a_test_case.png
 
-Alyvix custom keywords, that you will be able to define using the Alyvix tools (e.g. Image Finder, Rect Finder, Text Finder, Object Finder), simply take at minimum no arguments or at maximum a number of arguments with text strings (to find or to type) or keyboard shortcuts (to send). For example, you could define a keyword to detect that a browser has rendered the homepage of the Alyvix website. The keyword could work just detecting images, so it does not take text arguments and you could name it ‘alyvix_website_ready’. In this case, you could use the keyword within a test case just typing its name. RIDE can equally interpret ‘Alyvix Website Ready’.
+In the :ref:`system_keywords` section about ``alyvixlib`` you can find the complete list of the Alyvix basic keywords and their how-to-use description (e.g. syntax, mandatory or optional arguments and their values, effects).
 
-ride_03b_test_case
+Alyvix visual keywords, that you will be able to define using the Alyvix tools (e.g. Image Finder, Rect Finder, Text Finder, Object Finder), simply take at minimum no arguments or at maximum a number of arguments with text strings (to find or to type) or keyboard shortcuts (to send).
+
+For example, you could define a keyword to detect that a browser has rendered the homepage of the Alyvix website. The keyword could work just detecting images, so it does not take text arguments and you could name it ``alyvix_website_ready``. In this case, you could use the keyword within a test case just typing its name. RIDE can equally interpret ``Alyvix Website Ready``.
+
+  .. image:: pictures/ride_03b_test_case.png
+
+In the :ref:`visual_keywords` section you can learn how to build Alyvix visual keywords.
 
 There are also several Robot Framework keywords and their syntaxes. Take a look at the complete list of Robot Framework standard libraries and their keywords browsing the following website:
 
-http://robotframework.org/robotframework/#user-guide
+  http://robotframework.org/robotframework/#user-guide
 
-For example, in the following test case the variable ${time} is defined with the current hour and the variable ${work} is True or False depending on the value of ${time}, if it is in the range of working hours or not. The final value of ${work} is printed out.
+For example, in the following test case the variable ``${time}`` is defined with the current hour and the variable ``${work}`` is ``True`` or ``False`` depending on the value of ``${time}`` (if it is in the range of working hours or not). The final value of ``${work}`` is printed out.
 
-ride_03c_test_case
+  .. image:: pictures/ride_03c_test_case.png
 
-RIDE also allows creating subtables to use in projects: it is like execute secondary test cases in main ones. Subtables have a name and you can type that name in a test case of the same project to execute the keywords listed in that subtable. Right click on the project name (in tree view on the left pane) and select ‘New user keyword’ to create subtables.
+RIDE also allows you to create *subtables* to use in projects: it is like execute secondary test cases in main ones. Subtables have a name and you can type that name in a test case of the same project to execute the keywords listed in that subtable. Right click on the project name (in tree view on the left pane) and select *New user keyword* to create subtables.
 
-ride_04a_sub_tables
+  .. image:: pictures/ride_04a_sub_tables.png
 
-Best practice is to create a setup and an exit subtables. Then you can set to execute them at the beginning of a test case and at its termination both in case of success or failure.
+A best practice is to create a ``setup`` and a ``teardown`` subtables. Then you can set to execute them at the beginning of a test case and at its termination (both in case of success or failure).
 
-It is a good practice because at startup, you can declare the desired performances and at termination, you can print the collected performances in any case. If something has gone wrong, in any point of the test case, Alyvix can output which the last filled performance is and why the subsequent has failed.
+It is a good practice because at startup, you can declare the desired performances and at termination, you can print the collected performances in any case. If something has gone wrong, in any point of the test case, Alyvix can output which the last filled performance has been and why the subsequent has failed.
 
-ride_04b_sub_tables
+  .. image:: pictures/ride_04b_sub_tables.png
 
 Moreover, the exit subtable is the right place where list keywords to close (or even to kill) any possible windows on screen that the test case can have open. This is good for restoring the original and clean state of the screen, from where to rerun the test.
 
-ride_04c_sub_tables
+  .. image:: pictures/ride_04c_sub_tables.png
 
-To set subtables as test case procedures during setup or teardown, click on a test case name in the tree view on the left pane of RIDE, click on ‘Settings >>’ button above the right pane, click the ‘Edit’ button left to the ‘Setup’ or ‘Teardown’ edit boxes and finally type the subtable name (e.g. setup, exit).
+To set subtables as test case procedures during *setup* or *teardown*, click on a test case name in the tree view on the left pane of RIDE, click on *Settings >>* button above the right pane, click the *Edit* button left to the *Setup* or *Teardown* edit boxes and finally type the subtable name (e.g. ``setup``, ``teardown``).
 
-ride_04d_sub_tables
+  .. image:: pictures/ride_04d_sub_tables.png
 
-ride_02c_test_settings_window
+  .. image:: pictures/ride_02c_test_settings_window.png
 
 RIDE also allows using subtables as keywords in test cases. In this way, you can pack together Robot Framework and Alyvix commands that represent a frequent routine, under a subtable that can be used in test cases as a single regular keyword. The latter can even take arguments to use within its related subtable.
 
-ride_04e_sub_tables
+  .. image:: pictures/ride_04e_sub_tables.png
