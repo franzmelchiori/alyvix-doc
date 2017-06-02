@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <finder>
+        <finder_thread_interval>0.5</finder_thread_interval>
+        <check_diff_interval>0.1</check_diff_interval>
+        <wait_timeout>20</wait_timeout>
+    </finder>
+    <log>
+        <enable>True</enable>
+        <home>C:\alyvix_logbooks</home>
+        <retention>
+            <max_days>7</max_days>
+            <hours_per_day>24</hours_per_day>
+        </retention>
+    </log>
+</config>
