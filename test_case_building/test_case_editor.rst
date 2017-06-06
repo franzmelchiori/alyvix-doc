@@ -1,7 +1,11 @@
+.. _testcase_editor:
+
 ****************
 Test case editor
 ****************
 
+
+.. _testcase_editor-basic_operations:
 
 Basic operations
 ================
@@ -33,6 +37,8 @@ Clicking on the *Library button* you can import external libraries of keywords t
 Type a library name (``alyvixlib`` at the beginning of a test case building, then ``AlyvixProxy<project_name>`` when you will define at least one visual keyword) and click on *OK* to import it: the library name will be listed in black (or in red, if RIDE has not been able to find it).
 
 
+.. _testcase_editor-editor_buttons:
+
 Editor buttons
 --------------
 
@@ -57,7 +63,7 @@ The most useful *editor buttons* are the following ones:
     **Run** and **stop** buttons can execute (click on play button) or terminate (double click on stop button) the current project running (its current test cases).
 
 
-.. _test_case_editor-editor_shortcuts:
+.. _testcase_editor-editor_shortcuts:
 
 Editor shortcuts
 ----------------
@@ -104,6 +110,8 @@ The most useful *editor and Alyvix shortcuts* are the following ones:
   | Open the last produced **report**                     | :kbd:`CTRL+L`       |
   +-------------------------------------------------------+---------------------+
 
+
+.. _testcase_editing:
 
 Test case editing
 =================

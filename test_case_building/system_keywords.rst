@@ -18,7 +18,7 @@ Alyvix Config
   | ``Alyvix Config`` | ``<config.xml_file_path>`` |
   +-------------------+----------------------------+
 
-    Points to the :literal:`config.xml` file with some Alyvix settings.
+    Points to the :download:`config.xml <./config.xml>` file with some Alyvix settings.
 
       .. code-block:: xml
 
@@ -393,7 +393,7 @@ Publish Perfdata
   | ``Publish Perfdata`` | ``type = {csv, perfmon}`` | ``start_date = <yyyy-mm-dd hh:mm>`` [csv] | ``end_date = <yyyy-mm-dd hh:mm>`` [csv] | ``filename = <path_to_testcase_csv_file>`` [csv] | ``testcase_name = <testcase_name_to_list>`` [perfmon] | ``max_age = <database_data_max_age>`` [perfmon] |
   +----------------------+---------------------------+-------------------------------------------+-----------------------------------------+--------------------------------------------------+-------------------------------------------------------+-------------------------------------------------+
 
-    Publishes test case performances in a CSV file or in Windows Performance Monitor. csv type takes mandatory start and end dates in the following format yyyy-mm-dd hh:mm (e.g. 2016-07-29 09:00) and an optional path to the CSV file that will be written. perfmon type takes an optional testcase name to list in Windows Performance Monitor. It also takes an optional max_age amount of hours as maximum range of past hours for data to consider. Default value: max_age=24. If Alyvix was installed correctly, through a command prompt run as administrator, its Windows service called Alyvix Wpm Service should run in background. Therefore, Alyvix can publish performances in WPM out-of-the-box: Alyvix- will be available in the list of WPM metrics to add.
+    Publishes test case performances in a CSV file or in Windows Performance Monitor. csv type takes mandatory start and end dates in the following format yyyy-mm-dd hh:mm (e.g. 2016-07-29 09:00) and an optional path to the CSV file that will be written. perfmon type takes an optional test case name to list in Windows Performance Monitor. It also takes an optional max_age amount of hours as maximum range of past hours for data to consider. Default value: max_age=24. If Alyvix was installed correctly, through a command prompt run as administrator, its Windows service called Alyvix Wpm Service should run in background. Therefore, Alyvix can publish performances in WPM out-of-the-box: Alyvix- will be available in the list of WPM metrics to add.
 
   Example:
 
