@@ -21,15 +21,15 @@ Use case examples
 
 Alyvix automates and measures Outlook through Citrix and RDWebAccess:
 
-.. image:: pictures/alyvix_citrix_outlook_201702.gif
+.. image:: pictures/alyvix_citrix_outlook_20170606.gif
 
-.. image:: pictures/alyvix_rdwa_outlook_201702.gif
+.. image:: pictures/alyvix_rdwa_outlook_20170606.gif
 
 Alyvix automates and measures Word through Citrix and RDWebAccess:
 
-.. image:: pictures/alyvix_citrix_word_201702.gif
+.. image:: pictures/alyvix_citrix_word_20170606.gif
 
-.. image:: pictures/alyvix_rdwa_word_201702.gif
+.. image:: pictures/alyvix_rdwa_word_20170606.gif
 
 
 ======================

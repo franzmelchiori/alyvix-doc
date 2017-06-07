@@ -10,10 +10,12 @@ Visual keywords
 Keyword definition
 ==================
 
-The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector of the visual keywords** (that has been previously defined by the user) for the current test case (e.g. ``alyvix_website``, so that its keyword library would be ``AlyvixProxyalyvix_website``). Keyword names and their type are listed: ‘IF’ means Image Finder, ‘RF’ means Rect Finder, ‘TF’ means Text Finder and ‘OF’ stays for Object Finder.
+The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector of visual keywords** (that has been previously defined by the user) for the current test case (e.g. ``alyvix_website``, so that its keyword library would be ``AlyvixProxyalyvix_website`` ``.py``). The selector lists the name and the type of each keyword: `[IF]` means Image Finder, `[RF]` means Rect Finder, `[TF]` means Text Finder and `[OF]` stays for Object Finder.
 
 .. note::
-    Imported keywords from other Alyvix test case libraries (e.g. ``citrix_outlook``, so that its keyword library would be ``AlyvixProxycitrix_outlook``) are not listed in the selector window.
+    Imported keywords from other Alyvix test case libraries (e.g. ``citrix_outlook``, so that its keyword library would be ``AlyvixProxycitrix_outlook`` ``.py``) are not listed in the selector window. You can edit keywords of a certain test case just opening that test case.
+
+..
 
     .. image:: pictures/ride_05a_keyword_selector.png
 
@@ -40,12 +42,13 @@ To correctly define the keyword, it is necessary to also select the green sign a
 
     .. image:: pictures/ride_07bb_if_main_sub.png
 
+..
+
     1. Selection of main component inside the screen
     2. Selection of the ROI of the sub component 1 inside the screen
     3. Selection of the sub component 1 inside its ROI
-        #. [n] Selection of the ROI of the sub component n inside the screen
-        #. [n+1] Selection of the sub component n inside its ROI
-    4. Press CTRL + O to access the setting dialog of the Image Finder
+    4. Eventual repetition of 2. and 3. to add more and more sub components
+    5. Press CTRL + O to access the setting dialog of the Image Finder
 
 
 .. _visual_keywords-rect_definition:
@@ -53,17 +56,20 @@ To correctly define the keyword, it is necessary to also select the green sign a
 Rect Finder main and subs
 -------------------------
 
-ride_07c_rf_main_subAn example GUI shows three identical edit boxes, but a possible transaction could be interacting with the third, left to the ‘OK’ button. Selecting just the edit box, as a main component, is not enough: Alyvix is going to detect all the three edit boxes and to interact with the first one, because of a raster logic scanning the screen.
+    .. image:: pictures/ride_07c_rf_main_sub.png
+
+An example GUI shows three identical edit boxes, but a possible transaction could be interacting with the third, left to the ‘OK’ button. Selecting just the edit box, as a main component, is not enough: Alyvix is going to detect all the three edit boxes and to interact with the first one, because of a raster logic scanning the screen.
 To correctly define the keyword, it is necessary to also select the ‘OK’ button as a sub component. Sub components of Rect Finders lies in their ROI. The upper left corner of ROI are all binded with the upper left corner of the main component selection.
 
-ride_07db_rf_main_sub
+    .. image:: pictures/ride_07db_rf_main_sub.png
 
-1. Selection of main component inside the screen
-2. Selection of the ROI of the sub component 1 inside the screen
-3. Selection of the sub component 1 inside its ROI
-aaaa[n]. Selection of the ROI of the sub component n inside the screen
-aaaa[n+1]. Selection of the sub component n inside its ROI
-End. Press CTRL + O to access the setting dialog of the Rect Finder
+..
+
+    1. Selection of main component inside the screen
+    2. Selection of the ROI of the sub component 1 inside the screen
+    3. Selection of the sub component 1 inside its ROI
+    4. Eventual repetition of 2. and 3. to add more and more sub components
+    5. Press CTRL + O to access the setting dialog of the Rect Finder
 
 
 .. _visual_keywords-text_definition:
@@ -71,18 +77,21 @@ End. Press CTRL + O to access the setting dialog of the Rect Finder
 Text Finder main and subs
 -------------------------
 
-ride_07e_tf_main_subAn example GUI shows three identical ‘Name’ text strings, but a possible transaction could be interacting with the third, left to the ‘Franz’ text string. Selecting just the ‘Name’ text string, as a main component, is not enough: Alyvix is going to detect all the three ‘Name’ text strings and to interact with the first one, because of a raster logic scanning the screen.
+    .. image:: pictures/ride_07e_tf_main_sub.png
+
+An example GUI shows three identical ‘Name’ text strings, but a possible transaction could be interacting with the third, left to the ‘Franz’ text string. Selecting just the ‘Name’ text string, as a main component, is not enough: Alyvix is going to detect all the three ‘Name’ text strings and to interact with the first one, because of a raster logic scanning the screen.
 To correctly define the keyword, it is necessary to also select the ‘Franz’ text string as a sub component. All Text Finder components (main and sub) lies in their ROI. The upper left corner of ROI are all binded with the upper left corner of the screen. That differs from the Image and Rect Finders: the main component of Text Finder is searched within its ROI and not on the entire screen. The latter is the reason why Text Finder should be strictly used as sub components of Object Finders.
 
-ride_07fb_tf_main_sub
+    .. image:: pictures/ride_07fb_tf_main_sub.png
 
-1. Selection of the ROI of the main component inside the screen
-2. Selection of main component inside its ROI
-3. Selection of the ROI of the sub component 1 inside the screen
-4. Selection of the sub component 1 inside its ROI
-aaaa[n]. Selection of the ROI of the sub component n inside the screen
-aaaa[n+1]. Selection of the sub component n inside its ROI
-End. Press CTRL + O to access the setting dialog of the image Finder
+..
+
+    1. Selection of the ROI of the main component inside the screen
+    2. Selection of main component inside its ROI
+    3. Selection of the ROI of the sub component 1 inside the screen
+    4. Selection of the sub component 1 inside its ROI
+    5. Eventual repetition of 3. and 4. to add more and more sub components
+    6. Press CTRL + O to access the setting dialog of the Text Finder
 
 
 .. _visual_keywords-object_definition:
@@ -90,13 +99,21 @@ End. Press CTRL + O to access the setting dialog of the image Finder
 Object Finder main and subs
 ---------------------------
 
-ride_07g_of_main_subAn example GUI shows three identical stars, but a possible transaction could be interacting with the third, left to the ‘Franz’ text string. Selecting just the star, as a main component, is not enough: Alyvix is going to detect all the three stars and to interact with the first one, because of a raster logic scanning the screen.
+    .. image:: pictures/ride_07g_of_main_sub.png
+
+An example GUI shows three identical stars, but a possible transaction could be interacting with the third, left to the ‘Franz’ text string. Selecting just the star, as a main component, is not enough: Alyvix is going to detect all the three stars and to interact with the first one, because of a raster logic scanning the screen.
 To correctly define the keyword, it is necessary to also select the ‘Franz’ text string as a sub component. Firstly, define an Image Finder with the star and a Text Finder with the ‘Franz’ text string. Secondly, select them as the main and a sub component of an Object Finder. Finally, redefine the ROI of sub components to bind them to the main component.
 The most common and useful Object Finder combinations are IF + TF and RF + TF.
 
-1. Selection of the ROI of the sub component inside the screen
-aaaa[n]. Selection of the ROI of the sub component n inside the screen
-End. Press CTRL + O to access the setting dialog of the Image Finder
+    .. image:: pictures/ride_07hb_of_main_sub.png
+
+..
+
+    1. Selection of the main component
+    2. Selection of the sub component 1
+    3. Selection of the ROI of the sub component 1
+    4. Eventual repetition of 2. and 3. to add more and more sub components
+    5. Press CTRL + O to access the setting dialog of the Object Finder
 
 
 .. _visual_keywords-alyvix_finders:
@@ -116,11 +133,7 @@ The available interaction options are self-explained. ‘Click’, ‘Right Clic
 
 At the bottom of the ‘Graphic Design’ window, typing settings take place. Within the edit box can be inserted text strings and shortcuts to send (most of the time after a ‘Click’ interaction somewhere). Regular text strings can be typed together with shortcuts (e.g. bla{enter}). You can find a list of the most useful shortcuts in the description of  Send Keys basic keyword. However, it is also possible to bring the keyword arguments as part of the keystrokes to send. In this latter case, it is necessary to untick ‘Add Quotes’, then to add one more argument under the ‘Source Code’ tab (click up at the ‘Args’ spin box) and finally use the argument variable alone (e.g. arg1) or properly formatted with the rest, as following example: “bla{enter}”+arg1+”{enter}”.
 
-ride_06_image_finder
-
 Finally, the ‘Performance Data’ tab shows the performance settings. First, the ‘Enable Performance’ check box to enable or to disable the performance measurement: for example, in case of automation transactions, that are defined to reach the interesting parts of user flows, we do not care about performances. Second, in the two edit boxes we can set the amount of seconds of Warning and Critical thresholds.
-
-ride_06_image_finder02
 
 
 .. _visual_keywords-image_finder:
@@ -130,7 +143,11 @@ Image Finder
 
 Image Finders are featured by a spin box where to set the likelihood threshold for the selected component. You have to set a number between 0 and 1, with two decimal places: higher that threshold is, more similar a graphic element on screen has to be respect to the selected component.
 
-2016-09-15 15_54_04-_alyvix_user_guide_02_test_case_building_201609151500.docx [Read-Only] - Word
+    .. image:: pictures/ride_06a_image_finder.png
+
+..
+
+    .. image:: pictures/alyvix_image_finder.gif
 
 
 .. _visual_keywords-rect_finder:
@@ -140,7 +157,7 @@ Rect Finder
 
 There are two modes in order to define valid rectangles: Min/Max and Tolerance boundaries. Click on one of them and tick its check box on the right to see the ongoing editing of valid areas. Type integer numbers, click spin boxes or scroll mouse wheel to change the violet area on selected components: rectangle contours on screen (or in ROI for sub components) that fit the adjusted boundaries will be take into account by Alyvix.
 
-ride_08_rect_finder
+    .. image:: pictures/ride_08_rect_finder.png
 
 
 .. _visual_keywords-text_finder:
@@ -152,7 +169,7 @@ In the ‘Text’ edit box of Text Finders you can provide a case insensitive te
 
 In the ‘Text’ edit box can be also used arguments. If you want to pass a text string or a regular expression to a Text Finder custom keyword as its argument, type arg<n> (e.g. arg1) in the edit box, untick ‘Add Quotes’, add one more ‘Args’ under the ‘Source Code’ tab and finally remember to pass a text to match as the keyword argument (e.g. mywebsite_userlist_txt | .*ame).
 
-ride_09_text_finder
+    .. image:: pictures/ride_09_text_finder.png
 
 
 .. _visual_keywords-object_finder:
@@ -165,3 +182,13 @@ Object Finders are the most useful Alyvix Finder, because they bind together mul
 First, you have to build IF, RT and TF custom keywords to make an OF. Second, create an OF and set its main and sub components pressing the ‘Set Main Object’ and ‘Add Sub Object’ button. Finally, redefine the ROI to bind the added sub component to the main one drawing a searching area around the sub component selection.
 
 The ‘Edit’ and ‘Remove’ buttons allow to edit the settings of the selected component or to delete it from the OF component list on the left pane: if you remove the main from an OF, you have to set a new one.
+
+    .. image:: pictures/ride_10_object_finder.png
+
+..
+
+    .. image:: pictures/ride_10bb_object_finder.png
+
+..
+
+    .. image:: pictures/ride_10cb_object_finder.png
