@@ -10,24 +10,26 @@ Visual keywords
 Keyword definition
 ==================
 
-The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector of visual keywords** (that has been previously defined by the user) for the current test case (e.g. ``alyvix_website``, so that its keyword library would be ``AlyvixProxyalyvix_website`` ``.py``). The selector lists the name and the type of each keyword: `[IF]` means Image Finder, `[RF]` means Rect Finder, `[TF]` means Text Finder and `[OF]` stays for Object Finder.
+The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector of visual keywords** (that has been previously defined by the user) for the current test case (e.g. ``alyvix_website``, so that its keyword library would be ``AlyvixProxyalyvix_website`` ``.py``). The selector shows the name and the type of each keyword: *[IF]* means :ref:`Image Finder <visual_keywords-image_finder>`, *[RF]* means :ref:`Rect Finder <visual_keywords-rect_finder>`, *[TF]* means :ref:`Text Finder <visual_keywords-text_finder>` and *[OF]* stays for :ref:`Object Finder <visual_keywords-object_finder>`.
 
 .. note::
-    Imported keywords from other Alyvix test case libraries (e.g. ``citrix_outlook``, so that its keyword library would be ``AlyvixProxycitrix_outlook`` ``.py``) are not listed in the selector window. You can edit keywords of a certain test case just opening that test case.
+    *Imported keywords* from other *Alyvix test case libraries* (e.g. ``citrix_outlook``, so that its keyword library would be ``AlyvixProxycitrix_outlook`` ``.py``) are *not* listed in the selector window. You can edit keywords in a certain test case library just opening that test case.
 
 ..
 
     .. image:: pictures/ride_05a_keyword_selector.png
 
-The *New* button opens the selector of the Alyvix Finders to define a new visual keyword. The *Edit* button brings to the Finder dialog of the selected keyword, in order to modify its properties (e.g. component and ROI selections, detection and interaction settings, performance thresholds). The *Remove* button deletes the selected keywords or in case of Object Finder keywords, crumbles them into its basic components (e.g. IF, RF, TF).
+The *New* button opens the selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>`. The *Edit* button brings to the Finder dialog of the selected keyword, in order to modify its properties (e.g. component and ROI selections, detection and interaction settings, performance thresholds). The *Remove* button deletes the selected keywords or, in case of :ref:`Object Finder <visual_keywords-object_finder>` keywords, crumbles them into its basic components (IF, RF, TF).
 
     .. image:: pictures/ride_05b_finder_selector.png
 
-The Alyvix Finder selector allows selecting the type of a new keyword to define. The ``Delay`` spin control delays the subsequent selection of the main component to start defining a keyword of the selected type.
+The selector of the :ref:`Alyvix Finders <visual_keywords-alyvix_finders>` allows you to select the type (image, rectangle, text, object) of a new keyword to define. The ``Delay`` spin control delays of a given amount of seconds the subsequent selection of components on screen. The graphic definition a visual keyword freezes your screen, in order to select components. Increase the delay if you need time to trigger a certain state of the screen (e.g. opening a menu in an app dialog).
 
-Start defining a custom keyword means visually selecting its components: one main selection is necessary, but then multiple sub selections are possible. The reasons for sub components are to detect application transactions in a more complete (GUI rendering could be element-by-element) and robust (the same GUI element could be used twice) way, besides being able to interact with more GUI elements (i.e. not just with the main component).
+Start defining a *visual keyword* means selecting its components on screen: one *main selection* is necessary, but then multiple *sub selections* are possible. Sub components are selected within their *region of interests*. The latter *ROI* are useful to link sub components to the main component. Each Alyvix Finder has a procedure to select its components and ROI. The important reasons for sub components and their ROI follow below. The detection of application transactions can be:
 
-Each Alyvix Finder has its own procedure to select its components and ROI to bind subs to the main.
+* more *complete*: GUI rendering could be element-by-element, so it could be necessary to detect several components to check a completed transaction; moreover, it is possible to interact with several GUI elements and not just with one;
+* more *robust*: the same GUI element could be used twice, so it could be necessary to define a unique transaction selecting more components;
+* more *flexible*: the same GUI element could be rendered in a different position, so it is necessary to link sub to main components through ROI; moreover, ROI are also useful to restrict the screen area to process, in order to filter out the rest and to save computation time.
 
 
 .. _visual_keywords-image_definition:
@@ -37,18 +39,21 @@ Image Finder main and subs
 
     .. image:: pictures/ride_07a_if_main_sub.png
 
-An example GUI shows three identical stars, but a possible transaction could be interacting with the third, left to the green sign. Selecting just the star, as a main component, is not enough: Alyvix is going to detect all the three stars and to interact with the first one, because of a raster logic scanning the screen.
-To correctly define the keyword, it is necessary to also select the green sign as a sub component. Sub components of Image Finders lies in their ROI. The upper left corner of ROI are all binded with the upper left corner of the main component selection.
+An example GUI shows three identical stars and a possible transaction could be to **interact with the third star**, which is left to the green sign.
+
+Selecting just the third star, as a main component of an *Image Finder*, is not enough. It would be an ambiguous transaction: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the raster logic of screen scanner.
+
+To correctly define the keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of Image Finders are selected within their ROI. The upper left corner of ROI are linked with the upper left corner of the main component selection.
 
     .. image:: pictures/ride_07bb_if_main_sub.png
 
 ..
 
-    1. Selection of main component inside the screen
-    2. Selection of the ROI of the sub component 1 inside the screen
-    3. Selection of the sub component 1 inside its ROI
-    4. Eventual repetition of 2. and 3. to add more and more sub components
-    5. Press CTRL + O to access the setting dialog of the Image Finder
+    1. Select the **main component** inside the screen;
+    2. select the **ROI** of the sub component 1 inside the screen;
+    3. select the **sub component** 1 inside its ROI;
+    4. eventually repeat 2. and 3. to add more sub components;
+    5. press :kbd:`CTRL+O` to set the :ref:`IF keyword properties <visual_keywords-image_finder>`.
 
 
 .. _visual_keywords-rect_definition:
@@ -58,7 +63,7 @@ Rect Finder main and subs
 
     .. image:: pictures/ride_07c_rf_main_sub.png
 
-An example GUI shows three identical edit boxes, but a possible transaction could be interacting with the third, left to the ‘OK’ button. Selecting just the edit box, as a main component, is not enough: Alyvix is going to detect all the three edit boxes and to interact with the first one, because of a raster logic scanning the screen.
+An example GUI shows three identical text boxes, but a possible transaction could be interacting with the third, left to the ‘OK’ button. Selecting just the text box, as a main component, is not enough: Alyvix is going to detect all the three text boxes and to interact with the first one, because of a raster logic scanning the screen.
 To correctly define the keyword, it is necessary to also select the ‘OK’ button as a sub component. Sub components of Rect Finders lies in their ROI. The upper left corner of ROI are all binded with the upper left corner of the main component selection.
 
     .. image:: pictures/ride_07db_rf_main_sub.png
@@ -121,19 +126,55 @@ The most common and useful Object Finder combinations are IF + TF and RF + TF.
 Alyvix Finders
 ==============
 
-All the dialogs of Alyvix Finders have in common most of their settings. Right after the component selection of an Alyvix Finder, the  CTRL  +  O  shortcut opens the setting dialog of the Finder where to finalize the definition of an Alyvix custom keyword.
+The *Alyvix Finders* are the GUI tools to **visually define application transactions**. You can build *Alyvix visual keywords* with the Alyvix Finders. Finally, you can automate application transactions running Alyvix visual keywords in test cases. There are three Alyvix Finders, one for each **type of visual element to detect** on screen: images, rectangles and text. The *Object Finder* group together basic Alyvix Finders (IF, RF, TF) in order to detect and interact with **different types of visual elements** running one single keyword (e.g. a login form made of text boxes, their labels on a side and a brand logo in a corner).
 
-The ‘Graphic Design’ tab is the richest of settings. First of all, type the custom keyword name. The best practice is to type a lowercase name, with underscores, no spaces and a structure as the following: <testcase sub section name>_<transaction name>_<finder type> (e.g.mywebsite_homepage_img).
+After the :ref:`selection of an Alyvix Finder <visual_keywords-keyword_definition>` and the :ref:`selection of main and sub components <visual_keywords-image_definition>`, press :kbd:`CTRL+O` to **show the setting dialog**. The Image, Rect and Text Finders have in common most of their settings:
 
-In the left pane there are all the components previously selected: tick or untick them to visualize their selection and ROI on screen or not. Click on each component to set its name, its detection and interaction options.
+* :ref:`Name and components <visual_keywords-name_components>`
+* :ref:`Detection settings <visual_keywords-detection_settings>`
+* :ref:`Interaction settings <visual_keywords-interaction_settings>`
+
+The :ref:`Image Finder <visual_keywords-image_finder>` has its own similarity threshold, the :ref:`Rect Finder <visual_keywords-rect_finder>` has sizing thresholds and the :ref:`Text Finder <visual_keywords-text_finder>` has regular expression filters. The :ref:`Object Finder <visual_keywords-object_finder>` dialog is designed to link together the previous basic Alyvix Finders.
+
+
+.. _visual_keywords-name_components:
+
+Name, arguments and components
+------------------------------
+
+After having :ref:`visually define a keyword <visual_keywords-image_definition>`, the first thing to do is to insert the **keyword name** in the *Name* text box. The best practice is to type **in lowercase**, **with underscores**, **no spaces** and structured as follows: ``<application name>_<transaction name>_<transaction state>`` (e.g. ``citrix_loginform_ready``, ``ax12_dynamicsax_closed``). Append the ``_<keyword type>`` if you plan to use the keyword in an :ref:`Object Finder <visual_keywords-object_finder>`.
+
+You can declare a number of **argument variables as the keyword inputs**. You can then type ``arg1``, ``arg2``, etc. in the :ref:`interaction text box <visual_keywords-interaction_settings>` below. Alyvix will run the keyword taking its **arguments from the test case editor**: in the cells right from where you insert the keyword name, you can type its **arguments as text strings**.
+
+    .. image:: pictures/ride_11a_alyvix_2-4-1_gui_name.png
+
+In the left pane of the dialog there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their selection and ROI on screen. Click on each component to set its own detection and interaction properties.
+
+    .. image:: pictures/ride_11b_alyvix_2-4-1_gui_components.png
+
+
+.. _visual_keywords-detection_settings:
+
+Detection settings
+------------------
 
 Three are the detection modes. ‘Wait’ means Alyvix continuously tries and retries to detect the graphic elements on screen at a certain pace (by default this period is 2.5s, but it is customizable thanks to the basic keywords Alyvix Config and Set Alyvix Info). That continues until the ‘Timeout’ threshold will be reached: if the ‘Exception’ option is ticked, then the keyword breaks the test case, otherwise it returns False and lets the test to proceed. The latter option is useful in case of transactions that not always happen (e.g. to manage popups). ‘Wait Disappear’ allows to detect the disappearance of graphic elements of screen (e.g. disappearance of an hourglass icon at the end of a loading).
 
+Finally, the ‘Performance Data’ tab shows the performance settings. First, the ‘Enable Performance’ check box to enable or to disable the performance measurement: for example, in case of automation transactions, that are defined to reach the interesting parts of user flows, we do not care about performances. Second, in the two text boxes we can set the amount of seconds of Warning and Critical thresholds.
+
+    .. image:: pictures/ride_11c_alyvix_2-4-1_gui_detection.png
+
+
+.. _visual_keywords-interaction_settings:
+
+Interaction settings
+--------------------
+
 The available interaction options are self-explained. ‘Click’, ‘Right Click’ and ‘Double Click’ means Alyvix will bring instantly the mouse pointer over the detected component and interact with it pressing, respectively, one time the left button of the mouse, one time the right button of the mouse and two times the left button of the mouse. ‘Move’ will bring instantly the mouse pointer over the detected component without sending any keystroke. ‘Don’t Move’ will do nothing with a component after its detection.
 
-At the bottom of the ‘Graphic Design’ window, typing settings take place. Within the edit box can be inserted text strings and shortcuts to send (most of the time after a ‘Click’ interaction somewhere). Regular text strings can be typed together with shortcuts (e.g. bla{enter}). You can find a list of the most useful shortcuts in the description of  Send Keys basic keyword. However, it is also possible to bring the keyword arguments as part of the keystrokes to send. In this latter case, it is necessary to untick ‘Add Quotes’, then to add one more argument under the ‘Source Code’ tab (click up at the ‘Args’ spin box) and finally use the argument variable alone (e.g. arg1) or properly formatted with the rest, as following example: “bla{enter}”+arg1+”{enter}”.
+At the bottom of the ‘Graphic Design’ window, typing settings take place. Within the text box can be inserted text strings and shortcuts to send (most of the time after a ‘Click’ interaction somewhere). Regular text strings can be typed together with shortcuts (e.g. bla{enter}). You can find a list of the most useful shortcuts in the description of  Send Keys basic keyword. However, it is also possible to bring the keyword arguments as part of the keystrokes to send. In this latter case, it is necessary to untick ‘Add Quotes’, then to add one more argument under the ‘Source Code’ tab (click up at the ‘Args’ spin box) and finally use the argument variable alone (e.g. arg1) or properly formatted with the rest, as following example: “bla{enter}”+arg1+”{enter}”.
 
-Finally, the ‘Performance Data’ tab shows the performance settings. First, the ‘Enable Performance’ check box to enable or to disable the performance measurement: for example, in case of automation transactions, that are defined to reach the interesting parts of user flows, we do not care about performances. Second, in the two edit boxes we can set the amount of seconds of Warning and Critical thresholds.
+    .. image:: pictures/ride_11d_alyvix_2-4-1_gui_interaction.png
 
 
 .. _visual_keywords-image_finder:
@@ -165,9 +206,9 @@ There are two modes in order to define valid rectangles: Min/Max and Tolerance b
 Text Finder
 -----------
 
-In the ‘Text’ edit box of Text Finders you can provide a case insensitive text string (e.g. name) as well as a regular expression (e.g. .*ame). Both of them are going to be match with the text into the selected component ROI. The characters from ROI pass through the ‘WhiteList’ filter: just from that set, the OCR scanner will choose the characters to match with the provided text string. Click on ‘Check’ button to have a preview of what the OCR scanner will detect in the ROI: ‘CRITICAL’ means Alyvix is not able to match the regular expression you have provided, ‘EXCELLENT’ instead means the text component can be found.
+In the ‘Text’ text box of Text Finders you can provide a case insensitive text string (e.g. name) as well as a regular expression (e.g. .*ame). Both of them are going to be match with the text into the selected component ROI. The characters from ROI pass through the ‘WhiteList’ filter: just from that set, the OCR scanner will choose the characters to match with the provided text string. Click on ‘Check’ button to have a preview of what the OCR scanner will detect in the ROI: ‘CRITICAL’ means Alyvix is not able to match the regular expression you have provided, ‘EXCELLENT’ instead means the text component can be found.
 
-In the ‘Text’ edit box can be also used arguments. If you want to pass a text string or a regular expression to a Text Finder custom keyword as its argument, type arg<n> (e.g. arg1) in the edit box, untick ‘Add Quotes’, add one more ‘Args’ under the ‘Source Code’ tab and finally remember to pass a text to match as the keyword argument (e.g. mywebsite_userlist_txt | .*ame).
+In the ‘Text’ text box can be also used arguments. If you want to pass a text string or a regular expression to a Text Finder custom keyword as its argument, type arg<n> (e.g. arg1) in the text box, untick ‘Add Quotes’, add one more ‘Args’ under the ‘Source Code’ tab and finally remember to pass a text to match as the keyword argument (e.g. mywebsite_userlist_txt | .*ame).
 
     .. image:: pictures/ride_09_text_finder.png
 
