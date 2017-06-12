@@ -144,11 +144,48 @@ Name, arguments and components
 
 After having :ref:`visually define a keyword <visual_keywords-image_definition>`, the first thing to do is to insert the **keyword name** in the *Name* text box. The best practice is to type **in lowercase**, **with underscores**, **no spaces** and structured as follows: ``<application name>_<transaction name>_<transaction state>`` (e.g. ``citrix_loginform_ready``, ``ax12_dynamicsax_closed``). Append the ``_<keyword type>`` if you plan to use the keyword in an :ref:`Object Finder <visual_keywords-object_finder>`.
 
-You can declare a number of **argument variables as the keyword inputs**. You can then type ``arg1``, ``arg2``, etc. in the :ref:`interaction text box <visual_keywords-interaction_settings>` below. Alyvix will run the keyword taking its **arguments from the test case editor**: in the cells right from where you insert the keyword name, you can type its **arguments as text strings**.
+You can declare a number of **argument variables as the keyword inputs**. You can then type ``arg1``, ``arg2``, etc. in the :ref:`interaction text box <visual_keywords-interaction_settings>` of main and sub components. Alyvix will run the keyword taking its **arguments from the test case editor**: in the cells on the right (from where you insert the keyword name) you can type its **arguments as text strings**.
 
     .. image:: pictures/ride_11a_alyvix_2-4-1_gui_name.png
 
-In the left pane of the dialog there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their selection and ROI on screen. Click on each component to set its own detection and interaction properties.
+Type the keyword name (and eventually its arguments) in your test case:
+
+    +---------------------------+
+    | ``<visual_keyword_name>`` |
+    +---------------------------+
+
+    or
+
+    +---------------------------+-------------------+-------------------+--------+
+    | ``<visual_keyword_name>`` | ``<arg1_string>`` | ``<arg2_string>`` | ``..`` |
+    +---------------------------+-------------------+-------------------+--------+
+
+Example:
+
+    1. Type the *keyword name* and set the amount of its *arguments* in the Alyvix Finder dialog:
+
+    ..
+
+        .. image:: pictures/ride_11ac_alyvix_2-4-1_gui_arg.png
+
+    2. Type ``arg1``, ``arg2``, etc. (i.e. if you have set a number of arguments) in the :ref:`interaction text box <visual_keywords-interaction_settings>` or in the :ref:`detection text box <visual_keywords-text_finder>` in case of a Text Finder:
+
+    ..
+
+        .. image:: pictures/ride_11ad_alyvix_2-4-1_gui_arg.png
+
+    ..
+
+        .. warning::
+            Untick *Quotes* if you use keyword arguments. Moreover, tick *Encrypted* if you use encrypted keyword arguments. You can encrypt strings with the :ref:`Alyvix encryption tool <encryption_tool>`.
+
+    3. Type the *keyword name* (and eventually its arguments) in your test case:
+
+    ..
+
+        .. image:: pictures/ride_11ab_alyvix_2-4-1_gui_name.png
+
+In the left pane of the dialog there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* on screen. Click on each component to set its own detection and interaction properties.
 
     .. image:: pictures/ride_11b_alyvix_2-4-1_gui_components.png
 
@@ -158,11 +195,15 @@ In the left pane of the dialog there are all the **components** previously selec
 Detection settings
 ------------------
 
-Three are the detection modes. ‘Wait’ means Alyvix continuously tries and retries to detect the graphic elements on screen at a certain pace (by default this period is 2.5s, but it is customizable thanks to the basic keywords Alyvix Config and Set Alyvix Info). That continues until the ‘Timeout’ threshold will be reached: if the ‘Exception’ option is ticked, then the keyword breaks the test case, otherwise it returns False and lets the test to proceed. The latter option is useful in case of transactions that not always happen (e.g. to manage popups). ‘Wait Disappear’ allows to detect the disappearance of graphic elements of screen (e.g. disappearance of an hourglass icon at the end of a loading).
-
-Finally, the ‘Performance Data’ tab shows the performance settings. First, the ‘Enable Performance’ check box to enable or to disable the performance measurement: for example, in case of automation transactions, that are defined to reach the interesting parts of user flows, we do not care about performances. Second, in the two text boxes we can set the amount of seconds of Warning and Critical thresholds.
+In the detection section of each Alyvix Finder, you can select 2 detection modes: *Appeared* and *Disappeared*. When the keyword will be executed, these modes affect the way Alyvix will detect the keyword (i.e. the visual elements of transaction) and report its performances.
 
     .. image:: pictures/ride_11c_alyvix_2-4-1_gui_detection.png
+
+Selecting **Appeared**, Alyvix continuously tries and retries to detect the graphic elements on screen at a certain pace (by default this period is 2.5s, but it is customizable thanks to the system keywords Alyvix Config and Set Alyvix Info). That continues until the ‘Timeout’ threshold will be reached: if the ‘Exception’ option is ticked, then the keyword breaks the test case, otherwise it returns False and lets the test to proceed. The latter option is useful in case of transactions that not always happen (e.g. to manage popups).
+
+Selecting **Disappeared**, allows to detect the disappearance of graphic elements of screen (e.g. disappearance of an hourglass icon at the end of a loading).
+
+Finally, the ‘Performance Data’ tab shows the performance settings. First, the ‘Enable Performance’ check box to enable or to disable the performance measurement: for example, in case of automation transactions, that are defined to reach the interesting parts of user flows, we do not care about performances. Second, in the two text boxes we can set the amount of seconds of Warning and Critical thresholds.
 
 
 .. _visual_keywords-interaction_settings:
