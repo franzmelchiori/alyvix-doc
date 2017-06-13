@@ -195,15 +195,23 @@ In the left pane of the dialog there are all the **components** previously selec
 Detection settings
 ------------------
 
-In the detection section of each Alyvix Finder, you can select 2 detection modes: *Appeared* and *Disappeared*. When the keyword will be executed, these modes affect the way Alyvix will detect the keyword (i.e. the visual elements of transaction) and report its performances.
+In the detection section of each *Alyvix Finder*, you can select 2 **detection modes**: *Appeared* and *Disappeared*. When a keyword will be executed, its mode affects the way Alyvix will detect it (i.e. the visual elements of transaction) and report its performances.
 
     .. image:: pictures/ride_11c_alyvix_2-4-1_gui_detection.png
 
-Selecting **Appeared**, Alyvix continuously tries and retries to detect the graphic elements on screen at a certain pace (by default this period is 2.5s, but it is customizable thanks to the system keywords Alyvix Config and Set Alyvix Info). That continues until the ‘Timeout’ threshold will be reached: if the ‘Exception’ option is ticked, then the keyword breaks the test case, otherwise it returns False and lets the test to proceed. The latter option is useful in case of transactions that not always happen (e.g. to manage popups).
+Selecting **Appeared**, Alyvix continuously tries and retries to detect the graphic elements on screen at a certain pace (by default this period is 0.5s, but it is customizable thanks to the system keywords :ref:`Alyvix Config <system_keywords-debug_keywords-alyvix_config>` and :ref:`Set Alyvix Info <system_keywords-debug_keywords-set_alyvix_info>`). That continues until the *Timeout* threshold will be reached: if the **Break** option is ticked, then the keyword breaks the test case, otherwise it returns ``False`` and lets the test to proceed. The latter option could be useful in case of transactions that not always happen (e.g. to manage popups).
 
-Selecting **Disappeared**, allows to detect the disappearance of graphic elements of screen (e.g. disappearance of an hourglass icon at the end of a loading).
+On the other hand, **Disappeared** allows to detect the disappearance of graphic elements of screen (e.g. disappearance of an hourglass icon at the end of a loading).
 
-Finally, the ‘Performance Data’ tab shows the performance settings. First, the ‘Enable Performance’ check box to enable or to disable the performance measurement: for example, in case of automation transactions, that are defined to reach the interesting parts of user flows, we do not care about performances. Second, in the two text boxes we can set the amount of seconds of Warning and Critical thresholds.
+The **Performance** check box enables or disables the performance measurement:
+
+    1. :ref:`Add Perfdata <system_keywords-performance_keywords-add_perfdata>` declares the keyword performance
+    2. if the *Performance* setting is ticked, the keyword outputs its performance (with 0.1s of accuracy and 0.001s of precision)
+    3. :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>` collects and prints out all the available performance from the test case
+
+In the *Warning* and *Critical* text boxes you can set the amount of seconds of these thresholds.
+
+    .. image:: pictures/performance_thresholds.png
 
 
 .. _visual_keywords-interaction_settings:
@@ -211,11 +219,64 @@ Finally, the ‘Performance Data’ tab shows the performance settings. First, t
 Interaction settings
 --------------------
 
-The available interaction options are self-explained. ‘Click’, ‘Right Click’ and ‘Double Click’ means Alyvix will bring instantly the mouse pointer over the detected component and interact with it pressing, respectively, one time the left button of the mouse, one time the right button of the mouse and two times the left button of the mouse. ‘Move’ will bring instantly the mouse pointer over the detected component without sending any keystroke. ‘Don’t Move’ will do nothing with a component after its detection.
-
-At the bottom of the ‘Graphic Design’ window, typing settings take place. Within the text box can be inserted text strings and shortcuts to send (most of the time after a ‘Click’ interaction somewhere). Regular text strings can be typed together with shortcuts (e.g. bla{enter}). You can find a list of the most useful shortcuts in the description of  Send Keys basic keyword. However, it is also possible to bring the keyword arguments as part of the keystrokes to send. In this latter case, it is necessary to untick ‘Add Quotes’, then to add one more argument under the ‘Source Code’ tab (click up at the ‘Args’ spin box) and finally use the argument variable alone (e.g. arg1) or properly formatted with the rest, as following example: “bla{enter}”+arg1+”{enter}”.
+In the interaction section of each *Alyvix Finder*, you can set an **interaction mode** for the :ref:`selected main or sub component <visual_keywords-name_components>` of the keyword that you are defining.
 
     .. image:: pictures/ride_11d_alyvix_2-4-1_gui_interaction.png
+
+Selecting **Click** or **Right Click**, Alyvix will bring the mouse pointer over the detected component and press the left or the right button of the mouse. It is possible to set the number of *Clicks* and adjust *Delays* as the amount of milliseconds between clicks.
+
+You can also set an *Interaction Point* in order to click somewhere else from the center of the component: click on the *Interaction Point* button, set the point (continuously) clicking on the screen and press :kbd:`CTRL+O` to confirm.
+
+    .. image:: pictures/ride_11db_alyvix_2-4-1_gui_interaction.png
+
+Click on the *Reset Point* button to reset the interaction point at the center of the component.
+
+    .. image:: pictures/ride_11dc_alyvix_2-4-1_gui_interaction.png
+
+**Hold'n'Release** is useful to drag'n'drop or slide GUI elements. There are 6 modes that you can select from the drop-down list on the right. The keyword execution will work as follows:
+
+    * *Hold*: the pointer will press and hold the component;
+    * *Release*: the pointer will release over the component;
+
+    ..
+
+        .. image:: pictures/hold_release.gif
+
+    ..
+
+        .. note::
+            To drag'n'drop a GUI element (look at the example above) it is necessary to set the *Hold* mode for **a target component** (e.g. file icon) and the *Release* mode for **another destination component** (e.g. folder icon).
+
+    * *Release Up*: the pointer will press and hold the component, that will then be released towards up of an amount of pixels (to set in the spin box on the right);
+    * *Release Down*: the pointer will press and hold the component, that will then be released towards down of an amount of pixels (to set in the spin box on the right);
+    * *Release Left*: the pointer will press and hold the component, that will then be released towards left of an amount of pixels (to set in the spin box on the right);
+    * *Release Right*: the pointer will press and hold the component, that will then be released towards right of an amount of pixels (to set in the spin box on the right).
+
+    ..
+
+        .. image:: pictures/release_displace.gif
+
+For the latter 4 modes, select the amount of *pixel displacement* thanks to the spin box on the right: double click and insert the desired number of pixels as the release distance.
+
+    .. image:: pictures/ride_11dd_alyvix_2-4-1_gui_interaction.png
+
+**Move** will bring the mouse pointer over the detected component without pressing anything.
+
+Selecting **None**, Alyvix will not interact with the component (the mouse pointer will not move or click anything).
+
+At the bottom of the interaction section, **typing settings** take place. In the text box can be inserted text strings and shortcuts to send (e.g. ``bla``, most of the time after a *Click* interaction somewhere).
+
+Regular text strings can be typed together with shortcuts (e.g. ``bla{enter}``). You can find a list of the most useful shortcuts in the description of :ref:`Send Keys <system_keywords-io_keywords-send_keys>` system keyword.
+
+It is also possible to bring the :ref:`keyword arguments <visual_keywords-name_components>` as part of the keystrokes to send.
+
+.. warning::
+    Remember to untick *Quotes*, to add one more *Arguments* (clicking the up arrow of the spin box) and finally type just an argument variable (e.g. ``arg1``, ``arg2``, etc.).
+
+It is even possible to bring strings, :ref:`shortcuts <system_keywords-io_keywords-send_keys>` and :ref:`arguments <visual_keywords-name_components>` all together (e.g. ``arg1+"bla{tab}"+arg2+"bla{enter}"``).
+
+.. warning::
+    Also in this case, remember to untick *Quotes* and to add one or more *Arguments*.
 
 
 .. _visual_keywords-image_finder:
@@ -223,13 +284,26 @@ At the bottom of the ‘Graphic Design’ window, typing settings take place. Wi
 Image Finder
 ------------
 
-Image Finders are featured by a spin box where to set the likelihood threshold for the selected component. You have to set a number between 0 and 1, with two decimal places: higher that threshold is, more similar a graphic element on screen has to be respect to the selected component.
+*Image Finders* produce Alyvix visual keywords that are able to detect and interact with **images** (i.e. pixel matrixes). This is the *Image Finder* dialog:
 
     .. image:: pictures/ride_06a_image_finder.png
 
-..
+To define such keywords follow these steps:
 
-    .. image:: pictures/alyvix_image_finder.gif
+    1. select the :ref:`Image Finder <visual_keywords-keyword_definition>`;
+    2. select :ref:`main and sub components <visual_keywords-image_definition>`;
+    3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
+    4. *Image Finders* are featured by a spin box where to set the **visual likelihood threshold** for the selected component. You can set a number between 0 and 1, with two decimal places. The default value is ``0.70`` and it works just fine most of the cases;
+
+        .. image:: pictures/ride_06ab_image_finder.png
+
+    ..
+
+        .. note::
+            To **disambiguate graphical elements** in a transaction, it is better to **add more components** instead of increasing the visual likelihood threshold.
+
+    5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
+    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
 
 
 .. _visual_keywords-rect_finder:
@@ -237,9 +311,11 @@ Image Finders are featured by a spin box where to set the likelihood threshold f
 Rect Finder
 -----------
 
+    .. image:: pictures/ride_08_rect_finder.png
+
 There are two modes in order to define valid rectangles: Min/Max and Tolerance boundaries. Click on one of them and tick its check box on the right to see the ongoing editing of valid areas. Type integer numbers, click spin boxes or scroll mouse wheel to change the violet area on selected components: rectangle contours on screen (or in ROI for sub components) that fit the adjusted boundaries will be take into account by Alyvix.
 
-    .. image:: pictures/ride_08_rect_finder.png
+    .. image:: pictures/ride_08b_rect_finder.png
 
 
 .. _visual_keywords-text_finder:
@@ -247,11 +323,13 @@ There are two modes in order to define valid rectangles: Min/Max and Tolerance b
 Text Finder
 -----------
 
+    .. image:: pictures/ride_09_text_finder.png
+
 In the ‘Text’ text box of Text Finders you can provide a case insensitive text string (e.g. name) as well as a regular expression (e.g. .*ame). Both of them are going to be match with the text into the selected component ROI. The characters from ROI pass through the ‘WhiteList’ filter: just from that set, the OCR scanner will choose the characters to match with the provided text string. Click on ‘Check’ button to have a preview of what the OCR scanner will detect in the ROI: ‘CRITICAL’ means Alyvix is not able to match the regular expression you have provided, ‘EXCELLENT’ instead means the text component can be found.
 
 In the ‘Text’ text box can be also used arguments. If you want to pass a text string or a regular expression to a Text Finder custom keyword as its argument, type arg<n> (e.g. arg1) in the text box, untick ‘Add Quotes’, add one more ‘Args’ under the ‘Source Code’ tab and finally remember to pass a text to match as the keyword argument (e.g. mywebsite_userlist_txt | .*ame).
 
-    .. image:: pictures/ride_09_text_finder.png
+    .. image:: pictures/ride_09b_text_finder.png
 
 
 .. _visual_keywords-object_finder:
@@ -259,15 +337,13 @@ In the ‘Text’ text box can be also used arguments. If you want to pass a tex
 Object Finder
 -------------
 
+    .. image:: pictures/ride_10_object_finder.png
+
 Object Finders are the most useful Alyvix Finder, because they bind together multiple types of Alyvix custom keywords, taking also into account automatically all their arguments. That means you can build, for example, an Object Finder custom keyword made by an IF and a TF with its argument. It is a powerful thing: you can use the same keyword several time to interact with different elements in the same menu. Also an OF made by a RF and a TF with its argument is useful: you can use Object Finder custom keywords to interact with different buttons identically shaped, but differently titled.
 
 First, you have to build IF, RT and TF custom keywords to make an OF. Second, create an OF and set its main and sub components pressing the ‘Set Main Object’ and ‘Add Sub Object’ button. Finally, redefine the ROI to bind the added sub component to the main one drawing a searching area around the sub component selection.
 
 The ‘Edit’ and ‘Remove’ buttons allow to edit the settings of the selected component or to delete it from the OF component list on the left pane: if you remove the main from an OF, you have to set a new one.
-
-    .. image:: pictures/ride_10_object_finder.png
-
-..
 
     .. image:: pictures/ride_10bb_object_finder.png
 

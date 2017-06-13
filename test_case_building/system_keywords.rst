@@ -128,6 +128,8 @@ Window keywords
 ===============
 
 
+.. _system_keywords-window_keywords-wait_window:
+
 Wait Window
 -----------
 
@@ -143,6 +145,8 @@ Wait Window
   | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=false`` |
   +-----------------+-----------------------------------+----------------+---------------------+
 
+
+.. _system_keywords-window_keywords-maximize_window:
 
 Maximize Window
 ---------------
@@ -160,6 +164,8 @@ Maximize Window
   +---------------------+-----------------------------------+---------------+--------------------+
 
 
+.. _system_keywords-window_keywords-show_window:
+
 Show Window
 -----------
 
@@ -175,6 +181,8 @@ Show Window
   | ``Show Window`` | ``synthetic.*monitoring.*alyvix`` |
   +-----------------+-----------------------------------+
 
+
+.. _system_keywords-window_keywords-check_window:
 
 Check Window
 ------------
@@ -194,6 +202,8 @@ Check Window
   +----------+------------------+-----------------------------------+
 
 
+.. _system_keywords-window_keywords-close_window:
+
 Close Window
 ------------
 
@@ -209,6 +219,8 @@ Close Window
   | ``Close Window`` | ``synthetic.*monitoring.*alyvix`` |
   +------------------+-----------------------------------+
 
+
+.. _system_keywords-window_keywords-wait_window_close:
 
 Wait Window Close
 -----------------
@@ -231,6 +243,8 @@ Wait Window Close
 I/O keywords
 ============
 
+
+.. _system_keywords-io_keywords-send_keys:
 
 Send Keys
 ---------
@@ -312,6 +326,8 @@ Send Keys
   +---------------+----------------------------+---------------------+
 
 
+.. _system_keywords-io_keywords-mouse_scroll:
+
 Mouse Scroll
 ------------
 
@@ -327,6 +343,8 @@ Mouse Scroll
   | ``Mouse Scroll`` | ``steps=3`` | ``direction=down`` |
   +------------------+-------------+--------------------+
 
+
+.. _system_keywords-io_keywords-move_mouse:
 
 Mouse Move
 ----------
@@ -350,6 +368,8 @@ Performance keywords
 ====================
 
 
+.. _system_keywords-performance_keywords-add_perfdata:
+
 Add Perfdata
 ------------
 
@@ -368,6 +388,8 @@ Add Perfdata
   +------------------+------------------+-------------+-------------------------+--------------------------+-------------+
 
 
+.. _system_keywords-performance_keywords-print_perfdata:
+
 Print Perfdata
 --------------
 
@@ -384,6 +406,8 @@ Print Perfdata
   +--------------------+
 
 
+.. _system_keywords-performance_keywords-store_perfdata:
+
 Store Perfdata
 --------------
 
@@ -399,6 +423,8 @@ Store Perfdata
   | ``Store Perfdata`` | ``C:\\alyvix_testcases\\citrix_word.sqlite`` |
   +--------------------+----------------------------------------------+
 
+
+.. _system_keywords-performance_keywords-publish_perfdata:
 
 Publish Perfdata
 ----------------
@@ -417,6 +443,8 @@ Publish Perfdata
   | ``Publish Perfdata`` | ``type=perfmon`` | ``testcase_name=citrix_word``   | ``max_age=24``                |                                                    |
   +----------------------+------------------+---------------------------------+-------------------------------+----------------------------------------------------+
 
+
+.. _system_keywords-performance_keywords-rename_perfdata:
 
 Rename Perfdata
 ---------------
@@ -438,6 +466,8 @@ Rename Perfdata
   +---------------------+------------------------+-------------------+--------+---------+
 
 
+.. _system_keywords-performance_keywords-sum_perfdata:
+
 Sum Perfdata
 ------------
 
@@ -454,8 +484,10 @@ Sum Perfdata
   +------------------+-------------------+-------------------+----------------------+--------------------------+
 
 
+.. _system_keywords-performance_keywords-delete_perfdata:
+
 Delete Perfdata
-----------------
+---------------s
 
   +---------------------+------------------------+
   | ``Delete Perfdata`` | ``<performance_name>`` |
@@ -475,6 +507,8 @@ Delete Perfdata
 Screenshot keywords
 ===================
 
+
+.. _system_keywords-screenshot_keywords-alyvix_screenshot:
 
 Alyvix Screenshot
 -----------------
