@@ -290,10 +290,10 @@ Image Finder
 
 To define such keywords follow these steps:
 
-    1. select the :ref:`Image Finder <visual_keywords-keyword_definition>`;
-    2. select :ref:`main and sub components <visual_keywords-image_definition>`;
+    1. select the Image Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
+    2. select :ref:`main and sub components <visual_keywords-image_definition>` of the selected Finder;
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
-    4. *Image Finders* are featured by a spin box where to set the **visual likelihood threshold** for the selected component. You can set a number between 0 and 1, with two decimal places. The default value is ``0.70`` and it works just fine most of the cases;
+    4. The *Image Finder* features a spin box to set the **visual likelihood threshold** for the selected component. You can set a number between 0 and 1, with two decimal places. The default value is ``0.70`` and it works just fine most of the cases;
 
         .. image:: pictures/ride_06ab_image_finder.png
 
@@ -304,6 +304,7 @@ To define such keywords follow these steps:
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
     6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
+    7. click the *OK* button to save the keyword.
 
 
 .. _visual_keywords-rect_finder:
@@ -311,11 +312,31 @@ To define such keywords follow these steps:
 Rect Finder
 -----------
 
+*Rect Finders* produce Alyvix visual keywords that are able to detect and interact with **rectangles** (e.g. text boxes, rectangle buttons). This is the *Rect Finder* dialog:
+
     .. image:: pictures/ride_08_rect_finder.png
 
-There are two modes in order to define valid rectangles: Min/Max and Tolerance boundaries. Click on one of them and tick its check box on the right to see the ongoing editing of valid areas. Type integer numbers, click spin boxes or scroll mouse wheel to change the violet area on selected components: rectangle contours on screen (or in ROI for sub components) that fit the adjusted boundaries will be take into account by Alyvix.
+To define such keywords follow these steps:
 
-    .. image:: pictures/ride_08b_rect_finder.png
+    1. select the Rect Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
+    2. select :ref:`main and sub components <visual_keywords-rect_definition>` of the selected Finder;
+    3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
+    4. The *Rect Finder* features the controls to set the **allowed boundaries** of those rectangles that you want to detect.
+
+        1. There are 2 modes to define valid rectangles: **Sizing** and **Tolerance** areas. Click on the radio button of one them.
+        2. Tick the *Show* check box of the selected mode to see the ongoing tuning of valid rectangle areas.
+        3. Type integer numbers, click spin boxes or scroll mouse wheel to **tune the violet area** for the selected component. The rectangle contours on screen (or in ROI for sub components) that fit into the allowed boundaries will be taken into account by Alyvix (i.e. during the keyword execution).
+
+            .. image:: pictures/ride_08b_rect_finder.png
+
+        ..
+
+            .. note::
+                 **Sizing** mode is generally better for text boxes and **Tolerance** mode for buttons.
+
+    5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
+    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
+    7. click the *OK* button to save the keyword.
 
 
 .. _visual_keywords-text_finder:
@@ -323,13 +344,45 @@ There are two modes in order to define valid rectangles: Min/Max and Tolerance b
 Text Finder
 -----------
 
+*Text Finders* produce Alyvix visual keywords that are able to detect and interact with **text** (e.g. button text, icon text). This is the *Text Finder* dialog:
+
     .. image:: pictures/ride_09_text_finder.png
 
-In the ‘Text’ text box of Text Finders you can provide a case insensitive text string (e.g. name) as well as a regular expression (e.g. .*ame). Both of them are going to be match with the text into the selected component ROI. The characters from ROI pass through the ‘WhiteList’ filter: just from that set, the OCR scanner will choose the characters to match with the provided text string. Click on ‘Check’ button to have a preview of what the OCR scanner will detect in the ROI: ‘CRITICAL’ means Alyvix is not able to match the regular expression you have provided, ‘EXCELLENT’ instead means the text component can be found.
+To define such keywords follow these steps:
 
-In the ‘Text’ text box can be also used arguments. If you want to pass a text string or a regular expression to a Text Finder custom keyword as its argument, type arg<n> (e.g. arg1) in the text box, untick ‘Add Quotes’, add one more ‘Args’ under the ‘Source Code’ tab and finally remember to pass a text to match as the keyword argument (e.g. mywebsite_userlist_txt | .*ame).
+    1. select the Text Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
+    2. select :ref:`main and sub components <visual_keywords-text_definition>` of the selected Finder;
 
-    .. image:: pictures/ride_09b_text_finder.png
+    ..
+
+        .. note::
+            The Text Finder is designed to **primarly work in the ROI of the main component** as a fixed spot and not through out all the screen as the Image and Rect Finders. In fact, unlike the other Finders, you have also to select the ROI of the main component. So that, executing a Text Finder keyword alone, the text to match will be searched in the fixed ROI areas of its components. Thanks to the :ref:`Object Finders <visual_keywords-object_finder>` you can search text in a position that is related to other graphic elements (i.e. images, rectangles).
+
+    3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
+    4. The *Text Finder* features the properties to set the **regular expression** for matching the text (e.g. label, chunk) that you want to detect.
+
+        * In the *Text* box you can insert a case insensitive **text string** (e.g. ``name``) as well as a **regular expression** (e.g. ``.*ame``). During the keyword execution, Alyvix will try to properly match that entry with the text within the ROI of the selected component.
+
+            ..
+
+        ..
+
+            .. note::
+                bla bla bla bla.
+
+        * The characters from ROI pass through the ‘WhiteList’ filter: just from that set, the OCR scanner will choose the characters to match with the provided text string. Click on ‘Check’ button to have a preview of what the OCR scanner will detect in the ROI: ‘CRITICAL’ means Alyvix is not able to match the regular expression you have provided, ‘EXCELLENT’ instead means the text component can be found.
+        * In the ‘Text’ text box can be also used arguments. If you want to pass a text string or a regular expression to a Text Finder custom keyword as its argument, type arg<n> (e.g. arg1) in the text box, untick ‘Add Quotes’, add one more ‘Args’ under the ‘Source Code’ tab and finally remember to pass a text to match as the keyword argument (e.g. mywebsite_userlist_txt | .*ame).
+
+            .. image:: pictures/ride_09b_text_finder.png
+
+        ..
+
+            .. note::
+                 bla
+
+    5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
+    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
+    7. click the *OK* button to save the keyword.
 
 
 .. _visual_keywords-object_finder:
