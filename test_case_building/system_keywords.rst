@@ -5,79 +5,6 @@ System keywords
 ***************
 
 
-.. _system_keywords-debug_keywords:
-
-Debug keywords
-==============
-
-
-.. _system_keywords-debug_keywords-alyvix_config:
-
-Alyvix Config
--------------
-
-  +-------------------+----------------------------+
-  | ``Alyvix Config`` | ``<config.xml_file_path>`` |
-  +-------------------+----------------------------+
-
-    Points to the :download:`config.xml <./config.xml>` file with some Alyvix settings.
-
-      .. code-block:: xml
-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <config>
-            <finder>
-                <finder_thread_interval>0.5</finder_thread_interval>
-                <check_diff_interval>0.1</check_diff_interval>
-                <wait_timeout>20</wait_timeout>
-            </finder>
-            <log>
-                <enable>True</enable>
-                <home>C:\alyvix_logbooks</home>
-                <retention>
-                    <max_days>7</max_days>
-                    <hours_per_day>24</hours_per_day>
-                </retention>
-            </log>
-        </config>
-
-    Edit ``config.xml`` to enable the Alyvix debugging mode ``<log><enable>True`` and set in which folder storing the screenshots of detected and failed Alyvix objects ``<log><home>C:\<path_to_folder>``.
-
-    It is also possible to set the time periods of the frame grabber ``<finder><finder_thread_interval>0.5`` (0.5s is the default value) and of the object detector ``<finder><check_diff_interval>0.1`` (0.1s is the default value), but is recommended to leave default values, in order to avoid overloading the hardware.
-
-  Example:
-
-  +-------------------+-------------------------------------+
-  | ``Alyvix Config`` | ``C:\\alyvix_logbooks\\config.xml`` |
-  +-------------------+-------------------------------------+
-
-
-.. _system_keywords-debug_keywords-set_alyvix_info:
-
-Set Alyvix Info
----------------
-
-  +---------------------+--------------------+---------------------+
-  | ``Set Alyvix Info`` | ``<setting_name>`` | ``<setting_value>`` |
-  +---------------------+--------------------+---------------------+
-
-    Sets values related to Alyvix engine settings, from the call point to the test end (or to a new setup). CHECK DIFF INTERVAL [DISAPPEAR] redefines the amount of seconds (e.g. ${0.1}) Alyvix takes before grabbing the next screen frame, where it tries to detect the [dis]appearance of graphics (measurement precision of the graphics [dis]appearance detection). FINDER THREAD INTERVAL [DISAPPEAR] redefines the amount of seconds Alyvix takes between attempts to detect the [dis]appearance of graphics (measurement accuracy of the graphics [dis]appearance detection). ACTIONS DELAY to redefine the amount of seconds Alyvix takes at each interaction step (the default value is 2).
-
-  Example:
-
-  +---------------------+--------------------------------------+------------+
-  | ``Set Alyvix Info`` | ``CHECK DIFF INTERVAL``              | ``${0.1}`` |
-  +---------------------+--------------------------------------+------------+
-  | ``Set Alyvix Info`` | ``FINDER THREAD INTERVAL``           | ``${0.5}`` |
-  +---------------------+--------------------------------------+------------+
-  | ``Set Alyvix Info`` | ``CHECK DIFF INTERVAL DISAPPEAR``    | ``${0.1}`` |
-  +---------------------+--------------------------------------+------------+
-  | ``Set Alyvix Info`` | ``FINDER THREAD INTERVAL DISAPPEAR`` | ``${0.5}`` |
-  +---------------------+--------------------------------------+------------+
-  | ``Set Alyvix Info`` | ``ACTIONS DELAY``                    | ``${0.5}`` |
-  +---------------------+--------------------------------------+------------+
-
-
 .. _system_keywords-process_keywords:
 
 Process keywords
@@ -444,6 +371,14 @@ Publish Perfdata
   +----------------------+------------------+---------------------------------+-------------------------------+----------------------------------------------------+
 
 
+.. _system_keywords-performance_keywords-add_perfdata_tag:
+
+Add Perfdata Tag
+----------------
+
+bla
+
+
 .. _system_keywords-performance_keywords-rename_perfdata:
 
 Rename Perfdata
@@ -484,6 +419,14 @@ Sum Perfdata
   +------------------+-------------------+-------------------+----------------------+--------------------------+
 
 
+.. _system_keywords-performance_keywords-get_perfdata:
+
+Get Perfdata
+------------
+
+bla
+
+
 .. _system_keywords-performance_keywords-delete_perfdata:
 
 Delete Perfdata
@@ -513,14 +456,101 @@ Screenshot keywords
 Alyvix Screenshot
 -----------------
 
-  +-----------------------+----------------+
-  | ``Alyvix Screenshot`` | ``<filename>`` |
-  +-----------------------+----------------+
+    +-----------------------+----------------+
+    | ``Alyvix Screenshot`` | ``<filename>`` |
+    +-----------------------+----------------+
 
-    Grabs a screenshot and saves it into the output folder, which can be specified as an argument (–outputdir <path_to_folder>) of the alyvix_pybot.bat through command prompt. By default the extension of the file is .png, but it is possible to specify a .jpg as the extension after the filename.
+Example:
 
-  Example:
+    +-----------------------+---------------+
+    | ``Alyvix Screenshot`` | ``login.jpg`` |
+    +-----------------------+---------------+
 
-  +-----------------------+---------------+
-  | ``Alyvix Screenshot`` | ``login.jpg`` |
-  +-----------------------+---------------+
+Grabs a screenshot and saves it into the output folder, which can be specified as an argument (–outputdir <path_to_folder>) of the alyvix_pybot.bat through command prompt. By default the extension of the file is .png, but it is possible to specify a .jpg as the extension after the filename.
+
+
+.. _system_keywords-screenshot_keywords-overwrite_alyvix_screen:
+
+Overwrite Alyvix Screen
+-----------------------
+
+bla
+
+
+.. _system_keywords-debug_keywords:
+
+Debug keywords
+==============
+
+
+.. _system_keywords-debug_keywords-alyvix_config:
+
+Alyvix Config
+-------------
+
+    +-------------------+----------------------------+
+    | ``Alyvix Config`` | ``<config.xml_file_path>`` |
+    +-------------------+----------------------------+
+
+Example:
+
+    +-------------------+-------------------------------------+
+    | ``Alyvix Config`` | ``C:\\alyvix_logbooks\\config.xml`` |
+    +-------------------+-------------------------------------+
+
+.. warning::
+  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to_folder>``).
+
+*Alyvix Config* links the :download:`config.xml <./config.xml>` file to get some Alyvix **custom settings**.
+
+    .. code-block:: xml
+
+        <?xml version="1.0" encoding="UTF-8"?>
+        <config>
+            <finder>
+                <finder_thread_interval>0.5</finder_thread_interval>
+                <check_diff_interval>0.1</check_diff_interval>
+                <wait_timeout>20</wait_timeout>
+            </finder>
+            <log>
+                <enable>True</enable>
+                <home>C:\alyvix_logbooks</home>
+                <retention>
+                    <max_days>7</max_days>
+                    <hours_per_day>24</hours_per_day>
+                </retention>
+            </log>
+        </config>
+
+Edit ``config.xml`` to enable the Alyvix **debugging mode** (``<log><enable>True``) and set in which folder storing the screenshots of detected and failed Alyvix objects (``<log><home>C:\<path_to_folder>``).
+
+It is also possible to set the time periods of the frame grabber ``<finder><finder_thread_interval>0.5`` (0.5s is the default value) and of the object detector ``<finder><check_diff_interval>0.1`` (0.1s is the default value).
+
+.. note::
+  It is recommended to leave the default values (i.e. ``0.5`` for the detector and ``0.1`` for the grabber), in order to avoid overloading the hardware. But you can **increase the measurement accuracy** decreasing the detector period ``<finder><finder_thread_interval>`` and you can **increase the measurement precision** decreasing the grabber period ``<finder><check_diff_interval>``.
+
+
+.. _system_keywords-debug_keywords-set_alyvix_info:
+
+Set Alyvix Info
+---------------
+
+    +---------------------+--------------------+---------------------+
+    | ``Set Alyvix Info`` | ``<setting_name>`` | ``<setting_value>`` |
+    +---------------------+--------------------+---------------------+
+
+Example:
+
+    +---------------------+--------------------------------------+------------+
+    | ``Set Alyvix Info`` | ``CHECK DIFF INTERVAL``              | ``${0.1}`` |
+    +---------------------+--------------------------------------+------------+
+    | ``Set Alyvix Info`` | ``FINDER THREAD INTERVAL``           | ``${0.5}`` |
+    +---------------------+--------------------------------------+------------+
+    | ``Set Alyvix Info`` | ``CHECK DIFF INTERVAL DISAPPEAR``    | ``${0.1}`` |
+    +---------------------+--------------------------------------+------------+
+    | ``Set Alyvix Info`` | ``FINDER THREAD INTERVAL DISAPPEAR`` | ``${0.5}`` |
+    +---------------------+--------------------------------------+------------+
+    | ``Set Alyvix Info`` | ``ACTIONS DELAY``                    | ``${0.5}`` |
+    +---------------------+--------------------------------------+------------+
+
+Sets values related to Alyvix engine settings, from the call point to the test end (or to a new setup). CHECK DIFF INTERVAL [DISAPPEAR] redefines the amount of seconds (e.g. ${0.1}) Alyvix takes before grabbing the next screen frame, where it tries to detect the [dis]appearance of graphics (measurement precision of the graphics [dis]appearance detection). FINDER THREAD INTERVAL [DISAPPEAR] redefines the amount of seconds Alyvix takes between attempts to detect the [dis]appearance of graphics (measurement accuracy of the graphics [dis]appearance detection). ACTIONS DELAY to redefine the amount of seconds Alyvix takes at each interaction step (the default value is 2).

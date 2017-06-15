@@ -6,9 +6,9 @@ If your probe can **NOT** reach Internet through Command Prompt.. do not worry! 
 
   1. Install Anaconda
 
-  * move Anaconda installer from an Internet connected machine: download Anaconda installer, browsing https://repo.continuum.io/archive/Anaconda2-4.3.1-Windows-x86_64.exe (i.e. strictly download Anaconda2 4.3.1, based on Python 2.7, for Windows 64bit)
+    * move Anaconda installer from an Internet connected machine: download Anaconda installer, browsing https://repo.continuum.io/archive/Anaconda2-4.3.1-Windows-x86_64.exe (i.e. strictly download Anaconda2 4.3.1, based on Python 2.7, for Windows 64bit)
 
-  * run Anaconda installer (e.g. ``Anaconda2-4.3.1-Windows-x86_64.exe``) **as administrator**, installing Anaconda **for all users** and right in ``C:\Anaconda2``
+    * run Anaconda installer (e.g. ``Anaconda2-4.3.1-Windows-x86_64.exe``) **as administrator**, installing Anaconda **for all users** and right in ``C:\Anaconda2``
 
   2. Install PyQt ``conda`` package
 

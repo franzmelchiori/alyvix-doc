@@ -121,22 +121,6 @@ The most common and useful Object Finder combinations are IF + TF and RF + TF.
     5. Press CTRL + O to access the setting dialog of the Object Finder
 
 
-.. _visual_keywords-alyvix_finders:
-
-Alyvix Finders
-==============
-
-The *Alyvix Finders* are the GUI tools to **visually define application transactions**. You can build *Alyvix visual keywords* with the Alyvix Finders. Finally, you can automate application transactions running Alyvix visual keywords in test cases. There are three Alyvix Finders, one for each **type of visual element to detect** on screen: images, rectangles and text. The *Object Finder* group together basic Alyvix Finders (IF, RF, TF) in order to detect and interact with **different types of visual elements** running one single keyword (e.g. a login form made of text boxes, their labels on a side and a brand logo in a corner).
-
-After the :ref:`selection of an Alyvix Finder <visual_keywords-keyword_definition>` and the :ref:`selection of main and sub components <visual_keywords-image_definition>`, press :kbd:`CTRL+O` to **show the setting dialog**. The Image, Rect and Text Finders have in common most of their settings:
-
-* :ref:`Name and components <visual_keywords-name_components>`
-* :ref:`Detection settings <visual_keywords-detection_settings>`
-* :ref:`Interaction settings <visual_keywords-interaction_settings>`
-
-The :ref:`Image Finder <visual_keywords-image_finder>` has its own similarity threshold, the :ref:`Rect Finder <visual_keywords-rect_finder>` has sizing thresholds and the :ref:`Text Finder <visual_keywords-text_finder>` has regular expression filters. The :ref:`Object Finder <visual_keywords-object_finder>` dialog is designed to link together the previous basic Alyvix Finders.
-
-
 .. _visual_keywords-name_components:
 
 Name, arguments and components
@@ -279,6 +263,22 @@ It is even possible to bring strings, :ref:`shortcuts <system_keywords-io_keywor
     Also in this case, remember to untick *Quotes* and to add one or more *Arguments*.
 
 
+.. _visual_keywords-alyvix_finders:
+
+Alyvix Finders
+==============
+
+The *Alyvix Finders* are the GUI tools to **visually define application transactions**. You can build *Alyvix visual keywords* with the Alyvix Finders. Finally, you can automate application transactions running Alyvix visual keywords in test cases. There are three Alyvix Finders, one for each **type of visual element to detect** on screen: images, rectangles and text. The *Object Finder* group together basic Alyvix Finders (IF, RF, TF) in order to detect and interact with **different types of visual elements** running one single keyword (e.g. a login form made of text boxes, their labels on a side and a brand logo in a corner).
+
+After the :ref:`selection of an Alyvix Finder <visual_keywords-keyword_definition>` and the :ref:`selection of main and sub components <visual_keywords-image_definition>`, press :kbd:`CTRL+O` to **show the setting dialog**. The Image, Rect and Text Finders have in common most of their settings:
+
+    * :ref:`Name and components <visual_keywords-name_components>`
+    * :ref:`Detection settings <visual_keywords-detection_settings>`
+    * :ref:`Interaction settings <visual_keywords-interaction_settings>`
+
+The :ref:`Image Finder <visual_keywords-image_finder>` has its own similarity threshold, the :ref:`Rect Finder <visual_keywords-rect_finder>` has sizing thresholds and the :ref:`Text Finder <visual_keywords-text_finder>` has regular expression filters. The :ref:`Object Finder <visual_keywords-object_finder>` dialog is designed to link together the previous basic Alyvix Finders.
+
+
 .. _visual_keywords-image_finder:
 
 Image Finder
@@ -362,23 +362,19 @@ To define such keywords follow these steps:
     4. The *Text Finder* features the properties to set the **regular expression** for matching the text (e.g. label, chunk) that you want to detect.
 
         * In the *Text* box you can insert a case insensitive **text string** (e.g. ``name``) as well as a **regular expression** (e.g. ``.*ame``). During the keyword execution, Alyvix will try to properly match that entry with the text within the ROI of the selected component.
+        * In the *Text* box you can also use **arguments** passing text strings or regular expressions from the keyword arguments. :ref:`Add one or more arguements <visual_keywords-name_components>`, type ``arg1``, ``arg2``, etc. in the *Text* box and untick *Quotes*.
+        * Click on the *Check* button to have a preview of what the OCR scanner will detect in the ROI of the selected component: *CRITICAL* means Alyvix is not able to match the regular expression you have provided, *EXCELLENT* instead means the text component can be found.
 
             ..
 
         ..
 
             .. note::
-                bla bla bla bla.
+                As a general rule of thumb, try to **wrap uniform text with ROI** in order to obtain a **more accurate character recognition**. Sometimes though, you could suffer a poor character recognition (e.g. ``8`` instead of ``B``, ``1`` instead of ``t``): in these cases work on the regular expression to correct the detection.
 
-        * The characters from ROI pass through the ‘WhiteList’ filter: just from that set, the OCR scanner will choose the characters to match with the provided text string. Click on ‘Check’ button to have a preview of what the OCR scanner will detect in the ROI: ‘CRITICAL’ means Alyvix is not able to match the regular expression you have provided, ‘EXCELLENT’ instead means the text component can be found.
-        * In the ‘Text’ text box can be also used arguments. If you want to pass a text string or a regular expression to a Text Finder custom keyword as its argument, type arg<n> (e.g. arg1) in the text box, untick ‘Add Quotes’, add one more ‘Args’ under the ‘Source Code’ tab and finally remember to pass a text to match as the keyword argument (e.g. mywebsite_userlist_txt | .*ame).
+        * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the recognition to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German).
 
             .. image:: pictures/ride_09b_text_finder.png
-
-        ..
-
-            .. note::
-                 bla
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
     6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
@@ -390,13 +386,43 @@ To define such keywords follow these steps:
 Object Finder
 -------------
 
+The *Object Finder* is probably the most useful Alyvix Finder, because it **links together multiple types of Alyvix visual keywords** defining complex graphic objects to detect: a *Object Finder* considers its basic visual keywords as its main and sub components to search, inheriting their arguments as well. This is the *Object Finder* dialog:
+
     .. image:: pictures/ride_10_object_finder.png
 
-Object Finders are the most useful Alyvix Finder, because they bind together multiple types of Alyvix custom keywords, taking also into account automatically all their arguments. That means you can build, for example, an Object Finder custom keyword made by an IF and a TF with its argument. It is a powerful thing: you can use the same keyword several time to interact with different elements in the same menu. Also an OF made by a RF and a TF with its argument is useful: you can use Object Finder custom keywords to interact with different buttons identically shaped, but differently titled.
+To define such keywords follow these steps:
 
-First, you have to build IF, RT and TF custom keywords to make an OF. Second, create an OF and set its main and sub components pressing the ‘Set Main Object’ and ‘Add Sub Object’ button. Finally, redefine the ROI to bind the added sub component to the main one drawing a searching area around the sub component selection.
+    1. define the :ref:`Image Finder <visual_keywords-image_finder>`, :ref:`Rect Finder <visual_keywords-rect_finder>` and :ref:`Text Finder <visual_keywords-text_finder>` keywords that will be components of the *Object Finder*;
+    2. select the *Object Finder* in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
+    3. type the :ref:`keyword name <visual_keywords-name_components>`;
+    4. click on *Set Main* button to select the main component: a list of the defined Finders will appear from where choose an *Image Finder [IF]* or a *Rect Finder [RF]*;
 
-The ‘Edit’ and ‘Remove’ buttons allow to edit the settings of the selected component or to delete it from the OF component list on the left pane: if you remove the main from an OF, you have to set a new one.
+        ..
+
+    ..
+
+        .. note::
+            It is not possible to choose a *Text Finder [TF]* as the main component of an *Object Finder*, because it would not make sense: the *Text Finder* is designed to primarly search text in the fixed ROI area of its main component.
+
+    5. click on *Add Sub* button to select a sub component: a list of the defined Finders will appear from where choose an *Image Finders [IF]*, a *Rect Finders [RF]* and a *Text Finders [TF]*; you can add more sub components clicking on *Add Sub* every time;
+
+        ..
+
+    ..
+
+        .. note::
+            Select the main component and click on the *Edit* button to edit its definition; you can do the same for each sub component as well as redraw its ROI (*ROI Redraw* button) and remove it (*Remove* button).
+
+            ..
+
+                .. image:: pictures/ride_10b_object_finder.png
+
+    6. set the :ref:`detection properties <visual_keywords-detection_settings>`;
+    7. click the *OK* button to save the keyword.
+
+You can build, for example, an *Object Finder* visual keyword made by an *IF* and a *TF* (with a regular expression as its argument). It is a powerful thing: you can use the same keyword several time to interact with different text elements in the same menu, just changing the *TF* regex argument.
+
+Also an *Object Finder* made of a *RF* and a *TF* (with its argument) is useful: you can use *OF* visual keywords to interact with different rectangle buttons, identically shaped, but differently labeled.
 
     .. image:: pictures/ride_10bb_object_finder.png
 
