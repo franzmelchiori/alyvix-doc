@@ -553,4 +553,16 @@ Example:
     | ``Set Alyvix Info`` | ``ACTIONS DELAY``                    | ``${0.5}`` |
     +---------------------+--------------------------------------+------------+
 
-Sets values related to Alyvix engine settings, from the call point to the test end (or to a new setup). CHECK DIFF INTERVAL [DISAPPEAR] redefines the amount of seconds (e.g. ${0.1}) Alyvix takes before grabbing the next screen frame, where it tries to detect the [dis]appearance of graphics (measurement precision of the graphics [dis]appearance detection). FINDER THREAD INTERVAL [DISAPPEAR] redefines the amount of seconds Alyvix takes between attempts to detect the [dis]appearance of graphics (measurement accuracy of the graphics [dis]appearance detection). ACTIONS DELAY to redefine the amount of seconds Alyvix takes at each interaction step (the default value is 2).
+*Set Alyvix Info* sets values related to the Alyvix **engine settings**. *Set Alyvix Info* acts from its call point to the end of the test case (or to a new call).
+
+*Set Alyvix Info* can set the following properties:
+
+    * ``CHECK DIFF INTERVAL`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (from where it tries to detect the appearance of graphic elements); measurement precision of the graphics appearance detection;
+
+    * ``CHECK DIFF INTERVAL DISAPPEAR`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (from where it tries to detect the disappearance of graphic elements); measurement precision of the graphics disappearance detection;
+
+    * ``FINDER THREAD INTERVAL`` redefines the amount of seconds Alyvix takes between attempts to detect the appearance of graphics; measurement accuracy of the graphics appearance detection;
+
+    * ``FINDER THREAD INTERVAL DISAPPEAR`` redefines the amount of seconds Alyvix takes between attempts to detect the disappearance of graphics; measurement accuracy of the graphics disappearance detection;
+
+    * ``ACTIONS DELAY`` to redefine the amount of seconds Alyvix takes at each interaction step (the default value is 2).
