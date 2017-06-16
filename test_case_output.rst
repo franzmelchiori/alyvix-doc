@@ -7,3 +7,4 @@ Test case output
    :name: toc_getting_started
 
    test_case_output/command_line_output.rst
+   test_case_output/database_structure.rst

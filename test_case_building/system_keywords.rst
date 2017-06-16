@@ -16,17 +16,22 @@ Process keywords
 Create Process
 --------------
 
-  +--------------------+-----------------------------------+-------------------------------+----+-----------------+
-  | ``Create Process`` | ``<application_executable_path>`` | ``<application_arguments_1>`` | .. | ``<app_arg_n>`` |
-  +--------------------+-----------------------------------+-------------------------------+----+-----------------+
+    +--------------------+-----------------------------------+------------------------------+----+------------------------------+
+    | ``Create Process`` | ``<application_executable_path>`` | ``<application_argument_1>`` | .. | ``<application_argument_n>`` |
+    +--------------------+-----------------------------------+------------------------------+----+------------------------------+
 
-    Runs the executable file (reachable to a given path) of an application with its optional arguments. It is useful, for example, to run a browser (e.g. Internet Explorer, Chrome) with an address to point and eventually the option for private browsing.
+    * Optional arguments: ``<application_argument_1>``, .., ``<application_argument_n>``.
 
-  Example:
+Example:
 
-  +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
-  | ``Create Process`` | ``C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`` | ``https://www.alyvix.com`` | ``–incognito`` |
-  +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
+    +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
+    | ``Create Process`` | ``C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`` | ``https://www.alyvix.com`` | ``–incognito`` |
+    +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
+
+.. warning::
+    Type the **application executable path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to_folder>\\<application_executable>.exe``).
+
+*Create Process* **runs executable files** (reachable to the given path, e.g. browser application, batch file) **with its optional arguments** (e.g. website address, browser options). This keyword is useful, for example, to run a browser (e.g. Internet Explorer, Chrome) with a website address to point and eventually the option for private browsing.
 
 
 .. _system_keywords-debug_keywords-kill_process:
@@ -34,19 +39,19 @@ Create Process
 Kill Process
 ------------
 
-  +------------------+---------------------------+
-  | ``Kill Process`` | ``<executable_filename>`` |
-  +------------------+---------------------------+
+    +------------------+---------------------------+
+    | ``Kill Process`` | ``<executable_filename>`` |
+    +------------------+---------------------------+
 
-    Kills an application providing its executable filename. It is possible to fetch a list of the ongoing programs having a look at Windows Task Manager, under the Detail tab.
+Example:
 
-      .. image:: pictures/task_manager.png
+    +------------------+----------------+
+    | ``Kill Process`` | ``chrome.exe`` |
+    +------------------+----------------+
 
-  Example:
+*Kill Process* **kills a process** providing its executable filename. It could be useful to fetch the list of the ongoing programs (at some point) having a look at *Windows Task Manager*, in the *Detail* tab.
 
-  +------------------+----------------+
-  | ``Kill Process`` | ``chrome.exe`` |
-  +------------------+----------------+
+    .. image:: pictures/task_manager.png
 
 
 .. _system_keywords-window_keywords:
@@ -60,17 +65,25 @@ Window keywords
 Wait Window
 -----------
 
-  +-----------------+--------------------------+-------------------------+------------------------+
-  | ``Wait Window`` | ``<window_title_regex>`` | ``timeout = <seconds>`` | ``exception = <bool>`` |
-  +-----------------+--------------------------+-------------------------+------------------------+
+    +-----------------+---------------------------+-----------------------+-----------------------------+
+    | ``Wait Window`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
+    +-----------------+---------------------------+-----------------------+-----------------------------+
 
-    Waits the timeout amount of seconds until a window, with a title name that fits the inserted regular expression, is running and can be activated (e.g. from the taskbar). After expiration of the timeout, without a window with a proper title, if the exception is ‘True’ the test case breaks, otherwise (if it is ‘False’) the test case continues its execution. Default values: timeout=60, exception=true.
+    * Optional arguments: ``timeout=<seconds>``, ``exception={True, False}``.
 
-  Example:
+    * Default values: ``timeout=60``, ``exception=True``.
 
-  +-----------------+-----------------------------------+----------------+---------------------+
-  | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=false`` |
-  +-----------------+-----------------------------------+----------------+---------------------+
+Examples:
+
+    +-----------------+-----------------------------------+
+    | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` |
+    +-----------------+-----------------------------------+
+
+    +-----------------+-----------------------------------+----------------+--------------------+
+    | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=True`` |
+    +-----------------+-----------------------------------+----------------+--------------------+
+
+*Wait Window* **waits until a window is running** and can be activated (e.g. from the taskbar). The keyword waits the given timeout of seconds and it waits for a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
 
 
 .. _system_keywords-window_keywords-maximize_window:
@@ -78,17 +91,28 @@ Wait Window
 Maximize Window
 ---------------
 
-  +---------------------+--------------------------+-------------------------+------------------------+
-  | ``Maximize Window`` | ``<window_title_regex>`` | ``timeout = <seconds>`` | ``exception = <bool>`` |
-  +---------------------+--------------------------+-------------------------+------------------------+
+    +---------------------+---------------------------+-----------------------+-----------------------------+
+    | ``Maximize Window`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
+    +---------------------+---------------------------+-----------------------+-----------------------------+
 
-    Maximize the size of a window with a title name that fits with the regular expression. It is a best practice to maximize the window on which the following test case steps will work: that is to limit at maximum the ‘graphical noise’ coming from the rest of the GUI, optimizing the detection of the Alyvix keywords on the interested application window. After the imposed timeout expiration, without a living window with a proper title, if the exception is ‘True’ the test case breaks, otherwise (if it is ‘False’) the test case continues its execution. Default values: timeout=60, exception=true.
+    * Optional arguments: ``timeout=<seconds>``, ``exception={True, False}``.
 
-  Example:
+    * Default values: ``timeout=60``, ``exception=True``.
 
-  +---------------------+-----------------------------------+---------------+--------------------+
-  | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=5`` | ``exception=true`` |
-  +---------------------+-----------------------------------+---------------+--------------------+
+Examples:
+
+    +---------------------+-----------------------------------+
+    | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` |
+    +---------------------+-----------------------------------+
+
+    +---------------------+-----------------------------------+----------------+--------------------+
+    | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=True`` |
+    +---------------------+-----------------------------------+----------------+--------------------+
+
+*Maximize Window* **waits and maximizes the size of a window**. The keyword waits the given timeout of seconds and it maximizes a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
+
+.. note::
+    It is a best practice to maximize the window on which the rest of test case will work, because it can **limit the "graphical noise"** coming from the rest of the GUI on screen. This can optimize the detection of the Alyvix visual keywords just on the interested application window.
 
 
 .. _system_keywords-window_keywords-show_window:
@@ -96,17 +120,18 @@ Maximize Window
 Show Window
 -----------
 
-  +-----------------+--------------------------+
-  | ``Show Window`` | ``<window_title_regex>`` |
-  +-----------------+--------------------------+
+    +-----------------+---------------------------+
+    | ``Show Window`` | ``<window_title_regexp>`` |
+    +-----------------+---------------------------+
 
-    Brings in foreground, without resizing, a window with a title name that fits the regular expression. This keyword has an immediate timeout and no exception.
+Example:
 
-  Example:
+    +-----------------+-----------------------------------+
+    | ``Show Window`` | ``synthetic.*monitoring.*alyvix`` |
+    +-----------------+-----------------------------------+
 
-  +-----------------+-----------------------------------+
-  | ``Show Window`` | ``synthetic.*monitoring.*alyvix`` |
-  +-----------------+-----------------------------------+
+*Show Window* **brings in foreground a window** (without resizing it) with a title name that fits the given regular expression. This keyword has an immediate timeout and no exception.
+
 
 
 .. _system_keywords-window_keywords-check_window:
@@ -114,19 +139,19 @@ Show Window
 Check Window
 ------------
 
-  +------------------+--------------------------+
-  | ``Check Window`` | ``<window_title_regex>`` |
-  +------------------+--------------------------+
+    +------------------+---------------------------+
+    | ``Check Window`` | ``<window_title_regexp>`` |
+    +------------------+---------------------------+
 
-    Checks the existence of a window (in background or in foreground) with a title name that fits with the regular expression, returning a bool for further decision or logging steps. This keyword has an immediate timeout and no exception.
+Example:
 
-  Example:
+    +----------+------------------+-----------------------------------+
+    | ``${x}`` | ``Check Window`` | ``synthetic.*monitoring.*alyvix`` |
+    +----------+------------------+-----------------------------------+
+    | ``Log``  | ``${x}``         |                                   |
+    +----------+------------------+-----------------------------------+
 
-  +----------+------------------+-----------------------------------+
-  | ``${x}`` | ``Check Window`` | ``synthetic.*monitoring.*alyvix`` |
-  +----------+------------------+-----------------------------------+
-  | ``Log``  | ``${x}``         |                                   |
-  +----------+------------------+-----------------------------------+
+*Check Window* **checks the existence of a window** (in background or in foreground) with a title name that fits the given regular expression, returning ``True`` or ``False`` for further decision or logging steps. This keyword has an immediate timeout and no exception.
 
 
 .. _system_keywords-window_keywords-close_window:
@@ -134,17 +159,17 @@ Check Window
 Close Window
 ------------
 
-  +------------------+--------------------------+
-  | ``Close Window`` | ``<window_title_regex>`` |
-  +------------------+--------------------------+
+    +------------------+---------------------------+
+    | ``Close Window`` | ``<window_title_regexp>`` |
+    +------------------+---------------------------+
 
-    Closes a window, in background or in foreground, with a title name that fits with the regular expression. This keyword has an immediate timeout and no exception.
+Example:
 
-  Example:
+    +------------------+-----------------------------------+
+    | ``Close Window`` | ``synthetic.*monitoring.*alyvix`` |
+    +------------------+-----------------------------------+
 
-  +------------------+-----------------------------------+
-  | ``Close Window`` | ``synthetic.*monitoring.*alyvix`` |
-  +------------------+-----------------------------------+
+*Close Window* **closes a window** (in background or in foreground) with a title name that fits the given regular expression. This keyword has an immediate timeout and no exception.
 
 
 .. _system_keywords-window_keywords-wait_window_close:
@@ -152,17 +177,25 @@ Close Window
 Wait Window Close
 -----------------
 
-  +-----------------------+--------------------------+-------------------------+------------------------+
-  | ``Wait Window Close`` | ``<window_title_regex>`` | ``timeout = <seconds>`` | ``exception = <bool>`` |
-  +-----------------------+--------------------------+-------------------------+------------------------+
+    +-----------------------+---------------------------+-----------------------+-----------------------------+
+    | ``Wait Window Close`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
+    +-----------------------+---------------------------+-----------------------+-----------------------------+
 
-    Waits the timeout amount of seconds until a window, with a title name that fits with the regular expression, will be closed. After expiration of the timeout, without a window with a proper title, if the exception is ‘True’ the test case breaks, otherwise (if it is ‘False’) the test case continues its execution. Default values: timeout=60, exception=true.
+    * Optional arguments: ``timeout=<seconds>``, ``exception={True, False}``.
 
-  Example:
+    * Default values: ``timeout=60``, ``exception=True``.
 
-  +-----------------------+-----------------------------------+----------------+--------------------+
-  | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=30`` | ``exception=true`` |
-  +-----------------------+-----------------------------------+----------------+--------------------+
+Example:
+
+    +-----------------------+-----------------------------------+
+    | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` |
+    +-----------------------+-----------------------------------+
+
+    +-----------------------+-----------------------------------+----------------+--------------------+
+    | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=30`` | ``exception=True`` |
+    +-----------------------+-----------------------------------+----------------+--------------------+
+
+*Wait Window Close* **waits until a window is closed**. The keyword waits the given timeout of seconds and it waits for the disappearance of a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
 
 
 .. _system_keywords-io_keywords:
@@ -176,81 +209,95 @@ I/O keywords
 Send Keys
 ---------
 
-  +---------------+------------+------------------------+
-  | ``Send Keys`` | ``<keys>`` | ``encrypted = <bool>`` |
-  +---------------+------------+------------------------+
+    +---------------+------------+-----------------------------+
+    | ``Send Keys`` | ``<keys>`` | ``encrypted={True, False}`` |
+    +---------------+------------+-----------------------------+
 
-    Types a sequence of simulated keystrokes to the active window where the cursor is: regular characters (letters and numbers) can be stated as they are, while the following list of special ones have to be enclosed in braces. The encrypted option can be activated (encrypted=True) in case the string of keystrokes has been encrypted using alyvix_crypto_utility.bat through command prompt.
+    * Optional arguments: ``encrypted={True, False}``.
 
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Enter}`                              | **ENTER** key                                                                                       |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Space}`                              | **SPACE** key (only needed at the beginning or the end of the string)                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Tab}`                                | **TAB** key                                                                                         |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Shift}`                              | **SHIFT** key; :literal:`{LShift}` for Left SHIFT key; :literal:`{RShift}` for Right SHIFT key      |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Shift Down}` - :literal:`{Shift Up}` | :literal:`{Shift Down}` holds the **SHIFT** key down until :literal:`{Shift Up}` is sent            |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Ctrl}`                               | **CONTROL** key; :literal:`{LCtrl}` for Left CONTROL key; :literal:`{RCtrl}` for Right CONTROL key  |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Ctrl Down}` - :literal:`{Ctrl Up}`   | :literal:`{Ctrl Down}` holds the **CONTROL** key down until :literal:`{Ctrl Up}` is sent            |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Alt}`                                | **ALT** key; :literal:`{LAlt}` for Left ALT key; :literal:`{RAlt}` for Right ALT key                |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Alt Down}` - :literal:`{Alt Up}`     | :literal:`{Alt Down}` holds the **ALT** key down until :literal:`{Alt Up}` is sent                  |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{~}`                                  | **~**                                                                                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{!}`                                  | **!**                                                                                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{#}`                                  | **#**                                                                                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`%`                                    | **%**                                                                                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{^}`                                  | **^**                                                                                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{+}`                                  | **\+**                                                                                              |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`\``                                   | **\`**                                                                                              |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{{}`                                  | **{**                                                                                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{}}`                                  | **}**                                                                                               |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Backspace}`                          | **Backspace** key                                                                                   |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Del}`                                | **Delete** key                                                                                      |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Esc}`                                | **ESCAPE** key                                                                                      |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{F1}` - :literal:`{F24}`              | **Function** keys                                                                                   |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Up}`                                 | **Up-arrow** key                                                                                    |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Down}`                               | **Down-arrow** key                                                                                  |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Left}`                               | **Left-arrow** key                                                                                  |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Right}`                              | **Right-arrow** key                                                                                 |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{Home}`                               | **Home** key                                                                                        |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{End}`                                | **End** key                                                                                         |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{PgUp}`                               | **Page-up** key                                                                                     |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{PgDn}`                               | **Page-down** key                                                                                   |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
-      | :literal:`{PgDn}`                               | **Page-down** key                                                                                   |
-      +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    * Default values: ``encrypted=False``.
 
-  Example:
+    * Key syntax:
 
-  +---------------+----------------------------+---------------------+
-  | ``Send Keys`` | ``{Alt Down}{F4}{Alt Up}`` | ``encrypted=false`` |
-  +---------------+----------------------------+---------------------+
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Enter}`                              | **ENTER** key                                                                                       |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Space}`                              | **SPACE** key (only needed at the beginning or the end of the string)                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Tab}`                                | **TAB** key                                                                                         |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Shift}`                              | **SHIFT** key; :literal:`{LShift}` for Left SHIFT key; :literal:`{RShift}` for Right SHIFT key      |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Shift Down}` - :literal:`{Shift Up}` | :literal:`{Shift Down}` holds the **SHIFT** key down until :literal:`{Shift Up}` is sent            |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Ctrl}`                               | **CONTROL** key; :literal:`{LCtrl}` for Left CONTROL key; :literal:`{RCtrl}` for Right CONTROL key  |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Ctrl Down}` - :literal:`{Ctrl Up}`   | :literal:`{Ctrl Down}` holds the **CONTROL** key down until :literal:`{Ctrl Up}` is sent            |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Alt}`                                | **ALT** key; :literal:`{LAlt}` for Left ALT key; :literal:`{RAlt}` for Right ALT key                |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Alt Down}` - :literal:`{Alt Up}`     | :literal:`{Alt Down}` holds the **ALT** key down until :literal:`{Alt Up}` is sent                  |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{~}`                                  | **~**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{!}`                                  | **!**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{#}`                                  | **#**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`%`                                    | **%**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{^}`                                  | **^**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{+}`                                  | **\+**                                                                                              |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`\``                                   | **\`**                                                                                              |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{{}`                                  | **{**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{}}`                                  | **}**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Backspace}`                          | **Backspace** key                                                                                   |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Del}`                                | **Delete** key                                                                                      |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Esc}`                                | **ESCAPE** key                                                                                      |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{F1}` - :literal:`{F24}`              | **Function** keys                                                                                   |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Up}`                                 | **Up-arrow** key                                                                                    |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Down}`                               | **Down-arrow** key                                                                                  |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Left}`                               | **Left-arrow** key                                                                                  |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Right}`                              | **Right-arrow** key                                                                                 |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{Home}`                               | **Home** key                                                                                        |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{End}`                                | **End** key                                                                                         |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{PgUp}`                               | **Page-up** key                                                                                     |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{PgDn}`                               | **Page-down** key                                                                                   |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{PgDn}`                               | **Page-down** key                                                                                   |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+
+Example:
+
+    +---------------+----------------+---------------------+
+    | ``Send Keys`` | ``admin{Tab}`` |                     |
+    +---------------+----------------+---------------------+
+    | ``Send Keys`` | ``admin``      | ``encrypted=False`` |
+    +---------------+----------------+---------------------+
+    | ``Send Keys`` | ``{Enter}``    |                     |
+    +---------------+----------------+---------------------+
+
+    +---------------+----------------------------+
+    | ``Send Keys`` | ``{Alt Down}{F4}{Alt Up}`` |
+    +---------------+----------------------------+
+
+*Send Keys* **types a sequence of keystrokes** to the active window where the focus is: regular characters (letters and numbers) can be stated as they are, while special keys have to be enclosed in braces (have a look at the table of the key syntax, e.g. ``{enter}``). The encrypted option can be activated (i.e. ``encrypted=True``) in case the string of keystrokes has been encrypted using the Alyvix :ref:`encryption tool <encryption_tool>`.
 
 
 .. _system_keywords-io_keywords-mouse_scroll:
@@ -258,17 +305,24 @@ Send Keys
 Mouse Scroll
 ------------
 
-  +------------------+-----------------------+----------------------------+
-  | ``Mouse Scroll`` | ``steps = <scrolls>`` | ``direction = {down, up}`` |
-  +------------------+-----------------------+----------------------------+
+    +------------------+---------------------+--------------------------+
+    | ``Mouse Scroll`` | ``steps=<scrolls>`` | ``direction={down, up}`` |
+    +------------------+---------------------+--------------------------+
 
-    Scrolls of a given steps, down or up, the active window where the focus is. Default values: steps=2, direction=up.
+    * Optional arguments: ``steps=<scrolls>``, ``direction={down, up}``.
 
-  Example:
+    * Default values: ``steps=2``, ``direction=up``.
 
-  +------------------+-------------+--------------------+
-  | ``Mouse Scroll`` | ``steps=3`` | ``direction=down`` |
-  +------------------+-------------+--------------------+
+Example:
+
+    +------------------+-------------+--------------------+
+    | ``Mouse Scroll`` | ``steps=3`` | ``direction=down`` |
+    +------------------+-------------+--------------------+
+
+*Mouse Scroll* **scrolls the active window**. The keyword scrolls the windows of the given steps, up or down and where the focus is.
+
+.. note::
+    *Mouse Scroll* is useful for scanning windows (e.g. website in a browser) searching for graphic elements defined in :ref:`visual keywords <visual_keywords>`.
 
 
 .. _system_keywords-io_keywords-move_mouse:
@@ -276,17 +330,20 @@ Mouse Scroll
 Mouse Move
 ----------
 
-  +----------------+-------------------------------------+-----------------------------------+
-  | ``Mouse Move`` | ``<horizontal_pixel_coordinate_x>`` | ``<vertical_pixel_coordinate_y>`` |
-  +----------------+-------------------------------------+-----------------------------------+
+    +----------------+---------------------------------------+-------------------------------------+
+    | ``Mouse Move`` | ``x=<horizontal_pixel_coordinate_x>`` | ``y=<vertical_pixel_coordinate_y>`` |
+    +----------------+---------------------------------------+-------------------------------------+
 
-    Moves mouse pointer to given horizontal and vertical pixel coordinates within your screen. Keep in mind the positive verse of horizontal screen coordinate x is from left to right, that one of vertical coordinate y is from top to bottom: the origin of screen axes is at the point (x, y) = (0, 0) in the top-left corner. Sometimes leaving the mouse pointer in a certain position after a transaction can cause unintended interactions following.
+Example:
 
-  Example:
+    +----------------+---------+---------+
+    | ``Mouse Move`` | ``x=0`` | ``y=0`` |
+    +----------------+---------+---------+
 
-  +----------------+-------+-------+
-  | ``Mouse Move`` | ``0`` | ``0`` |
-  +----------------+-------+-------+
+*Mouse Move* **moves the mouse pointer** to the given horizontal and vertical pixel coordinates within your screen.
+
+.. note::
+    Keep in mind that the positive verse of the horizontal screen coordinate x is from left to right. The positive verse of the vertical screen coordinate y is from top to bottom. So that, the origin of screen axes is at the point ``x=0`` ``y=0`` in the top-left corner. Sometimes leaving the mouse pointer in a certain position after a transaction can cause unintended interactions following.
 
 
 .. _system_keywords-performance_keywords:
@@ -300,19 +357,36 @@ Performance keywords
 Add Perfdata
 ------------
 
-  +------------------+------------------------+-----------------------+-----------------------------------+------------------------------------+----------------------------------------------------------+
-  | ``Add Perfdata`` | ``<performance_name>`` | ``value = <seconds>`` | ``warning_threshold = <seconds>`` | ``critical_threshold = <seconds>`` | ``state = {ok: 0, warning: 1, critical: 2, unknown: 3}`` |
-  +------------------+------------------------+-----------------------+-----------------------------------+------------------------------------+----------------------------------------------------------+
+    +------------------+------------------------+---------------------+---------------------------------+----------------------------------+------------------------+-----------------------------+
+    | ``Add Perfdata`` | ``<performance_name>`` | ``value=<seconds>`` | ``warning_threshold=<seconds>`` | ``critical_threshold=<seconds>`` | ``state={0, 1, 2, 3}`` | ``timestamp={True, False}`` |
+    +------------------+------------------------+---------------------+---------------------------------+----------------------------------+------------------------+-----------------------------+
 
-    Declares a variable name, which should be an Alyvix keyword name: when that keyword will be executed, it will fill the variable with the measured performance and the rest of defined data (thresholds and states). It is convenient to add performance variables at the beginning of test cases: in this case we will know at what point the test eventually breaks. Default values: value=null, warning_threshold=None, critical_threshold=None, state=3. If a variable will not be filled (maybe because the test breaks before or at that point) the keyword state will return as ‘unknown’.
+    * Optional arguments: ``value=<seconds>``, ``warning_threshold=<seconds>``, ``critical_threshold=<seconds>``, ``state={0, 1, 2, 3}``.
 
-  Example:
+    * Default values: ``value=None``, ``warning_threshold=None``, ``critical_threshold=None``, ``state=2``, ``timestamp=False``.
 
-  +------------------+------------------+-------------+-------------------------+--------------------------+-------------+
-  | ``Add Perfdata`` | ``citrix_login`` |             |                         |                          |             |
-  +------------------+------------------+-------------+-------------------------+--------------------------+-------------+
-  | ``Add Perfdata`` | ``dummy_perf``   | ``value=1`` | ``warning_threshold=3`` | ``critical_threshold=5`` | ``state=0`` |
-  +------------------+------------------+-------------+-------------------------+--------------------------+-------------+
+Example:
+
+    +------------------+------------------+
+    | ``Add Perfdata`` | ``citrix_login`` |
+    +------------------+------------------+
+
+    +------------------+------------------+-------------+-------------------------+--------------------------+-------------+--------------------+
+    | ``Add Perfdata`` | ``dummy_perf``   | ``value=1`` | ``warning_threshold=3`` | ``critical_threshold=5`` | ``state=3`` | ``timestamp=True`` |
+    +------------------+------------------+-------------+-------------------------+--------------------------+-------------+--------------------+
+
+*Add Perfdata* **declares a performance variable**, which could have the name of an Alyvix visual keyword: when a visual keyword finishes to execute, it fills the performance variable with the measurement and the other data (thresholds, state and eventually timestamp).
+
+.. note::
+    The ``state`` argument set the default ``errorlevel`` code that returns from broken test cases. Those codes have the following meanings:
+
+        * ``0`` **OK**
+        * ``1`` **WARNING**
+        * ``2`` **CRITICAL**
+        * ``3`` **UNKNOWN**.
+
+.. warning::
+    It is convenient to **declare all performance variables at the beginning of test cases**: in this way we can know at which point the test case eventually breaks. If a performance variable is not filled at the end of a test case (maybe because the test case breaks before or at that point) the keyword state returns ``2`` **CRITICAL** as default.
 
 
 .. _system_keywords-performance_keywords-print_perfdata:
@@ -320,17 +394,21 @@ Add Perfdata
 Print Perfdata
 --------------
 
-  +--------------------+----------------------+-------------------------+
-  | ``Print Perfdata`` | ``message=<string>`` | ``print_output=<bool>`` |
-  +--------------------+----------------------+-------------------------+
+    +--------------------+----------------------+--------------------------------+
+    | ``Print Perfdata`` | ``message=<string>`` | ``print_output={True, False}`` |
+    +--------------------+----------------------+--------------------------------+
 
-    Prints all the performance variables added to a test case. Default values: a message will be printed describing the overall status at the end of the test case execution, eventually with the name of the last performance variable that has been measured and filled before a failure, print_output=true.
+    * Optional arguments: ``message=<string>``, ``print_output={True, False}``.
 
-  Example:
+    * Default values: ``message=None``, ``print_output=True``.
 
-  +--------------------+
-  | ``Print Perfdata`` |
-  +--------------------+
+Example:
+
+    +--------------------+
+    | ``Print Perfdata`` |
+    +--------------------+
+
+*Print Perfdata* **prints all the performance variables** declared (and filled, but not declared) to a test case. By default (``print_output=True``), a message is printed out at the end of a test case execution to describe the overall state and eventually with the name of the last performance variable that has been measured and filled before a failure.
 
 
 .. _system_keywords-performance_keywords-store_perfdata:
@@ -338,17 +416,29 @@ Print Perfdata
 Store Perfdata
 --------------
 
-  +--------------------+---------------------------------------------+
-  | ``Store Perfdata`` | ``<path_to_testcase_database_file.sqlite>`` |
-  +--------------------+---------------------------------------------+
+    +--------------------+----------------------------+
+    | ``Store Perfdata`` | ``dbname=<database_path>`` |
+    +--------------------+----------------------------+
 
-    Saves in several tables of the specified SQLite database file all the data about the execution of a test case. New data are added to past data that comes to previous execution of the test case: in this way, Alyvix probes can track test case outputs during the time. The data tables are 3: runs contains a row for each execution of the test case and in each row there are an execution timestamp and transaction performances (in milliseconds) related to used keywords. sorting contains a new row just when something is changed in the test case execution (e.g. it fails, it runs different keywords) and in each row there are execution timestamp and the execution sequence of keywords: integer numbers (starting from 0) to sort successful executed keywords, -1 to label failed keywords and NULL to label unused keywords. thresholds contains a new row just when used keywords or keyword thresholds change and in each row there are execution timestamps, warning and critical thresholds of used keywords.
+    * Optional arguments: ``dbname=<database_path>``.
 
-  Example:
+    * Default values: ``dbname=<testcase_path>\\<testcase_name>.db``.
 
-  +--------------------+----------------------------------------------+
-  | ``Store Perfdata`` | ``C:\\alyvix_testcases\\citrix_word.sqlite`` |
-  +--------------------+----------------------------------------------+
+
+Example:
+
+    +--------------------+
+    | ``Store Perfdata`` |
+    +--------------------+
+
+    +--------------------+----------------------------------------------+
+    | ``Store Perfdata`` | ``C:\\alyvix_testcases\\citrix_word.sqlite`` |
+    +--------------------+----------------------------------------------+
+
+.. warning::
+    Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
+
+*Store Perfdata* **saves the output data of a test case in its SQLite database** file. all the data about the execution of a test case. New data are added to past data that comes to previous execution of the test case: in this way, Alyvix probes can track test case outputs during the time.
 
 
 .. _system_keywords-performance_keywords-publish_perfdata:
@@ -553,16 +643,19 @@ Example:
     | ``Set Alyvix Info`` | ``ACTIONS DELAY``                    | ``${0.5}`` |
     +---------------------+--------------------------------------+------------+
 
+.. warning::
+    Type the **setting values between** ``${`` **and** ``}`` (e.g. ``${0.25}``); they are intended as **values in milliseconds**.
+
 *Set Alyvix Info* sets values related to the Alyvix **engine settings**. *Set Alyvix Info* acts from its call point to the end of the test case (or to a new call).
 
 *Set Alyvix Info* can set the following properties:
 
-    * ``CHECK DIFF INTERVAL`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (from where it tries to detect the appearance of graphic elements); measurement precision of the graphics appearance detection;
+    * ``CHECK DIFF INTERVAL`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (on which it tries to detect the appearance of graphic elements); you can consider this setting as the measurement precision of the graphic appearance detection; the default value is ``0.1``;
 
-    * ``CHECK DIFF INTERVAL DISAPPEAR`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (from where it tries to detect the disappearance of graphic elements); measurement precision of the graphics disappearance detection;
+    * ``CHECK DIFF INTERVAL DISAPPEAR`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (on which it tries to detect the disappearance of graphic elements); you can consider this setting as the measurement precision of the graphic disappearance detection; the default value is ``0.1``;
 
-    * ``FINDER THREAD INTERVAL`` redefines the amount of seconds Alyvix takes between attempts to detect the appearance of graphics; measurement accuracy of the graphics appearance detection;
+    * ``FINDER THREAD INTERVAL`` redefines the amount of seconds (e.g. ``${0.5}``) that Alyvix takes between attempts to detect the appearance of graphic elements; you can consider this setting as the measurement accuracy of the graphic appearance detection; the default value is ``0.5``;
 
-    * ``FINDER THREAD INTERVAL DISAPPEAR`` redefines the amount of seconds Alyvix takes between attempts to detect the disappearance of graphics; measurement accuracy of the graphics disappearance detection;
+    * ``FINDER THREAD INTERVAL DISAPPEAR`` redefines the amount of seconds (e.g. ``${0.5}``) that Alyvix takes between attempts to detect the disappearance of graphic elements; you can consider this setting as the measurement accuracy of the graphic disappearance detection; the default value is ``0.5``;
 
-    * ``ACTIONS DELAY`` to redefine the amount of seconds Alyvix takes at each interaction step (the default value is 2).
+    * ``ACTIONS DELAY`` to redefine the amount of seconds (e.g. ``${0.5}``) that Alyvix takes after each interaction step; the default value is ``2``.
