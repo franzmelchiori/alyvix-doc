@@ -69,8 +69,6 @@ Wait Window
     | ``Wait Window`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
     +-----------------+---------------------------+-----------------------+-----------------------------+
 
-    * Optional arguments: ``timeout=<seconds>``, ``exception={True, False}``.
-
     * Default values: ``timeout=60``, ``exception=True``.
 
 Examples:
@@ -94,8 +92,6 @@ Maximize Window
     +---------------------+---------------------------+-----------------------+-----------------------------+
     | ``Maximize Window`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
     +---------------------+---------------------------+-----------------------+-----------------------------+
-
-    * Optional arguments: ``timeout=<seconds>``, ``exception={True, False}``.
 
     * Default values: ``timeout=60``, ``exception=True``.
 
@@ -181,8 +177,6 @@ Wait Window Close
     | ``Wait Window Close`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
     +-----------------------+---------------------------+-----------------------+-----------------------------+
 
-    * Optional arguments: ``timeout=<seconds>``, ``exception={True, False}``.
-
     * Default values: ``timeout=60``, ``exception=True``.
 
 Example:
@@ -212,8 +206,6 @@ Send Keys
     +---------------+------------+-----------------------------+
     | ``Send Keys`` | ``<keys>`` | ``encrypted={True, False}`` |
     +---------------+------------+-----------------------------+
-
-    * Optional arguments: ``encrypted={True, False}``.
 
     * Default values: ``encrypted=False``.
 
@@ -309,8 +301,6 @@ Mouse Scroll
     | ``Mouse Scroll`` | ``steps=<scrolls>`` | ``direction={down, up}`` |
     +------------------+---------------------+--------------------------+
 
-    * Optional arguments: ``steps=<scrolls>``, ``direction={down, up}``.
-
     * Default values: ``steps=2``, ``direction=up``.
 
 Example:
@@ -361,8 +351,6 @@ Add Perfdata
     | ``Add Perfdata`` | ``<performance_name>`` | ``value=<seconds>`` | ``warning_threshold=<seconds>`` | ``critical_threshold=<seconds>`` | ``state={0, 1, 2, 3}`` | ``timestamp={True, False}`` |
     +------------------+------------------------+---------------------+---------------------------------+----------------------------------+------------------------+-----------------------------+
 
-    * Optional arguments: ``value=<seconds>``, ``warning_threshold=<seconds>``, ``critical_threshold=<seconds>``, ``state={0, 1, 2, 3}``.
-
     * Default values: ``value=None``, ``warning_threshold=None``, ``critical_threshold=None``, ``state=2``, ``timestamp=False``.
 
 Example:
@@ -398,8 +386,6 @@ Print Perfdata
     | ``Print Perfdata`` | ``message=<string>`` | ``print_output={True, False}`` |
     +--------------------+----------------------+--------------------------------+
 
-    * Optional arguments: ``message=<string>``, ``print_output={True, False}``.
-
     * Default values: ``message=None``, ``print_output=True``.
 
 Example:
@@ -408,7 +394,7 @@ Example:
     | ``Print Perfdata`` |
     +--------------------+
 
-*Print Perfdata* **prints all the performance variables** declared (and filled, but not declared) to a test case. By default (``print_output=True``), a message is printed out at the end of a test case execution to describe the overall state and eventually with the name of the last performance variable that has been measured and filled before a failure.
+*Print Perfdata* **prints all the performance variables** declared (and filled, but not declared) to a test case. By default (``print_output=True``), a message is printed out at the end of a test case execution to describe its overall state and eventually with the name of the last performance variable that has been measured and filled before a failure.
 
 
 .. _system_keywords-performance_keywords-store_perfdata:
@@ -419,8 +405,6 @@ Store Perfdata
     +--------------------+----------------------------+
     | ``Store Perfdata`` | ``dbname=<database_path>`` |
     +--------------------+----------------------------+
-
-    * Optional arguments: ``dbname=<database_path>``.
 
     * Default values: ``dbname=<testcase_path>\\<testcase_name>.db``.
 
@@ -438,7 +422,7 @@ Example:
 .. warning::
     Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
 
-*Store Perfdata* **saves the output data of a test case in its SQLite database** file. all the data about the execution of a test case. New data are added to past data that comes to previous execution of the test case: in this way, Alyvix probes can track test case outputs during the time.
+*Store Perfdata* **saves the test case data in a SQL database** file with a proper :ref:`database structure <database_structure>`. New data are added to past database entries (that comes from previous test case executions): in this way, Alyvix probes can keep track of test case data.
 
 
 .. _system_keywords-performance_keywords-publish_perfdata:
@@ -446,27 +430,49 @@ Example:
 Publish Perfdata
 ----------------
 
-  +----------------------+---------------------------+-------------------------------------------+-----------------------------------------+--------------------------------------------------+-------------------------------------------------------+-------------------------------------------------+
-  | ``Publish Perfdata`` | ``type = {csv, perfmon}`` | ``start_date = <yyyy-mm-dd hh:mm>`` [csv] | ``end_date = <yyyy-mm-dd hh:mm>`` [csv] | ``filename = <path_to_testcase_csv_file>`` [csv] | ``testcase_name = <testcase_name_to_list>`` [perfmon] | ``max_age = <database_data_max_age>`` [perfmon] |
-  +----------------------+---------------------------+-------------------------------------------+-----------------------------------------+--------------------------------------------------+-------------------------------------------------------+-------------------------------------------------+
+    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
+    | ``Publish Perfdata`` | ``type={csv, perfmon}`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` | ``testcase_name=<testcase_name_to_list>`` | ``max_age=<database_data_max_age>`` |
+    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
+    |                      |                         | just for ``type=csv``                            | just for ``type=csv``                  | just for ``type=csv``                   | just for ``type=csv``        | just for ``type=perfmon``                 | just for ``type=perfmon``           |
+    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
 
-    Publishes test case performances in a CSV file or in Windows Performance Monitor. csv type takes mandatory start and end dates in the following format yyyy-mm-dd hh:mm (e.g. 2016-07-29 09:00) and an optional path to the CSV file that will be written. perfmon type takes an optional test case name to list in Windows Performance Monitor. It also takes an optional max_age amount of hours as maximum range of past hours for data to consider. Default value: max_age=24. If Alyvix was installed correctly, through a command prompt run as administrator, its Windows service called Alyvix Wpm Service should run in background. Therefore, Alyvix can publish performances in WPM out-of-the-box: Alyvix- will be available in the list of WPM metrics to add.
+    * Default values: ``type=csv``, ``filename=<testcase_path>\\<testcase_name>.csv``, ``suffix=None``, ``testcase_name=<testcase_name>``, ``max_age=24``
 
-  Example:
+Example:
 
-  +----------------------+------------------+---------------------------------+-------------------------------+----------------------------------------------------+
-  | ``Publish Perfdata`` | ``type=csv``     | ``start_date=2016-02-01 00:01`` | ``end_date=2016-08-04 23:59`` | ``filename=C:\\alyvix_testcases\\citrix_word.csv`` |
-  +----------------------+------------------+---------------------------------+-------------------------------+----------------------------------------------------+
-  | ``Publish Perfdata`` | ``type=perfmon`` | ``testcase_name=citrix_word``   | ``max_age=24``                |                                                    |
-  +----------------------+------------------+---------------------------------+-------------------------------+----------------------------------------------------+
+    +----------------------+--------------+---------------------------------+-------------------------------+---------------------------------------------------+----------------------+
+    | ``Publish Perfdata`` | ``type=csv`` | ``start_date=2016-02-01 00:01`` | ``end_date=2016-08-04 23:59`` | ``filename=C:\\alyvix_reports\\citrix_login.csv`` | ``suffix=timestamp`` |
+    +----------------------+--------------+---------------------------------+-------------------------------+---------------------------------------------------+----------------------+
 
+    +----------------------+------------------------+------------------+
+    | ``Publish Perfdata`` | ``start_date=1 weeks`` | ``end_date=now`` |
+    +----------------------+------------------------+------------------+
 
-.. _system_keywords-performance_keywords-add_perfdata_tag:
+    +----------------------+------------------+--------------------------------+----------------+
+    | ``Publish Perfdata`` | ``type=perfmon`` | ``testcase_name=citrix_login`` | ``max_age=12`` |
+    +----------------------+------------------+--------------------------------+----------------+
 
-Add Perfdata Tag
-----------------
+    +----------------------+------------------+
+    | ``Publish Perfdata`` | ``type=perfmon`` |
+    +----------------------+------------------+
 
-bla
+.. warning::
+    Type the **CSV file path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\<csv_filename>.csv``).
+
+.. warning::
+    To publish test case data (i.e. to use this keyword) is necessary to **store test case data in advance** using :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>`.
+
+.. warning::
+    If Alyvix has been installed correctly, the **Alyvix Wpm Service has to run as a background service**, which is necessary to publish test case data in Windows Performance Monitor.
+
+*Publish Perfdata* **publishes test case data in CSV file or in Windows Performance Monitor**.
+
+``type=csv`` takes mandatory ``start_date`` and ``end_date`` (in the format ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days``, ``<n> hours`` and ``now`` just as end date). It can also take an optional path to the CSV ``filename`` to save with or without a timestamp ``suffix``.
+
+``type=perfmon`` takes an optional ``testcase_name`` to list in Windows Performance Monitor and a ``max_age`` amount of hours as maximum range of past hours for data to consider. In this case, Alyvix test case data will be available in the list of WPM metrics to add, as ``Alyvix - <testcase_name>``.
+
+.. note::
+    You can have a look at the list of test case databases that are publishing in WPM reading the following file ``C:\Anaconda2\Lib\site-packages\`` ``alyvix\extra\`` ``alyvixservice.ini``.
 
 
 .. _system_keywords-performance_keywords-rename_perfdata:
@@ -474,21 +480,29 @@ bla
 Rename Perfdata
 ---------------
 
-  +---------------------+----------------------------+----------------------------+-------------------------+--------------------------+
-  | ``Rename Perfdata`` | ``<old_performance_name>`` | ``<new_performance_name>`` | ``<warning_threshold>`` | ``<critical_threshold>`` |
-  +---------------------+----------------------------+----------------------------+-------------------------+--------------------------+
+    +---------------------+-------------------------------------+-------------------------------------+----------------------------+-----------------------------+
+    | ``Rename Perfdata`` | ``old_name=<old_performance_name>`` | ``new_name=<new_performance_name>`` | ``warning_threshold=None`` | ``critical_threshold=None`` |
+    +---------------------+-------------------------------------+-------------------------------------+----------------------------+-----------------------------+
 
-    Copies the values of an existing keyword (measured performance, set thresholds) under a new name. That is useful in order to reuse multiple times the same keyword with different arguments (e.g. object finder searching for the same image as main component and for a different text string as sub component passed as an argument) keeping track of output performance at each step renaming its name every time. It is also possible to redefine warning and critical thresholds. Default values: without changes, warning and critical thresholds are the ones within the original keyword definition.
+    * Optional arguments: ``warning_threshold=None``, ``critical_threshold=None``.
 
-  Example:
+Example:
 
-  +---------------------+------------------------+-------------------+--------+---------+
-  | ``Rename Perfdata`` | ``login_generic_step`` | ``login_step_01`` | ``5``  | ``7.5`` |
-  +---------------------+------------------------+-------------------+--------+---------+
-  | ``Rename Perfdata`` | ``login_generic_step`` | ``login_step_02`` | ``10`` | ``15``  |
-  +---------------------+------------------------+-------------------+--------+---------+
-  | ``Rename Perfdata`` | ``login_generic_step`` | ``login_step_03`` |        |         |
-  +---------------------+------------------------+-------------------+--------+---------+
+    +---------------------+---------------------------------+----------------------------+--------------------------+----------------------------+
+    | ``Rename Perfdata`` | ``old_name=login_generic_step`` | ``new_name=login_step_01`` | ``warning_threshold=5``  | ``critical_threshold=7.5`` |
+    +---------------------+---------------------------------+----------------------------+--------------------------+----------------------------+
+
+    +---------------------+---------------------------------+----------------------------+
+    | ``Rename Perfdata`` | ``old_name=login_generic_step`` | ``new_name=login_step_02`` |
+    +---------------------+---------------------------------+----------------------------+
+
+*Rename Perfdata* **copies the performance data of an existing keyword in a new performance variable**. At least, you have to set the ``old_name`` and the ``new_name`` keywords, but it is also possible to redefine warning and critical thresholds.
+
+.. note::
+    This could be useful in order to **reuse the same keyword with different arguments** keeping track of the output performance after each execution. For example, you could run an :ref:`Object Finder <visual_keywords-object_finder>` searching for the same image as main component, but for a different text string as sub component (passed as an argument). Renaming a keyword name allows to keep track of the performance output after each use, because it is like to save the detection measurement in a new performance variable.
+
+.. warning::
+    Executing two or more times the same visual keyword simply **overrides its performance variable**, loosing the previous measurement. *Rename Perfdata* avoids the need to define a new visual keyword with the same graphic elements to detect.
 
 
 .. _system_keywords-performance_keywords-sum_perfdata:
@@ -496,17 +510,28 @@ Rename Perfdata
 Sum Perfdata
 ------------
 
-  +------------------+--------------------------+--------+--------------------------+---------------------------------+----------------------------+
-  | ``Sum Perfdata`` | ``<performance_name_1>`` | ``..`` | ``<performance_name_n>`` | ``name=<new_performance_name>`` | ``delete_perfdata=<bool>`` |
-  +------------------+--------------------------+--------+--------------------------+---------------------------------+----------------------------+
+    +------------------+--------------------------+--------+--------------------------+---------------------------------+----------------------------+-----------------------------+
+    | ``Sum Perfdata`` | ``<performance_name_1>`` | ``..`` | ``<performance_name_n>`` | ``name=<new_performance_name>`` | ``warning_threshold=None`` | ``critical_threshold=None`` |
+    +------------------+--------------------------+--------+--------------------------+---------------------------------+----------------------------+-----------------------------+
 
-    Sums the given performance variables into a new one. Default values: delete_perfdata=false.
+    * Optional arguments: ``<performance_name_3>``, .., ``<performance_name_n>``
 
-  Example:
+    * Default values: ``warning_threshold=None``, ``critical_threshold=None``
 
-  +------------------+-------------------+-------------------+----------------------+--------------------------+
-  | ``Sum Perfdata`` | ``login_step_01`` | ``login_step_02`` | ``name=login_steps`` | ``delete_perfdata=true`` |
-  +------------------+-------------------+-------------------+----------------------+--------------------------+
+Example:
+
+    +------------------+-------------------+-------------------+----------------------+-------------------------+----------------------------+
+    | ``Sum Perfdata`` | ``login_step_01`` | ``login_step_02`` | ``name=login_steps`` | ``warning_threshold=5`` | ``critical_threshold=7.5`` |
+    +------------------+-------------------+-------------------+----------------------+-------------------------+----------------------------+
+
+    +------------------+-------------------+-------------------+----------------------+
+    | ``Sum Perfdata`` | ``login_step_01`` | ``login_step_02`` | ``name=login_steps`` |
+    +------------------+-------------------+-------------------+----------------------+
+
+*Sum Perfdata* **sums the given performance variables in a new one**. At least, you have to set 2 ``<performance_name>`` to sum in the ``<new_performance_name>``. It is also possible to define warning and critical thresholds of the new variable.
+
+.. note::
+    At the end of the test, before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>`, it could be the case to :ref:`delete the old partial variables <system_keywords-performance_keywords-delete_perfdata>`.
 
 
 .. _system_keywords-performance_keywords-get_perfdata:
@@ -514,25 +539,37 @@ Sum Perfdata
 Get Perfdata
 ------------
 
-bla
+    +----------+------------------+-----------------------------+
+    | ``${x}`` | ``Get Perfdata`` | ``name=<performance_name>`` |
+    +----------+------------------+-----------------------------+
+    | ``Log``  | ``${x}``         |                             |
+    +----------+------------------+-----------------------------+
+
+Example:
+
+    +------------------+----------------------+
+    | ``Get Perfdata`` | ``name=login_steps`` |
+    +------------------+----------------------+
+
+*Get Perfdata* **outputs the measured performance of the given keyword** during a test case execution. It could be useful to process or use that time measurement.
 
 
 .. _system_keywords-performance_keywords-delete_perfdata:
 
 Delete Perfdata
----------------s
+---------------
 
-  +---------------------+------------------------+
-  | ``Delete Perfdata`` | ``<performance_name>`` |
-  +---------------------+------------------------+
+    +---------------------+-----------------------------+
+    | ``Delete Perfdata`` | ``name=<performance_name>`` |
+    +---------------------+-----------------------------+
 
-    Deletes an existing performance. That is useful, for example, in case of renamed performances: one can reuse multiple times the same Alyvix keyword, retaining every time its new performance renaming it and at the end the test, before printing the output, deleting it.
+Example:
 
-  Example:
+    +---------------------+-------------------+
+    | ``Delete Perfdata`` | ``login_step_01`` |
+    +---------------------+-------------------+
 
-  +---------------------+------------------------+
-  | ``Delete Perfdata`` | ``login_generic_step`` |
-  +---------------------+------------------------+
+*Delete Perfdata* **deletes an existing performance variable**. It is useful after :ref:`Rename Perfdata <system_keywords-performance_keywords-rename_perfdata>` or :ref:`Delete Perfdata <system_keywords-performance_keywords-delete_perfdata>` and before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>` to clean the final test case outcome.
 
 
 .. _system_keywords-screenshot_keywords:
@@ -546,25 +583,17 @@ Screenshot keywords
 Alyvix Screenshot
 -----------------
 
-    +-----------------------+----------------+
-    | ``Alyvix Screenshot`` | ``<filename>`` |
-    +-----------------------+----------------+
+    +-----------------------+----------------------------------------------------+
+    | ``Alyvix Screenshot`` | ``filename_arg=<screenshot_filename>{.png, .jpg}`` |
+    +-----------------------+----------------------------------------------------+
 
 Example:
 
-    +-----------------------+---------------+
-    | ``Alyvix Screenshot`` | ``login.jpg`` |
-    +-----------------------+---------------+
+    +-----------------------+----------------------+
+    | ``Alyvix Screenshot`` | ``login_screen.jpg`` |
+    +-----------------------+----------------------+
 
-Grabs a screenshot and saves it into the output folder, which can be specified as an argument (–outputdir <path_to_folder>) of the alyvix_pybot.bat through command prompt. By default the extension of the file is .png, but it is possible to specify a .jpg as the extension after the filename.
-
-
-.. _system_keywords-screenshot_keywords-overwrite_alyvix_screen:
-
-Overwrite Alyvix Screen
------------------------
-
-bla
+*Alyvix Screenshot* **grabs a screenshot and saves it into the output folder**, which can be specified as an argument (``--outputdir <output_folder_path>``, e.g. ``--outputdir "C:\alyvix_reports\login_testcase"``) of the Alyvix :ref:`test case script <commandline_ouput>` through command prompt. By default the extension of the screenshot file is ``.png``, but it is also possible to specify ``.jpg`` as image compression.
 
 
 .. _system_keywords-debug_keywords:
@@ -578,18 +607,18 @@ Debug keywords
 Alyvix Config
 -------------
 
-    +-------------------+----------------------------+
-    | ``Alyvix Config`` | ``<config.xml_file_path>`` |
-    +-------------------+----------------------------+
+    +-------------------+------------------------------------------+
+    | ``Alyvix Config`` | ``full_filename=<config.xml_file_path>`` |
+    +-------------------+------------------------------------------+
 
 Example:
 
-    +-------------------+-------------------------------------+
-    | ``Alyvix Config`` | ``C:\\alyvix_logbooks\\config.xml`` |
-    +-------------------+-------------------------------------+
+    +-------------------+---------------------------------------------------+
+    | ``Alyvix Config`` | ``full_filename=C:\\alyvix_logbooks\\config.xml`` |
+    +-------------------+---------------------------------------------------+
 
 .. warning::
-  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to_folder>``).
+  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\config.xml``).
 
 *Alyvix Config* links the :download:`config.xml <./config.xml>` file to get some Alyvix **custom settings**.
 
@@ -625,23 +654,23 @@ It is also possible to set the time periods of the frame grabber ``<finder><find
 Set Alyvix Info
 ---------------
 
-    +---------------------+--------------------+---------------------+
-    | ``Set Alyvix Info`` | ``<setting_name>`` | ``<setting_value>`` |
-    +---------------------+--------------------+---------------------+
+    +---------------------+-------------------------+---------------------------+
+    | ``Set Alyvix Info`` | ``name=<setting_name>`` | ``value=<setting_value>`` |
+    +---------------------+-------------------------+---------------------------+
 
 Example:
 
-    +---------------------+--------------------------------------+------------+
-    | ``Set Alyvix Info`` | ``CHECK DIFF INTERVAL``              | ``${0.1}`` |
-    +---------------------+--------------------------------------+------------+
-    | ``Set Alyvix Info`` | ``FINDER THREAD INTERVAL``           | ``${0.5}`` |
-    +---------------------+--------------------------------------+------------+
-    | ``Set Alyvix Info`` | ``CHECK DIFF INTERVAL DISAPPEAR``    | ``${0.1}`` |
-    +---------------------+--------------------------------------+------------+
-    | ``Set Alyvix Info`` | ``FINDER THREAD INTERVAL DISAPPEAR`` | ``${0.5}`` |
-    +---------------------+--------------------------------------+------------+
-    | ``Set Alyvix Info`` | ``ACTIONS DELAY``                    | ``${0.5}`` |
-    +---------------------+--------------------------------------+------------+
+    +---------------------+-------------------------------------------+---------------+
+    | ``Set Alyvix Info`` | ``name=CHECK DIFF INTERVAL``              | ``value=0.1`` |
+    +---------------------+-------------------------------------------+---------------+
+    | ``Set Alyvix Info`` | ``name=FINDER THREAD INTERVAL``           | ``value=0.5`` |
+    +---------------------+-------------------------------------------+---------------+
+    | ``Set Alyvix Info`` | ``name=CHECK DIFF INTERVAL DISAPPEAR``    | ``value=0.1`` |
+    +---------------------+-------------------------------------------+---------------+
+    | ``Set Alyvix Info`` | ``name=FINDER THREAD INTERVAL DISAPPEAR`` | ``value=0.5`` |
+    +---------------------+-------------------------------------------+---------------+
+    | ``Set Alyvix Info`` | ``name=ACTIONS DELAY``                    | ``value=0.5`` |
+    +---------------------+-------------------------------------------+---------------+
 
 .. warning::
     Type the **setting values between** ``${`` **and** ``}`` (e.g. ``${0.25}``); they are intended as **values in milliseconds**.
