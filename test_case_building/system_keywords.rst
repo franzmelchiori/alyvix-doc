@@ -593,7 +593,7 @@ Example:
     | ``Alyvix Screenshot`` | ``login_screen.jpg`` |
     +-----------------------+----------------------+
 
-*Alyvix Screenshot* **grabs a screenshot and saves it into the output folder**, which can be specified as an argument (``--outputdir <output_folder_path>``, e.g. ``--outputdir "C:\alyvix_reports\login_testcase"``) of the Alyvix :ref:`test case script <commandline_ouput>` through command prompt. By default the extension of the screenshot file is ``.png``, but it is also possible to specify ``.jpg`` as image compression.
+*Alyvix Screenshot* **grabs a screenshot and saves it into the output folder**, which can be specified as an argument (``--outputdir <output_folder_path>``, e.g. ``--outputdir "C:\alyvix_reports\login_testcase"``) of the Alyvix :ref:`test case script <commandline_output>` through command prompt. By default the extension of the screenshot file is ``.png``, but it is also possible to specify ``.jpg`` as image compression.
 
 
 .. _system_keywords-debug_keywords:
