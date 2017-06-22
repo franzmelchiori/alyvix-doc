@@ -73,6 +73,8 @@ The most useful *editor and Alyvix shortcuts* are the following ones:
   +-------------------------------------------------------+---------------------+
   | Accept and exit **Alyvix** visual selection mode      | :kbd:`CTRL+O`       |
   +-------------------------------------------------------+---------------------+
+  | Undo **Alyvix** visual selections                     | :kbd:`CTRL+Z`       |
+  +-------------------------------------------------------+---------------------+
   | **Copy** selected cell/row(s)                         | :kbd:`CTRL+C`       |
   +-------------------------------------------------------+---------------------+
   | **Cut** selected cell/row(s)                          | :kbd:`CTRL+X`       |

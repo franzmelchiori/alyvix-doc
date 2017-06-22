@@ -6,7 +6,7 @@ Follow these steps to be sure that everything is well deployed and works fine:
 
   1. run **Command Prompt**, execute the following command and check the presence of *pyqt 4.10.4 py27_1*, *pillow 2.7.0 py27_0* and *alyvix 2.4.1 py27_1* as installed conda packages:
 
-    ``conda list “alyvix|pillow|pyqt”``
+    ``conda list "alyvix|pillow|pyqt"``
 
     .. image:: pictures/01_alyvix_install_check.png
 

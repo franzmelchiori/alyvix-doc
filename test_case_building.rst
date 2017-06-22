@@ -9,3 +9,4 @@ Test case building
    test_case_building/test_case_editor.rst
    test_case_building/system_keywords.rst
    test_case_building/visual_keywords.rst
+   test_case_building/encryption_tool.rst

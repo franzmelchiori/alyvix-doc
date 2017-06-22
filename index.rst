@@ -44,6 +44,8 @@ Documentation contents
    system_requirements.rst
    getting_started.rst
    test_case_building.rst
+   test_case_execution.rst
+   test_case_output.rst
 
 
 ===================
