@@ -49,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Alyvix'
-copyright = u'2017, Würth Phoenix Srl'
+copyright = u'2017, Wuerth Phoenix Srl'
 author = u'Francesco Melchiori'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -101,6 +101,8 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 html_logo = 'pictures/alyvix_logo_100x83.png'
+
+html_output_encoding = 'utf-8'
 
 
 # -- Options for HTMLHelp output ------------------------------------------
