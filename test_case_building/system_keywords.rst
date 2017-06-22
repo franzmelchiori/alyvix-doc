@@ -25,7 +25,7 @@ Create Process
 Example:
 
     +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
-    | ``Create Process`` | ``C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`` | ``https://www.alyvix.com`` | ``–incognito`` |
+    | ``Create Process`` | ``C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`` | ``https://www.alyvix.com`` | ``-incognito`` |
     +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
 
 .. warning::

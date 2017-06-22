@@ -19,7 +19,7 @@ The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector o
 
     .. image:: pictures/ride_05a_keyword_selector.png
 
-The *New* button opens the selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>`. The *Edit* button brings to the Finder dialog of the selected keyword, in order to modify its properties (e.g. component and ROI selections, detection and interaction settings, performance thresholds). The *Remove* button deletes the selected keywords or, in case of :ref:`Object Finder <visual_keywords-object_finder>` keywords, crumbles them into its basic components (IF, RF, TF).
+The *New* button opens the selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>`. The *Edit* button brings to the Finder dialog of the selected keyword, in order to modify its properties (e.g. component selections and region of interests, detection and interaction settings, performance thresholds). The *Remove* button deletes the selected keywords or, in case of :ref:`Object Finder <visual_keywords-object_finder>` keywords, crumbles them into its basic components (IF, RF, TF).
 
     .. image:: pictures/ride_05b_finder_selector.png
 
@@ -41,19 +41,21 @@ Image Finder main and subs
 
 An example GUI shows three identical stars and a possible transaction could be to **interact with the third star**, which is left to the green sign.
 
-Selecting just the third star, as a main component of an *Image Finder*, is not enough. It would be an ambiguous transaction: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the raster logic of screen scanner.
+Selecting just the third star as a main component of an :ref:`Image Finder <visual_keywords-image_finder>` is not enough. It would be an ambiguous transaction: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the raster logic of the screen scanner.
 
-To correctly define the keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of Image Finders are selected within their ROI. The upper left corner of ROI are linked with the upper left corner of the main component selection.
+To correctly define a unique keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of :ref:`Image Finder <visual_keywords-image_finder>` are selected within their ROI (region of interests). The upper left corner of ROI are linked with the upper left corner of the main component selection.
 
     .. image:: pictures/ride_07bb_if_main_sub.png
 
 ..
 
-    1. Select the **main component** inside the screen;
-    2. select the **ROI** of the sub component 1 inside the screen;
-    3. select the **sub component** 1 inside its ROI;
+    1. Select the **main component** on the screen;
+    2. select the **ROI of the sub component** 1 on the screen;
+    3. select the **sub component** 1 within its ROI;
     4. eventually repeat 2. and 3. to add more sub components;
     5. press :kbd:`CTRL+O` to set the :ref:`IF keyword properties <visual_keywords-image_finder>`.
+
+    .. image:: pictures/image_finder_selection.gif
 
 
 .. _visual_keywords-rect_definition:
@@ -63,18 +65,23 @@ Rect Finder main and subs
 
     .. image:: pictures/ride_07c_rf_main_sub.png
 
-An example GUI shows three identical text boxes, but a possible transaction could be interacting with the third, left to the ‘OK’ button. Selecting just the text box, as a main component, is not enough: Alyvix is going to detect all the three text boxes and to interact with the first one, because of a raster logic scanning the screen.
-To correctly define the keyword, it is necessary to also select the ‘OK’ button as a sub component. Sub components of Rect Finders lies in their ROI. The upper left corner of ROI are all binded with the upper left corner of the main component selection.
+An example GUI shows three identical text boxes and a possible transaction could be **interacting with the third text box**, which is left to the *OK* button.
+
+Selecting just the third text box as a main component of an :ref:`Rect Finder <visual_keywords-rect_finder>` is not enough. It would be an ambiguous transaction: the three text boxes have exactly the same aspect. Alyvix detects all the three text boxes and then interacts with the first one, because of the raster logic of the screen scanner.
+
+To correctly define a unique keyword, it is necessary to **select the OK button as a sub component**. Remember that sub components of :ref:`Rect Finder <visual_keywords-rect_finder>` are selected within their ROI (region of interests). The upper left corner of ROI are linked with the upper left corner of the main component selection.
 
     .. image:: pictures/ride_07db_rf_main_sub.png
 
 ..
 
-    1. Selection of main component inside the screen
-    2. Selection of the ROI of the sub component 1 inside the screen
-    3. Selection of the sub component 1 inside its ROI
-    4. Eventual repetition of 2. and 3. to add more and more sub components
-    5. Press CTRL + O to access the setting dialog of the Rect Finder
+    1. Select the **main component** on the screen;
+    2. select the **ROI of the sub component** 1 on the screen;
+    3. select the **sub component** 1 within its ROI;
+    4. eventually repeat 2. and 3. to add more sub components;
+    5. press :kbd:`CTRL+O` to set the :ref:`RF keyword properties <visual_keywords-rect_finder>`.
+
+    .. image:: pictures/rect_finder_selection.gif
 
 
 .. _visual_keywords-text_definition:
@@ -84,19 +91,29 @@ Text Finder main and subs
 
     .. image:: pictures/ride_07e_tf_main_sub.png
 
-An example GUI shows three identical ‘Name’ text strings, but a possible transaction could be interacting with the third, left to the ‘Franz’ text string. Selecting just the ‘Name’ text string, as a main component, is not enough: Alyvix is going to detect all the three ‘Name’ text strings and to interact with the first one, because of a raster logic scanning the screen.
-To correctly define the keyword, it is necessary to also select the ‘Franz’ text string as a sub component. All Text Finder components (main and sub) lies in their ROI. The upper left corner of ROI are all binded with the upper left corner of the screen. That differs from the Image and Rect Finders: the main component of Text Finder is searched within its ROI and not on the entire screen. The latter is the reason why Text Finder should be strictly used as sub components of Object Finders.
+An example GUI shows three identical "Name" text strings and a possible transaction could be **interacting with the third "Name" text string**, which is left to the "Franz" text string.
+
+Selecting just the "Name" text string as a main component of a :ref:`Text Finder <visual_keywords-text_finder>` is not enough. It would be an ambiguous transaction: the three "Name" text string have exactly the same aspect. Alyvix detects all the three "Name" text strings and interacts with the first one, because of the raster logic of the screen scanner.
+
+To correctly define a unique keyword, it is necessary to **select the "Franz" text string as a sub component**. Remember that all the :ref:`Text Finder <visual_keywords-text_finder>` component selections, especially for the main component, lie in their ROI (region of interests) and the upper left corner of ROI are linked with the upper left corner of the screen. That differs from the :ref:`Image Finder <visual_keywords-image_finder>` and :ref:`Rect Finder <visual_keywords-rect_finder>`: in these cases the main component selection is defined within the entire screen.
+
+.. warning::
+    The main component of a :ref:`Text Finder <visual_keywords-text_finder>` is going to be searched within its ROI and not on the entire screen. This is the reason why a :ref:`Text Finder <visual_keywords-text_finder>` **should be only used as sub components of Object Finders**.
+
+..
 
     .. image:: pictures/ride_07fb_tf_main_sub.png
 
 ..
 
-    1. Selection of the ROI of the main component inside the screen
-    2. Selection of main component inside its ROI
-    3. Selection of the ROI of the sub component 1 inside the screen
-    4. Selection of the sub component 1 inside its ROI
-    5. Eventual repetition of 3. and 4. to add more and more sub components
-    6. Press CTRL + O to access the setting dialog of the Text Finder
+    1. Select the **ROI of the main component** on the screen;
+    2. select the **main component** within its ROI;
+    3. select the **ROI of the sub component** 1 on the screen;
+    4. select the **sub component** 1 within its ROI;
+    5. eventually repeat 3. and 4. to add more sub components;
+    6. press :kbd:`CTRL+O` to set the :ref:`TF keyword properties <visual_keywords-text_finder>`.
+
+    .. image:: pictures/text_finder_selection.gif
 
 
 .. _visual_keywords-object_definition:
@@ -106,19 +123,30 @@ Object Finder main and subs
 
     .. image:: pictures/ride_07g_of_main_sub.png
 
-An example GUI shows three identical stars, but a possible transaction could be interacting with the third, left to the ‘Franz’ text string. Selecting just the star, as a main component, is not enough: Alyvix is going to detect all the three stars and to interact with the first one, because of a raster logic scanning the screen.
-To correctly define the keyword, it is necessary to also select the ‘Franz’ text string as a sub component. Firstly, define an Image Finder with the star and a Text Finder with the ‘Franz’ text string. Secondly, select them as the main and a sub component of an Object Finder. Finally, redefine the ROI of sub components to bind them to the main component.
-The most common and useful Object Finder combinations are IF + TF and RF + TF.
+An example GUI shows three identical stars and a possible transaction could be **interacting with the third star**, left to the "Franz" text string.
+
+Selecting just the third star as a main component of an :ref:`Image Finder <visual_keywords-image_finder>` is not enough. It would be an ambiguous transaction: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the raster logic of the screen scanner.
+
+To correctly define a unique keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of :ref:`Image Finder <visual_keywords-image_finder>` are selected within their ROI (region of interests). The upper left corner of ROI are linked with the upper left corner of the main component selection.
+
+To correctly define a unique keyword, it is necessary to **select the "Franz" text string as a sub component**. Firstly, define the star as an :ref:`Image Finder <visual_keywords-image_finder>` and the "Franz" text string as a :ref:`Text Finder <visual_keywords-text_finder>`. Secondly, select them as the main and a sub component of an :ref:`Object Finder <visual_keywords-object_finder>` defining the ROI (region of interest) around the sub component to link it to the main component.
+
+.. note::
+    The most common and useful **Object Finder combinations** are **IF+TF** and **RF+TF**.
+
+..
 
     .. image:: pictures/ride_07hb_of_main_sub.png
 
 ..
 
-    1. Selection of the main component
-    2. Selection of the sub component 1
-    3. Selection of the ROI of the sub component 1
-    4. Eventual repetition of 2. and 3. to add more and more sub components
-    5. Press CTRL + O to access the setting dialog of the Object Finder
+    1. Select the **main component**;
+    2. select the **sub component** 1;
+    3. select the **ROI of the sub component** 1 on the screen;
+    4. eventually repeat 2. and 3. to add more sub components;
+    5. press :kbd:`CTRL+O` to set the :ref:`OF keyword properties <visual_keywords-object_finder>`.
+
+    .. image:: pictures/object_finder_selection.gif
 
 
 .. _visual_keywords-name_components:
@@ -169,7 +197,7 @@ Example:
 
         .. image:: pictures/ride_11ab_alyvix_2-4-1_gui_name.png
 
-In the left pane of the dialog there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* on screen. Click on each component to set its own detection and interaction properties.
+In the left pane of the dialog there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* (region of interests) on screen. Click on each component to set its own detection and interaction properties.
 
     .. image:: pictures/ride_11b_alyvix_2-4-1_gui_components.png
 
@@ -324,8 +352,15 @@ To define such keywords follow these steps:
     4. The *Rect Finder* features the controls to set the **allowed boundaries** of those rectangles that you want to detect.
 
         1. There are 2 modes to define valid rectangles: **Sizing** and **Tolerance** areas. Click on the radio button of one them.
+
+        ..
+
+            .. image:: pictures/rect_finder_tuning.gif
+
+        ..
+
         2. Tick the *Show* check box of the selected mode to see the ongoing tuning of valid rectangle areas.
-        3. Type integer numbers, click spin boxes or scroll mouse wheel to **tune the violet area** for the selected component. The rectangle contours on screen (or in ROI for sub components) that fit into the allowed boundaries will be taken into account by Alyvix (i.e. during the keyword execution).
+        3. Type integer numbers, click spin boxes or scroll mouse wheel to **tune the violet area** for the selected component. The rectangle contours on screen (or in region of interests for sub components) that fit into the allowed boundaries will be taken into account by Alyvix (i.e. during the keyword execution).
 
             .. image:: pictures/ride_08b_rect_finder.png
 
@@ -356,7 +391,7 @@ To define such keywords follow these steps:
     ..
 
         .. note::
-            The Text Finder is designed to **primarly work in the ROI of the main component** as a fixed spot and not through out all the screen as the Image and Rect Finders. In fact, unlike the other Finders, you have also to select the ROI of the main component. So that, executing a Text Finder keyword alone, the text to match will be searched in the fixed ROI areas of its components. Thanks to the :ref:`Object Finders <visual_keywords-object_finder>` you can search text in a position that is related to other graphic elements (i.e. images, rectangles).
+            The Text Finder is designed to **primarly work in the ROI (region of interest) of the main component** as a fixed spot and not through out all the screen as the Image and Rect Finders. In fact, unlike the other Finders, you have also to select the ROI of the main component. So that, executing a Text Finder keyword alone, the text to match will be searched in the fixed ROI areas of its components. Thanks to the :ref:`Object Finders <visual_keywords-object_finder>` you can search text in a position that is related to other graphic elements (i.e. images, rectangles).
 
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
     4. The *Text Finder* features the properties to set the **regular expression** for matching the text (e.g. label, chunk) that you want to detect.
@@ -402,7 +437,7 @@ To define such keywords follow these steps:
     ..
 
         .. note::
-            It is not possible to choose a *Text Finder [TF]* as the main component of an *Object Finder*, because it would not make sense: the *Text Finder* is designed to primarly search text in the fixed ROI area of its main component.
+            It is not possible to choose a *Text Finder [TF]* as the main component of an *Object Finder*, because it would not make sense: the *Text Finder* is designed to primarly search text in the fixed ROI (region of interest) area of its main component.
 
     5. click on *Add Sub* button to select a sub component: a list of the defined Finders will appear from where choose an *Image Finders [IF]*, a *Rect Finders [RF]* and a *Text Finders [TF]*; you can add more sub components clicking on *Add Sub* every time;
 
