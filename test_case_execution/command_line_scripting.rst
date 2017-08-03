@@ -5,18 +5,51 @@ Command line scripting
 **********************
 
 
-    .. code-block:: bat
+.. _commandline_scripting_alyvix_pybot_manual_page:
 
-        @echo on
-        c:
-        call C:\Anaconda2\Scripts\alyvix_pybot.bat "C:\<path_to>\<alyvix_testcases>\<testcase_name>.robot" --outputdir "C:\<path_to>\<alyvix_reports>\<testcase_name>\"
-        pause
+alyvix_pybot manual page
+========================
 
-Example:
 
-    .. code-block:: bat
+Synopsis
+--------
 
-        @echo on
-        c:
-        call C:\Anaconda2\Scripts\alyvix_pybot.bat "C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot" --outputdir "C:\alyvix_reports\test\"
-        pause
+    ``alyvix_pybot <testcase_path> [options]``
+
+
+Description
+-----------
+
+    ``alyvix_pybot`` is an **Alyvix CLI tool**, stored in ``C:\Anaconda2\Scripts\``, that is able to **run a test case** out of :ref:`RIDE <testcase_editor>` **for scripting purposes**.
+
+    It needs a valid **Alyvix test case** ``.robot`` file (build with :ref:`RIDE <testcase_editor>`) providing its ``<testcase_path>`` (e.g. ``C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot``)
+
+    At the end of a test case execution, ``alyvix_pybot`` prints out the :ref:`performance message <commandline_output>` in the Command Prompt.
+
+
+Options
+-------
+
+    ``--outputdir <report_path>`` sets the folder path where to save the test case report
+
+    ``--exitcode <error_level>`` forces the overall ``errorlevel`` code of the test case if it will break
+
+            * ``0`` **OK**
+            * ``1`` **WARNING**
+            * ``2`` **CRITICAL**
+            * ``3`` **UNKNOWN**
+
+        The default overall ``errorlevel`` code is ``2`` **CRITICAL**.
+
+
+Example
+-------
+
+    The following example ``run_test.bat`` can run the Alyvix test case ``test.robot`` and print out its HTML report:
+
+        .. code-block:: bat
+
+            call alyvix_pybot "C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot" --outputdir "C:\alyvix_reports\test\"
+            pause
+
+        .. image:: C:\projects\_alyvix\documents\alyvix-doc\test_case_execution\pictures\alyvix_script_01_test_cmd_output.PNG
