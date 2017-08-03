@@ -5,6 +5,8 @@ Command line scripting
 **********************
 
 
+.. _commandline_scripting_alyvix_pybot_manual_page:
+
 alyvix_pybot manual page
 ========================
 
@@ -22,15 +24,22 @@ Description
 
     It needs a valid **Alyvix test case** ``.robot`` file (build with :ref:`RIDE <testcase_editor>`) providing its ``<testcase_path>`` (e.g. ``C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot``)
 
-    It returns ..
+    At the end of a test case execution, ``alyvix_pybot`` prints out the :ref:`performance message <commandline_output>` in the Command Prompt.
 
 
 Options
 -------
 
-    ``--outputdir <report_path>`` log_folder
+    ``--outputdir <report_path>`` sets the folder path where to save the test case report
 
-    ``--exitcode <error_level>`` the_exitcode
+    ``--exitcode <error_level>`` forces the overall ``errorlevel`` code of the test case if it will break
+
+            * ``0`` **OK**
+            * ``1`` **WARNING**
+            * ``2`` **CRITICAL**
+            * ``3`` **UNKNOWN**
+
+        The default overall ``errorlevel`` code is ``2`` **CRITICAL**.
 
 
 Example
@@ -40,5 +49,7 @@ Example
 
         .. code-block:: bat
 
-                call alyvix_pybot "C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot" --outputdir "C:\alyvix_reports\test\"
-                pause
+            call alyvix_pybot "C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot" --outputdir "C:\alyvix_reports\test\"
+            pause
+
+        .. image:: C:\projects\_alyvix\documents\alyvix-doc\test_case_execution\pictures\alyvix_script_01_test_cmd_output.PNG

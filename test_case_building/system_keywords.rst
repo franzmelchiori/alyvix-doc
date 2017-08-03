@@ -366,12 +366,12 @@ Example:
 *Add Perfdata* **declares a performance variable**, which could have the name of an Alyvix visual keyword: when a visual keyword finishes to execute, it fills the performance variable with the measurement and the other data (thresholds, state and eventually timestamp).
 
 .. note::
-    The ``state`` argument set the default ``errorlevel`` code that returns from broken test cases. Those codes have the following meanings:
+    The ``state`` argument set the default ``errorlevel`` code that returns from the keyword in case it will break. Those codes have the following meanings:
 
         * ``0`` **OK**
         * ``1`` **WARNING**
         * ``2`` **CRITICAL**
-        * ``3`` **UNKNOWN**.
+        * ``3`` **UNKNOWN**
 
 .. warning::
     It is convenient to **declare all performance variables at the beginning of test cases**: in this way we can know at which point the test case eventually breaks. If a performance variable is not filled at the end of a test case (maybe because the test case breaks before or at that point) the keyword state returns ``2`` **CRITICAL** as default.

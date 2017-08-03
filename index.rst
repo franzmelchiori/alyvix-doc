@@ -46,6 +46,7 @@ Documentation contents
    test_case_building.rst
    test_case_execution.rst
    test_case_output.rst
+   get_in_touch.rst
 
 
 ===================
@@ -62,12 +63,3 @@ System requirements
 .. warning::
   * screen color depth: 24bit RGB or **32bit RGBA**
   * OS: **Windows 64bit** 7, 8, 10, Server 2012 or Server 2016, with .NET v4.x; WinOS 32bit versions are not compatible
-
-
-==================
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
