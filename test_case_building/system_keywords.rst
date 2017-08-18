@@ -430,11 +430,17 @@ Example:
 Publish Perfdata
 ----------------
 
-    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
-    | ``Publish Perfdata`` | ``type={csv, perfmon}`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` | ``testcase_name=<testcase_name_to_list>`` | ``max_age=<database_data_max_age>`` |
-    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
-    |                      |                         | just for ``type=csv``                            | just for ``type=csv``                  | just for ``type=csv``                   | just for ``type=csv``        | just for ``type=perfmon``                 | just for ``type=perfmon``           |
-    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
+    +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
+    | ``Publish Perfdata`` | ``type=csv`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` |
+    +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
+
+    +----------------------+------------------+-------------------------------------------+-------------------------------------+
+    | ``Publish Perfdata`` | ``type=perfmon`` | ``testcase_name=<testcase_name_to_list>`` | ``max_age=<database_data_max_age>`` |
+    +----------------------+------------------+-------------------------------------------+-------------------------------------+
+
+    +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
+    | ``Publish Perfdata`` | ``type=nats`` | ``server=<ip_address>`` | ``port=<port_number>`` | ``subject=<database_name>`` | ``measurement=<table_name>`` |
+    +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
 
     * Default values: ``type=csv``, ``filename=<testcase_path>\\<testcase_name>.csv``, ``suffix=None``, ``testcase_name=<testcase_name>``, ``max_age=24``
 
@@ -456,6 +462,10 @@ Example:
     | ``Publish Perfdata`` | ``type=perfmon`` |
     +----------------------+------------------+
 
+    +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
+    | ``Publish Perfdata`` | ``type=nats`` | ``server=127.0.0.1`` | ``port=4222`` | ``subject=customer`` | ``measurement=alyvix`` |
+    +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
+
 .. warning::
     Type the **CSV file path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\<csv_filename>.csv``).
 
@@ -465,7 +475,7 @@ Example:
 .. warning::
     If Alyvix has been installed correctly, the **Alyvix Wpm Service has to run as a background service**, which is necessary to publish test case data in Windows Performance Monitor.
 
-*Publish Perfdata* **publishes test case data in CSV file or in Windows Performance Monitor**.
+*Publish Perfdata* **publishes test case data in CSV file, in Windows Performance Monitor or in InfluxDB (through NATS and Telegraf)**.
 
 ``type=csv`` takes mandatory ``start_date`` and ``end_date`` (in the format ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days``, ``<n> hours`` and ``now`` just as end date). It can also take an optional path to the CSV ``filename`` to save with or without a timestamp ``suffix``.
 
@@ -473,6 +483,12 @@ Example:
 
 .. note::
     You can have a look at the list of test case databases that are publishing in WPM reading the following file ``C:\Anaconda2\Lib\site-packages\`` ``alyvix\extra\`` ``alyvixservice.ini``.
+
+``type=nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and flush to a NATS server all the collected performance in the following format:
+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | ``<table_name>,username=<windows_username>,host=<machine_hostname>,test_name=<testcase_name>,transaction_name=<transaction_name>,state={ok, warning, critical, timed_out, not_executed}`` | ``warning_threshold=<milliseconds>,critical_threshold=<milliseconds>,timeout_threshold=<milliseconds>,performance=<milliseconds>,cumulative=<milliseconds>,error_level={0, 1, 2, 3}`` | ``<nanoseconds_epoch_timestamp>`` |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
 
 
 .. _system_keywords-performance_keywords-rename_perfdata:
