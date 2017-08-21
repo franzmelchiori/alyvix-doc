@@ -422,7 +422,35 @@ Example:
 .. warning::
     Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
 
-*Store Perfdata* **saves the test case data in a SQL database** file with a proper :ref:`database structure <database_structure>`. New data are added to past database entries (that comes from previous test case executions): in this way, Alyvix probes can keep track of test case data.
+*Store Perfdata* **saves the test case data in a SQL database** file with a proper :ref:`database structure <database_structure-store_perfdata>`. New data are added to past database entries (that comes from previous test case executions): in this way, Alyvix probes can keep track of test case data.
+
+
+.. _system_keywords-performance_keywords-store_scrapdata:
+
+Store Scrapdata
+---------------
+
+    +---------------------+----------------------------+
+    | ``Store Scrapdata`` | ``dbname=<database_path>`` |
+    +---------------------+----------------------------+
+
+    * Default values: ``dbname=<testcase_path>\\<testcase_name>.db``.
+
+
+Example:
+
+    +---------------------+
+    | ``Store Scrapdata`` |
+    +---------------------+
+
+    +---------------------+----------------------------------------------+
+    | ``Store Scrapdata`` | ``C:\\alyvix_testcases\\citrix_word.sqlite`` |
+    +---------------------+----------------------------------------------+
+
+.. warning::
+    Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
+
+*Store Scrapdata* **saves the scraped text in a SQL database** file with a proper :ref:`database structure <database_structure-store_scrapdata>`. New scraped text is added after each scraper execution.
 
 
 .. _system_keywords-performance_keywords-publish_perfdata:

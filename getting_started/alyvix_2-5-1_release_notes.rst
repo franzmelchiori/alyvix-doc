@@ -38,7 +38,7 @@ Alyvix is able to **scrap, process and store text strings visually detected from
 
     * :ref:`Text Scraper<visual_keywords-text_scraper>` can be defined and embed in Object Finder to get **Object Scraper**
     * The scraper keywords **returns the scraped text strings**, which are also integrated in the output HTML reports
-    * ``Store Scrapdata`` system keywords **stores all the scraped text strings and their timestamps** in a local SQLite database
+    * ``Store Scrapdata`` system keywords **stores all the scraped text strings and their timestamps** in a :ref:`local SQLite database <database_structure-store_scrapdata>`
 
         .. image:: pictures\alyvix_release_notes_2-5-1_scraper.png
 
