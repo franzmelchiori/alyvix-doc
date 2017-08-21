@@ -55,8 +55,8 @@ Improvements
     * :kbd:`CTRL+V` pastes the copied **keyword name**
     * :kbd:`CTRL+D` removes the selected **keyword** in the Alyvix selector
     * sanity check of keyword names in **Text Finder**
-    * **Text Finders and Scrapers** are not selectable in Object Finders
-    * **Text Finders and Scrapers** are not runnable in test cases: they must be components of Object Finders
+    * **Text Finders and Scrapers** are not selectable in Object Finders as main components
+    * **Text Finders and Scrapers** are not runnable in test cases: they must be sub components of Object Finders
     * the **detection settings** of Object Finder sub components are disabled
     * ``Add Perfdata`` option to add the **timestamp** to a keyword definition
     * sanity check for keyword names as arguments of **Rename Perfdata**, **Sum Perfdata**, **Add Perfdata Tag**, **Add Perfdata Field**
