@@ -499,7 +499,7 @@ Perfmon mode
 NATS mode
 ^^^^^^^^^
 
-``type=nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and flush to a NATS server all the collected performance in the following format, which is the `InfluxDB’s Line Protocol <https://docs.influxdata.com/influxdb/v1.3/write_protocols/line_protocol_tutorial/>`_:
+``type=nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and flush to a NATS server all the collected performance in the following format, which is the `InfluxDB's Line Protocol <https://docs.influxdata.com/influxdb/v1.3/write_protocols/line_protocol_tutorial/>`_:
 
     +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
     | ``<measurement>,<tag_1>,..,<tag_n>``                                                                                                                                                      | ``<field_1>,..,<field_n>``                                                                                                                                                            | ``<timestamp>``                   |
@@ -508,7 +508,7 @@ NATS mode
     +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
 
 .. note::
-    Points must be in **Line Protocol format for InfluxDB** to successfully parse and write points. A single line of Line Protocol represents one data point in InfluxDB. It informs InfluxDB of the point’s measurement, tag set, field set, and timestamp. The code block above shows a sample of Line Protocol and breaks it into its individual components.
+    Points must be in **Line Protocol format for InfluxDB** to successfully parse and write points. A single line of Line Protocol represents one data point in InfluxDB. It informs InfluxDB of the point's measurement, tag set, field set, and timestamp. The code block above shows a sample of Line Protocol and breaks it into its individual components.
 
 
 .. _system_keywords-performance_keywords-rename_perfdata:

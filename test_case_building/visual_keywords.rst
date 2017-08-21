@@ -421,6 +421,10 @@ To define such keywords follow these steps:
 Text Scraper
 ------------
 
+*Text Scrapers* produce Alyvix visual keywords that are able to detect and interact with **text** (e.g. button text, icon text). This is the *Text Finder* dialog:
+
+    .. image:: pictures/ride_09c_text_scraper.png
+
 
 .. _visual_keywords-object_finder:
 
