@@ -75,9 +75,13 @@ The most useful *editor and Alyvix shortcuts* are the following ones:
   +-------------------------------------------------------+---------------------+
   | Undo **Alyvix** visual selections                     | :kbd:`CTRL+Z`       |
   +-------------------------------------------------------+---------------------+
+  | **Copy** selected keyword name in Alyvix selector     | :kbd:`CTRL+C`       |
+  +-------------------------------------------------------+---------------------+
   | **Copy** selected cell/row(s)                         | :kbd:`CTRL+C`       |
   +-------------------------------------------------------+---------------------+
   | **Cut** selected cell/row(s)                          | :kbd:`CTRL+X`       |
+  +-------------------------------------------------------+---------------------+
+  | **Paste** copied keyword name in Alyvix selector      | :kbd:`CTRL+V`       |
   +-------------------------------------------------------+---------------------+
   | **Paste** selected cell/row(s)                        | :kbd:`CTRL+V`       |
   +-------------------------------------------------------+---------------------+
@@ -86,6 +90,8 @@ The most useful *editor and Alyvix shortcuts* are the following ones:
   | **Insert** a blank **row** above the selected row     | :kbd:`CTRL+I`       |
   +-------------------------------------------------------+---------------------+
   | **Insert** a blank **cell** left to the selected cell | :kbd:`CTRL+SHIFT+I` |
+  +-------------------------------------------------------+---------------------+
+  | **Delete** selected keyword in Alyvix selector        | :kbd:`CTRL+D`       |
   +-------------------------------------------------------+---------------------+
   | **Delete** the selected :strong:`row`\ (s)            | :kbd:`CTRL+D`       |
   +-------------------------------------------------------+---------------------+

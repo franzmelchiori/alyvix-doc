@@ -416,6 +416,12 @@ To define such keywords follow these steps:
     7. click the *OK* button to save the keyword.
 
 
+.. _visual_keywords-text_scraper:
+
+Text Scraper
+------------
+
+
 .. _visual_keywords-object_finder:
 
 Object Finder
