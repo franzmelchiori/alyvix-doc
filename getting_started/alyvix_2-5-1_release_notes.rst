@@ -24,8 +24,8 @@ The :ref:`NATS mode<system_keywords-performance_keywords-publish_perfdata-nats_m
 
     * publishing each transaction performance as a point in InfluxDB
     * caching system of performance points (storing and resending them) in case of failed connections with NATS
-    * ``Add Perfdata Tag`` adds a `custom tag<system_keywords-performance_keywords-add_perfdata_tag>` to a performance point
-    * ``Add Perfdata Field`` adds a `custom field<system_keywords-performance_keywords-add_perfdata_field>` to a performance point
+    * ``Add Perfdata Tag`` adds a :ref:`custom tag<system_keywords-performance_keywords-add_perfdata_tag>` to a performance point
+    * ``Add Perfdata Field`` adds a :ref:`custom field<system_keywords-performance_keywords-add_perfdata_field>` to a performance point
 
         .. image:: pictures\alyvix_release_notes_2-5-1_nats.png
 

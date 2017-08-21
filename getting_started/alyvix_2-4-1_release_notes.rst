@@ -29,7 +29,7 @@ In the Alyvix finder GUIs it is now possible to select the exact point where Aly
 
 .. _alyvix_2-4-1_release_notes_drag_n_drop:
 
-Drag ‘n’ Drop
+Drag 'n' Drop
 -------------
 
 Besides clicking, it is now possible to let Alyvix drag and drop GUI elements:

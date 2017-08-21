@@ -62,8 +62,6 @@ Store Scrapdata
 
 At the end of a test case, if you call the :ref:`Store Scrapdata <system_keywords-performance_keywords-store_scrapdata>` system keyword, you can **store the scraped text in a database** setting the folder path and the file name of the database. The test case databases are made of tables, one for each scraper. The SQL databases can be explored with a regular database browser (e.g. DB Browser for SQLite).
 
-  .. image:: pictures/output_database_01.png
-
 
 .. _database_structure-keyword_name_table:
 
