@@ -49,7 +49,7 @@ Example
 
         .. code-block:: bat
 
-            call alyvix_pybot "C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot" --outputdir "C:\alyvix_reports\test\"
+            call alyvix_pybot C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot --outputdir C:\alyvix_reports\test\
             pause
 
         .. image:: C:\projects\_alyvix\documents\alyvix-doc\test_case_execution\pictures\alyvix_script_01_test_cmd_output.PNG

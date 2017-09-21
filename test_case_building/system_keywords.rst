@@ -248,6 +248,10 @@ Send Keys
     +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
     | :literal:`{}}`                                  | **}**                                                                                               |
     +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{(}`                                  | **(**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
+    | :literal:`{)}`                                  | **)**                                                                                               |
+    +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
     | :literal:`{Backspace}`                          | **Backspace** key                                                                                   |
     +-------------------------------------------------+-----------------------------------------------------------------------------------------------------+
     | :literal:`{Del}`                                | **Delete** key                                                                                      |
@@ -422,7 +426,35 @@ Example:
 .. warning::
     Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
 
-*Store Perfdata* **saves the test case data in a SQL database** file with a proper :ref:`database structure <database_structure>`. New data are added to past database entries (that comes from previous test case executions): in this way, Alyvix probes can keep track of test case data.
+*Store Perfdata* **saves the test case data in a SQL database** file with a proper :ref:`database structure <database_structure-store_perfdata>`. New data are added to past database entries (that comes from previous test case executions): in this way, Alyvix probes can keep track of test case data.
+
+
+.. _system_keywords-performance_keywords-store_scrapdata:
+
+Store Scrapdata
+---------------
+
+    +---------------------+----------------------------+
+    | ``Store Scrapdata`` | ``dbname=<database_path>`` |
+    +---------------------+----------------------------+
+
+    * Default values: ``dbname=<testcase_path>\\<testcase_name>.db``.
+
+
+Example:
+
+    +---------------------+
+    | ``Store Scrapdata`` |
+    +---------------------+
+
+    +---------------------+----------------------------------------------+
+    | ``Store Scrapdata`` | ``C:\\alyvix_testcases\\citrix_word.sqlite`` |
+    +---------------------+----------------------------------------------+
+
+.. warning::
+    Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
+
+*Store Scrapdata* **saves the scraped text in a SQL database** file with a proper :ref:`database structure <database_structure-store_scrapdata>`. New scraped text is added after each scraper execution.
 
 
 .. _system_keywords-performance_keywords-publish_perfdata:
@@ -430,11 +462,17 @@ Example:
 Publish Perfdata
 ----------------
 
-    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
-    | ``Publish Perfdata`` | ``type={csv, perfmon}`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` | ``testcase_name=<testcase_name_to_list>`` | ``max_age=<database_data_max_age>`` |
-    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
-    |                      |                         | just for ``type=csv``                            | just for ``type=csv``                  | just for ``type=csv``                   | just for ``type=csv``        | just for ``type=perfmon``                 | just for ``type=perfmon``           |
-    +----------------------+-------------------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+-------------------------------------------+-------------------------------------+
+    +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
+    | ``Publish Perfdata`` | ``type=csv`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` |
+    +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
+
+    +----------------------+------------------+-------------------------------------------+-------------------------------------+
+    | ``Publish Perfdata`` | ``type=perfmon`` | ``testcase_name=<testcase_name_to_list>`` | ``max_age=<database_data_max_age>`` |
+    +----------------------+------------------+-------------------------------------------+-------------------------------------+
+
+    +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
+    | ``Publish Perfdata`` | ``type=nats`` | ``server=<ip_address>`` | ``port=<port_number>`` | ``subject=<database_name>`` | ``measurement=<table_name>`` |
+    +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
 
     * Default values: ``type=csv``, ``filename=<testcase_path>\\<testcase_name>.csv``, ``suffix=None``, ``testcase_name=<testcase_name>``, ``max_age=24``
 
@@ -456,6 +494,10 @@ Example:
     | ``Publish Perfdata`` | ``type=perfmon`` |
     +----------------------+------------------+
 
+    +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
+    | ``Publish Perfdata`` | ``type=nats`` | ``server=127.0.0.1`` | ``port=4222`` | ``subject=customer`` | ``measurement=alyvix`` |
+    +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
+
 .. warning::
     Type the **CSV file path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\<csv_filename>.csv``).
 
@@ -465,14 +507,40 @@ Example:
 .. warning::
     If Alyvix has been installed correctly, the **Alyvix Wpm Service has to run as a background service**, which is necessary to publish test case data in Windows Performance Monitor.
 
-*Publish Perfdata* **publishes test case data in CSV file or in Windows Performance Monitor**.
+*Publish Perfdata* **publishes test case data in CSV file, in Windows Performance Monitor or in InfluxDB (through NATS and Telegraf)**.
+
+.. _system_keywords-performance_keywords-publish_perfdata-csv_mode:
+
+CSV mode
+^^^^^^^^
 
 ``type=csv`` takes mandatory ``start_date`` and ``end_date`` (in the format ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days``, ``<n> hours`` and ``now`` just as end date). It can also take an optional path to the CSV ``filename`` to save with or without a timestamp ``suffix``.
+
+.. _system_keywords-performance_keywords-publish_perfdata-perfmon_mode:
+
+Perfmon mode
+^^^^^^^^^^^^
 
 ``type=perfmon`` takes an optional ``testcase_name`` to list in Windows Performance Monitor and a ``max_age`` amount of hours as maximum range of past hours for data to consider. In this case, Alyvix test case data will be available in the list of WPM metrics to add, as ``Alyvix - <testcase_name>``.
 
 .. note::
     You can have a look at the list of test case databases that are publishing in WPM reading the following file ``C:\Anaconda2\Lib\site-packages\`` ``alyvix\extra\`` ``alyvixservice.ini``.
+
+.. _system_keywords-performance_keywords-publish_perfdata-nats_mode:
+
+NATS mode
+^^^^^^^^^
+
+``type=nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and flush to a NATS server all the collected performance in the following format, which is the `InfluxDB's Line Protocol <https://docs.influxdata.com/influxdb/v1.3/write_protocols/line_protocol_tutorial/>`_:
+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | ``<measurement>,<tag_1>,..,<tag_n>``                                                                                                                                                      | ``<field_1>,..,<field_n>``                                                                                                                                                            | ``<timestamp>``                   |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | ``<table_name>,username=<windows_username>,host=<machine_hostname>,test_name=<testcase_name>,transaction_name=<transaction_name>,state={ok, warning, critical, timed_out, not_executed}`` | ``warning_threshold=<milliseconds>,critical_threshold=<milliseconds>,timeout_threshold=<milliseconds>,performance=<milliseconds>,cumulative=<milliseconds>,error_level={0, 1, 2, 3}`` | ``<nanoseconds_epoch_timestamp>`` |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+
+.. note::
+    Points must be in **Line Protocol format for InfluxDB** to successfully parse and write points. A single line of Line Protocol represents one data point in InfluxDB. It informs InfluxDB of the point's measurement, tag set, field set, and timestamp. The code block above shows a sample of Line Protocol and breaks it into its individual components.
 
 
 .. _system_keywords-performance_keywords-rename_perfdata:
@@ -532,6 +600,46 @@ Example:
 
 .. note::
     At the end of the test, before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>`, it could be the case to :ref:`delete the old partial variables <system_keywords-performance_keywords-delete_perfdata>`.
+
+
+.. _system_keywords-performance_keywords-add_perfdata_tag:
+
+Add Perfdata Tag
+----------------
+
+    +----------------------+----------------------------------+-------------------------+---------------------------+
+    | ``Add Perfdata Tag`` | ``perf_name={<perf_name>, all}`` | ``tag_name=<tag_name>`` | ``tag_value=<tag_value>`` |
+    +----------------------+----------------------------------+-------------------------+---------------------------+
+
+Example:
+
+    +----------------------+-------------------------------+-------------------------+---------------------+
+    | ``Add Perfdata Tag`` | ``perf_name=ax12_home_ready`` | ``tag_name=aos_name``   | ``tag_value=bla01`` |
+    +----------------------+-------------------------------+-------------------------+---------------------+
+    | ``Add Perfdata Tag`` | ``perf_name=all``             | ``tag_name=id_session`` | ``tag_value=1``     |
+    +----------------------+-------------------------------+-------------------------+---------------------+
+
+*Add Perfdata Tag* **adds a custom tag to** a performance point or to all **performance points** of a test case. It could be useful for publishing performance in :ref:`NATS mode<system_keywords-performance_keywords-publish_perfdata-nats_mode>`.
+
+
+.. _system_keywords-performance_keywords-add_perfdata_field:
+
+Add Perfdata Field
+------------------
+
+    +------------------------+----------------------------------+-----------------------------+-------------------------------+
+    | ``Add Perfdata Field`` | ``perf_name={<perf_name>, all}`` | ``field_name=<field_name>`` | ``field_value=<field_value>`` |
+    +------------------------+----------------------------------+-----------------------------+-------------------------------+
+
+Example:
+
+    +------------------------+-------------------------------+---------------------------+-----------------------+
+    | ``Add Perfdata Field`` | ``perf_name=ax12_home_ready`` | ``field_name=aos_name``   | ``field_value=bla01`` |
+    +------------------------+-------------------------------+---------------------------+-----------------------+
+    | ``Add Perfdata Field`` | ``perf_name=all``             | ``field_name=id_session`` | ``field_value=1``     |
+    +------------------------+-------------------------------+---------------------------+-----------------------+
+
+*Add Perfdata Field* **adds a custom field to** a performance point or to all **performance points** of a test case. It could be useful for publishing performance in :ref:`NATS mode<system_keywords-performance_keywords-publish_perfdata-nats_mode>`.
 
 
 .. _system_keywords-performance_keywords-get_perfdata:

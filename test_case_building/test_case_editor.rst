@@ -75,11 +75,15 @@ The most useful *editor and Alyvix shortcuts* are the following ones:
   +-------------------------------------------------------+---------------------+
   | Undo **Alyvix** visual selections                     | :kbd:`CTRL+Z`       |
   +-------------------------------------------------------+---------------------+
-  | **Copy** selected cell/row(s)                         | :kbd:`CTRL+C`       |
+  | **Copy** selected **keyword name** in Alyvix selector | :kbd:`CTRL+C`       |
+  +-------------------------------------------------------+---------------------+
+  | **Copy** selected **cell/row(s)**                     | :kbd:`CTRL+C`       |
   +-------------------------------------------------------+---------------------+
   | **Cut** selected cell/row(s)                          | :kbd:`CTRL+X`       |
   +-------------------------------------------------------+---------------------+
-  | **Paste** selected cell/row(s)                        | :kbd:`CTRL+V`       |
+  | **Paste** copied **keyword name** in Alyvix selector  | :kbd:`CTRL+V`       |
+  +-------------------------------------------------------+---------------------+
+  | **Paste** selected **cell/row(s)**                    | :kbd:`CTRL+V`       |
   +-------------------------------------------------------+---------------------+
   | **Undo** last operation                               | :kbd:`CTRL+Z`       |
   +-------------------------------------------------------+---------------------+
@@ -87,9 +91,11 @@ The most useful *editor and Alyvix shortcuts* are the following ones:
   +-------------------------------------------------------+---------------------+
   | **Insert** a blank **cell** left to the selected cell | :kbd:`CTRL+SHIFT+I` |
   +-------------------------------------------------------+---------------------+
-  | **Delete** the selected :strong:`row`\ (s)            | :kbd:`CTRL+D`       |
+  | **Delete** selected **keyword** in Alyvix selector    | :kbd:`CTRL+D`       |
   +-------------------------------------------------------+---------------------+
-  | **Delete** the selected :strong:`cell`\ (s)           | :kbd:`CTRL+SHIFT+D` |
+  | **Delete** the selected **row(s)**                    | :kbd:`CTRL+D`       |
+  +-------------------------------------------------------+---------------------+
+  | **Delete** the selected **row(s)**                    | :kbd:`CTRL+SHIFT+D` |
   +-------------------------------------------------------+---------------------+
   | **Move up** the selected row(s)                       | :kbd:`ALT+↑`        |
   +-------------------------------------------------------+---------------------+

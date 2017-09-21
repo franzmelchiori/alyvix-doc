@@ -13,7 +13,7 @@ Keyword definition
 The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector of visual keywords** (that has been previously defined by the user) for the current test case (e.g. ``alyvix_website``, so that its keyword library would be ``AlyvixProxyalyvix_website`` ``.py``). The selector shows the name and the type of each keyword: *[IF]* means :ref:`Image Finder <visual_keywords-image_finder>`, *[RF]* means :ref:`Rect Finder <visual_keywords-rect_finder>`, *[TF]* means :ref:`Text Finder <visual_keywords-text_finder>` and *[OF]* stays for :ref:`Object Finder <visual_keywords-object_finder>`.
 
 .. note::
-    *Imported keywords* from other *Alyvix test case libraries* (e.g. ``citrix_outlook``, so that its keyword library would be ``AlyvixProxycitrix_outlook`` ``.py``) are *not* listed in the selector window. You can edit keywords in a certain test case library just opening that test case.
+    *Imported keywords* from other *Alyvix test case libraries* (e.g. ``citrix_outlook``, so that its keyword library would be ``AlyvixProxycitrix_outlook`` ``.py``) are *not* listed in the selector window. You can edit keywords in a certain test case library just opening that test case
 
 ..
 
@@ -257,7 +257,7 @@ Click on the *Reset Point* button to reset the interaction point at the center o
     ..
 
         .. note::
-            To drag'n'drop a GUI element (look at the example above) it is necessary to set the *Hold* mode for **a target component** (e.g. file icon) and the *Release* mode for **another destination component** (e.g. folder icon).
+            To drag'n'drop a GUI element (look at the example above) it is necessary to set the *Hold* mode for **a target component** (e.g. file icon) and the *Release* mode for **another destination component** (e.g. folder icon)
 
     * *Release Up*: the pointer will press and hold the component, that will then be released towards up of an amount of pixels (to set in the spin box on the right);
     * *Release Down*: the pointer will press and hold the component, that will then be released towards down of an amount of pixels (to set in the spin box on the right);
@@ -321,17 +321,17 @@ To define such keywords follow these steps:
     1. select the Image Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
     2. select :ref:`main and sub components <visual_keywords-image_definition>` of the selected Finder;
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
-    4. The *Image Finder* features a spin box to set the **visual likelihood threshold** for the selected component. You can set a number between 0 and 1, with two decimal places. The default value is ``0.70`` and it works just fine most of the cases;
+    4. the *Image Finder* features a spin box to set the **visual likelihood threshold** for the selected component. You can set a number between 0 and 1, with two decimal places. The default value is ``0.70`` and it works just fine most of the cases;
 
         .. image:: pictures/ride_06ab_image_finder.png
 
     ..
 
         .. note::
-            To **disambiguate graphical elements** in a transaction, it is better to **add more components** instead of increasing the visual likelihood threshold.
+            To **disambiguate graphical elements** in a transaction, it is better to **add more components** instead of increasing the visual likelihood threshold
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
-    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
+    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
     7. click the *OK* button to save the keyword.
 
 
@@ -349,9 +349,9 @@ To define such keywords follow these steps:
     1. select the Rect Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
     2. select :ref:`main and sub components <visual_keywords-rect_definition>` of the selected Finder;
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
-    4. The *Rect Finder* features the controls to set the **allowed boundaries** of those rectangles that you want to detect.
+    4. the *Rect Finder* features the controls to set the **allowed boundaries** of those rectangles that you want to detect;
 
-        1. There are 2 modes to define valid rectangles: **Sizing** and **Tolerance** areas. Click on the radio button of one them.
+        1. there are 2 modes to define valid rectangles: **Sizing** and **Tolerance** areas. Click on the radio button of one them;
 
         ..
 
@@ -359,18 +359,18 @@ To define such keywords follow these steps:
 
         ..
 
-        2. Tick the *Show* check box of the selected mode to see the ongoing tuning of valid rectangle areas.
-        3. Type integer numbers, click spin boxes or scroll mouse wheel to **tune the violet area** for the selected component. The rectangle contours on screen (or in region of interests for sub components) that fit into the allowed boundaries will be taken into account by Alyvix (i.e. during the keyword execution).
+        2. tick the *Show* check box of the selected mode to see the ongoing tuning of valid rectangle areas;
+        3. type integer numbers, click spin boxes or scroll mouse wheel to **tune the violet area** for the selected component. The rectangle contours on screen (or in region of interests for sub components) that fit into the allowed boundaries will be taken into account by Alyvix (i.e. during the keyword execution);
 
             .. image:: pictures/ride_08b_rect_finder.png
 
         ..
 
             .. note::
-                 **Sizing** mode is generally better for text boxes and **Tolerance** mode for buttons.
+                 **Sizing** mode is generally better for text boxes and **Tolerance** mode for buttons
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
-    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
+    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
     7. click the *OK* button to save the keyword.
 
 
@@ -379,40 +379,40 @@ To define such keywords follow these steps:
 Text Finder
 -----------
 
-*Text Finders* produce Alyvix visual keywords that are able to detect and interact with **text** (e.g. button text, icon text). This is the *Text Finder* dialog:
+*Text Finders* produce Alyvix visual keywords that are able to **detect and interact with text** (e.g. button text, icon text). This is the *Text Finder* dialog:
 
     .. image:: pictures/ride_09_text_finder.png
 
 To define such keywords follow these steps:
 
     1. select the Text Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
-    2. select :ref:`main and sub components <visual_keywords-text_definition>` of the selected Finder;
+    2. select :ref:`main and sub components <visual_keywords-text_definition>` of the selected Finder and press :kbd:`CTRL+O`;
 
     ..
 
         .. note::
-            The Text Finder is designed to **primarly work in the ROI (region of interest) of the main component** as a fixed spot and not through out all the screen as the Image and Rect Finders. In fact, unlike the other Finders, you have also to select the ROI of the main component. So that, executing a Text Finder keyword alone, the text to match will be searched in the fixed ROI areas of its components. Thanks to the :ref:`Object Finders <visual_keywords-object_finder>` you can search text in a position that is related to other graphic elements (i.e. images, rectangles).
+            The Text Finder is designed to **primarly work in the ROI (region of interest) of the main component** as a fixed spot and not through out all the screen as the Image and Rect Finders. In fact, unlike the other Finders, you have also to select the ROI of the main component. So that, executing a Text Finder keyword alone, the text to match will be searched in the fixed ROI areas of its components. Thanks to the :ref:`Object Finders <visual_keywords-object_finder>` you can search text in a position that is related to other graphic elements (i.e. images, rectangles)
 
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
-    4. The *Text Finder* features the properties to set the **regular expression** for matching the text (e.g. label, chunk) that you want to detect.
+    4. the *Text Finder* features the properties to set the **regular expression** for matching the text (e.g. label, chunk) that you want to detect;
 
-        * In the *Text* box you can insert a case insensitive **text string** (e.g. ``name``) as well as a **regular expression** (e.g. ``.*ame``). During the keyword execution, Alyvix will try to properly match that entry with the text within the ROI of the selected component.
-        * In the *Text* box you can also use **arguments** passing text strings or regular expressions from the keyword arguments. :ref:`Add one or more arguements <visual_keywords-name_components>`, type ``arg1``, ``arg2``, etc. in the *Text* box and untick *Quotes*.
-        * Click on the *Check* button to have a preview of what the OCR scanner will detect in the ROI of the selected component: *CRITICAL* means Alyvix is not able to match the regular expression you have provided, *EXCELLENT* instead means the text component can be found.
+        * In the *Text* box you can insert a case insensitive **text string** (e.g. ``name``) as well as a **regular expression** (e.g. ``.*ame``). During the keyword execution, Alyvix will try to properly match that entry with the text within the ROI of the selected component;
+        * In the *Text* box you can also use **arguments** passing text strings or regular expressions from the keyword arguments. :ref:`Add one or more arguements <visual_keywords-name_components>`, type ``arg1``, ``arg2``, etc. in the *Text* box and untick *Quotes*;
+        * Click on the *Check* button to have a preview of what the OCR scanner will detect in the ROI of the selected component: *CRITICAL* means Alyvix is not able to match the regular expression you have provided, *EXCELLENT* instead means the text component can be found;
 
             ..
 
         ..
 
             .. note::
-                As a general rule of thumb, try to **wrap uniform text with ROI** in order to obtain a **more accurate character recognition**. Sometimes though, you could suffer a poor character recognition (e.g. ``8`` instead of ``B``, ``1`` instead of ``t``): in these cases work on the regular expression to correct the detection.
+                As a general rule of thumb, try to **wrap uniform text with ROI** in order to obtain a **more accurate character recognition**. Sometimes though, you could suffer a poor character recognition (e.g. ``8`` instead of ``B``, ``1`` instead of ``t``): in these cases work on the regular expression to correct the detection
 
-        * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the recognition to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German).
+        * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the recognition to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
 
             .. image:: pictures/ride_09b_text_finder.png
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
-    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`.
+    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
     7. click the *OK* button to save the keyword.
 
 
@@ -437,7 +437,7 @@ To define such keywords follow these steps:
     ..
 
         .. note::
-            It is not possible to choose a *Text Finder [TF]* as the main component of an *Object Finder*, because it would not make sense: the *Text Finder* is designed to primarly search text in the fixed ROI (region of interest) area of its main component.
+            It is not possible to choose a *Text Finder [TF]* as the main component of an *Object Finder*, because it would not make sense: the *Text Finder* is designed to primarly search text in the fixed ROI (region of interest) area of its main component
 
     5. click on *Add Sub* button to select a sub component: a list of the defined Finders will appear from where choose an *Image Finders [IF]*, a *Rect Finders [RF]* and a *Text Finders [TF]*; you can add more sub components clicking on *Add Sub* every time;
 
@@ -446,7 +446,7 @@ To define such keywords follow these steps:
     ..
 
         .. note::
-            Select the main component and click on the *Edit* button to edit its definition; you can do the same for each sub component as well as redraw its ROI (*ROI Redraw* button) and remove it (*Remove* button).
+            Select the main component and click on the *Edit* button to edit its definition; you can do the same for each sub component as well as redraw its ROI (*ROI Redraw* button) and remove it (*Remove* button)
 
             ..
 
@@ -464,3 +464,43 @@ Also an *Object Finder* made of a *RF* and a *TF* (with its argument) is useful:
 ..
 
     .. image:: pictures/ride_10cb_object_finder.png
+
+
+.. _visual_keywords-alyvix_scrapers:
+
+Alyvix Scrapers
+===============
+
+
+.. _visual_keywords-text_scraper:
+
+Text Scraper
+------------
+
+*Text Scrapers* produce Alyvix visual keywords that are able to **scrap text** (e.g. window titles, text chunks). This is the *Text Scraper* dialog:
+
+    .. image:: pictures/ride_09c_text_scraper.png
+
+To define such keywords follow these steps:
+
+    1. select the Text Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
+    2. select the :ref:`main component <visual_keywords-text_definition>` of the scraper (i.e. ROI and selection) and press :kbd:`CTRL+O`;
+    3. type the :ref:`keyword name <visual_keywords-name_components>` and tick *Scraper*;
+    4. the *Text Scraper* features the properties for scraping the text that you want to scrap;
+
+        * Click on the *Check* button to have a preview of what the OCR scanner will scrap in the ROI of the main component;
+
+            ..
+
+        ..
+
+            .. note::
+                As a general rule of thumb, try to **wrap uniform text with ROI** in order to obtain a **more accurate character scraping**
+
+        ..
+
+        * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the scraping to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
+
+            .. image:: pictures/ride_09d_text_scraper.png
+
+    5. click the *OK* button to save the keyword.
