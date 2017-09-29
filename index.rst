@@ -2,7 +2,7 @@
 Visual Synthetic Monitoring
 ###########################
 
-This is the official documentation of Alyvix.
+This is the official documentation of **Alyvix**.
 
 Alyvix is a **synthetic monitoring system based on computer vision**. Alyvix synthesizes real users without being hardwired to application engines.
 
@@ -12,7 +12,7 @@ Alyvix is a **synthetic monitoring system based on computer vision**. Alyvix syn
 
 Alyvix provides **certifications on user perceived quality of IT services**. Alyvix certifies that users are able to successfully complete a certain application task.
 
-Get started with Alyvix!
+:ref:`Get started with Alyvix!<install_with_internet>`
 
 
 =================
@@ -46,6 +46,7 @@ Documentation contents
    test_case_building.rst
    test_case_execution.rst
    test_case_output.rst
+   troubleshooting.rst
    get_in_touch.rst
 
 

@@ -781,6 +781,8 @@ Example:
     +---------------------+-------------------------------------------+---------------+
     | ``Set Alyvix Info`` | ``name=ACTIONS DELAY``                    | ``value=0.5`` |
     +---------------------+-------------------------------------------+---------------+
+    | ``Set Alyvix Info`` | ``name=channel``                          | ``value=r``   |
+    +---------------------+-------------------------------------------+---------------+
 
 .. warning::
     Type the **setting values between** ``${`` **and** ``}`` (e.g. ``${0.25}``); they are intended as **values in milliseconds**.
@@ -798,3 +800,5 @@ Example:
     * ``FINDER THREAD INTERVAL DISAPPEAR`` redefines the amount of seconds (e.g. ``${0.5}``) that Alyvix takes between attempts to detect the disappearance of graphic elements; you can consider this setting as the measurement accuracy of the graphic disappearance detection; the default value is ``0.5``;
 
     * ``ACTIONS DELAY`` to redefine the amount of seconds (e.g. ``${0.5}``) that Alyvix takes after each interaction step; the default value is ``2``.
+
+    * ``channel`` to select just one single color channel (``r`` as red, ``g`` as green or ``b`` as blue) and cutoff the other two; the default value is ``all``.
