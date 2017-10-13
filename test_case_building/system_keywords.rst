@@ -283,19 +283,19 @@ Send Keys
 
 Example:
 
-    +---------------+----------------+---------------------+
-    | ``Send Keys`` | ``admin{Tab}`` |                     |
-    +---------------+----------------+---------------------+
-    | ``Send Keys`` | ``admin``      | ``encrypted=False`` |
-    +---------------+----------------+---------------------+
-    | ``Send Keys`` | ``{Enter}``    |                     |
-    +---------------+----------------+---------------------+
+    +---------------+----------------------------+---------------------+------------------+
+    | ``Send Keys`` | ``admin{Tab}``             |                     |                  |
+    +---------------+----------------------------+---------------------+------------------+
+    | ``Send Keys`` | ``admin``                  | ``encrypted=False`` |                  |
+    +---------------+----------------------------+---------------------+------------------+
+    | ``Send Keys`` | ``{Enter}``                |                     |                  |
+    +---------------+----------------------------+---------------------+------------------+
+    | ``Send Keys`` | ``info@alyvix.com``        | ``delay=200``       | ``duration=200`` |
+    +---------------+----------------------------+---------------------+------------------+
+    | ``Send Keys`` | ``{Alt Down}{F4}{Alt Up}`` |                     |                  |
+    +---------------+----------------------------+---------------------+------------------+
 
-    +---------------+----------------------------+
-    | ``Send Keys`` | ``{Alt Down}{F4}{Alt Up}`` |
-    +---------------+----------------------------+
-
-*Send Keys* **types a sequence of keystrokes** to the active window where the focus is: regular characters (letters and numbers) can be stated as they are, while special keys have to be enclosed in braces (have a look at the table of the key syntax, e.g. ``{enter}``). The encrypted option can be activated (i.e. ``encrypted=True``) in case the string of keystrokes has been encrypted using the Alyvix :ref:`encryption tool <encryption_tool>`.
+*Send Keys* **types a sequence of keystrokes** to the active window where the focus is: regular characters (letters and numbers) can be stated as they are, while special keys have to be enclosed in braces (have a look at the table of the key syntax, e.g. ``{enter}``). The encrypted option can be activated (i.e. ``encrypted=True``) in case the string of keystrokes has been encrypted using the Alyvix :ref:`encryption tool <encryption_tool>`. *Delays [ms]* sets the sleep intervals (in milliseconds) between keys. *Duration [ms]* sets how long (in milliseconds) keys are going to be pressed.
 
 
 .. _system_keywords-io_keywords-mouse_scroll:

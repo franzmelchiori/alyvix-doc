@@ -5,6 +5,36 @@ Install issues
 **************
 
 
+.. _install_issues-pywin32_module:
+
+PyWin32 module
+==============
+
+In case you are **installing Alyvix** on a distribution of **Anaconda older than the 5.0.0 version** (e.g. 4.4.0), :ref:`RIDE<testcase_editor-basic_operations>` could rise an **error about the win32ui module**.
+
+    .. code-block:: bat
+
+        Traceback (most recent call last):
+          File "C:\Anaconda2\lib\site-packages\alyvix\robotproxy\alyvixlib.py", line 22, in <module>
+            from alyvixcommon import *
+          File "C:\Anaconda2\lib\site-packages\alyvix\robotproxy\alyvixcommon.py", line 25, in <module>
+            from alyvix.devices.keyboard import KeyboardManager
+          File "C:\Anaconda2\lib\site-packages\alyvix\__init__.py", line 22, in <module>
+            from alyvix.tools.info import InfoManager
+          File "C:\Anaconda2\lib\site-packages\alyvix\tools\info.py", line 22, in <module>
+            from alyvix.tools.screen import ScreenManager
+          File "C:\Anaconda2\lib\site-packages\alyvix\tools\screen\__init__.py", line 31, in <module>
+            from windows import ScreenManager
+          File "C:\Anaconda2\lib\site-packages\alyvix\tools\screen\windows.py", line 24, in <module>
+            import win32ui
+
+The solution is **install the PyWin32 package**:
+
+    1. download ``pywin32-221.win-amd64-py2.7.exe`` `here <https://sourceforge.net/projects/pywin32/files/pywin32/Build%20221/pywin32-221.win-amd64-py2.7.exe/download>`_;
+
+    2. run ``pywin32-221.win-amd64-py2.7.exe`` to install the **PyWin32 build 221**.
+
+
 .. _install_issues-sip_module:
 
 SIP module
