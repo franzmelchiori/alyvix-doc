@@ -57,6 +57,9 @@ To correctly define a unique keyword, it is necessary to **select the green sign
 
     .. image:: pictures/image_finder_selection.gif
 
+.. note::
+    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
+
 
 .. _visual_keywords-rect_definition:
 
@@ -82,6 +85,9 @@ To correctly define a unique keyword, it is necessary to **select the OK button 
     5. press :kbd:`CTRL+O` to set the :ref:`RF keyword properties <visual_keywords-rect_finder>`.
 
     .. image:: pictures/rect_finder_selection.gif
+
+.. note::
+    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
 
 
 .. _visual_keywords-text_definition:
@@ -115,6 +121,9 @@ To correctly define a unique keyword, it is necessary to **select the "Franz" te
 
     .. image:: pictures/text_finder_selection.gif
 
+.. note::
+    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
+
 
 .. _visual_keywords-object_definition:
 
@@ -147,6 +156,9 @@ To correctly define a unique keyword, it is necessary to **select the "Franz" te
     5. press :kbd:`CTRL+O` to set the :ref:`OF keyword properties <visual_keywords-object_finder>`.
 
     .. image:: pictures/object_finder_selection.gif
+
+.. note::
+    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
 
 
 .. _visual_keywords-name_components:
@@ -233,7 +245,7 @@ Interaction settings
 
 In the interaction section of each *Alyvix Finder*, you can set an **interaction mode** for the :ref:`selected main or sub component <visual_keywords-name_components>` of the keyword that you are defining.
 
-    .. image:: pictures/ride_11d_alyvix_2-4-1_gui_interaction.png
+    .. image:: pictures/ride_11d_alyvix_2-5-2_gui_interaction.png
 
 Selecting **Click** or **Right Click**, Alyvix will bring the mouse pointer over the detected component and press the left or the right button of the mouse. It is possible to set the number of *Clicks* and adjust *Delays* as the amount of milliseconds between clicks.
 
@@ -289,6 +301,8 @@ It is even possible to bring strings, :ref:`shortcuts <system_keywords-io_keywor
 
 .. warning::
     Also in this case, remember to untick *Quotes* and to add one or more *Arguments*.
+
+*Delays [ms]* sets the sleep intervals (in milliseconds) between keys. *Duration [ms]* sets how long (in milliseconds) keys are going to be pressed.
 
 
 .. _visual_keywords-alyvix_finders:
