@@ -10,7 +10,7 @@ Database structure
 Store Perfdata
 ==============
 
-At the end of a test case, if you call the :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>` system keyword, you can **store the test case data in a database** setting the folder path and the file name of each database (e.g. ``C:\Anaconda2\Lib\site-packages\`` ``alyvix\robotproxy\`` ``alyvix_testcases\``). The test case databases are made of 4 tables: :ref:`runs <database_structure-runs_table>`, :ref:`sorting <database_structure-sorting_table>`, :ref:`thresholds <database_structure-thresholds_table>`, :ref:`timestamp <database_structure-timestamp_table>`. The SQL databases can be explored with a regular database browser (e.g. DB Browser for SQLite).
+At the end of a test case, if you call the :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>` system keyword, you can **store the test case data in a database** setting the folder path and the file name of each database (e.g. ``C:\Python27\Lib\site-packages\`` ``alyvix\robotproxy\`` ``alyvix_testcases\``). The test case databases are made of 4 tables: :ref:`runs <database_structure-runs_table>`, :ref:`sorting <database_structure-sorting_table>`, :ref:`thresholds <database_structure-thresholds_table>`, :ref:`timestamp <database_structure-timestamp_table>`. The SQL databases can be explored with a regular database browser (e.g. DB Browser for SQLite).
 
   .. image:: pictures/output_database_01.png
 

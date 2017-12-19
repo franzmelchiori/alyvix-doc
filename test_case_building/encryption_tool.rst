@@ -12,4 +12,4 @@ Alyvix Crypto Utility
 
     .. code-block:: bat
 
-        C:\Anaconda2\Scripts\alyvix_crypto_utility.bat
+        C:\Python27\Scripts\alyvix_crypto_utility.bat

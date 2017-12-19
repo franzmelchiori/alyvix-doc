@@ -20,9 +20,9 @@ Synopsis
 Description
 -----------
 
-    ``alyvix_pybot`` is an **Alyvix CLI tool**, stored in ``C:\Anaconda2\Scripts\``, that is able to **run a test case** out of :ref:`RIDE <testcase_editor>` **for scripting purposes**.
+    ``alyvix_pybot`` is an **Alyvix CLI tool**, stored in ``C:\Python27\Scripts\``, that is able to **run a test case** out of :ref:`RIDE <testcase_editor>` **for scripting purposes**.
 
-    It needs a valid **Alyvix test case** ``.robot`` file (build with :ref:`RIDE <testcase_editor>`) providing its ``<testcase_path>`` (e.g. ``C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot``)
+    It needs a valid **Alyvix test case** ``.robot`` file (build with :ref:`RIDE <testcase_editor>`) providing its ``<testcase_path>`` (e.g. ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot``)
 
     At the end of a test case execution, ``alyvix_pybot`` prints out the :ref:`performance message <commandline_output>` in the Command Prompt.
 
@@ -49,7 +49,7 @@ Example
 
         .. code-block:: bat
 
-            call alyvix_pybot C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot --outputdir C:\alyvix_reports\test\
+            call alyvix_pybot C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot --outputdir C:\alyvix_reports\test\
             pause
 
-        .. image:: C:\projects\_alyvix\documents\alyvix-doc\test_case_execution\pictures\alyvix_script_01_test_cmd_output.PNG
+        .. image:: pictures\alyvix_script_01_test_cmd_output.png
