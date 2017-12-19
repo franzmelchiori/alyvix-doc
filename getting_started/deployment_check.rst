@@ -4,13 +4,13 @@ Deployment check
 
 Follow these steps to be sure that everything is well deployed and works fine:
 
-  1. run **Command Prompt**, execute the following command and check the presence of *alyvix 2.5.1 py27_1* as installed conda package: ``conda list alyvix``
+  1. run **Command Prompt**, execute the following command and check the presence of *alyvix 2.5.3* as installed ``pip`` package: ``pip show alyvix``
 
-  2. browse Anaconda folder ``C:\Anaconda2\Lib\site-packages\alyvix\robotproxy`` (where Alyvix will save your test case .py libraries of keywords) and create the folder ``\alyvix_testcases``, where you will save your test case .robot scripts
+  2. browse Python folder ``C:\Python27\Lib\site-packages\alyvix\robotproxy`` (where Alyvix will save your test case .py libraries of keywords) and create the folder ``\alyvix_testcases``, where you will save your test case .robot scripts
 
-  3. run **RIDE**, the Alyvix test case editor, running ``C:\Anaconda2\Scripts\RIDE.lnk``: it could be useful to send its shortcut to the desktop or the taskbar
+  3. run **RIDE**, the Alyvix test case editor, running ``C:\Python27\Scripts\RIDE.lnk``: it could be useful to send its shortcut to the desktop or the taskbar
 
-  4. create a *New Project*, clicking on the *File* menu of **RIDE**: type its name (e.g ``my_first_alyvix_testcase_suite``) and point to the folder ``C:\Anaconda2\Lib\site-packages\alyvix\robotproxy\alyvix_testcases``
+  4. create a *New Project*, clicking on the *File* menu of **RIDE**: type its name (e.g ``my_first_alyvix_testcase_suite``) and point to the folder ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases``
 
   5. create a *New Test Case*, right clicking on the project name (e.g *My First Alyvix Testcase Suite*) in the left panel of the editor: type its name (e.g ``my_first_alyvix_testcase``)
 

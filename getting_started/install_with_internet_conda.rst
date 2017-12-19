@@ -1,17 +1,17 @@
 .. _install_with_internet:
 
-*********************
-Install with Internet
-*********************
+***********************************
+Install with Internet through conda
+***********************************
 
 
 If your probe can reach Internet through Command Prompt, you can install Alyvix thanks to ``conda`` that takes care about its version and dependencies.
 
     1. Install Anaconda
 
-        * browse https://www.continuum.io/downloads and download **Anaconda 5.0.0 installer**, **strictly based on Python 2.7**, **for Windows 64bit**
+        * browse https://www.continuum.io/downloads and download **Anaconda 5.0.1 installer**, **strictly based on Python 2.7**, **for Windows 64bit**
 
-        * run Anaconda installer (e.g. ``Anaconda2-5.0.0-Windows-x86_64.exe``) **as administrator**, installing Anaconda **for all users**
+        * run Anaconda installer (e.g. ``Anaconda2-5.0.1-Windows-x86_64.exe``) **as administrator**, installing Anaconda **for all users**
 
             .. image:: pictures/anaconda_5-0-0_install_01.PNG
 
