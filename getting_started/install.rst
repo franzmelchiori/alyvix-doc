@@ -15,19 +15,19 @@ Your Alyvix probe must satisfy the :ref:`system requirements<system_requirements
 
             install Python **for all users**
 
-                .. image:: pictures\python_2-7-14_install_01.PNG
+                .. image:: pictures/python_2-7-14_install_01.PNG
 
             ..
 
             in ``C:\Python27``
 
-                .. image:: pictures\python_2-7-14_install_02.PNG
+                .. image:: pictures/python_2-7-14_install_02.PNG
 
             ..
 
             and add ``python.exe`` to the system PATH environment variable
 
-                .. image:: pictures\python_2-7-14_install_03a.PNG
+                .. image:: pictures/python_2-7-14_install_03a.PNG
 
             ..
 

@@ -27,7 +27,7 @@ The :ref:`NATS mode<system_keywords-performance_keywords-publish_perfdata-nats_m
     * ``Add Perfdata Tag`` adds a :ref:`custom tag<system_keywords-performance_keywords-add_perfdata_tag>` to a performance point
     * ``Add Perfdata Field`` adds a :ref:`custom field<system_keywords-performance_keywords-add_perfdata_field>` to a performance point
 
-        .. image:: pictures\alyvix_release_notes_2-5-1_nats.png
+        .. image:: pictures/alyvix_release_notes_2-5-1_nats.png
 
 .. _alyvix_2-5-1_release_notes_visual_scraper:
 
@@ -40,7 +40,7 @@ Alyvix is able to **scrap, process and store text strings visually detected from
     * The scraper keywords **returns the scraped text strings**, which are also integrated in the output HTML reports
     * ``Store Scrapdata`` system keywords **stores all the scraped text strings and their timestamps** in a :ref:`local SQLite database <database_structure-store_scrapdata>`
 
-        .. image:: pictures\alyvix_release_notes_2-5-1_scraper.png
+        .. image:: pictures/alyvix_release_notes_2-5-1_scraper.png
 
 
 .. _alyvix_2-5-1_release_notes_improvements:

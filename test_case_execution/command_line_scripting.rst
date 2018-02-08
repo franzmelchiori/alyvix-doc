@@ -52,4 +52,4 @@ Example
             call alyvix_pybot C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot --outputdir C:\alyvix_reports\test\
             pause
 
-        .. image:: pictures\alyvix_script_01_test_cmd_output.png
+        .. image:: pictures/alyvix_script_01_test_cmd_output.png

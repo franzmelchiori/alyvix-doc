@@ -70,4 +70,4 @@ At the end of a test case, if you call the :ref:`Store Scrapdata <system_keyword
 
 The ``<scraper_name>`` table contains **one row for every script execution**. In the first column ``transaction_timestamp`` there is the **absolute timestamp** (epoch in seconds) of the **beginning of the scraper transaction**. In the second column ``scraped_text`` there is the **raw scraped text from the scraper**.
 
-    .. image:: pictures\output_scrapdatabase_01.png
+    .. image:: pictures/output_scrapdatabase_01.png

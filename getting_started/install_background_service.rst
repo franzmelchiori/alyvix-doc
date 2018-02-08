@@ -15,7 +15,7 @@ Alyvix Background Service is a Windows Service and provides a way to keep active
 
         * run ``setup.exe`` as **admin**
 
-            .. image:: pictures\alyvix_background_service_install_01.PNG
+            .. image:: pictures/alyvix_background_service_install_01.PNG
 
         ..
 
@@ -29,7 +29,7 @@ Alyvix Background Service is a Windows Service and provides a way to keep active
 
         * run ``CryptoUtility.exe``
 
-              .. image:: pictures\alyvix_background_service_encrypt_01.PNG
+              .. image:: pictures/alyvix_background_service_encrypt_01.PNG
 
         ..
 
@@ -61,8 +61,11 @@ Alyvix Background Service is a Windows Service and provides a way to keep active
 
         * set the **startup type** of the Alyvix Background Service as ``Automatic``
 
-              .. image:: pictures\alyvix_background_service_install_02.PNG
+              .. image:: pictures/alyvix_background_service_install_02.PNG
 
         ..
 
         * restart the service
+
+.. note::
+    Download the `debug version of the background service archive <http://alyvix.com/doc/alyvix_background_service_v20180206_debug.zip>`_ ``alyvix_background_service_v20180206_debug.zip`` to troubleshoot the service.

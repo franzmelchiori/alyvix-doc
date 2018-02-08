@@ -26,9 +26,9 @@ The new ``Send Keys``, both for the :ref:`system keyword<system_keywords-io_keyw
 
 Sometimes you need to **press longer and slow down the key typing** to avoid missed or wrong keys. That is the case of applications provided through **RDP or HDX (Citrix) channels**.
 
-    .. image:: pictures\alyvix_release_notes_2-5-2_new-send-keys_slow.gif
+    .. image:: pictures/alyvix_release_notes_2-5-2_new-send-keys_slow.gif
 
-    .. image:: pictures\alyvix_release_notes_2-5-2_new-send-keys_fast.gif
+    .. image:: pictures/alyvix_release_notes_2-5-2_new-send-keys_fast.gif
 
 
 .. _alyvix_2-5-2_release_notes_unlimited-roi:
@@ -38,7 +38,7 @@ Unlimited ROI
 
 The **unlimited ROI** for :ref:`visual keywords<visual_keywords-keyword_definition>` allows to define a ROI with an unlimited boundary towards one or more directions.
 
-    .. image:: pictures\alyvix_release_notes_2-5-2_unlimited-roi.gif
+    .. image:: pictures/alyvix_release_notes_2-5-2_unlimited-roi.gif
 
 
 .. _alyvix_2-5-2_release_notes_improvements:
