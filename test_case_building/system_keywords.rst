@@ -108,7 +108,7 @@ Examples:
 *Maximize Window* **waits and maximizes the size of a window**. The keyword waits the given timeout of seconds and it maximizes a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
 
 .. note::
-    It is a best practice to maximize the window on which the rest of test case will work, because it can **limit the "graphical noise"** coming from the rest of the GUI on screen. This can optimize the detection of the Alyvix visual keywords just on the interested application window.
+    It is a best practice to maximize the window on which the rest of test case will work, because it can **limit the graphical noise** coming from the rest of the GUI on screen. This can optimize the detection of the Alyvix visual keywords just on the interested application window.
 
 
 .. _system_keywords-window_keywords-show_window:
