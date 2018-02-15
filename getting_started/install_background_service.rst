@@ -7,7 +7,17 @@ Install background service
 
 Alyvix Background Service is a Windows Service and provides a way to keep active a graphical session of Windows. It manages a customizable RDP connection with one Windows session, continuously trying to sign in it.
 
-    1. Install the service
+    1. Allow RDP connections
+
+            * run the **System Properties** browsing Control Panel, System and Security, System, Advanced System Settings
+
+            * click the Remote tab and check **Allow remote connections to this computer**
+
+                  .. image:: pictures/alyvix_background_service_setup_01.png
+
+            ..
+
+    2. Install the service
 
         * download the `background service archive <http://alyvix.com/doc/alyvix_background_service_v20180101.zip>`_ ``alyvix_background_service_v20180101.zip``
 
@@ -23,7 +33,7 @@ Alyvix Background Service is a Windows Service and provides a way to keep active
 
         * wait the successful end of install
 
-    2. Encrypt the password
+    3. Encrypt the password
 
         * browse the local folder ``C:\Program Files\Alyvix\Alyvix Background Service\``
 
@@ -41,7 +51,7 @@ Alyvix Background Service is a Windows Service and provides a way to keep active
 
         * type ``q`` to exit the program
 
-    3. Setup the service
+    4. Setup the service
 
         * browse the local folder ``C:\Program Files\Alyvix\Alyvix Background Service\``
 
@@ -55,7 +65,7 @@ Alyvix Background Service is a Windows Service and provides a way to keep active
 
         * set the **height resolution** of the Alyvix machine ``<add key="height" value="HEIGHT_RESOLUTION"/>`` (e.g. ``800``)
 
-    4. Run the service
+    5. Run the service
 
         * run Windows Services ``services.msc``
 
