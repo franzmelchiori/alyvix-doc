@@ -21,7 +21,7 @@ Alyvix Background Service is a Windows Service and provides a way to keep active
 
         * download the `background service archive <http://alyvix.com/doc/alyvix_background_service_v20180101.zip>`_ ``alyvix_background_service_v20180101.zip``
 
-        * unzip the background service files form the archive ``alyvix_background_service_v20180101.zip`` using the **archive password** that has been provided to you
+        * unzip the background service files form the archive ``alyvix_background_service_v20180101.zip`` using the **archive password** that has been provided to you with an `Alyvix subscription <http://www.alyvix.com/subscription/>`_.
 
         * run ``setup.exe`` as **admin**
 

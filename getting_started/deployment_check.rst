@@ -4,7 +4,7 @@ Deployment check
 
 Follow these steps to be sure that everything is well deployed and works fine:
 
-  1. run **Command Prompt**, execute the following command and check the presence of *alyvix 2.5.3* as installed ``pip`` package: ``pip show alyvix``
+  1. run **Command Prompt**, execute the following command and check the presence of *alyvix 2.6.2* as installed ``pip`` package: ``pip show alyvix``
 
   2. browse Python folder ``C:\Python27\Lib\site-packages\alyvix\robotproxy`` (where Alyvix will save your test case .py libraries of keywords) and create the folder ``\alyvix_testcases``, where you will save your test case .robot scripts
 
