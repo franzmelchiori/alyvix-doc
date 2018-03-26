@@ -48,7 +48,7 @@ Improvements
 ============
 
     * Alyvix prints **error screenshots** on top of reports **just for transactions without break** option
-    * Alyvix can be powered by **Anaconda 5.0.0**, which is the recommended version to avoid :ref:`issues with older versions<install_issues-pywin32_module>`
+    * Alyvix can be powered by **Anaconda 5.0.0**, which is the recommended version to avoid issues with older versions
 
 
 .. _alyvix_2-5-2_release_notes_bug_fixing:
@@ -59,5 +59,5 @@ Bug fixes
 
     * removing OF or OS caused bad naming of resulting keywords
     * renaming OS did not renamed their keyword names in the database of scraps
-    * :ref:`SIP module caused issues<install_issues-sip_module>` installing Alyvix (an error popup rised in RIDE)
-    * :ref:`PyWin32 module caused issues<install_issues-pywin32_module>` installing Alyvix (`import win32ui` failed)
+    * SIP module caused issues installing Alyvix (an error popup rised in RIDE)
+    * PyWin32 module caused issues installing Alyvix (`import win32ui` failed)
