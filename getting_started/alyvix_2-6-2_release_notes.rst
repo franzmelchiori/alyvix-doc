@@ -26,6 +26,8 @@ Edge Stretching
 
 You can move and resize :ref:`selections and ROIs <visual_keywords-image_definition>` stretching their edges with the mouse.
 
+    .. image:: pictures/alyvix_release_notes_2-6-2_edge_stretching.gif
+
 
 .. _alyvix_2-6-2_release_notes_network_analyzer:
 
