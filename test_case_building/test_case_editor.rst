@@ -26,11 +26,11 @@ Insert a valid project name (recommendation: lowercased, with underscores instea
 
 The file type to select should be *File* and file format should be *Robot*. The editor will save, for the project you work on, the test case scripts that you build (keyword tables) and the Python libraries that you import (system and visual keyword modules) in a ``.robot`` text file.
 
-Now, in the *RIDE main window* on the left there is a *tree view pane*: it lists the current open project (projects are also called "Test Suite") with its test cases. Clicking on the project name, a pane with the project settings appears (as an edit tab) on the right, from where it is possible to import libraries or to add lists (arrays):
+Now, in the *RIDE main window* on the left there is a *tree view pane*: it lists the current open project (projects are also called *Test Suite*) with its test cases. Clicking on the project name, a pane with the project settings appears (as an edit tab) on the right, from where it is possible to import libraries or to add lists (arrays):
 
   .. image:: pictures/ride_01a_project_window.png
 
-Clicking on the *Library button* you can import external libraries of keywords that you can use to build the test case. It is necessary to import the Alyvix library of system keywords: type ``alyvixlib`` and press *OK*. Define at least one visual keyword for a test case and then RIDE saves its Alyvix library of visual keywords. That library is a Python module, it has a filename like *AlyvixProxy<project_name>* and it is a .py file (e.g. ``AlyvixProxyguide_project.py``) within the ''\robotproxy'' folder:
+Clicking on the *Library button* you can import external libraries of keywords that you can use to build the test case. It is necessary to import the Alyvix library of system keywords: type ``alyvixlib`` and press *OK*. Define at least one visual keyword for a test case and then RIDE saves its Alyvix library of visual keywords. That library is a Python module, it has a filename like *AlyvixProxy<project_name>* and it is a .py file (e.g. ``AlyvixProxyguide_project.py``) within the ``\robotproxy`` folder:
 
   .. image:: pictures/ride_01c_import_library.png
 

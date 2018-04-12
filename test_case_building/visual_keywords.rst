@@ -97,11 +97,11 @@ Text Finder main and subs
 
     .. image:: pictures/ride_07e_tf_main_sub.png
 
-An example GUI shows three identical "Name" text strings and a possible transaction could be **interacting with the third "Name" text string**, which is left to the "Franz" text string.
+An example GUI shows three identical *Name* text strings and a possible transaction could be **interacting with the third *Name* text string**, which is left to the *Franz* text string.
 
-Selecting just the "Name" text string as a main component of a :ref:`Text Finder <visual_keywords-text_finder>` is not enough. It would be an ambiguous transaction: the three "Name" text string have exactly the same aspect. Alyvix detects all the three "Name" text strings and interacts with the first one, because of the raster logic of the screen scanner.
+Selecting just the *Name* text string as a main component of a :ref:`Text Finder <visual_keywords-text_finder>` is not enough. It would be an ambiguous transaction: the three *Name* text string have exactly the same aspect. Alyvix detects all the three *Name* text strings and interacts with the first one, because of the raster logic of the screen scanner.
 
-To correctly define a unique keyword, it is necessary to **select the "Franz" text string as a sub component**. Remember that all the :ref:`Text Finder <visual_keywords-text_finder>` component selections, especially for the main component, lie in their ROI (region of interests) and the upper left corner of ROI are linked with the upper left corner of the screen. That differs from the :ref:`Image Finder <visual_keywords-image_finder>` and :ref:`Rect Finder <visual_keywords-rect_finder>`: in these cases the main component selection is defined within the entire screen.
+To correctly define a unique keyword, it is necessary to **select the *Franz* text string as a sub component**. Remember that all the :ref:`Text Finder <visual_keywords-text_finder>` component selections, especially for the main component, lie in their ROI (region of interests) and the upper left corner of ROI are linked with the upper left corner of the screen. That differs from the :ref:`Image Finder <visual_keywords-image_finder>` and :ref:`Rect Finder <visual_keywords-rect_finder>`: in these cases the main component selection is defined within the entire screen.
 
 .. warning::
     The main component of a :ref:`Text Finder <visual_keywords-text_finder>` is going to be searched within its ROI and not on the entire screen. This is the reason why a :ref:`Text Finder <visual_keywords-text_finder>` **should be only used as sub components of Object Finders**.
@@ -132,13 +132,13 @@ Object Finder main and subs
 
     .. image:: pictures/ride_07g_of_main_sub.png
 
-An example GUI shows three identical stars and a possible transaction could be **interacting with the third star**, left to the "Franz" text string.
+An example GUI shows three identical stars and a possible transaction could be **interacting with the third star**, left to the *Franz* text string.
 
 Selecting just the third star as a main component of an :ref:`Image Finder <visual_keywords-image_finder>` is not enough. It would be an ambiguous transaction: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the raster logic of the screen scanner.
 
 To correctly define a unique keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of :ref:`Image Finder <visual_keywords-image_finder>` are selected within their ROI (region of interests). The upper left corner of ROI are linked with the upper left corner of the main component selection.
 
-To correctly define a unique keyword, it is necessary to **select the "Franz" text string as a sub component**. Firstly, define the star as an :ref:`Image Finder <visual_keywords-image_finder>` and the "Franz" text string as a :ref:`Text Finder <visual_keywords-text_finder>`. Secondly, select them as the main and a sub component of an :ref:`Object Finder <visual_keywords-object_finder>` defining the ROI (region of interest) around the sub component to link it to the main component.
+To correctly define a unique keyword, it is necessary to **select the *Franz* text string as a sub component**. Firstly, define the star as an :ref:`Image Finder <visual_keywords-image_finder>` and the *Franz* text string as a :ref:`Text Finder <visual_keywords-text_finder>`. Secondly, select them as the main and a sub component of an :ref:`Object Finder <visual_keywords-object_finder>` defining the ROI (region of interest) around the sub component to link it to the main component.
 
 .. note::
     The most common and useful **Object Finder combinations** are **IF+TF** and **RF+TF**.
@@ -257,7 +257,7 @@ Click on the *Reset Point* button to reset the interaction point at the center o
 
     .. image:: pictures/ride_11dc_alyvix_2-4-1_gui_interaction.png
 
-**Hold'n'Release** is useful to drag'n'drop or slide GUI elements. There are 6 modes that you can select from the drop-down list on the right. The keyword execution will work as follows:
+**Hold and Release** is useful to drag and drop or slide GUI elements. There are 6 modes that you can select from the drop-down list on the right. The keyword execution will work as follows:
 
     * *Hold*: the pointer will press and hold the component;
     * *Release*: the pointer will release over the component;
@@ -269,7 +269,7 @@ Click on the *Reset Point* button to reset the interaction point at the center o
     ..
 
         .. note::
-            To drag'n'drop a GUI element (look at the example above) it is necessary to set the *Hold* mode for **a target component** (e.g. file icon) and the *Release* mode for **another destination component** (e.g. folder icon)
+            To drag and drop a GUI element (look at the example above) it is necessary to set the *Hold* mode for **a target component** (e.g. file icon) and the *Release* mode for **another destination component** (e.g. folder icon)
 
     * *Release Up*: the pointer will press and hold the component, that will then be released towards up of an amount of pixels (to set in the spin box on the right);
     * *Release Down*: the pointer will press and hold the component, that will then be released towards down of an amount of pixels (to set in the spin box on the right);
