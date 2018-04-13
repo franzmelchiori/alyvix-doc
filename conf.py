@@ -57,7 +57,7 @@ author = u'Francesco Melchiori'
 # built documents.
 #
 # The short X.Y version.
-version = u'2.6.2'
+version = u'2.6'
 # The full version, including alpha/beta/rc tags.
 release = u'2.6.2a'
 

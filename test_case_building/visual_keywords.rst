@@ -10,22 +10,22 @@ Visual keywords
 Keyword definition
 ==================
 
-The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector of visual keywords** (that has been previously defined by the user) for the current test case (e.g. ``alyvix_website``, so that its keyword library would be ``AlyvixProxyalyvix_website`` ``.py``). The selector shows the name and the type of each keyword: *[IF]* means :ref:`Image Finder <visual_keywords-image_finder>`, *[RF]* means :ref:`Rect Finder <visual_keywords-rect_finder>`, *[TF]* means :ref:`Text Finder <visual_keywords-text_finder>` and *[OF]* stays for :ref:`Object Finder <visual_keywords-object_finder>`.
+The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector of visual keywords** (that has been previously defined by the user, otherwise no objects are listed) for the current test case (e.g. the test case ``alyvix_website``, so that its keyword library would be ``AlyvixProxyalyvix_website``). The selector shows the name and the type of each keyword: **[IF]** means :ref:`Image Finder <visual_keywords-image_finder>`, **[RF]** means :ref:`Rect Finder <visual_keywords-rect_finder>`, **[TF]** means :ref:`Text Finder <visual_keywords-text_finder>`, **[OF]** stays for :ref:`Object Finder <visual_keywords-object_finder>`, **[TS]** means :ref:`Text Scraper <visual_keywords-text_scraper>` and **[OS]** stays for :ref:`Object Scraper <visual_keywords-object_scraper>`.
 
 .. note::
-    *Imported keywords* from other *Alyvix test case libraries* (e.g. ``citrix_outlook``, so that its keyword library would be ``AlyvixProxycitrix_outlook`` ``.py``) are *not* listed in the selector window. You can edit keywords in a certain test case library just opening that test case
+    *Imported keywords* from other *Alyvix test case libraries* (e.g. the keyword library of the ``citrix_outlook`` test case would be ``AlyvixProxycitrix_outlook``) are *not* listed in the selector window. You can edit keywords of a certain test case just opening that test case
 
 ..
 
     .. image:: pictures/ride_05a_keyword_selector.png
 
-The *New* button opens the selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>`. The *Edit* button brings to the Finder dialog of the selected keyword, in order to modify its properties (e.g. component selections and region of interests, detection and interaction settings, performance thresholds). The *Remove* button deletes the selected keywords or, in case of :ref:`Object Finder <visual_keywords-object_finder>` keywords, crumbles them into its basic components (IF, RF, TF).
+The **New** button opens the selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>`. The **Edit** button brings to the Finder dialog of the selected keyword in order to modify its properties (e.g. component selections and region of interests, detection and interaction settings, performance thresholds). The **Remove** button deletes the selected keywords or, in case of :ref:`Object Finders <visual_keywords-object_finder>` or :ref:`Object Scrapers <visual_keywords-object_scraper>`, crumbles them into its basic components (IF, RF, TF, TS).
 
     .. image:: pictures/ride_05b_finder_selector.png
 
-The selector of the :ref:`Alyvix Finders <visual_keywords-alyvix_finders>` allows you to select the type (image, rectangle, text, object) of a new keyword to define. The ``Delay`` spin control delays of a given amount of seconds the subsequent selection of components on screen. The graphic definition a visual keyword freezes your screen, in order to select components. Increase the delay if you need time to trigger a certain state of the screen (e.g. opening a menu in an app dialog).
+The selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>` allows you to select the type (image, rectangle, text, object) of a new keyword to define. The **Delay** spin control delays of a given amount of seconds the subsequent selection of components on screen. The graphic definition a visual keyword freezes your screen in order to select components. Increase the delay if you need time to trigger a certain state of the screen (e.g. opening a menu in an app dialog).
 
-Start defining a *visual keyword* means selecting its components on screen: one *main selection* is necessary, but then multiple *sub selections* are possible. Sub components are selected within their *region of interests*. The latter *ROI* are useful to link sub components to the main component. Each Alyvix Finder has a procedure to select its components and ROI. The important reasons for sub components and their ROI follow below. The detection of application transactions can be:
+Start defining a *visual keyword* means selecting its components on screen: one **main selection** is necessary, but then multiple **sub selections** are possible. Sub components are selected within their **region of interests**. The latter *ROI* are useful to link sub components to the main component. Each Alyvix Finder has a procedure to select its components and ROI. The important reasons for sub components and their ROI follow below. The detection of application transactions can be:
 
 * more *complete*: GUI rendering could be element-by-element, so it could be necessary to detect several components to check a completed transaction; moreover, it is possible to interact with several GUI elements and not just with one;
 * more *robust*: the same GUI element could be used twice, so it could be necessary to define a unique transaction selecting more components;
@@ -41,9 +41,14 @@ Image Finder main and subs
 
 An example GUI shows three identical stars and a possible transaction could be to **interact with the third star**, which is left to the green sign.
 
-Selecting just the third star as a main component of an :ref:`Image Finder <visual_keywords-image_finder>` is not enough. It would be an ambiguous transaction: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the raster logic of the screen scanner.
+Selecting just the third star as a main component of an :ref:`Image Finder <visual_keywords-image_finder>` is not enough. It would be an *ambiguous transaction*: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the *raster logic* of the screen scanner.
 
-To correctly define a unique keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of :ref:`Image Finder <visual_keywords-image_finder>` are selected within their ROI (region of interests). The upper left corner of ROI are linked with the upper left corner of the main component selection.
+To correctly define a unique keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of :ref:`Image Finder <visual_keywords-image_finder>` are selected within their *ROI* (*region of interests*).
+
+.. note::
+    The *upper left corner of a* **ROI** is **linked with** the *upper left corner of the* **main component selection**.
+
+..
 
     .. image:: pictures/ride_07bb_if_main_sub.png
 
@@ -55,10 +60,10 @@ To correctly define a unique keyword, it is necessary to **select the green sign
     4. eventually repeat 2. and 3. to add more sub components;
     5. press :kbd:`CTRL+O` to set the :ref:`IF keyword properties <visual_keywords-image_finder>`.
 
-    .. image:: pictures/image_finder_selection.gif
+    .. image:: pictures/image_finder_selection_edge_stretching.gif
 
 .. note::
-    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
+    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`. You can even **move and resize selections and ROIs** stretching their edges with the mouse.
 
 
 .. _visual_keywords-rect_definition:
@@ -70,9 +75,14 @@ Rect Finder main and subs
 
 An example GUI shows three identical text boxes and a possible transaction could be **interacting with the third text box**, which is left to the *OK* button.
 
-Selecting just the third text box as a main component of an :ref:`Rect Finder <visual_keywords-rect_finder>` is not enough. It would be an ambiguous transaction: the three text boxes have exactly the same aspect. Alyvix detects all the three text boxes and then interacts with the first one, because of the raster logic of the screen scanner.
+Selecting just the third text box as a main component of an :ref:`Rect Finder <visual_keywords-rect_finder>` is not enough. It would be an *ambiguous transaction*: the three text boxes have exactly the same aspect. Alyvix detects all the three text boxes and then interacts with the first one, because of the *raster logic* of the screen scanner.
 
-To correctly define a unique keyword, it is necessary to **select the OK button as a sub component**. Remember that sub components of :ref:`Rect Finder <visual_keywords-rect_finder>` are selected within their ROI (region of interests). The upper left corner of ROI are linked with the upper left corner of the main component selection.
+To correctly define a unique keyword, it is necessary to **select the OK button as a sub component**. Remember that sub components of :ref:`Rect Finder <visual_keywords-rect_finder>` are selected within their *ROI* (*region of interests*).
+
+.. note::
+    The *upper left corner of a* **ROI** is **linked with** the *upper left corner of the* **main component selection**.
+
+..
 
     .. image:: pictures/ride_07db_rf_main_sub.png
 
@@ -84,10 +94,10 @@ To correctly define a unique keyword, it is necessary to **select the OK button 
     4. eventually repeat 2. and 3. to add more sub components;
     5. press :kbd:`CTRL+O` to set the :ref:`RF keyword properties <visual_keywords-rect_finder>`.
 
-    .. image:: pictures/rect_finder_selection.gif
+    .. image:: pictures/rect_finder_selection_edge_stretching.gif
 
 .. note::
-    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
+    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`. You can even **move and resize selections and ROIs** stretching their edges with the mouse.
 
 
 .. _visual_keywords-text_definition:
@@ -97,14 +107,17 @@ Text Finder main and subs
 
     .. image:: pictures/ride_07e_tf_main_sub.png
 
-An example GUI shows three identical *Name* text strings and a possible transaction could be **interacting with the third *Name* text string**, which is left to the *Franz* text string.
+An example GUI shows three identical *Name* text strings and a possible transaction could be **interacting with the third Name text string**, which is left to the *Franz* text string.
 
-Selecting just the *Name* text string as a main component of a :ref:`Text Finder <visual_keywords-text_finder>` is not enough. It would be an ambiguous transaction: the three *Name* text string have exactly the same aspect. Alyvix detects all the three *Name* text strings and interacts with the first one, because of the raster logic of the screen scanner.
+Selecting just the *Name* text string as a main component of a :ref:`Text Finder <visual_keywords-text_finder>` is not enough. It would be an *ambiguous transaction*: the three *Name* text string have exactly the same aspect. Alyvix detects all the three *Name* text strings and interacts with the first one, because of the *raster logic* of the screen scanner.
 
-To correctly define a unique keyword, it is necessary to **select the *Franz* text string as a sub component**. Remember that all the :ref:`Text Finder <visual_keywords-text_finder>` component selections, especially for the main component, lie in their ROI (region of interests) and the upper left corner of ROI are linked with the upper left corner of the screen. That differs from the :ref:`Image Finder <visual_keywords-image_finder>` and :ref:`Rect Finder <visual_keywords-rect_finder>`: in these cases the main component selection is defined within the entire screen.
+To correctly define a unique keyword, it is necessary to **select the Franz text string as a sub component**. Remember that **all the** :ref:`Text Finder <visual_keywords-text_finder>` **component selections lie in their ROI** (*region of interests*).
+
+.. note::
+    In the TF case, **also the main component lies in its ROI**, which is linked with the upper left corner of the screen. That differs from the :ref:`Image Finder <visual_keywords-image_finder>` and :ref:`Rect Finder <visual_keywords-rect_finder>`: in those cases the main component selection is defined within the entire screen.
 
 .. warning::
-    The main component of a :ref:`Text Finder <visual_keywords-text_finder>` is going to be searched within its ROI and not on the entire screen. This is the reason why a :ref:`Text Finder <visual_keywords-text_finder>` **should be only used as sub components of Object Finders**.
+    The main component of a :ref:`Text Finder <visual_keywords-text_finder>` is going to be searched within its ROI and not on the entire screen. This is the reason why a :ref:`Text Finder <visual_keywords-text_finder>` **must be only used as sub components of Object Finders**.
 
 ..
 
@@ -119,10 +132,10 @@ To correctly define a unique keyword, it is necessary to **select the *Franz* te
     5. eventually repeat 3. and 4. to add more sub components;
     6. press :kbd:`CTRL+O` to set the :ref:`TF keyword properties <visual_keywords-text_finder>`.
 
-    .. image:: pictures/text_finder_selection.gif
+    .. image:: pictures/text_finder_selection_edge_stretching.gif
 
 .. note::
-    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
+    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`. You can even **move and resize selections and ROIs** stretching their edges with the mouse.
 
 
 .. _visual_keywords-object_definition:
@@ -134,11 +147,9 @@ Object Finder main and subs
 
 An example GUI shows three identical stars and a possible transaction could be **interacting with the third star**, left to the *Franz* text string.
 
-Selecting just the third star as a main component of an :ref:`Image Finder <visual_keywords-image_finder>` is not enough. It would be an ambiguous transaction: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the raster logic of the screen scanner.
+Selecting just the third star as a main component of an :ref:`Image Finder <visual_keywords-image_finder>` is not enough. It would be an *ambiguous transaction*: the three stars have exactly the same aspect. Alyvix detects all the three stars and then interacts with the first one, because of the *raster logic* of the screen scanner.
 
-To correctly define a unique keyword, it is necessary to **select the green sign as a sub component**. Remember that sub components of :ref:`Image Finder <visual_keywords-image_finder>` are selected within their ROI (region of interests). The upper left corner of ROI are linked with the upper left corner of the main component selection.
-
-To correctly define a unique keyword, it is necessary to **select the *Franz* text string as a sub component**. Firstly, define the star as an :ref:`Image Finder <visual_keywords-image_finder>` and the *Franz* text string as a :ref:`Text Finder <visual_keywords-text_finder>`. Secondly, select them as the main and a sub component of an :ref:`Object Finder <visual_keywords-object_finder>` defining the ROI (region of interest) around the sub component to link it to the main component.
+To correctly define a unique keyword, it is necessary to **select the Franz text string as a sub component**. Firstly, define the star as an :ref:`Image Finder <visual_keywords-image_finder>` and the *Franz* text string as a :ref:`Text Finder <visual_keywords-text_finder>`. Secondly, select them as the main and a sub component of an :ref:`Object Finder <visual_keywords-object_finder>` defining the *ROI* (*region of interest*) around the sub component to link it to the main component.
 
 .. note::
     The most common and useful **Object Finder combinations** are **IF+TF** and **RF+TF**.
@@ -166,13 +177,15 @@ To correctly define a unique keyword, it is necessary to **select the *Franz* te
 Name, arguments and components
 ------------------------------
 
-After having :ref:`visually define a keyword <visual_keywords-image_definition>`, the first thing to do is to insert the **keyword name** in the *Name* text box. The best practice is to type **in lowercase**, **with underscores**, **no spaces** and structured as follows: ``<application name>_<transaction name>_<transaction state>`` (e.g. ``citrix_loginform_ready``, ``ax12_dynamicsax_closed``). Append the ``_<keyword type>`` if you plan to use the keyword in an :ref:`Object Finder <visual_keywords-object_finder>`.
+After having :ref:`visually define a keyword <visual_keywords-image_definition>`, the first thing to do is to insert the **keyword name** in the **Name** text box.
 
-You can declare a number of **argument variables as the keyword inputs**. You can then type ``arg1``, ``arg2``, etc. in the :ref:`interaction text box <visual_keywords-interaction_settings>` of main and sub components. Alyvix will run the keyword taking its **arguments from the test case editor**: in the cells on the right (from where you insert the keyword name) you can type its **arguments as text strings**.
+The best practice is to type it **lowercase**, **with underscores**, **no spaces** and structured as follows: ``<application name>_<transaction name>_<transaction state>`` (e.g. ``citrix_loginform_ready``, ``ax12_dynamicsax_closed``). Append the ``_<keyword type>`` if you plan to use the keyword in an :ref:`Object Finder <visual_keywords-object_finder>` (e.g. ``citrix_loginform_ready_img``, ``citrix_loginform_ready_rct``).
 
     .. image:: pictures/ride_11a_alyvix_2-4-1_gui_name.png
 
-Type the keyword name (and eventually its arguments) in your test case:
+You can declare a number of **argument variables as the keyword inputs**. Then you can type ``arg1``, ``arg2``, etc. in the :ref:`interaction text box <visual_keywords-interaction_settings>` of main and sub components. Alyvix will run the keyword taking its **argument values from the test case editor** using them: in the cells on the right from where you insert the keyword name, you can type the **keyword arguments as text strings**.
+
+In your test case, type the keyword name and eventually its argument values:
 
     +---------------------------+
     | ``<visual_keyword_name>`` |
@@ -186,13 +199,13 @@ Type the keyword name (and eventually its arguments) in your test case:
 
 Example:
 
-    1. Type the *keyword name* and set the amount of its *arguments* in the Alyvix Finder dialog:
+    1. Type the **keyword name** and set the amount of its **arguments** in the Alyvix Finder dialog:
 
     ..
 
         .. image:: pictures/ride_11ac_alyvix_2-4-1_gui_arg.png
 
-    2. Type ``arg1``, ``arg2``, etc. (i.e. if you have set a number of arguments) in the :ref:`interaction text box <visual_keywords-interaction_settings>` or in the :ref:`detection text box <visual_keywords-text_finder>` in case of a Text Finder:
+    2. Type ``arg1``, ``arg2``, etc. in the :ref:`interaction text box <visual_keywords-interaction_settings>` or in the :ref:`detection text box <visual_keywords-text_finder>` (in case of a Text Finder):
 
     ..
 
@@ -201,15 +214,15 @@ Example:
     ..
 
         .. warning::
-            Untick *Quotes* if you use keyword arguments. Moreover, tick *Encrypted* if you use encrypted keyword arguments. You can encrypt strings with the :ref:`Alyvix encryption tool <encryption_tool>`.
+            Untick **Quotes** if you use keyword arguments. Moreover, tick **Encrypted** if you use encrypted keyword arguments. You can encrypt strings with the :ref:`Alyvix encryption tool <encryption_tool>`.
 
-    3. Type the *keyword name* (and eventually its arguments) in your test case:
+    3. Type the *keyword name* (and eventually its *arguments*) in your test case:
 
     ..
 
         .. image:: pictures/ride_11ab_alyvix_2-4-1_gui_name.png
 
-In the left pane of the dialog there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* (region of interests) on screen. Click on each component to set its own detection and interaction properties.
+In the *left pane of keyword dialogs* there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* (region of interests) on screen. Click on each component to set its own **detection and interaction properties**.
 
     .. image:: pictures/ride_11b_alyvix_2-4-1_gui_components.png
 
@@ -219,21 +232,21 @@ In the left pane of the dialog there are all the **components** previously selec
 Detection settings
 ------------------
 
-In the detection section of each *Alyvix Finder*, you can select 2 **detection modes**: *Appeared* and *Disappeared*. When a keyword will be executed, its mode affects the way Alyvix will detect it (i.e. the visual elements of transaction) and report its performances.
+In the detection section of each *Alyvix Finder*, you can select 2 **detection modes**: **Appeared** and **Disappeared**. When a keyword will be executed, its mode affects the way Alyvix will detect it (i.e. the visual elements of a transaction) and report its performances.
 
     .. image:: pictures/ride_11c_alyvix_2-4-1_gui_detection.png
 
-Selecting **Appeared**, Alyvix continuously tries and retries to detect the graphic elements on screen at a certain pace (by default this period is 0.5s, but it is customizable thanks to the system keywords :ref:`Alyvix Config <system_keywords-debug_keywords-alyvix_config>` and :ref:`Set Alyvix Info <system_keywords-debug_keywords-set_alyvix_info>`). That continues until the *Timeout* threshold will be reached: if the **Break** option is ticked, then the keyword breaks the test case, otherwise it returns ``False`` and lets the test to proceed. The latter option could be useful in case of transactions that not always happen (e.g. to manage popups).
+Selecting **Appeared**, Alyvix continuously tries and retries to detect the graphic elements on screen at a certain pace (by default this period is 0.5s, but it is customizable thanks to the system keywords :ref:`Alyvix Config <system_keywords-debug_keywords-alyvix_config>` and :ref:`Set Alyvix Info <system_keywords-debug_keywords-set_alyvix_info>`). That continues until the **Timeout** threshold will be reached: if the **Break** option is ticked, then the keyword breaks the test case, otherwise it returns ``False`` and lets the test to proceed. The latter option could be useful in case of transactions that not always happen (e.g. to manage popups).
 
 On the other hand, **Disappeared** allows to detect the disappearance of graphic elements of screen (e.g. disappearance of an hourglass icon at the end of a loading).
 
 The **Performance** check box enables or disables the performance measurement:
 
     1. :ref:`Add Perfdata <system_keywords-performance_keywords-add_perfdata>` declares the keyword performance
-    2. if the *Performance* setting is ticked, the keyword outputs its performance (with 0.1s of accuracy and 0.001s of precision)
+    2. if the **Performance** setting is ticked, the keyword outputs its performance (with 0.1s of accuracy and 0.001s of precision)
     3. :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>` collects and prints out all the available performance from the test case
 
-In the *Warning* and *Critical* text boxes you can set the amount of seconds of these thresholds.
+In the **Warning** and **Critical** text boxes you can set the amount of seconds of these thresholds.
 
     .. image:: pictures/performance_thresholds.png
 
@@ -518,3 +531,11 @@ To define such keywords follow these steps:
             .. image:: pictures/ride_09d_text_scraper.png
 
     5. click the *OK* button to save the keyword.
+
+
+.. _visual_keywords-object_scraper:
+
+Object Scraper
+--------------
+
+An *Object Scraper* binds :ref:`Image Finders <visual_keywords-image_finder>`, :ref:`Rect Finders <visual_keywords-rect_finder>`, :ref:`Text Finders <visual_keywords-text_finder>` together with :ref:`Text Scrapers <visual_keywords-text_scraper>`.
