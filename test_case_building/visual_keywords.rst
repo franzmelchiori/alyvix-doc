@@ -260,20 +260,20 @@ In the interaction section of each *Alyvix Finder*, you can set an **interaction
 
     .. image:: pictures/ride_11d_alyvix_2-5-2_gui_interaction.png
 
-Selecting **Click** or **Right Click**, Alyvix will bring the mouse pointer over the detected component and press the left or the right button of the mouse. It is possible to set the number of *Clicks* and adjust *Delays* as the amount of milliseconds between clicks.
+Selecting **Click** or **Right Click**, Alyvix will bring the mouse pointer over the detected component and press the left or the right button of the mouse respectively. It is possible to set the number of **Clicks** and adjust **Delays** as the amount of milliseconds between clicks.
 
-You can also set an *Interaction Point* in order to click somewhere else from the center of the component: click on the *Interaction Point* button, set the point (continuously) clicking on the screen and press :kbd:`CTRL+O` to confirm.
+You can also set an **Interaction Point** in order to click somewhere else from the center of the component: click on the *Interaction Point* button, set the point (continuously) clicking on the screen and press :kbd:`CTRL+O` to confirm.
 
     .. image:: pictures/ride_11db_alyvix_2-4-1_gui_interaction.png
 
-Click on the *Reset Point* button to reset the interaction point at the center of the component.
+Click on the **Reset Point** button to reset the interaction point at the center of the component.
 
     .. image:: pictures/ride_11dc_alyvix_2-4-1_gui_interaction.png
 
 **Hold and Release** is useful to drag and drop or slide GUI elements. There are 6 modes that you can select from the drop-down list on the right. The keyword execution will work as follows:
 
-    * *Hold*: the pointer will press and hold the component;
-    * *Release*: the pointer will release over the component;
+    * **Hold**: the pointer will press and hold the component;
+    * **Release**: the pointer will release over the component;
 
     ..
 
@@ -282,40 +282,40 @@ Click on the *Reset Point* button to reset the interaction point at the center o
     ..
 
         .. note::
-            To drag and drop a GUI element (look at the example above) it is necessary to set the *Hold* mode for **a target component** (e.g. file icon) and the *Release* mode for **another destination component** (e.g. folder icon)
+            To drag and drop a GUI element (look at the animation above) it is necessary to set the **Hold** mode for **a target component** (e.g. file icon) and the **Release** mode for **another destination component** (e.g. folder icon)
 
-    * *Release Up*: the pointer will press and hold the component, that will then be released towards up of an amount of pixels (to set in the spin box on the right);
-    * *Release Down*: the pointer will press and hold the component, that will then be released towards down of an amount of pixels (to set in the spin box on the right);
-    * *Release Left*: the pointer will press and hold the component, that will then be released towards left of an amount of pixels (to set in the spin box on the right);
-    * *Release Right*: the pointer will press and hold the component, that will then be released towards right of an amount of pixels (to set in the spin box on the right).
+    * **Release Up**: the pointer will press and hold the component, that will then be released towards up of an *amount of pixels* (to set in the spin box on the right);
+    * **Release Down**: the pointer will press and hold the component, that will then be released towards down of an *amount of pixels* (to set in the spin box on the right);
+    * **Release Left**: the pointer will press and hold the component, that will then be released towards left of an *amount of pixels* (to set in the spin box on the right);
+    * **Release Right**: the pointer will press and hold the component, that will then be released towards right of an *amount of pixels* (to set in the spin box on the right).
 
     ..
 
         .. image:: pictures/release_displace.gif
 
-For the latter 4 modes, select the amount of *pixel displacement* thanks to the spin box on the right: double click and insert the desired number of pixels as the release distance.
+For the latter 4 modes, select the amount of **pixel displacement** thanks to the spin box on the right: double click and insert the desired number of pixels as the release distance.
 
-    .. image:: pictures/ride_11dd_alyvix_2-4-1_gui_interaction.png
+    .. image:: pictures/ride_11de_alyvix_2-4-1_gui_interaction.png
 
 **Move** will bring the mouse pointer over the detected component without pressing anything.
 
 Selecting **None**, Alyvix will not interact with the component (the mouse pointer will not move or click anything).
 
-At the bottom of the interaction section, **typing settings** take place. In the text box can be inserted text strings and shortcuts to send (e.g. ``bla``, most of the time after a *Click* interaction somewhere).
+At the bottom of the interaction section, **typing settings** take place. In the text box can be inserted *text strings and shortcuts* to send (e.g. ``bla``, most of the time after a *Click* interaction somewhere).
 
 Regular text strings can be typed together with shortcuts (e.g. ``bla{enter}``). You can find a list of the most useful shortcuts in the description of :ref:`Send Keys <system_keywords-io_keywords-send_keys>` system keyword.
 
 It is also possible to bring the :ref:`keyword arguments <visual_keywords-name_components>` as part of the keystrokes to send.
 
 .. warning::
-    Remember to untick *Quotes*, to add one more *Arguments* (clicking the up arrow of the spin box) and finally type just an argument variable (e.g. ``arg1``, ``arg2``, etc.).
+    Remember to untick **Quotes**, to add one more **Arguments** (clicking the up arrow of the spin box) and finally type just an argument variable (e.g. ``arg1``, ``arg2``, etc.).
 
-It is even possible to bring strings, :ref:`shortcuts <system_keywords-io_keywords-send_keys>` and :ref:`arguments <visual_keywords-name_components>` all together (e.g. ``arg1+"bla{tab}"+arg2+"bla{enter}"``).
+It is even possible to bring *strings*, :ref:`shortcuts <system_keywords-io_keywords-send_keys>` and :ref:`arguments <visual_keywords-name_components>` all together (e.g. ``arg1+"bla{tab}"+arg2+"bla{enter}"``).
 
 .. warning::
-    Also in this case, remember to untick *Quotes* and to add one or more *Arguments*.
+    Also in this case, remember to untick **Quotes** and to add one or more **Arguments**.
 
-*Delays [ms]* sets the sleep intervals (in milliseconds) between keys. *Duration [ms]* sets how long (in milliseconds) keys are going to be pressed.
+**Delays [ms]** sets the sleep intervals (in milliseconds) between keys. **Duration [ms]** sets how long (in milliseconds) keys are going to be pressed.
 
 
 .. _visual_keywords-alyvix_finders:
@@ -341,7 +341,7 @@ Image Finder
 
 *Image Finders* produce Alyvix visual keywords that are able to detect and interact with **images** (i.e. pixel matrixes). This is the *Image Finder* dialog:
 
-    .. image:: pictures/ride_06a_image_finder.png
+    .. image:: pictures/ride_06b_image_finder.png
 
 To define such keywords follow these steps:
 
@@ -350,16 +350,17 @@ To define such keywords follow these steps:
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
     4. the *Image Finder* features a spin box to set the **visual likelihood threshold** for the selected component. You can set a number between 0 and 1, with two decimal places. The default value is ``0.70`` and it works just fine most of the cases;
 
-        .. image:: pictures/ride_06ab_image_finder.png
+        .. image:: pictures/ride_06ac_image_finder.png
 
     ..
 
         .. note::
             To **disambiguate graphical elements** in a transaction, it is better to **add more components** instead of increasing the visual likelihood threshold
 
-    5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
-    6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
-    7. click the *OK* button to save the keyword.
+    5. the *Image Finder* also features a check box to set the **color detection** for the selected component. By default, Alyvix does not take into account colors of visual elements, but in some cases that could be crucial (e.g. detect a red sign that becomes green);
+    6. set the :ref:`detection properties <visual_keywords-detection_settings>`;
+    7. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
+    8. click the **OK** button to save the keyword.
 
 
 .. _visual_keywords-rect_finder:
@@ -369,14 +370,14 @@ Rect Finder
 
 *Rect Finders* produce Alyvix visual keywords that are able to detect and interact with **rectangles** (e.g. text boxes, rectangle buttons). This is the *Rect Finder* dialog:
 
-    .. image:: pictures/ride_08_rect_finder.png
+    .. image:: pictures/ride_08b_rect_finder.png
 
 To define such keywords follow these steps:
 
     1. select the Rect Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
     2. select :ref:`main and sub components <visual_keywords-rect_definition>` of the selected Finder;
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
-    4. the *Rect Finder* features the controls to set the **allowed boundaries** of those rectangles that you want to detect;
+    4. the *Rect Finder* features the controls to set the **allowed boundaries** of those rectangles that you want to detect:
 
         1. there are 2 modes to define valid rectangles: **Sizing** and **Tolerance** areas. Click on the radio button of one them;
 
@@ -386,10 +387,10 @@ To define such keywords follow these steps:
 
         ..
 
-        2. tick the *Show* check box of the selected mode to see the ongoing tuning of valid rectangle areas;
+        2. tick the **Show** check box of the selected mode to see the ongoing tuning of valid rectangle areas;
         3. type integer numbers, click spin boxes or scroll mouse wheel to **tune the violet area** for the selected component. The rectangle contours on screen (or in region of interests for sub components) that fit into the allowed boundaries will be taken into account by Alyvix (i.e. during the keyword execution);
 
-            .. image:: pictures/ride_08b_rect_finder.png
+            .. image:: pictures/ride_08ab_rect_finder.png
 
         ..
 
@@ -398,7 +399,7 @@ To define such keywords follow these steps:
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
     6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
-    7. click the *OK* button to save the keyword.
+    7. click the **OK** button to save the keyword.
 
 
 .. _visual_keywords-text_finder:
@@ -408,7 +409,7 @@ Text Finder
 
 *Text Finders* produce Alyvix visual keywords that are able to **detect and interact with text** (e.g. button text, icon text). This is the *Text Finder* dialog:
 
-    .. image:: pictures/ride_09_text_finder.png
+    .. image:: pictures/ride_09b_text_finder.png
 
 To define such keywords follow these steps:
 
@@ -417,15 +418,15 @@ To define such keywords follow these steps:
 
     ..
 
-        .. note::
-            The Text Finder is designed to **primarly work in the ROI (region of interest) of the main component** as a fixed spot and not through out all the screen as the Image and Rect Finders. In fact, unlike the other Finders, you have also to select the ROI of the main component. So that, executing a Text Finder keyword alone, the text to match will be searched in the fixed ROI areas of its components. Thanks to the :ref:`Object Finders <visual_keywords-object_finder>` you can search text in a position that is related to other graphic elements (i.e. images, rectangles)
+        .. warning::
+            The Text Finder is designed to **primarly work in the ROI (region of interest) of the main component** as a fixed spot and not through out all the screen as the Image and Rect Finders. In fact, unlike the other Finders, you have also to select the ROI of the main component. Through to an :ref:`Object Finder <visual_keywords-object_finder>` **you have to search text in a position that is related to other graphic elements** (i.e. images, rectangles)
 
     3. type the :ref:`keyword name <visual_keywords-name_components>` and eventually set the number of arguments;
     4. the *Text Finder* features the properties to set the **regular expression** for matching the text (e.g. label, chunk) that you want to detect;
 
-        * In the *Text* box you can insert a case insensitive **text string** (e.g. ``name``) as well as a **regular expression** (e.g. ``.*ame``). During the keyword execution, Alyvix will try to properly match that entry with the text within the ROI of the selected component;
-        * In the *Text* box you can also use **arguments** passing text strings or regular expressions from the keyword arguments. :ref:`Add one or more arguements <visual_keywords-name_components>`, type ``arg1``, ``arg2``, etc. in the *Text* box and untick *Quotes*;
-        * Click on the *Check* button to have a preview of what the OCR scanner will detect in the ROI of the selected component: *CRITICAL* means Alyvix is not able to match the regular expression you have provided, *EXCELLENT* instead means the text component can be found;
+        * In the **Text** box you can insert a case insensitive **text string** (e.g. ``name``) as well as a **regular expression** (e.g. ``.*ame``). During the keyword execution, Alyvix will try to properly match that entry with the text within the ROI of the selected component;
+        * In the **Text** box you can also use **arguments** passing text strings or regular expressions from the keyword arguments. :ref:`Add one or more arguements <visual_keywords-name_components>`, type ``arg1``, ``arg2``, etc. in the *Text* box and untick *Quotes*;
+        * Click on the **Check** button to have a preview of what the OCR scanner will detect in the ROI of the selected component: *CRITICAL* means Alyvix is not able to match the regular expression you have provided, *EXCELLENT* instead means the text component can be found;
 
             ..
 
@@ -436,7 +437,7 @@ To define such keywords follow these steps:
 
         * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the recognition to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
 
-            .. image:: pictures/ride_09b_text_finder.png
+            .. image:: pictures/ride_09ab_text_finder.png
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
     6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
@@ -506,7 +507,7 @@ Text Scraper
 
 *Text Scrapers* produce Alyvix visual keywords that are able to **scrap text** (e.g. window titles, text chunks). This is the *Text Scraper* dialog:
 
-    .. image:: pictures/ride_09c_text_scraper.png
+    .. image:: pictures/ride_09ac_text_scraper.png
 
 To define such keywords follow these steps:
 
@@ -528,7 +529,7 @@ To define such keywords follow these steps:
 
         * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the scraping to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
 
-            .. image:: pictures/ride_09d_text_scraper.png
+            .. image:: pictures/ride_09ad_text_scraper.png
 
     5. click the *OK* button to save the keyword.
 
