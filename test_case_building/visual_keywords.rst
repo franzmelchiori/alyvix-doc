@@ -425,8 +425,8 @@ To define such keywords follow these steps:
     4. the *Text Finder* features the properties to set the **regular expression** for matching the text (e.g. label, chunk) that you want to detect;
 
         * In the **Text** box you can insert a case insensitive **text string** (e.g. ``name``) as well as a **regular expression** (e.g. ``.*ame``). During the keyword execution, Alyvix will try to properly match that entry with the text within the ROI of the selected component;
-        * In the **Text** box you can also use **arguments** passing text strings or regular expressions from the keyword arguments. :ref:`Add one or more arguements <visual_keywords-name_components>`, type ``arg1``, ``arg2``, etc. in the *Text* box and untick *Quotes*;
-        * Click on the **Check** button to have a preview of what the OCR scanner will detect in the ROI of the selected component: *CRITICAL* means Alyvix is not able to match the regular expression you have provided, *EXCELLENT* instead means the text component can be found;
+        * In the **Text** box you can also use **arguments** passing text strings or regular expressions from the *keyword arguments*. :ref:`Add one or more arguements <visual_keywords-name_components>`, type ``arg1``, ``arg2``, etc. in the **Text** box and untick **Quotes**;
+        * Click on the **Check** button to have a preview of what the **OCR scanner detects in the ROI of the selected component**: *CRITICAL* means Alyvix is not able to match the regular expression you have provided, *EXCELLENT* instead means the text component can be found;
 
             ..
 
@@ -435,13 +435,13 @@ To define such keywords follow these steps:
             .. note::
                 As a general rule of thumb, try to **wrap uniform text with ROI** in order to obtain a **more accurate character recognition**. Sometimes though, you could suffer a poor character recognition (e.g. ``8`` instead of ``B``, ``1`` instead of ``t``): in these cases work on the regular expression to correct the detection
 
-        * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the recognition to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
+        * The characters from ROI pass through the **WhiteList** filter: the OCR scanner will limit the recognition to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the **Lang** box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
 
             .. image:: pictures/ride_09ab_text_finder.png
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
     6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
-    7. click the *OK* button to save the keyword.
+    7. click the **OK** button to save the keyword.
 
 
 .. _visual_keywords-object_finder:
@@ -449,7 +449,7 @@ To define such keywords follow these steps:
 Object Finder
 -------------
 
-The *Object Finder* is probably the most useful Alyvix Finder, because it **links together multiple types of Alyvix visual keywords** defining complex graphic objects to detect: a *Object Finder* considers its basic visual keywords as its main and sub components to search, inheriting their arguments as well. This is the *Object Finder* dialog:
+The *Object Finder* is probably the most useful Alyvix Finder, because it **links together multiple types of Alyvix visual keywords** defining complex graphic objects to detect: **an Object Finder considers its basic visual keywords as its main and sub components to search**, inheriting their arguments as well. This is the *Object Finder* dialog:
 
     .. image:: pictures/ride_10_object_finder.png
 
@@ -458,32 +458,32 @@ To define such keywords follow these steps:
     1. define the :ref:`Image Finder <visual_keywords-image_finder>`, :ref:`Rect Finder <visual_keywords-rect_finder>` and :ref:`Text Finder <visual_keywords-text_finder>` keywords that will be components of the *Object Finder*;
     2. select the *Object Finder* in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
     3. type the :ref:`keyword name <visual_keywords-name_components>`;
-    4. click on *Set Main* button to select the main component: a list of the defined Finders will appear from where choose an *Image Finder [IF]* or a *Rect Finder [RF]*;
+    4. click on **Set Main** button to select the main component: a list of the defined Finders will appear from where choose an *Image Finder [IF]* or a *Rect Finder [RF]*;
 
         ..
 
     ..
 
         .. note::
-            It is not possible to choose a *Text Finder [TF]* as the main component of an *Object Finder*, because it would not make sense: the *Text Finder* is designed to primarly search text in the fixed ROI (region of interest) area of its main component
+            **It is not possible to choose a Text Finder [TF] as the main component of an Object Finder**, because it would not make sense: the *Text Finder* is designed to primarly search text in the fixed ROI (region of interest) area of its main component
 
-    5. click on *Add Sub* button to select a sub component: a list of the defined Finders will appear from where choose an *Image Finders [IF]*, a *Rect Finders [RF]* and a *Text Finders [TF]*; you can add more sub components clicking on *Add Sub* every time;
+    5. click on **Add Sub** button to select a sub component: a list of the defined Finders will appear from where choose an *Image Finders [IF]*, a *Rect Finders [RF]* and a *Text Finders [TF]*; you can add more sub components clicking on **Add Sub** every time;
 
         ..
 
     ..
 
         .. note::
-            Select the main component and click on the *Edit* button to edit its definition; you can do the same for each sub component as well as redraw its ROI (*ROI Redraw* button) and remove it (*Remove* button)
+            Select the main component and click on the **Edit** button to edit its definition; you can do the same for each sub component as well as redraw its ROI (**ROI Redraw** button) and remove it (**Remove** button)
 
             ..
 
                 .. image:: pictures/ride_10b_object_finder.png
 
     6. set the :ref:`detection properties <visual_keywords-detection_settings>`;
-    7. click the *OK* button to save the keyword.
+    7. click the **OK** button to save the keyword.
 
-You can build, for example, an *Object Finder* visual keyword made by an *IF* and a *TF* (with a regular expression as its argument). It is a powerful thing: you can use the same keyword several time to interact with different text elements in the same menu, just changing the *TF* regex argument.
+You can build, for example, an *Object Finder* visual keyword made by an *IF* and a *TF* (with a regular expression as its argument). It is a powerful object: you can **use the same keyword** several time **to interact with different text elements** in the same menu, just changing the *TF* regex argument.
 
 Also an *Object Finder* made of a *RF* and a *TF* (with its argument) is useful: you can use *OF* visual keywords to interact with different rectangle buttons, identically shaped, but differently labeled.
 
@@ -511,12 +511,12 @@ Text Scraper
 
 To define such keywords follow these steps:
 
-    1. select the Text Finder in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
+    1. select the regular *Text Finder* in the :ref:`selector of visual keywords <visual_keywords-keyword_definition>`;
     2. select the :ref:`main component <visual_keywords-text_definition>` of the scraper (i.e. ROI and selection) and press :kbd:`CTRL+O`;
     3. type the :ref:`keyword name <visual_keywords-name_components>` and tick *Scraper*;
-    4. the *Text Scraper* features the properties for scraping the text that you want to scrap;
+    4. the *Text Scraper* features the properties for scraping the text that you want;
 
-        * Click on the *Check* button to have a preview of what the OCR scanner will scrap in the ROI of the main component;
+        * Click on the **Check** button to have a preview of what the OCR scanner will scrap in the ROI of the main component;
 
             ..
 
@@ -527,11 +527,11 @@ To define such keywords follow these steps:
 
         ..
 
-        * The characters from ROI pass through the *WhiteList* filter: the OCR scanner will limit the scraping to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the *Lang* box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
+        * The characters from ROI pass through the **WhiteList** filter: the OCR scanner will limit the scraping to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the **Lang** box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
 
             .. image:: pictures/ride_09ad_text_scraper.png
 
-    5. click the *OK* button to save the keyword.
+    5. click the **OK** button to save the keyword.
 
 
 .. _visual_keywords-object_scraper:
@@ -539,4 +539,4 @@ To define such keywords follow these steps:
 Object Scraper
 --------------
 
-An *Object Scraper* binds :ref:`Image Finders <visual_keywords-image_finder>`, :ref:`Rect Finders <visual_keywords-rect_finder>`, :ref:`Text Finders <visual_keywords-text_finder>` together with :ref:`Text Scrapers <visual_keywords-text_scraper>`.
+An *Object Scraper* simply relies on the regular :ref:`Object Finder <visual_keywords-object_finder>` to bind :ref:`Image Finders <visual_keywords-image_finder>`, :ref:`Rect Finders <visual_keywords-rect_finder>`, :ref:`Text Finders <visual_keywords-text_finder>` together with :ref:`Text Scrapers <visual_keywords-text_scraper>`.
