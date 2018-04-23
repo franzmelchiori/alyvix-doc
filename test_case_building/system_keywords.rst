@@ -81,7 +81,11 @@ Examples:
     | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=True`` |
     +-----------------+-----------------------------------+----------------+--------------------+
 
-*Wait Window* **waits until a window is running** and can be activated (e.g. from the taskbar). The keyword waits the given timeout of seconds and it waits for a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
+    +------------------+-----------------+-----------------------------------+---------------+---------------------+
+    | ``${wait_time}`` | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
+    +------------------+-----------------+-----------------------------------+---------------+---------------------+
+
+*Wait Window* **waits until a window is running** and can be activated (e.g. from the taskbar). The keyword waits the given **timeout** of seconds and it waits for a window with a **title name** that fits the given **regular expression**. When the timeout is expired without having found a window with a proper title, then the test case breaks if the **exception** is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command. The keyword can return``${wait_time}``, which is the **amount of seconds** before the keyword has correctly match the given regular expression with an ongoing window.
 
 
 .. _system_keywords-window_keywords-maximize_window:
@@ -105,7 +109,11 @@ Examples:
     | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=True`` |
     +---------------------+-----------------------------------+----------------+--------------------+
 
-*Maximize Window* **waits and maximizes the size of a window**. The keyword waits the given timeout of seconds and it maximizes a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
+    +------------------+---------------------+-----------------------------------+---------------+---------------------+
+    | ``${wait_time}`` | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
+    +------------------+---------------------+-----------------------------------+---------------+---------------------+
+
+*Maximize Window* **waits and maximizes the size of a window**. The keyword waits the given timeout of seconds and it maximizes a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command. The keyword can return``${wait_time}``, which is the **amount of seconds** before the keyword has correctly match the given regular expression with an ongoing window.
 
 .. note::
     It is a best practice to maximize the window on which the rest of test case will work, because it can **limit the graphical noise** coming from the rest of the GUI on screen. This can optimize the detection of the Alyvix visual keywords just on the interested application window.
@@ -189,7 +197,11 @@ Example:
     | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=30`` | ``exception=True`` |
     +-----------------------+-----------------------------------+----------------+--------------------+
 
-*Wait Window Close* **waits until a window is closed**. The keyword waits the given timeout of seconds and it waits for the disappearance of a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
+    +------------------+-----------------------+-----------------------------------+---------------+---------------------+
+    | ``${wait_time}`` | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
+    +------------------+-----------------------+-----------------------------------+---------------+---------------------+
+
+*Wait Window Close* **waits until a window is closed**. The keyword waits the given timeout of seconds and it waits for the disappearance of a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command. The keyword can return``${wait_time}``, which is the **amount of seconds** before the keyword has correctly match the given regular expression with an ongoing window.
 
 
 .. _system_keywords-io_keywords:
@@ -382,7 +394,7 @@ Example:
         * ``3`` **UNKNOWN**
 
 .. warning::
-    It is convenient to **declare all performance variables at the beginning of test cases**: in this way we can know at which point the test case eventually breaks. If a performance variable is not filled at the end of a test case (maybe because the test case breaks before or at that point) the keyword state returns ``2`` **CRITICAL** as default.
+    It is convenient to **declare all performance variables at the beginning of test cases** in a :ref:`setup section <testcase_sections-main_sections-setup_section>`: in this way we can know at which point the test case eventually breaks. If a performance variable is not filled at the end of a test case (maybe because the test case breaks before or at that point) the keyword state returns ``2`` **CRITICAL** as default.
 
 
 .. _system_keywords-performance_keywords-print_perfdata:
@@ -470,10 +482,6 @@ Publish Perfdata
     | ``Publish Perfdata`` | ``type=csv`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` |
     +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
 
-    +----------------------+------------------+-------------------------------------------+-------------------------------------+
-    | ``Publish Perfdata`` | ``type=perfmon`` | ``testcase_name=<testcase_name_to_list>`` | ``max_age=<database_data_max_age>`` |
-    +----------------------+------------------+-------------------------------------------+-------------------------------------+
-
     +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
     | ``Publish Perfdata`` | ``type=nats`` | ``server=<ip_address>`` | ``port=<port_number>`` | ``subject=<database_name>`` | ``measurement=<table_name>`` |
     +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
@@ -490,14 +498,6 @@ Example:
     | ``Publish Perfdata`` | ``start_date=1 weeks`` | ``end_date=now`` |
     +----------------------+------------------------+------------------+
 
-    +----------------------+------------------+--------------------------------+----------------+
-    | ``Publish Perfdata`` | ``type=perfmon`` | ``testcase_name=citrix_login`` | ``max_age=12`` |
-    +----------------------+------------------+--------------------------------+----------------+
-
-    +----------------------+------------------+
-    | ``Publish Perfdata`` | ``type=perfmon`` |
-    +----------------------+------------------+
-
     +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
     | ``Publish Perfdata`` | ``type=nats`` | ``server=127.0.0.1`` | ``port=4222`` | ``subject=customer`` | ``measurement=alyvix`` |
     +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
@@ -508,10 +508,8 @@ Example:
 .. warning::
     To publish test case data (i.e. to use this keyword) is necessary to **store test case data in advance** using :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>`.
 
-.. warning::
-    If Alyvix has been installed correctly, the **Alyvix Wpm Service has to run as a background service**, which is necessary to publish test case data in Windows Performance Monitor.
+*Publish Perfdata* **publishes test case data in CSV file or in InfluxDB (through NATS and Telegraf)**.
 
-*Publish Perfdata* **publishes test case data in CSV file, in Windows Performance Monitor or in InfluxDB (through NATS and Telegraf)**.
 
 .. _system_keywords-performance_keywords-publish_perfdata-csv_mode:
 
@@ -520,15 +518,6 @@ CSV mode
 
 ``type=csv`` takes mandatory ``start_date`` and ``end_date`` (in the format ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days``, ``<n> hours`` and ``now`` just as end date). It can also take an optional path to the CSV ``filename`` to save with or without a timestamp ``suffix``.
 
-.. _system_keywords-performance_keywords-publish_perfdata-perfmon_mode:
-
-Perfmon mode
-^^^^^^^^^^^^
-
-``type=perfmon`` takes an optional ``testcase_name`` to list in Windows Performance Monitor and a ``max_age`` amount of hours as maximum range of past hours for data to consider. In this case, Alyvix test case data will be available in the list of WPM metrics to add, as ``Alyvix - <testcase_name>``.
-
-.. note::
-    You can have a look at the list of test case databases that are publishing in WPM reading the following file ``C:\Anaconda2\Lib\site-packages\`` ``alyvix\extra\`` ``alyvixservice.ini``.
 
 .. _system_keywords-performance_keywords-publish_perfdata-nats_mode:
 
