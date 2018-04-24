@@ -711,6 +711,48 @@ Example:
 *Delete Perfdata* **deletes an existing performance measure**. It is useful after :ref:`Rename Perfdata <system_keywords-performance_keywords-rename_perfdata>` or :ref:`Delete Perfdata <system_keywords-performance_keywords-delete_perfdata>` and before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>` to clean the final test case outcome.
 
 
+.. _system_keywords-network_keywords:
+
+Network keywords
+================
+
+
+.. _system_keywords-network_keywords-get_mstsc_hostname:
+
+Get Mstsc Hostname
+------------------
+
+    +------------------------+--------------------------------------------+--------------------------------------+
+    | ``Get Mstsc Hostname`` | ``customer_name=<prefix_ip_hostname_map>`` | ``path_json=<path_ip_hostname_map>`` |
+    +------------------------+--------------------------------------------+--------------------------------------+
+
+    * Default values: ``path_json=<testcase_path>``
+
+Example:
+
+    +-----------------------+-----------------------------+-----------------------+---------------------------------+
+    | ``${mstsc_hostname}`` | ``Get Mstsc Hostname``      | ``probename``         |                                 |
+    +-----------------------+-----------------------------+-----------------------+---------------------------------+
+    | ``Add Perfdata Tag``  | ``perf_name=desktop_ready`` | ``tag_name=hostname`` | ``tag_value=${mstsc_hostname}`` |
+    +-----------------------+-----------------------------+-----------------------+---------------------------------+
+
+    +-----------------------+------------------------+---------------+------------------------------------------------------------------------------+
+    | ``${mstsc_hostname}`` | ``Get Mstsc Hostname`` | ``probename`` | ``C:\\Python27\\Lib\\site-packages\\alyvix\\robotproxy\\alyvix_testcases\\`` |
+    +-----------------------+------------------------+---------------+------------------------------------------------------------------------------+
+
+.. warning::
+  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_ip_hostname_map>\\``).
+
+*Get Mstsc Hostname* **provides the** ``mstsc`` **hostname that is mapped in the** :download:`probename_ip_hostname_map.json <./probename_ip_hostname_map.json>` in a given path (e.g. ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\``) which is the test case folder by default.
+
+    .. code-block:: json
+
+        {
+            "127.0.0.1": "hostname_1",
+            "127.0.0.2": "hostname_2"
+        }
+
+
 .. _system_keywords-screenshot_keywords:
 
 Screenshot keywords
