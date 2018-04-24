@@ -49,7 +49,7 @@ Example:
     | ``Kill Process`` | ``chrome.exe`` |
     +------------------+----------------+
 
-*Kill Process* **kills a process** providing its executable filename. It could be useful to fetch the list of the ongoing programs (at some point) having a look at *Windows Task Manager*, in the *Detail* tab.
+*Kill Process* **kills a process** of which you provide its executable filename. Have a look at the *Windows Task Manager*, in the *Detail* tab, to know the ongoing programs.
 
     .. image:: pictures/task_manager.png
 
@@ -85,7 +85,9 @@ Examples:
     | ``${wait_time}`` | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
     +------------------+-----------------+-----------------------------------+---------------+---------------------+
 
-*Wait Window* **waits until a window is running** and can be activated (e.g. from the taskbar). The keyword waits the given **timeout** of seconds and it waits for a window with a **title name** that fits the given **regular expression**. When the timeout is expired without having found a window with a proper title, then the test case breaks if the **exception** is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command. The keyword can return``${wait_time}``, which is the **amount of seconds** before the keyword has correctly match the given regular expression with an ongoing window.
+*Wait Window* **waits until a window runs and is active** in the taskbar. The keyword waits the given **timeout** (an **amount of seconds**) and it waits for a window with a given **title name** (that fits a **regular expression**). When the timeout is expired without having found a window with a proper title, then the test case breaks if the **exception** is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution.
+
+The keyword can return ``${wait_time}``, which is the **amount of seconds** before the keyword has correctly **match the given regular expression** with an ongoing window.
 
 
 .. _system_keywords-window_keywords-maximize_window:
@@ -113,10 +115,12 @@ Examples:
     | ``${wait_time}`` | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
     +------------------+---------------------+-----------------------------------+---------------+---------------------+
 
-*Maximize Window* **waits and maximizes the size of a window**. The keyword waits the given timeout of seconds and it maximizes a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command. The keyword can return``${wait_time}``, which is the **amount of seconds** before the keyword has correctly match the given regular expression with an ongoing window.
+*Maximize Window* **waits and maximizes the size of a window**. The keyword waits the given **timeout** (an **amount of seconds**) and it maximizes a window with a given **title name** (that fits the given **regular expression**). When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
+
+The keyword can return ``${wait_time}``, which is the **amount of seconds** before the keyword has correctly **match the given regular expression** with an ongoing window.
 
 .. note::
-    It is a best practice to maximize the window on which the rest of test case will work, because it can **limit the graphical noise** coming from the rest of the GUI on screen. This can optimize the detection of the Alyvix visual keywords just on the interested application window.
+    It is a best practice to **maximize the window** on which the rest of test case will work, because it can **limit the graphical noise** coming from the rest of the GUI on screen. This can optimize the detection of the Alyvix visual keywords on the interested application window.
 
 
 .. _system_keywords-window_keywords-show_window:
@@ -134,7 +138,7 @@ Example:
     | ``Show Window`` | ``synthetic.*monitoring.*alyvix`` |
     +-----------------+-----------------------------------+
 
-*Show Window* **brings in foreground a window** (without resizing it) with a title name that fits the given regular expression. This keyword has an immediate timeout and no exception.
+*Show Window* **brings in foreground a window** (without resizing it) with a given **title name** (that fits the given **regular expression**). This keyword has an **immediate timeout** and **no exception**.
 
 
 
@@ -155,7 +159,7 @@ Example:
     | ``Log``  | ``${x}``         |                                   |
     +----------+------------------+-----------------------------------+
 
-*Check Window* **checks the existence of a window** (in background or in foreground) with a title name that fits the given regular expression, returning ``True`` or ``False`` for further decision or logging steps. This keyword has an immediate timeout and no exception.
+*Check Window* **checks the existence of a window** (in background or in foreground) with a given **title name** (that fits the given **regular expression**). It returns ``True`` or ``False`` for further decision or logging steps. This keyword has an **immediate timeout** and **no exception**.
 
 
 .. _system_keywords-window_keywords-close_window:
@@ -173,7 +177,7 @@ Example:
     | ``Close Window`` | ``synthetic.*monitoring.*alyvix`` |
     +------------------+-----------------------------------+
 
-*Close Window* **closes a window** (in background or in foreground) with a title name that fits the given regular expression. This keyword has an immediate timeout and no exception.
+*Close Window* **closes a window** (in background or in foreground) with a given **title name** (that fits the given **regular expression**). This keyword has an **immediate timeout** and **no exception**.
 
 
 .. _system_keywords-window_keywords-wait_window_close:
@@ -201,7 +205,9 @@ Example:
     | ``${wait_time}`` | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
     +------------------+-----------------------+-----------------------------------+---------------+---------------------+
 
-*Wait Window Close* **waits until a window is closed**. The keyword waits the given timeout of seconds and it waits for the disappearance of a window with a title name that fits the given regular expression. When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command. The keyword can return``${wait_time}``, which is the **amount of seconds** before the keyword has correctly match the given regular expression with an ongoing window.
+*Wait Window Close* **waits until a window is closed and is no longer active**. The keyword waits a given **timeout** (an **amount of seconds**) for the disappearance of a window with a given **title name** (that fits the given **regular expression**). When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
+
+The keyword can return ``${wait_time}``, which is the **amount of seconds** before the keyword has correctly **match the given regular expression** with an ongoing window.
 
 
 .. _system_keywords-io_keywords:
@@ -309,7 +315,7 @@ Example:
     | ``Send Keys`` | ``{Alt Down}{F4}{Alt Up}`` |                     |                  |
     +---------------+----------------------------+---------------------+------------------+
 
-*Send Keys* **types a sequence of keystrokes** to the active window where the focus is: regular characters (letters and numbers) can be stated as they are, while special keys have to be enclosed in braces (have a look at the table of the key syntax, e.g. ``{enter}``). The encrypted option can be activated (i.e. ``encrypted=True``) in case the string of keystrokes has been encrypted using the Alyvix :ref:`encryption tool <encryption_tool>`. *Delays [ms]* sets the sleep intervals (in milliseconds) between keys. *Duration [ms]* sets how long (in milliseconds) keys are going to be pressed.
+*Send Keys* **types a sequence of keystrokes** to the active window where the focus is: **regular characters** (letters and numbers) can be stated as they are, while **special keys** have to be enclosed in braces (have a look at the table above for their syntax, e.g. ``{enter}``). The **encrypted option** can be activated (i.e. ``encrypted=True``) in case the string of keystrokes has been encrypted using the Alyvix :ref:`encryption tool <encryption_tool>`. **Delays** [ms] sets the sleep intervals (in milliseconds) between keys. **Duration** [ms] sets how long (in milliseconds) keys are going to be pressed.
 
 
 .. _system_keywords-io_keywords-mouse_scroll:
@@ -329,10 +335,10 @@ Example:
     | ``Mouse Scroll`` | ``steps=3`` | ``direction=down`` |
     +------------------+-------------+--------------------+
 
-*Mouse Scroll* **scrolls the active window**. The keyword scrolls the windows of the given steps, up or down and where the focus is.
+*Mouse Scroll* **scrolls the active window**. The keyword scrolls the windows of the given **steps**, **up or down** and where the focus is.
 
 .. note::
-    *Mouse Scroll* is useful for scanning windows (e.g. website in a browser) searching for graphic elements defined in :ref:`visual keywords <visual_keywords>`.
+    *Mouse Scroll* is **useful for scanning windows** (e.g. website in a browser) searching for graphic elements defined in :ref:`visual keywords <visual_keywords>`.
 
 
 .. _system_keywords-io_keywords-move_mouse:
@@ -350,10 +356,10 @@ Example:
     | ``Mouse Move`` | ``x=0`` | ``y=0`` |
     +----------------+---------+---------+
 
-*Mouse Move* **moves the mouse pointer** to the given horizontal and vertical pixel coordinates within your screen.
+*Mouse Move* **moves the mouse pointer** to the given horizontal and vertical **pixel coordinates** of your screen.
 
 .. note::
-    Keep in mind that the positive verse of the horizontal screen coordinate x is from left to right. The positive verse of the vertical screen coordinate y is from top to bottom. So that, the origin of screen axes is at the point ``x=0`` ``y=0`` in the top-left corner. Sometimes leaving the mouse pointer in a certain position after a transaction can cause unintended interactions following.
+    Keep in mind that the **positive verse of the horizontal screen coordinate** x is from left to right. The **positive verse of the vertical screen coordinate** y is from top to bottom. So that, the **origin of screen axes** is at the point ``x=0`` ``y=0`` in the top-left corner. Sometimes leaving the mouse pointer in a certain position after a transaction can cause unintended interactions that can follow.
 
 
 .. _system_keywords-performance_keywords:
@@ -375,26 +381,37 @@ Add Perfdata
 
 Example:
 
+    * Declaration:
+
     +------------------+------------------+
     | ``Add Perfdata`` | ``citrix_login`` |
     +------------------+------------------+
 
-    +------------------+------------------+-------------+-------------------------+--------------------------+-------------+--------------------+
-    | ``Add Perfdata`` | ``dummy_perf``   | ``value=1`` | ``warning_threshold=3`` | ``critical_threshold=5`` | ``state=3`` | ``timestamp=True`` |
-    +------------------+------------------+-------------+-------------------------+--------------------------+-------------+--------------------+
+    * Definition:
 
-*Add Perfdata* **declares a performance variable**, which could have the name of an Alyvix visual keyword: when a visual keyword finishes to execute, it fills the performance variable with the measurement and the other data (thresholds, state and eventually timestamp).
+    +------------------+---------------------+-----------------------------------+-------------------------+----------------------------+--------------------+
+    | ``${wait_time}`` | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10``          |                            |                    |
+    +------------------+---------------------+-----------------------------------+-------------------------+----------------------------+--------------------+
+    | ``Add Perfdata`` | ``dummy_perf``      | ``value=${wait_time}``            | ``warning_threshold=5`` | ``critical_threshold=7.5`` | ``timestamp=True`` |
+    +------------------+---------------------+-----------------------------------+-------------------------+----------------------------+--------------------+
 
+*Add Perfdata* **declares a performance measure** in terms of its **name**. The latter could be the name of a :ref:`visual keyword <visual_keywords>`: when that keyword runs and then successfully exits, finding the defined graphic elements, it fills the performance with its **measurement**, **thresholds** and **timestamp**.
+
+*Add Perfdata* **can also define a performance measure** in terms of its **name**, **value**, **thresholds** and **timestamp**: it fills a performance, in the middle of a test case, with a **measurement** (e.g. from a system keyword as :ref:`Wait Window <system_keywords-window_keywords-wait_window>`), **thresholds** and **timestamp**
+
+.. _system_keywords-performance_keywords-add_perfdata-nagios_exitcode:
 .. note::
-    The ``state`` argument set the default ``errorlevel`` code that returns from the keyword in case it will break. Those codes have the following meanings:
+    The ``state`` argument (eventually in a declaration) sets the ``errorlevel`` code that returns from a :ref:`visual keyword <visual_keywords>` just in case it breaks **without its performance measure**. **Nagios codes** have the following meanings:
 
         * ``0`` **OK**
         * ``1`` **WARNING**
         * ``2`` **CRITICAL**
         * ``3`` **UNKNOWN**
 
+    On the other hand, if a keyword returns a measure then **thresholds determine the exit code**.
+
 .. warning::
-    It is convenient to **declare all performance variables at the beginning of test cases** in a :ref:`setup section <testcase_sections-main_sections-setup_section>`: in this way we can know at which point the test case eventually breaks. If a performance variable is not filled at the end of a test case (maybe because the test case breaks before or at that point) the keyword state returns ``2`` **CRITICAL** as default.
+    It is convenient to **declare all performance measures at the beginning of test cases** in a :ref:`setup section <testcase_sections-main_sections-setup_section>`: in this way it is known at which point the test case eventually breaks. If the value of a performance measure is not filled at the end of a test case (e.g. the test case breaks before or at that point) the keyword state code returns (``2``, **CRITICAL**, by default).
 
 
 .. _system_keywords-performance_keywords-print_perfdata:
@@ -414,7 +431,7 @@ Example:
     | ``Print Perfdata`` |
     +--------------------+
 
-*Print Perfdata* **prints all the performance variables** declared (and filled, but not declared) to a test case. By default (``print_output=True``), a message is printed out at the end of a test case execution to describe its overall state and eventually with the name of the last performance variable that has been measured and filled before a failure.
+*Print Perfdata* **prints all the performance measures** that have been declared (or just filled, but not declared). By default, a **message is printed out** at the end of a test case execution to **describe its overall state** and eventually the name of the last performance that has been measured before a failure.
 
 
 .. _system_keywords-performance_keywords-store_perfdata:
@@ -442,7 +459,7 @@ Example:
 .. warning::
     Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
 
-*Store Perfdata* **saves the test case data in a SQL database** file with a proper :ref:`database structure <database_structure-store_perfdata>`. New data are added to past database entries (that comes from previous test case executions): in this way, Alyvix probes can keep track of test case data.
+*Store Perfdata* **saves the test case data in a SQLite database** file with a proper :ref:`database structure <database_structure-store_perfdata>`. New data are added to past database entries (that comes from previous test case executions): in this way, an Alyvix probe can keep track of test case data.
 
 
 .. _system_keywords-performance_keywords-store_scrapdata:
@@ -470,7 +487,7 @@ Example:
 .. warning::
     Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
 
-*Store Scrapdata* **saves the scraped text in a SQL database** file with a proper :ref:`database structure <database_structure-store_scrapdata>`. New scraped text is added after each scraper execution.
+*Store Scrapdata* **saves the scraped text in a SQLite database** file with a proper :ref:`database structure <database_structure-store_scrapdata>`. New scraped text is added after each scraper execution.
 
 
 .. _system_keywords-performance_keywords-publish_perfdata:
@@ -482,13 +499,15 @@ Publish Perfdata
     | ``Publish Perfdata`` | ``type=csv`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` |
     +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
 
-    +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
-    | ``Publish Perfdata`` | ``type=nats`` | ``server=<ip_address>`` | ``port=<port_number>`` | ``subject=<database_name>`` | ``measurement=<table_name>`` |
-    +----------------------+---------------+-------------------------+------------------------+-----------------------------+------------------------------+
+    +----------------------+---------------+-----------------------------------+-------------------------+------------------------+-----------------------------+------------------------------+
+    | ``Publish Perfdata`` | ``type=nats`` | ``testcase_name=<testcase_name>`` | ``server=<ip_address>`` | ``port=<port_number>`` | ``subject=<database_name>`` | ``measurement=<table_name>`` |
+    +----------------------+---------------+-----------------------------------+-------------------------+------------------------+-----------------------------+------------------------------+
 
-    * Default values: ``type=csv``, ``filename=<testcase_path>\\<testcase_name>.csv``, ``suffix=None``, ``testcase_name=<testcase_name>``, ``max_age=24``
+    * Default values: ``type=csv``, ``filename=<testcase_path>\\<testcase_name>.csv``, ``suffix=None``, ``testcase_name=<testcase_name>``
 
 Example:
+
+    * CSV mode:
 
     +----------------------+--------------+---------------------------------+-------------------------------+---------------------------------------------------+----------------------+
     | ``Publish Perfdata`` | ``type=csv`` | ``start_date=2016-02-01 00:01`` | ``end_date=2016-08-04 23:59`` | ``filename=C:\\alyvix_reports\\citrix_login.csv`` | ``suffix=timestamp`` |
@@ -498,17 +517,16 @@ Example:
     | ``Publish Perfdata`` | ``start_date=1 weeks`` | ``end_date=now`` |
     +----------------------+------------------------+------------------+
 
+    * NATS mode:
+
     +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
     | ``Publish Perfdata`` | ``type=nats`` | ``server=127.0.0.1`` | ``port=4222`` | ``subject=customer`` | ``measurement=alyvix`` |
     +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
 
 .. warning::
-    Type the **CSV file path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\<csv_filename>.csv``).
+    Type the **CSV file path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\<csv_filename>.csv``). To publish test case data in a **CSV file** is necessary to **store test case data in advance** using :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>`.
 
-.. warning::
-    To publish test case data (i.e. to use this keyword) is necessary to **store test case data in advance** using :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>`.
-
-*Publish Perfdata* **publishes test case data in CSV file or in InfluxDB (through NATS and Telegraf)**.
+*Publish Perfdata* **publishes test case data** in a **CSV file** or in an **InfluxDB** (through **NATS** and Telegraf) as follows:
 
 
 .. _system_keywords-performance_keywords-publish_perfdata-csv_mode:
@@ -516,7 +534,7 @@ Example:
 CSV mode
 ^^^^^^^^
 
-``type=csv`` takes mandatory ``start_date`` and ``end_date`` (in the format ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days``, ``<n> hours`` and ``now`` just as end date). It can also take an optional path to the CSV ``filename`` to save with or without a timestamp ``suffix``.
+``type=csv`` takes mandatory ``start_date`` and ``end_date`` in the following formats ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days`` or ``<n> hours``; ``now`` just as end date. It can also take an optional **path** ``filename`` to **save a CSV** with or without a **timestamp** ``suffix``.
 
 
 .. _system_keywords-performance_keywords-publish_perfdata-nats_mode:
@@ -524,16 +542,30 @@ CSV mode
 NATS mode
 ^^^^^^^^^
 
-``type=nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and flush to a NATS server all the collected performance in the following format, which is the `InfluxDB's Line Protocol <https://docs.influxdata.com/influxdb/v1.3/write_protocols/line_protocol_tutorial/>`_:
+``type=nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and **flush to a NATS server all the collected performance** in the following format, which is the `InfluxDB Line Protocol <https://docs.influxdata.com/influxdb/v1.3/write_protocols/line_protocol_tutorial/>`_:
 
-    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | ``<measurement>,<tag_1>,..,<tag_n>``                                                                                                                                                      | ``<field_1>,..,<field_n>``                                                                                                                                                            | ``<timestamp>``                   |
-    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | ``<table_name>,username=<windows_username>,host=<machine_hostname>,test_name=<testcase_name>,transaction_name=<transaction_name>,state={ok, warning, critical, timed_out, not_executed}`` | ``warning_threshold=<milliseconds>,critical_threshold=<milliseconds>,timeout_threshold=<milliseconds>,performance=<milliseconds>,cumulative=<milliseconds>,error_level={0, 1, 2, 3}`` | ``<nanoseconds_epoch_timestamp>`` |
-    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | ``<measurement>,<tag_1>,..,<tag_n>``                                                                                                                                                      | ``<field_1>,..,<field_n>``                                                                                                                                                                                                  | ``<timestamp>``                   |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+    | ``<table_name>,host=<machine_hostname>,username=<windows_username>,test_name=<testcase_name>,transaction_name=<transaction_name>,state={ok, warning, critical, timed_out, not_executed}`` | ``warning_threshold=<milliseconds>,critical_threshold=<milliseconds>,timeout_threshold=<milliseconds>,performance=<milliseconds>,cumulative=<milliseconds>,error_level={0, 1, 2, 3},run_code=<unique_test_execution_code>`` | ``<nanoseconds_epoch_timestamp>`` |
+    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
 
 .. note::
-    Points must be in **Line Protocol format for InfluxDB** to successfully parse and write points. A single line of Line Protocol represents one data point in InfluxDB. It informs InfluxDB of the point's measurement, tag set, field set, and timestamp. The code block above shows a sample of Line Protocol and breaks it into its individual components.
+    Points must be formatted in the **InfluxDB Line Protocol** to be successfully parsed and written in InfluxDB through NATS and Telegraf. A single line of the Line Protocol represents one data point with the following features:
+
+    * ``host``: Alyvix probe hostname
+    * ``username``: username of the user logged in Windows
+    * ``test_name``: testcase name
+    * ``transaction_name``: transaction name
+    * ``state``: :ref:`Nagios exit label <system_keywords-performance_keywords-add_perfdata-nagios_exitcode>` ``OK``, ``WARNING``, ``CRITICAL`` or ``UNKNOWN``
+    * ``warning_threshold``: transaction warning threshold in [milliseconds]
+    * ``critical_threshold``: transaction critical threshold in [milliseconds]
+    * ``timeout_threshold``: transaction timeout threshold in [milliseconds]
+    * ``performance``: transaction performance measure in [milliseconds]
+    * ``cumulative``: cumulative measure in [milliseconds] of all the collected performance including the current transaction
+    * ``error_level``: :ref:`Nagios exit code <system_keywords-performance_keywords-add_perfdata-nagios_exitcode>` ``0``, ``1``, ``2`` or ``3``
+    * ``run_code``: unique alphanumeric test case execution code
+    * ``time``: epoch in [nanoseconds] about the transaction start time
 
 
 .. _system_keywords-performance_keywords-rename_perfdata:
@@ -557,13 +589,39 @@ Example:
     | ``Rename Perfdata`` | ``old_name=login_generic_step`` | ``new_name=login_step_02`` |
     +---------------------+---------------------------------+----------------------------+
 
-*Rename Perfdata* **copies the performance data of an existing keyword in a new performance variable**. At least, you have to set the ``old_name`` and the ``new_name`` keywords, but it is also possible to redefine warning and critical thresholds.
+*Rename Perfdata* **copies the performance data of an existing keyword under a new performance name**. At least, you have to set the ``old_name`` and the ``new_name`` keywords, but it is also **possible to redefine warning and critical thresholds**.
 
 .. note::
-    This could be useful in order to **reuse the same keyword with different arguments** keeping track of the output performance after each execution. For example, you could run an :ref:`Object Finder <visual_keywords-object_finder>` searching for the same image as main component, but for a different text string as sub component (passed as an argument). Renaming a keyword name allows to keep track of the performance output after each use, because it is like to save the detection measurement in a new performance variable.
+    This could be useful in order to **reuse the same keyword with different arguments** keeping track of the performance measure after each execution. For example, you could run an :ref:`Object Finder <visual_keywords-object_finder>` searching for the same image as the main component, but for a different text string as the sub component (passed as an argument). **Renaming a keyword allows to keep track of its performance measures after each use**, it is like to save that measure as a brand new keyword. At the end of the test, before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>`, it could be the case to :ref:`delete the old partial keywords <system_keywords-performance_keywords-delete_perfdata>`.
+
+    Example:
+
+        +---------------------+----------------------------+-------------------------------+
+        | ``Add Perfdata``    | ``customer_code_01``       |                               |
+        +---------------------+----------------------------+-------------------------------+
+        | ``Add Perfdata``    | ``customer_code_02``       |                               |
+        +---------------------+----------------------------+-------------------------------+
+        |                     |                            |                               |
+        +---------------------+----------------------------+-------------------------------+
+        | ``customer_code``   | ``1``                      |                               |
+        +---------------------+----------------------------+-------------------------------+
+        | ``Rename Perfdata`` | ``old_name=customer_code`` | ``new_name=customer_code_01`` |
+        +---------------------+----------------------------+-------------------------------+
+        |                     |                            |                               |
+        +---------------------+----------------------------+-------------------------------+
+        | ``customer_code``   | ``2``                      |                               |
+        +---------------------+----------------------------+-------------------------------+
+        | ``Rename Perfdata`` | ``old_name=customer_code`` | ``new_name=customer_code_02`` |
+        +---------------------+----------------------------+-------------------------------+
+        |                     |                            |                               |
+        +---------------------+----------------------------+-------------------------------+
+        | ``Delete Perfdata`` | ``customer_code``          |                               |
+        +---------------------+----------------------------+-------------------------------+
+        | ``Print Perfdata``  |                            |                               |
+        +---------------------+----------------------------+-------------------------------+
 
 .. warning::
-    Executing two or more times the same visual keyword simply **overrides its performance variable**, loosing the previous measurement. *Rename Perfdata* avoids the need to define a new visual keyword with the same graphic elements to detect.
+    Executing two or more times the same :ref:`visual keyword <visual_keywords>` simply **overrides its current performance measure**, so loosing the previous one. *Rename Perfdata* **avoids the need to define a new visual** keyword with the same graphic elements to detect.
 
 
 .. _system_keywords-performance_keywords-sum_perfdata:
@@ -589,10 +647,10 @@ Example:
     | ``Sum Perfdata`` | ``login_step_01`` | ``login_step_02`` | ``name=login_steps`` |
     +------------------+-------------------+-------------------+----------------------+
 
-*Sum Perfdata* **sums the given performance variables in a new one**. At least, you have to set 2 ``<performance_name>`` to sum in the ``<new_performance_name>``. It is also possible to define warning and critical thresholds of the new variable.
+*Sum Perfdata* **sums the given performance measures in a new one**. At least, you have to set **two** ``<performance_name>`` **to sum** in the ``<new_performance_name>``. It is also possible to **define warning and critical thresholds** of the new keyword.
 
 .. note::
-    At the end of the test, before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>`, it could be the case to :ref:`delete the old partial variables <system_keywords-performance_keywords-delete_perfdata>`.
+    At the end of the test, before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>`, it could be the case to :ref:`delete the old partial keywords <system_keywords-performance_keywords-delete_perfdata>`.
 
 
 .. _system_keywords-performance_keywords-add_perfdata_tag:
@@ -635,26 +693,6 @@ Example:
 *Add Perfdata Field* **adds a custom field to** a performance point or to all **performance points** of a test case. It could be useful for publishing performance in :ref:`NATS mode<system_keywords-performance_keywords-publish_perfdata-nats_mode>`.
 
 
-.. _system_keywords-performance_keywords-get_perfdata:
-
-Get Perfdata
-------------
-
-    +----------+------------------+-----------------------------+
-    | ``${x}`` | ``Get Perfdata`` | ``name=<performance_name>`` |
-    +----------+------------------+-----------------------------+
-    | ``Log``  | ``${x}``         |                             |
-    +----------+------------------+-----------------------------+
-
-Example:
-
-    +------------------+----------------------+
-    | ``Get Perfdata`` | ``name=login_steps`` |
-    +------------------+----------------------+
-
-*Get Perfdata* **outputs the measured performance of the given keyword** during a test case execution. It could be useful to process or use that time measurement.
-
-
 .. _system_keywords-performance_keywords-delete_perfdata:
 
 Delete Perfdata
@@ -670,7 +708,7 @@ Example:
     | ``Delete Perfdata`` | ``login_step_01`` |
     +---------------------+-------------------+
 
-*Delete Perfdata* **deletes an existing performance variable**. It is useful after :ref:`Rename Perfdata <system_keywords-performance_keywords-rename_perfdata>` or :ref:`Delete Perfdata <system_keywords-performance_keywords-delete_perfdata>` and before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>` to clean the final test case outcome.
+*Delete Perfdata* **deletes an existing performance measure**. It is useful after :ref:`Rename Perfdata <system_keywords-performance_keywords-rename_perfdata>` or :ref:`Delete Perfdata <system_keywords-performance_keywords-delete_perfdata>` and before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>` to clean the final test case outcome.
 
 
 .. _system_keywords-screenshot_keywords:
@@ -694,7 +732,7 @@ Example:
     | ``Alyvix Screenshot`` | ``login_screen.jpg`` |
     +-----------------------+----------------------+
 
-*Alyvix Screenshot* **grabs a screenshot and saves it into the output folder**, which can be specified as an argument (``--outputdir <output_folder_path>``, e.g. ``--outputdir "C:\alyvix_reports\login_testcase"``) of the Alyvix :ref:`test case script <commandline_output>` through command prompt. By default the extension of the screenshot file is ``.png``, but it is also possible to specify ``.jpg`` as image compression.
+*Alyvix Screenshot* **grabs a screenshot and saves it into the output folder**, which can be specified as an argument ``--outputdir <output_folder_path>`` (e.g. ``--outputdir "C:\alyvix_reports\login_testcase"``) of the Alyvix :ref:`test case script <commandline_output>`. By default the extension of the screenshot file is ``.png``, but it is also possible to specify ``.jpg`` as the image compression.
 
 
 .. _system_keywords-debug_keywords:
@@ -721,7 +759,7 @@ Example:
 .. warning::
   Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\config.xml``).
 
-*Alyvix Config* links the :download:`config.xml <./config.xml>` file to get some Alyvix **custom settings**.
+*Alyvix Config* **links the** :download:`config.xml <./config.xml>` **file to set some Alyvix custom settings**.
 
     .. code-block:: xml
 
@@ -742,12 +780,10 @@ Example:
             </log>
         </config>
 
-Edit ``config.xml`` to enable the Alyvix **debugging mode** (``<log><enable>True``) and set in which folder storing the screenshots of detected and failed Alyvix objects (``<log><home>C:\<path_to_folder>``).
-
-It is also possible to set the time periods of the frame grabber ``<finder><finder_thread_interval>0.5`` (0.5s is the default value) and of the object detector ``<finder><check_diff_interval>0.1`` (0.1s is the default value).
+Edit ``config.xml`` to enable the Alyvix **debugging mode** (``<log><enable>True``) and set in which folder storing the **detection screenshots** of Alyvix objects (``<log><home>C:\<path_to_folder>``). It is also possible to set the **time periods of the frame grabber** ``<finder><finder_thread_interval>0.5`` (0.5s by default) and **of the object detector** ``<finder><check_diff_interval>0.1`` (0.1s by default).
 
 .. note::
-  It is recommended to leave the default values (i.e. ``0.5`` for the detector and ``0.1`` for the grabber), in order to avoid overloading the hardware. But you can **increase the measurement accuracy** decreasing the detector period ``<finder><finder_thread_interval>`` and you can **increase the measurement precision** decreasing the grabber period ``<finder><check_diff_interval>``.
+  It is recommended to **leave the default values** (i.e. ``0.5`` for the detector and ``0.1`` for the grabber), in order to avoid overloading the hardware. But you can **increase the measurement accuracy** decreasing the detector period ``<finder><finder_thread_interval>`` and you can **increase the measurement precision** decreasing the grabber period ``<finder><check_diff_interval>``.
 
 
 .. _system_keywords-debug_keywords-set_alyvix_info:
@@ -775,21 +811,18 @@ Example:
     | ``Set Alyvix Info`` | ``name=channel``                          | ``value=r``   |
     +---------------------+-------------------------------------------+---------------+
 
-.. warning::
-    Type the **setting values between** ``${`` **and** ``}`` (e.g. ``${0.25}``); they are intended as **values in milliseconds**.
-
-*Set Alyvix Info* sets values related to the Alyvix **engine settings**. *Set Alyvix Info* acts from its call point to the end of the test case (or to a new call).
+*Set Alyvix Info* **sets values of the Alyvix engine settings**. *Set Alyvix Info* acts from its call point until the end of the test case (or until another setup).
 
 *Set Alyvix Info* can set the following properties:
 
-    * ``CHECK DIFF INTERVAL`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (on which it tries to detect the appearance of graphic elements); you can consider this setting as the measurement precision of the graphic appearance detection; the default value is ``0.1``;
+    * ``CHECK DIFF INTERVAL`` redefines the **amount of seconds** (e.g. ``0.1``) that **Alyvix waits before grabbing a new screen frame** (on which it tries to detect the appearance of graphic elements); you can consider this setting as the **measurement precision of the graphic appearance detection**; the default value is ``0.1``;
 
-    * ``CHECK DIFF INTERVAL DISAPPEAR`` redefines the amount of seconds (e.g. ``${0.1}``) that Alyvix waits before grabbing a new screen frame (on which it tries to detect the disappearance of graphic elements); you can consider this setting as the measurement precision of the graphic disappearance detection; the default value is ``0.1``;
+    * ``CHECK DIFF INTERVAL DISAPPEAR`` redefines the **amount of seconds** (e.g. ``0.1``) that **Alyvix waits before grabbing a new screen frame** (on which it tries to detect the disappearance of graphic elements); you can consider this setting as the **measurement precision of the graphic disappearance detection**; the default value is ``0.1``;
 
-    * ``FINDER THREAD INTERVAL`` redefines the amount of seconds (e.g. ``${0.5}``) that Alyvix takes between attempts to detect the appearance of graphic elements; you can consider this setting as the measurement accuracy of the graphic appearance detection; the default value is ``0.5``;
+    * ``FINDER THREAD INTERVAL`` redefines the **amount of seconds** (e.g. ``0.5``) that **Alyvix takes between attempts to detect the appearance of graphic elements**; you can consider this setting as the **measurement accuracy of the graphic appearance detection**; the default value is ``0.5``;
 
-    * ``FINDER THREAD INTERVAL DISAPPEAR`` redefines the amount of seconds (e.g. ``${0.5}``) that Alyvix takes between attempts to detect the disappearance of graphic elements; you can consider this setting as the measurement accuracy of the graphic disappearance detection; the default value is ``0.5``;
+    * ``FINDER THREAD INTERVAL DISAPPEAR`` redefines the **amount of seconds** (e.g. ``0.5``) that **Alyvix takes between attempts to detect the disappearance of graphic elements**; you can consider this setting as the **measurement accuracy of the graphic disappearance detection**; the default value is ``0.5``;
 
-    * ``ACTIONS DELAY`` to redefine the amount of seconds (e.g. ``${0.5}``) that Alyvix takes after each interaction step; the default value is ``2``.
+    * ``ACTIONS DELAY`` to redefine the **amount of seconds** (e.g. ``0.5``) that **Alyvix takes after each interaction step**; the default value is ``0.5``.
 
-    * ``channel`` to select just one single color channel (``r`` as red, ``g`` as green or ``b`` as blue) and cutoff the other two; the default value is ``all``.
+    * ``channel`` to **select just one single color channel** (``r`` as red, ``g`` as green or ``b`` as blue) and **cutoff the other two**; the default value is ``all``.
