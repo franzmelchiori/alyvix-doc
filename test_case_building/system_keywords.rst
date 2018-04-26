@@ -711,6 +711,32 @@ Example:
 *Delete Perfdata* **deletes an existing performance measure**. It is useful after :ref:`Rename Perfdata <system_keywords-performance_keywords-rename_perfdata>` or :ref:`Delete Perfdata <system_keywords-performance_keywords-delete_perfdata>` and before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>` to clean the final test case outcome.
 
 
+.. _system_keywords-timestamp_keywords:
+
+Timestamp keywords
+==================
+
+
+.. _system_keywords-timestamp_keywords-check_date_today:
+
+Check Date Today
+----------------
+
+    +----------------------+-------------------------------------+
+    | ``Check Date Today`` | ``scraped_string=<scraped_string>`` |
+    +----------------------+-------------------------------------+
+
+Example:
+
+    +-----------------------+---------------------+----------------------+-----------------------+
+    | ``${scraped_string}`` | ``date_scraper``    |                      |                       |
+    +-----------------------+---------------------+----------------------+-----------------------+
+    | ``${sanity_check}``   | ``${scraped_date}`` | ``Check Date Today`` | ``${scraped_string}`` |
+    +-----------------------+---------------------+----------------------+-----------------------+
+
+*Check Date Today* **extract a date from a scraped string** that comes from a :ref:`visual scraper <visual_keywords-alyvix_scrapers>` and **check if that is today**. The **date format** has to be one of the following: ``dd/mm/yyyy``, ``dd/mm``, ``mm/dd/yyyy`` or ``mm/dd``.
+
+
 .. _system_keywords-network_keywords:
 
 Network keywords
@@ -743,13 +769,77 @@ Example:
 .. warning::
   Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_ip_hostname_map>\\``).
 
-*Get Mstsc Hostname* **provides the** ``mstsc`` **hostname that is mapped in the** :download:`probename_ip_hostname_map.json <./probename_ip_hostname_map.json>` in a given path (e.g. ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\``) which is the test case folder by default.
+*Get Mstsc Hostname* **provides the** ``mstsc`` **hostname of an ongoing RDP connection**. :download:`probename_ip_hostname_map.json <./probename_ip_hostname_map.json>` is the **needed map between the desired names and the IP addresses of possible RDP servers**.
+
+The ``probename`` **filename suffix**, that can be changed (e.g. ``customername_ip_hostname_map.json``), is the **keyword argument to use the map** (e.g. ``${mstsc_hostname} |`` ``Get Mstsc Hostname`` ``| customername``). The file has to be saved in a given folder, which can be passed as the second keyword argument: the test case path (e.g. ``C:\Python27\`` ``Lib\site-packages\`` ``alyvix\robotproxy\`` ``alyvix_testcases\``) is already set by default.
+
+Define the map as a list of ip and name associations ``"<ip_rdp_host>": "<name_rdp_host>"`` as follows:
 
     .. code-block:: json
 
         {
             "127.0.0.1": "hostname_1",
             "127.0.0.2": "hostname_2"
+        }
+
+
+.. _system_keywords-network_keywords-get_aos_id:
+
+Get Aos Id
+----------
+
+    +----------------+-------------------------------------+----------------------------------------------+----------------------------------------+
+    | ``Get Aos Id`` | ``scraped_string=<scraped_string>`` | ``customer_name=<prefix_customer_settings>`` | ``path_json=<path_customer_settings>`` |
+    +----------------+-------------------------------------+----------------------------------------------+----------------------------------------+
+
+    * Default values: ``path_json=<testcase_path>``
+
+Example:
+
+    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
+    | ``${scraped_string}`` | ``aos_id_scraper``     |                         |                             |                |
+    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
+    | ``${aos_name}``       | ``${session_id}``      | ``Get Aos Id``          | ``${scraped_string}``       | ``probename``  |
+    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
+    | ``Add Perfdata Tag``  | ``perf_name=ax_ready`` | ``tag_name=aos_name``   | ``tag_value=${aos_name}``   |                |
+    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
+    | ``Add Perfdata Tag``  | ``perf_name=ax_ready`` | ``tag_name=session_id`` | ``tag_value=${session_id}`` |                |
+    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
+
+    +-----------------+-------------------+----------------+-----------------------+---------------+------------------------------------------------------------------------------+
+    | ``${aos_name}`` | ``${session_id}`` | ``Get Aos Id`` | ``${scraped_string}`` | ``probename`` | ``C:\\Python27\\Lib\\site-packages\\alyvix\\robotproxy\\alyvix_testcases\\`` |
+    +-----------------+-------------------+----------------+-----------------------+---------------+------------------------------------------------------------------------------+
+
+.. warning::
+  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_customer_settings>\\``).
+
+*Get Aos Id* **extract and map a name** (e.g. `AOS <https://en.wikipedia.org/wiki/Application_server>`_ name) **and a number** (e.g. session ID) **from a scraped string** that comes from a :ref:`visual scraper <visual_keywords-alyvix_scrapers>`. :download:`probename_customer_settings.json <./probename_customer_settings.json>` bla.
+
+    .. image:: pictures/ax_aos_id_hompage_gui.png
+
+..
+
+    .. image:: pictures/ax_aos_id_scraped_title.png
+
+The ``probename`` **filename suffix**, that can be changed (e.g. ``customername_customer_settings.json``), is the **keyword argument to use the map** (e.g. ``${aos_name} |`` ``${session_id} |`` ``Get Aos Id`` ``| ${scraped_string}`` ``| customername``). The file has to be saved in a given folder, which can be passed as the second keyword argument: the test case path (e.g. ``C:\Python27\`` ``Lib\site-packages\`` ``alyvix\robotproxy\`` ``alyvix_testcases\``) is already set by default.
+
+In the setting file, define ``"ax_title_marks"`` as the list of **text anchors** between which extracting the name and the number; define ``"aos_names"`` as the list of **text labels** on which mapping the extracted name:
+
+    .. code-block:: json
+
+        {
+            "ax_title_marks": {
+                "aos_stop": ": Session",
+                "aos_start": "Inc. [",
+                "id_start": "ID - ",
+                "id_stop": "] - ["
+            },
+            "aos_names": [
+                "TEST1AOS_1",
+                "TEST1AOS_2",
+                "TEST2AOS_1",
+                "TEST2AOS_2"
+            ]
         }
 
 

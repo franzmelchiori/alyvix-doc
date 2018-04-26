@@ -34,7 +34,9 @@ You can move and resize :ref:`selections and ROIs <visual_keywords-image_definit
 Network Analyzer
 ----------------
 
-You can get the hostname connected through RDP with ``mstsc``.
+You can :ref:`get the hostname connected through RDP <system_keywords-network_keywords-get_mstsc_hostname>` with ``mstsc``.
+
+    .. image:: pictures/alyvix_release_notes_2-6-2_mstsc.png
 
 
 .. _alyvix_2-6-2_release_notes_scraped_strings:
@@ -42,8 +44,10 @@ You can get the hostname connected through RDP with ``mstsc``.
 Scraped Strings
 ---------------
 
-You can scrap strings for cleaning and mapping them on a set of labels (e.g. AOS name and session ID).
-You can sanity check timestamps (e.g. today date, month features, time proximity) from scraped strings.
+You can :ref:`scrap strings for cleaning and mapping them <system_keywords-network_keywords-get_aos_id>` on a set of labels (e.g. AOS name and session ID).
+You can :ref:`sanity check timestamps <system_keywords-timestamp_keywords>` (e.g. today date, month features, time proximity) from scraped strings.
+
+    .. image:: pictures/alyvix_release_notes_2-6-2_scraped_strings.png
 
 
 .. _alyvix_2-6-2_release_notes_improvements:
