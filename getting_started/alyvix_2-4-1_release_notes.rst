@@ -29,12 +29,12 @@ In the Alyvix finder GUIs it is now possible to select the exact point where Aly
 
 .. _alyvix_2-4-1_release_notes_drag_n_drop:
 
-Drag 'n' Drop
+Drag and Drop
 -------------
 
 Besides clicking, it is now possible to let Alyvix drag and drop GUI elements:
 
-    * drag’n’drop mode with a single keyword chosing from a set of standard movements;
+    * drag and drop mode with a single keyword chosing from a set of standard movements;
     * continuously object holding with a keyword and custom releasing with a subsequent one.
 
 

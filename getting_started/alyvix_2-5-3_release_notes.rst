@@ -27,7 +27,7 @@ You can install Alyvix through :ref:`pip<install>`.
 .. warning::
     From the next release, ``pip`` will be the only package manager for Alyvix.
 
-For now, you can still install Alyvix 2.5.3 through :ref:`conda<install_with_internet>`.
+For now, you can still install Alyvix 2.5.3 through ``conda``.
 
 
 .. _alyvix_2-5-3_release_notes_improvements:
