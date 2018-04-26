@@ -737,6 +737,32 @@ Example:
 *Check Date Today* **extract a date from a scraped string** that comes from a :ref:`visual scraper <visual_keywords-alyvix_scrapers>` and **check if that is today**. The **date format** has to be one of the following: ``dd/mm/yyyy``, ``dd/mm``, ``mm/dd/yyyy`` or ``mm/dd``.
 
 
+.. _system_keywords-timestamp_keywords-check_hms_time_proximity:
+
+Check Hms Time Proximity
+------------------------
+
+    +------------------------------+-------------------------------------+----------------------------------------+
+    | ``Check Hms Time Proximity`` | ``scraped_string=<scraped_string>`` | ``proximity_minutes=<sanity_minutes>`` |
+    +------------------------------+-------------------------------------+----------------------------------------+
+
+    * Default values: ``proximity_minutes=60``
+
+Example:
+
+    +--------------------+------------------------------+--------------------+
+    | ``${scraped_hms}`` | ``hms_scraper``              |                    |
+    +--------------------+------------------------------+--------------------+
+    | ``${hms_check}``   | ``Check Hms Time Proximity`` | ``${scraped_hms}`` |
+    +--------------------+------------------------------+--------------------+
+
+    +--------------------+------------------------------+--------------------+---------+
+    | ``${hms_check}``   | ``Check Hms Time Proximity`` | ``${scraped_hms}`` | ``180`` |
+    +--------------------+------------------------------+--------------------+---------+
+
+*Check Hms Time Proximity* **extract a time from a scraped string** that comes from a :ref:`visual scraper <visual_keywords-alyvix_scrapers>` and **check if that is near the current time**. The ``proximity_minutes`` argument can set the **allowed amount of misalignment minutes**, they are 60 by default. The **time format** has to be ``hh:mm:ss``.
+
+
 .. _system_keywords-network_keywords:
 
 Network keywords

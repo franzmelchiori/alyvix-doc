@@ -45,7 +45,7 @@ Scraped Strings
 ---------------
 
 You can :ref:`scrap strings for cleaning and mapping them <system_keywords-network_keywords-get_aos_id>` on a set of labels (e.g. AOS name and session ID).
-You can :ref:`sanity check timestamps <system_keywords-timestamp_keywords>` (e.g. today date, month features, time proximity) from scraped strings.
+You can :ref:`sanity check timestamps <system_keywords-timestamp_keywords>` (e.g. today date, time proximity) from scraped strings.
 
     .. image:: pictures/alyvix_release_notes_2-6-2_scraped_strings.png
 
