@@ -78,6 +78,8 @@ The **Alyvix shortcuts**:
   +---------------------+--------------------------------------------------------------------+
   | :kbd:`CTRL+Z`       | **Undo visual selections** in the visual selection mode            |
   +---------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL+Y`       | **Redo visual selections** in the visual selection mode            |
+  +---------------------+--------------------------------------------------------------------+
   | :kbd:`CTRL+C`       | **Copy** selected **keyword name** in Alyvix selector              |
   +---------------------+--------------------------------------------------------------------+
   | :kbd:`CTRL+V`       | **Paste** copied **keyword name** from Alyvix selector             |
