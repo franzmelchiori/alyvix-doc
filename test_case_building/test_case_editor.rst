@@ -50,23 +50,25 @@ Editor buttons and shortcuts
 
 The most useful **editor buttons**:
 
-  +-------------------------------------------------+
-  | .. image:: pictures/ride_01e_toolbar_alyvix.png |
-  +-------------------------------------------------+
+  .. image:: pictures/ride_01e_toolbar_alyvix.png
 
-    *Alyvix button* opens the **Alyvix selector**, where the :ref:`visual keyword <visual_keywords>` for the current project are listed. Visual keywords can be edited and new ones can be added: click on the **New** button to open the *Alyvix selector*.
+..
 
-  +-----------------------------------------------+
-  | .. image:: pictures/ride_01d_toolbar_save.png |
-  +-----------------------------------------------+
+     *Alyvix button* opens the **Alyvix selector**, where the :ref:`visual keyword <visual_keywords>` for the current project are listed. Visual keywords can be edited and new ones can be added: click on the **New** button to open the *Alyvix selector*.
 
-    **Save** buttons allows to save the *current* ``.robot`` file or *all* ``.robot`` project files. Remember to click on the disk-with-star icon to apply all changes you have done on a test case for running the up-to-date version of the test case.
+  .. image:: pictures/ride_01d_toolbar_save.png
 
-  +------------------------------------------------+
-  | .. image:: pictures/ride_01f_toolbar_start.png |
-  +------------------------------------------------+
+..
 
-    **Run** and **stop** buttons can respectively execute (play button) or terminate (stop button) the current project.
+     **Save** buttons allows to save the *current* ``.robot`` file or *all* ``.robot`` project files. Remember to click on the disk-with-star icon to apply all changes you have done on a test case for running the up-to-date version of the test case.
+
+  .. image:: pictures/ride_01f_toolbar_start.png
+
+..
+
+     **Run** and **stop** buttons can respectively execute (play button) or terminate (stop button) the current project.
+
+  ..
 
 
 The **Alyvix shortcuts**:
