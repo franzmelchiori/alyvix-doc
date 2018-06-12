@@ -16,20 +16,24 @@ Process keywords
 Create Process
 --------------
 
-    +--------------------+-----------------------------------+------------------------------+----+------------------------------+
-    | ``Create Process`` | ``<application_executable_path>`` | ``<application_argument_1>`` | .. | ``<application_argument_n>`` |
-    +--------------------+-----------------------------------+------------------------------+----+------------------------------+
+    +--------------------+-----------------------------------+
+    | ``Create Process`` | ``<application executable path>`` |
+    +--------------------+-----------------------------------+
 
-    * Optional arguments: ``<application_argument_1>``, .., ``<application_argument_n>``.
+    * Default arguments:
+
+        +-----------------------------------+---+---+-----------------------------------+
+        | ``<application argument 1>=None`` | . | . | ``<application argument n>=None`` |
+        +-----------------------------------+---+---+-----------------------------------+
 
 Example:
 
-    +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
-    | ``Create Process`` | ``C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`` | ``https://www.alyvix.com`` | ``-incognito`` |
-    +--------------------+----------------------------------------------------------------------+----------------------------+----------------+
+    +--------------------+--------------------------------------------------------------------------+----------------------------+----------------+
+    | ``Create Process`` | ``C:\\Program Files (x86)\\ Google\\ Chrome\\ Application\\ chrome.exe`` | ``https://www.alyvix.com`` | ``-incognito`` |
+    +--------------------+--------------------------------------------------------------------------+----------------------------+----------------+
 
 .. warning::
-    Type the **application executable path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to_folder>\\<application_executable>.exe``).
+    Type the **application executable path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path to folder>\\ <application executable>.exe``).
 
 *Create Process* **runs executable files** (reachable to the given path, e.g. browser application, batch file) **with its optional arguments** (e.g. website address, browser options). This keyword is useful, for example, to run a browser (e.g. Internet Explorer, Chrome) with a website address to point and eventually the option for private browsing.
 
@@ -40,7 +44,7 @@ Kill Process
 ------------
 
     +------------------+---------------------------+
-    | ``Kill Process`` | ``<executable_filename>`` |
+    | ``Kill Process`` | ``<executable filename>`` |
     +------------------+---------------------------+
 
 Example:
@@ -65,25 +69,31 @@ Window keywords
 Wait Window
 -----------
 
-    +-----------------+---------------------------+-----------------------+-----------------------------+
-    | ``Wait Window`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
-    +-----------------+---------------------------+-----------------------+-----------------------------+
+    +-----------------+---------------------------+
+    | ``Wait Window`` | ``<window title regexp>`` |
+    +-----------------+---------------------------+
 
-    * Default values: ``timeout=60``, ``exception=True``.
+    * Default arguments:
+
+        +----------------+--------------------+
+        | ``timeout=60`` | ``exception=True`` |
+        +----------------+--------------------+
+
+    * Value types: ``timeout=<seconds>``, ``exception={True, False}``.
 
 Examples:
 
-    +-----------------+-----------------------------------+
-    | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` |
-    +-----------------+-----------------------------------+
+    +-----------------+---------------------------+
+    | ``Wait Window`` | ``synthetic.*monitoring`` |
+    +-----------------+---------------------------+
 
-    +-----------------+-----------------------------------+----------------+--------------------+
-    | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=True`` |
-    +-----------------+-----------------------------------+----------------+--------------------+
+    +-----------------+---------------------------+--------+
+    | ``Wait Window`` | ``synthetic.*monitoring`` | ``10`` |
+    +-----------------+---------------------------+--------+
 
-    +------------------+-----------------+-----------------------------------+---------------+---------------------+
-    | ``${wait_time}`` | ``Wait Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
-    +------------------+-----------------+-----------------------------------+---------------+---------------------+
+    +------------------+-----------------+---------------------------+-------+-----------+
+    | ``${wait_time}`` | ``Wait Window`` | ``synthetic.*monitoring`` | ``3`` | ``False`` |
+    +------------------+-----------------+---------------------------+-------+-----------+
 
 *Wait Window* **waits until a window runs and is active** in the taskbar. The keyword waits the given **timeout** (an **amount of seconds**) and it waits for a window with a given **title name** (that fits a **regular expression**). When the timeout is expired without having found a window with a proper title, then the test case breaks if the **exception** is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution.
 
@@ -95,25 +105,31 @@ The keyword can return ``${wait_time}``, which is the **amount of seconds** befo
 Maximize Window
 ---------------
 
-    +---------------------+---------------------------+-----------------------+-----------------------------+
-    | ``Maximize Window`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
-    +---------------------+---------------------------+-----------------------+-----------------------------+
+    +---------------------+---------------------------+
+    | ``Maximize Window`` | ``<window title regexp>`` |
+    +---------------------+---------------------------+
 
-    * Default values: ``timeout=60``, ``exception=True``.
+    * Default values:
+
+        +----------------+--------------------+
+        | ``timeout=60`` | ``exception=True`` |
+        +----------------+--------------------+
+
+    * Value types: ``timeout=<seconds>``, ``exception={True, False}``.
 
 Examples:
 
-    +---------------------+-----------------------------------+
-    | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` |
-    +---------------------+-----------------------------------+
+    +---------------------+---------------------------+
+    | ``Maximize Window`` | ``synthetic.*monitoring`` |
+    +---------------------+---------------------------+
 
-    +---------------------+-----------------------------------+----------------+--------------------+
-    | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10`` | ``exception=True`` |
-    +---------------------+-----------------------------------+----------------+--------------------+
+    +---------------------+---------------------------+--------+
+    | ``Maximize Window`` | ``synthetic.*monitoring`` | ``10`` |
+    +---------------------+---------------------------+--------+
 
-    +------------------+---------------------+-----------------------------------+---------------+---------------------+
-    | ``${wait_time}`` | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
-    +------------------+---------------------+-----------------------------------+---------------+---------------------+
+    +------------------+---------------------+---------------------------+-------+-----------+
+    | ``${wait_time}`` | ``Maximize Window`` | ``synthetic.*monitoring`` | ``3`` | ``False`` |
+    +------------------+---------------------+---------------------------+-------+-----------+
 
 *Maximize Window* **waits and maximizes the size of a window**. The keyword waits the given **timeout** (an **amount of seconds**) and it maximizes a window with a given **title name** (that fits the given **regular expression**). When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
 
@@ -129,14 +145,14 @@ Show Window
 -----------
 
     +-----------------+---------------------------+
-    | ``Show Window`` | ``<window_title_regexp>`` |
+    | ``Show Window`` | ``<window title regexp>`` |
     +-----------------+---------------------------+
 
 Example:
 
-    +-----------------+-----------------------------------+
-    | ``Show Window`` | ``synthetic.*monitoring.*alyvix`` |
-    +-----------------+-----------------------------------+
+    +-----------------+---------------------------+
+    | ``Show Window`` | ``synthetic.*monitoring`` |
+    +-----------------+---------------------------+
 
 *Show Window* **brings in foreground a window** (without resizing it) with a given **title name** (that fits the given **regular expression**). This keyword has an **immediate timeout** and **no exception**.
 
@@ -148,16 +164,16 @@ Check Window
 ------------
 
     +------------------+---------------------------+
-    | ``Check Window`` | ``<window_title_regexp>`` |
+    | ``Check Window`` | ``<window title regexp>`` |
     +------------------+---------------------------+
 
 Example:
 
-    +----------+------------------+-----------------------------------+
-    | ``${x}`` | ``Check Window`` | ``synthetic.*monitoring.*alyvix`` |
-    +----------+------------------+-----------------------------------+
-    | ``Log``  | ``${x}``         |                                   |
-    +----------+------------------+-----------------------------------+
+    +----------+------------------+---------------------------+
+    | ``${x}`` | ``Check Window`` | ``synthetic.*monitoring`` |
+    +----------+------------------+---------------------------+
+    | ``Log``  | ``${x}``         |                           |
+    +----------+------------------+---------------------------+
 
 *Check Window* **checks the existence of a window** (in background or in foreground) with a given **title name** (that fits the given **regular expression**). It returns ``True`` or ``False`` for further decision or logging steps. This keyword has an **immediate timeout** and **no exception**.
 
@@ -168,14 +184,14 @@ Close Window
 ------------
 
     +------------------+---------------------------+
-    | ``Close Window`` | ``<window_title_regexp>`` |
+    | ``Close Window`` | ``<window title regexp>`` |
     +------------------+---------------------------+
 
 Example:
 
-    +------------------+-----------------------------------+
-    | ``Close Window`` | ``synthetic.*monitoring.*alyvix`` |
-    +------------------+-----------------------------------+
+    +------------------+---------------------------+
+    | ``Close Window`` | ``synthetic.*monitoring`` |
+    +------------------+---------------------------+
 
 *Close Window* **closes a window** (in background or in foreground) with a given **title name** (that fits the given **regular expression**). This keyword has an **immediate timeout** and **no exception**.
 
@@ -185,29 +201,35 @@ Example:
 Wait Window Close
 -----------------
 
-    +-----------------------+---------------------------+-----------------------+-----------------------------+
-    | ``Wait Window Close`` | ``<window_title_regexp>`` | ``timeout=<seconds>`` | ``exception={True, False}`` |
-    +-----------------------+---------------------------+-----------------------+-----------------------------+
+    +-----------------------+---------------------------+
+    | ``Wait Window Close`` | ``<window title regexp>`` |
+    +-----------------------+---------------------------+
 
-    * Default values: ``timeout=60``, ``exception=True``.
+    * Default values:
+
+        +----------------+--------------------+
+        | ``timeout=60`` | ``exception=True`` |
+        +----------------+--------------------+
+
+    * Value types: ``timeout=<seconds>``, ``exception={True, False}``.
 
 Example:
 
-    +-----------------------+-----------------------------------+
-    | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` |
-    +-----------------------+-----------------------------------+
+    +-----------------------+---------------------------+
+    | ``Wait Window Close`` | ``synthetic.*monitoring`` |
+    +-----------------------+---------------------------+
 
-    +-----------------------+-----------------------------------+----------------+--------------------+
-    | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=30`` | ``exception=True`` |
-    +-----------------------+-----------------------------------+----------------+--------------------+
+    +-----------------------+---------------------------+--------+
+    | ``Wait Window Close`` | ``synthetic.*monitoring`` | ``30`` |
+    +-----------------------+---------------------------+--------+
 
-    +------------------+-----------------------+-----------------------------------+---------------+---------------------+
-    | ``${wait_time}`` | ``Wait Window Close`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=3`` | ``exception=False`` |
-    +------------------+-----------------------+-----------------------------------+---------------+---------------------+
+    +------------------+-----------------------+---------------------------+-------+-----------+
+    | ``${wait time}`` | ``Wait Window Close`` | ``synthetic.*monitoring`` | ``3`` | ``False`` |
+    +------------------+-----------------------+---------------------------+-------+-----------+
 
 *Wait Window Close* **waits until a window is closed and is no longer active**. The keyword waits a given **timeout** (an **amount of seconds**) for the disappearance of a window with a given **title name** (that fits the given **regular expression**). When the timeout is expired without having found a window with a proper title, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
 
-The keyword can return ``${wait_time}``, which is the **amount of seconds** before the keyword has correctly **match the given regular expression** with an ongoing window.
+The keyword can return ``${wait time}``, which is the **amount of seconds** before the keyword has correctly **match the given regular expression** with an ongoing window.
 
 
 .. _system_keywords-io_keywords:
@@ -221,11 +243,17 @@ I/O keywords
 Send Keys
 ---------
 
-    +---------------+------------+-----------------------------+
-    | ``Send Keys`` | ``<keys>`` | ``encrypted={True, False}`` |
-    +---------------+------------+-----------------------------+
+    +---------------+------------+
+    | ``Send Keys`` | ``<keys>`` |
+    +---------------+------------+
 
-    * Default values: ``encrypted=False``.
+    * Default values:
+
+        +---------------------+--------------+-----------------+
+        | ``encrypted=False`` | ``delay=10`` | ``duration=-1`` |
+        +---------------------+--------------+-----------------+
+
+    * Value types: ``encrypted={True, False}``, ``delay=<milliseconds>``, ``duration=<milliseconds>``.
 
     * Key syntax:
 
@@ -303,19 +331,27 @@ Send Keys
 
 Example:
 
-    +---------------+----------------------------+---------------------+------------------+
-    | ``Send Keys`` | ``admin{Tab}``             |                     |                  |
-    +---------------+----------------------------+---------------------+------------------+
-    | ``Send Keys`` | ``admin``                  | ``encrypted=False`` |                  |
-    +---------------+----------------------------+---------------------+------------------+
-    | ``Send Keys`` | ``{Enter}``                |                     |                  |
-    +---------------+----------------------------+---------------------+------------------+
-    | ``Send Keys`` | ``info@alyvix.com``        | ``delay=200``       | ``duration=200`` |
-    +---------------+----------------------------+---------------------+------------------+
-    | ``Send Keys`` | ``{Alt Down}{F4}{Alt Up}`` |                     |                  |
-    +---------------+----------------------------+---------------------+------------------+
+    +---------------+----------------------------+
+    | ``Send Keys`` | ``admin{Tab}``             |
+    +---------------+----------------------------+
 
-*Send Keys* **types a sequence of keystrokes** to the active window where the focus is: **regular characters** (letters and numbers) can be stated as they are, while **special keys** have to be enclosed in braces (have a look at the table above for their syntax, e.g. ``{enter}``). The **encrypted option** can be activated (i.e. ``encrypted=True``) in case the string of keystrokes has been encrypted using the Alyvix :ref:`encryption tool <encryption_tool>`. **Delays** [ms] sets the sleep intervals (in milliseconds) between keys. **Duration** [ms] sets how long (in milliseconds) keys are going to be pressed.
+    +---------------+----------------------------+-----------+
+    | ``Send Keys`` | ``mAeaOg==``               | ``True``  |
+    +---------------+----------------------------+-----------+
+
+    +---------------+----------------------------+
+    | ``Send Keys`` | ``{Enter}``                |
+    +---------------+----------------------------+
+
+    +---------------+----------------------------+-----------+---------+---------+
+    | ``Send Keys`` | ``info@alyvix.com``        | ``False`` | ``200`` | ``200`` |
+    +---------------+----------------------------+-----------+---------+---------+
+
+    +---------------+----------------------------+
+    | ``Send Keys`` | ``{Alt Down}{F4}{Alt Up}`` |
+    +---------------+----------------------------+
+
+*Send Keys* **types a sequence of keystrokes** to the active window where the focus is: **regular characters** (letters and numbers) can be stated as they are, while **special keys** have to be enclosed in braces (have a look at the table above for their syntax, e.g. ``{enter}``). The **encrypted option** can be activated (i.e. ``encrypted = True``) in case the string of keystrokes has been encrypted using the Alyvix :ref:`encryption tool <encryption_tool>`. **Delays** [ms] sets the sleep intervals (in milliseconds) between keys. **Duration** [ms] sets how long (in milliseconds) keys are going to be pressed.
 
 
 .. _system_keywords-io_keywords-mouse_scroll:
@@ -323,17 +359,23 @@ Example:
 Mouse Scroll
 ------------
 
-    +------------------+---------------------+--------------------------+
-    | ``Mouse Scroll`` | ``steps=<scrolls>`` | ``direction={down, up}`` |
-    +------------------+---------------------+--------------------------+
+    +------------------+
+    | ``Mouse Scroll`` |
+    +------------------+
 
-    * Default values: ``steps=2``, ``direction=up``.
+    * Default values:
+
+        +-------------+------------------+
+        | ``steps=2`` | ``direction=up`` |
+        +-------------+------------------+
+
+    * Value types: ``steps=<scrolls>``, ``direction={down, up}``.
 
 Example:
 
-    +------------------+-------------+--------------------+
-    | ``Mouse Scroll`` | ``steps=3`` | ``direction=down`` |
-    +------------------+-------------+--------------------+
+    +------------------+-------+----------+
+    | ``Mouse Scroll`` | ``3`` | ``down`` |
+    +------------------+-------+----------+
 
 *Mouse Scroll* **scrolls the active window**. The keyword scrolls the windows of the given **steps**, **up or down** and where the focus is.
 
@@ -346,20 +388,22 @@ Example:
 Mouse Move
 ----------
 
-    +----------------+---------------------------------------+-------------------------------------+
-    | ``Mouse Move`` | ``x=<horizontal_pixel_coordinate_x>`` | ``y=<vertical_pixel_coordinate_y>`` |
-    +----------------+---------------------------------------+-------------------------------------+
+    +----------------+-------+-------+
+    | ``Mouse Move`` | ``x`` | ``y`` |
+    +----------------+-------+-------+
+
+    * Value types: ``x=<horizontal pixel coordinate x>``, ``y=<vertical pixel coordinate y>``.
 
 Example:
 
-    +----------------+---------+---------+
-    | ``Mouse Move`` | ``x=0`` | ``y=0`` |
-    +----------------+---------+---------+
+    +----------------+-------+-------+
+    | ``Mouse Move`` | ``0`` | ``0`` |
+    +----------------+-------+-------+
 
 *Mouse Move* **moves the mouse pointer** to the given horizontal and vertical **pixel coordinates** of your screen.
 
 .. note::
-    Keep in mind that the **positive verse of the horizontal screen coordinate** x is from left to right. The **positive verse of the vertical screen coordinate** y is from top to bottom. So that, the **origin of screen axes** is at the point ``x=0`` ``y=0`` in the top-left corner. Sometimes leaving the mouse pointer in a certain position after a transaction can cause unintended interactions that can follow.
+    Keep in mind that the **positive verse of the horizontal screen coordinate** x is from left to right. The **positive verse of the vertical screen coordinate** y is from top to bottom. So that, the **origin of screen axes** is at the point ``x = 0`` ``y = 0`` in the top-left corner. Sometimes leaving the mouse pointer in a certain position after a transaction can cause unintended interactions that can follow.
 
 
 .. _system_keywords-performance_keywords:
@@ -373,11 +417,21 @@ Performance keywords
 Add Perfdata
 ------------
 
-    +------------------+------------------------+---------------------+---------------------------------+----------------------------------+------------------------+-----------------------------+
-    | ``Add Perfdata`` | ``<performance_name>`` | ``value=<seconds>`` | ``warning_threshold=<seconds>`` | ``critical_threshold=<seconds>`` | ``state={0, 1, 2, 3}`` | ``timestamp={True, False}`` |
-    +------------------+------------------------+---------------------+---------------------------------+----------------------------------+------------------------+-----------------------------+
+    +------------------+----------------+
+    | ``Add Perfdata`` | ``<perfname>`` |
+    +------------------+----------------+
 
-    * Default values: ``value=None``, ``warning_threshold=None``, ``critical_threshold=None``, ``state=2``, ``timestamp=False``.
+    * Default values:
+
+        +----------------+----------------------------+-----------------------------+
+        | ``value=None`` | ``warning_threshold=None`` | ``critical_threshold=None`` |
+        +----------------+----------------------------+-----------------------------+
+
+        +-------------+---------------------+
+        | ``state=2`` | ``timestamp=False`` |
+        +-------------+---------------------+
+
+    * Value types: ``value = <seconds>``, ``warning_threshold = <seconds>``, ``critical_threshold = <seconds>``, ``state = {0, 1, 2, 3}``, ``timestamp = {True, False}``.
 
 Example:
 
@@ -389,11 +443,11 @@ Example:
 
     * Definition:
 
-    +------------------+---------------------+-----------------------------------+-------------------------+----------------------------+--------------------+
-    | ``${wait_time}`` | ``Maximize Window`` | ``synthetic.*monitoring.*alyvix`` | ``timeout=10``          |                            |                    |
-    +------------------+---------------------+-----------------------------------+-------------------------+----------------------------+--------------------+
-    | ``Add Perfdata`` | ``dummy_perf``      | ``value=${wait_time}``            | ``warning_threshold=5`` | ``critical_threshold=7.5`` | ``timestamp=True`` |
-    +------------------+---------------------+-----------------------------------+-------------------------+----------------------------+--------------------+
+    +------------------+---------------------+---------------------------+--------+---------+----------------------+
+    | ``${wait_time}`` | ``Maximize Window`` | ``synthetic.*monitoring`` | ``10`` |         |                      |
+    +------------------+---------------------+---------------------------+--------+---------+----------------------+
+    | ``Add Perfdata`` | ``dummy_perf``      | ``${wait_time}``          | ``5``  | ``7.5`` | ``timestamp = True`` |
+    +------------------+---------------------+---------------------------+--------+---------+----------------------+
 
 *Add Perfdata* **declares a performance measure** in terms of its **name**. The latter could be the name of a :ref:`visual keyword <visual_keywords>`: when that keyword runs and then successfully exits, finding the defined graphic elements, it fills the performance with its **measurement**, **thresholds** and **timestamp**.
 
@@ -419,11 +473,17 @@ Example:
 Print Perfdata
 --------------
 
-    +--------------------+----------------------+--------------------------------+
-    | ``Print Perfdata`` | ``message=<string>`` | ``print_output={True, False}`` |
-    +--------------------+----------------------+--------------------------------+
+    +--------------------+
+    | ``Print Perfdata`` |
+    +--------------------+
 
-    * Default values: ``message=None``, ``print_output=True``.
+    * Default values:
+
+        +------------------+-----------------------+
+        | ``message=None`` | ``print_output=True`` |
+        +------------------+-----------------------+
+
+    * Value types: ``message = <string>``, ``print_output = {True, False}``
 
 Example:
 
@@ -439,12 +499,15 @@ Example:
 Store Perfdata
 --------------
 
-    +--------------------+----------------------------+
-    | ``Store Perfdata`` | ``dbname=<database_path>`` |
-    +--------------------+----------------------------+
+    +--------------------+
+    | ``Store Perfdata`` |
+    +--------------------+
 
-    * Default values: ``dbname=<testcase_path>\\<testcase_name>.db``.
+    * Default values:
 
+        +------------------------------------------------+
+        | ``dbname=<testcase path>\\<testcase name>.db`` |
+        +------------------------------------------------+
 
 Example:
 
@@ -457,7 +520,7 @@ Example:
     +--------------------+----------------------------------------------+
 
 .. warning::
-    Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
+    Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database path>\\ <database name>.sqlite``).
 
 *Store Perfdata* **saves the test case data in a SQLite database** file with a proper :ref:`database structure <database_structure-store_perfdata>`. New data are added to past database entries (that comes from previous test case executions): in this way, an Alyvix probe can keep track of test case data.
 
@@ -467,11 +530,15 @@ Example:
 Store Scrapdata
 ---------------
 
-    +---------------------+----------------------------+
-    | ``Store Scrapdata`` | ``dbname=<database_path>`` |
-    +---------------------+----------------------------+
+    +---------------------+
+    | ``Store Scrapdata`` |
+    +---------------------+
 
-    * Default values: ``dbname=<testcase_path>\\<testcase_name>.db``.
+    * Default values:
+
+        +------------------------------------------------+
+        | ``dbname=<testcase path>\\<testcase name>.db`` |
+        +------------------------------------------------+
 
 
 Example:
@@ -485,7 +552,7 @@ Example:
     +---------------------+----------------------------------------------+
 
 .. warning::
-    Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database_path>\\<database_name>.sqlite``).
+    Type the **database path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<database path>\\ <database name>.sqlite``).
 
 *Store Scrapdata* **saves the scraped text in a SQLite database** file with a proper :ref:`database structure <database_structure-store_scrapdata>`. New scraped text is added after each scraper execution.
 
@@ -495,36 +562,50 @@ Example:
 Publish Perfdata
 ----------------
 
-    +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
-    | ``Publish Perfdata`` | ``type=csv`` | ``start_date={<yyyy-mm-dd hh:mm>, days, hours}`` | ``end_date={<yyyy-mm-dd hh:mm>, now}`` | ``filename=<path_to>\\<file_name>.csv`` | ``suffix={None, timestamp}`` |
-    +----------------------+--------------+--------------------------------------------------+----------------------------------------+-----------------------------------------+------------------------------+
+    +----------------------+--------------+----------------+--------------+
+    | ``Publish Perfdata`` | ``type=csv`` | ``start_date`` | ``end_date`` |
+    +----------------------+--------------+----------------+--------------+
 
-    +----------------------+---------------+-----------------------------------+-------------------------+------------------------+-----------------------------+------------------------------+
-    | ``Publish Perfdata`` | ``type=nats`` | ``testcase_name=<testcase_name>`` | ``server=<ip_address>`` | ``port=<port_number>`` | ``subject=<database_name>`` | ``measurement=<table_name>`` |
-    +----------------------+---------------+-----------------------------------+-------------------------+------------------------+-----------------------------+------------------------------+
+    * Default values:
 
-    * Default values: ``type=csv``, ``filename=<testcase_path>\\<testcase_name>.csv``, ``suffix=None``, ``testcase_name=<testcase_name>``
+        +--------------+-----------------------------------------+-----------------+
+        | ``type=csv`` | ``filename=<path to>\\<file name>.csv`` | ``suffix=None`` |
+        +--------------+-----------------------------------------+-----------------+
+
+    * Value types: ``start_date={<yyyy-mm-dd hh:mm>, days, hours}``, ``end_date={<yyyy-mm-dd hh:mm>, now}``, ``suffix={None, timestamp}``
+
+    +----------------------+---------------+-------------------+------------+----------+-------------+-----------------+
+    | ``Publish Perfdata`` | ``type=nats`` | ``testcase_name`` | ``server`` | ``port`` | ``subject`` | ``measurement`` |
+    +----------------------+---------------+-------------------+------------+----------+-------------+-----------------+
+
+    * Default values:
+
+        +-----------------------------------+
+        | ``testcase_name=<testcase name>`` |
+        +-----------------------------------+
+
+    * Value types: ``server=<ip address>``, ``port=<port number>``, ``subject=<database name>``, ``measurement=<table name>``
 
 Example:
 
     * CSV mode:
 
-    +----------------------+--------------+---------------------------------+-------------------------------+---------------------------------------------------+----------------------+
-    | ``Publish Perfdata`` | ``type=csv`` | ``start_date=2016-02-01 00:01`` | ``end_date=2016-08-04 23:59`` | ``filename=C:\\alyvix_reports\\citrix_login.csv`` | ``suffix=timestamp`` |
-    +----------------------+--------------+---------------------------------+-------------------------------+---------------------------------------------------+----------------------+
+    +----------------------+----------------------+----------------------+-------------------------------------------+---------------+
+    | ``Publish Perfdata`` | ``2016-02-01 00:01`` | ``2016-08-04 23:59`` | ``C:\\alyvix_reports\\ citrix_login.csv`` | ``timestamp`` |
+    +----------------------+----------------------+----------------------+-------------------------------------------+---------------+
 
-    +----------------------+------------------------+------------------+
-    | ``Publish Perfdata`` | ``start_date=1 weeks`` | ``end_date=now`` |
-    +----------------------+------------------------+------------------+
+    +----------------------+-------------+---------+
+    | ``Publish Perfdata`` | ``1 weeks`` | ``now`` |
+    +----------------------+-------------+---------+
 
     * NATS mode:
 
-    +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
-    | ``Publish Perfdata`` | ``type=nats`` | ``server=127.0.0.1`` | ``port=4222`` | ``subject=customer`` | ``measurement=alyvix`` |
-    +----------------------+---------------+----------------------+---------------+----------------------+------------------------+
+    +----------------------+----------------+-----------------------+----------------+-----------------------+-------------------------+
+    | ``Publish Perfdata`` | ``type =nats`` | ``server =127.0.0.1`` | ``port =4222`` | ``subject =customer`` | ``measurement =alyvix`` |
+    +----------------------+----------------+-----------------------+----------------+-----------------------+-------------------------+
 
 .. warning::
-    Type the **CSV file path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\<csv_filename>.csv``). To publish test case data in a **CSV file** is necessary to **store test case data in advance** using :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>`.
+    Type the **CSV file path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path to>\\ <csv filename>.csv``). To publish test case data in a **CSV file** is necessary to **store test case data in advance** using :ref:`Store Perfdata <system_keywords-performance_keywords-store_perfdata>`.
 
 *Publish Perfdata* **publishes test case data** in a **CSV file** or in an **InfluxDB** (through **NATS** and Telegraf) as follows:
 
@@ -534,7 +615,7 @@ Example:
 CSV mode
 ^^^^^^^^
 
-``type=csv`` takes mandatory ``start_date`` and ``end_date`` in the following formats ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days`` or ``<n> hours``; ``now`` just as end date. It can also take an optional **path** ``filename`` to **save a CSV** with or without a **timestamp** ``suffix``.
+``type = csv`` takes mandatory ``start_date`` and ``end_date`` in the following formats ``<yyyy>-<mm>-<dd> <hh>:<mm>``, ``<n> days`` or ``<n> hours``; ``now`` just as end date. It can also take an optional **path** ``filename`` to **save a CSV** with or without a **timestamp** ``suffix``.
 
 
 .. _system_keywords-performance_keywords-publish_perfdata-nats_mode:
@@ -542,13 +623,7 @@ CSV mode
 NATS mode
 ^^^^^^^^^
 
-``type=nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and **flush to a NATS server all the collected performance** in the following format, which is the `InfluxDB Line Protocol <https://docs.influxdata.com/influxdb/v1.3/write_protocols/line_protocol_tutorial/>`_:
-
-    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | ``<measurement>,<tag_1>,..,<tag_n>``                                                                                                                                                      | ``<field_1>,..,<field_n>``                                                                                                                                                                                                  | ``<timestamp>``                   |
-    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
-    | ``<table_name>,host=<machine_hostname>,username=<windows_username>,test_name=<testcase_name>,transaction_name=<transaction_name>,state={ok, warning, critical, timed_out, not_executed}`` | ``warning_threshold=<milliseconds>,critical_threshold=<milliseconds>,timeout_threshold=<milliseconds>,performance=<milliseconds>,cumulative=<milliseconds>,error_level={0, 1, 2, 3},run_code=<unique_test_execution_code>`` | ``<nanoseconds_epoch_timestamp>`` |
-    +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+
+``type = nats`` takes mandatory ``server``, ``port``, ``subject`` and ``measurement`` and **flush to a NATS server all the collected performance** with the `InfluxDB Line Protocol <https://docs.influxdata.com/influxdb/v1.3/write_protocols/line_protocol_tutorial/>`_.
 
 .. note::
     Points must be formatted in the **InfluxDB Line Protocol** to be successfully parsed and written in InfluxDB through NATS and Telegraf. A single line of the Line Protocol represents one data point with the following features:
@@ -573,21 +648,27 @@ NATS mode
 Rename Perfdata
 ---------------
 
-    +---------------------+-------------------------------------+-------------------------------------+----------------------------+-----------------------------+
-    | ``Rename Perfdata`` | ``old_name=<old_performance_name>`` | ``new_name=<new_performance_name>`` | ``warning_threshold=None`` | ``critical_threshold=None`` |
-    +---------------------+-------------------------------------+-------------------------------------+----------------------------+-----------------------------+
+    +---------------------+--------------+--------------+
+    | ``Rename Perfdata`` | ``old_name`` | ``new_name`` |
+    +---------------------+--------------+--------------+
 
-    * Optional arguments: ``warning_threshold=None``, ``critical_threshold=None``.
+    * Default arguments:
+
+        +----------------------------+-----------------------------+
+        | ``warning_threshold=None`` | ``critical_threshold=None`` |
+        +----------------------------+-----------------------------+
+
+    * Value types: ``old_name=<old performance name>``, ``new_name=<new performance name>``, ``warning_threshold=<seconds>``, ``critical_threshold=<seconds>``
 
 Example:
 
-    +---------------------+---------------------------------+----------------------------+--------------------------+----------------------------+
-    | ``Rename Perfdata`` | ``old_name=login_generic_step`` | ``new_name=login_step_01`` | ``warning_threshold=5``  | ``critical_threshold=7.5`` |
-    +---------------------+---------------------------------+----------------------------+--------------------------+----------------------------+
+    +---------------------+------------------------+-------------------+--------+---------+
+    | ``Rename Perfdata`` | ``login_generic_step`` | ``login_step_01`` | ``5``  | ``7.5`` |
+    +---------------------+------------------------+-------------------+--------+---------+
 
-    +---------------------+---------------------------------+----------------------------+
-    | ``Rename Perfdata`` | ``old_name=login_generic_step`` | ``new_name=login_step_02`` |
-    +---------------------+---------------------------------+----------------------------+
+    +---------------------+------------------------+-------------------+
+    | ``Rename Perfdata`` | ``login_generic_step`` | ``login_step_02`` |
+    +---------------------+------------------------+-------------------+
 
 *Rename Perfdata* **copies the performance data of an existing keyword under a new performance name**. At least, you have to set the ``old_name`` and the ``new_name`` keywords, but it is also **possible to redefine warning and critical thresholds**.
 
@@ -596,29 +677,29 @@ Example:
 
     Example:
 
-        +---------------------+----------------------------+-------------------------------+
-        | ``Add Perfdata``    | ``customer_code_01``       |                               |
-        +---------------------+----------------------------+-------------------------------+
-        | ``Add Perfdata``    | ``customer_code_02``       |                               |
-        +---------------------+----------------------------+-------------------------------+
-        |                     |                            |                               |
-        +---------------------+----------------------------+-------------------------------+
-        | ``customer_code``   | ``1``                      |                               |
-        +---------------------+----------------------------+-------------------------------+
-        | ``Rename Perfdata`` | ``old_name=customer_code`` | ``new_name=customer_code_01`` |
-        +---------------------+----------------------------+-------------------------------+
-        |                     |                            |                               |
-        +---------------------+----------------------------+-------------------------------+
-        | ``customer_code``   | ``2``                      |                               |
-        +---------------------+----------------------------+-------------------------------+
-        | ``Rename Perfdata`` | ``old_name=customer_code`` | ``new_name=customer_code_02`` |
-        +---------------------+----------------------------+-------------------------------+
-        |                     |                            |                               |
-        +---------------------+----------------------------+-------------------------------+
-        | ``Delete Perfdata`` | ``customer_code``          |                               |
-        +---------------------+----------------------------+-------------------------------+
-        | ``Print Perfdata``  |                            |                               |
-        +---------------------+----------------------------+-------------------------------+
+        +---------------------+----------------------+----------------------+
+        | ``Add Perfdata``    | ``customer_code_01`` |                      |
+        +---------------------+----------------------+----------------------+
+        | ``Add Perfdata``    | ``customer_code_02`` |                      |
+        +---------------------+----------------------+----------------------+
+        |                     |                      |                      |
+        +---------------------+----------------------+----------------------+
+        | ``customer_code``   | ``1``                |                      |
+        +---------------------+----------------------+----------------------+
+        | ``Rename Perfdata`` | ``customer_code``    | ``customer_code_01`` |
+        +---------------------+----------------------+----------------------+
+        |                     |                      |                      |
+        +---------------------+----------------------+----------------------+
+        | ``customer_code``   | ``2``                |                      |
+        +---------------------+----------------------+----------------------+
+        | ``Rename Perfdata`` | ``customer_code``    | ``customer_code_02`` |
+        +---------------------+----------------------+----------------------+
+        |                     |                      |                      |
+        +---------------------+----------------------+----------------------+
+        | ``Delete Perfdata`` | ``customer_code``    |                      |
+        +---------------------+----------------------+----------------------+
+        | ``Print Perfdata``  |                      |                      |
+        +---------------------+----------------------+----------------------+
 
 .. warning::
     Executing two or more times the same :ref:`visual keyword <visual_keywords>` simply **overrides its current performance measure**, so loosing the previous one. *Rename Perfdata* **avoids the need to define a new visual** keyword with the same graphic elements to detect.
@@ -629,25 +710,29 @@ Example:
 Sum Perfdata
 ------------
 
-    +------------------+--------------------------+--------+--------------------------+---------------------------------+----------------------------+-----------------------------+
-    | ``Sum Perfdata`` | ``<performance_name_1>`` | ``..`` | ``<performance_name_n>`` | ``name=<new_performance_name>`` | ``warning_threshold=None`` | ``critical_threshold=None`` |
-    +------------------+--------------------------+--------+--------------------------+---------------------------------+----------------------------+-----------------------------+
+    +------------------+------------------+---+---+------------------+-------------------------+
+    | ``Sum Perfdata`` | ``<perfname 1>`` | . | . | ``<perfname n>`` | ``name=<new perfname>`` |
+    +------------------+------------------+---+---+------------------+-------------------------+
 
-    * Optional arguments: ``<performance_name_3>``, .., ``<performance_name_n>``
+    * Default arguments:
 
-    * Default values: ``warning_threshold=None``, ``critical_threshold=None``
+        +-----------------------------+------------------------------+
+        | ``warning_threshold =None`` | ``critical_threshold =None`` |
+        +-----------------------------+------------------------------+
+
+    * Value types: ``warning_threshold=<seconds>``, ``critical_threshold=<seconds>``
 
 Example:
 
-    +------------------+-------------------+-------------------+----------------------+-------------------------+----------------------------+
-    | ``Sum Perfdata`` | ``login_step_01`` | ``login_step_02`` | ``name=login_steps`` | ``warning_threshold=5`` | ``critical_threshold=7.5`` |
-    +------------------+-------------------+-------------------+----------------------+-------------------------+----------------------------+
+    +------------------+-------------------+-------------------+-----------------------+
+    | ``Sum Perfdata`` | ``login_step_01`` | ``login_step_02`` | ``name =login_steps`` |
+    +------------------+-------------------+-------------------+-----------------------+
 
-    +------------------+-------------------+-------------------+----------------------+
-    | ``Sum Perfdata`` | ``login_step_01`` | ``login_step_02`` | ``name=login_steps`` |
-    +------------------+-------------------+-------------------+----------------------+
+    +------------------+-------------+-------------+-----------------+--------------------------+-----------------------------+
+    | ``Sum Perfdata`` | ``step_01`` | ``step_02`` | ``name =login`` | ``warning_threshold =5`` | ``critical_threshold =7.5`` |
+    +------------------+-------------+-------------+-----------------+--------------------------+-----------------------------+
 
-*Sum Perfdata* **sums the given performance measures in a new one**. At least, you have to set **two** ``<performance_name>`` **to sum** in the ``<new_performance_name>``. It is also possible to **define warning and critical thresholds** of the new keyword.
+*Sum Perfdata* **sums the given performance measures in a new one**. At least, you have to set **two** ``<performance name>`` **to sum** in the ``<new performance name>``. It is also possible to **define warning and critical thresholds** of the new keyword.
 
 .. note::
     At the end of the test, before :ref:`Print Perfdata <system_keywords-performance_keywords-print_perfdata>`, it could be the case to :ref:`delete the old partial keywords <system_keywords-performance_keywords-delete_perfdata>`.
@@ -658,17 +743,21 @@ Example:
 Add Perfdata Tag
 ----------------
 
-    +----------------------+----------------------------------+-------------------------+---------------------------+
-    | ``Add Perfdata Tag`` | ``perf_name={<perf_name>, all}`` | ``tag_name=<tag_name>`` | ``tag_value=<tag_value>`` |
-    +----------------------+----------------------------------+-------------------------+---------------------------+
+    +----------------------+---------------+--------------+---------------+
+    | ``Add Perfdata Tag`` | ``perf_name`` | ``tag_name`` | ``tag_value`` |
+    +----------------------+---------------+--------------+---------------+
+
+    * Value types: ``perf_name={<perf name>, all}``, ``tag_name=<tag name>``, ``tag_value=<tag value>``
 
 Example:
 
-    +----------------------+-------------------------------+-------------------------+---------------------+
-    | ``Add Perfdata Tag`` | ``perf_name=ax12_home_ready`` | ``tag_name=aos_name``   | ``tag_value=bla01`` |
-    +----------------------+-------------------------------+-------------------------+---------------------+
-    | ``Add Perfdata Tag`` | ``perf_name=all``             | ``tag_name=id_session`` | ``tag_value=1``     |
-    +----------------------+-------------------------------+-------------------------+---------------------+
+    +----------------------+--------------------------------+--------------------------+----------------------+
+    | ``Add Perfdata Tag`` | ``perf_name =ax12_home_ready`` | ``tag_name =aos_name``   | ``tag_value =bla01`` |
+    +----------------------+--------------------------------+--------------------------+----------------------+
+
+    +----------------------+--------------------------------+--------------------------+----------------------+
+    | ``Add Perfdata Tag`` | ``perf_name =all``             | ``tag_name =id_session`` | ``tag_value =1``     |
+    +----------------------+--------------------------------+--------------------------+----------------------+
 
 *Add Perfdata Tag* **adds a custom tag to** a performance point or to all **performance points** of a test case. It could be useful for publishing performance in :ref:`NATS mode<system_keywords-performance_keywords-publish_perfdata-nats_mode>`.
 
@@ -678,17 +767,21 @@ Example:
 Add Perfdata Field
 ------------------
 
-    +------------------------+----------------------------------+-----------------------------+-------------------------------+
-    | ``Add Perfdata Field`` | ``perf_name={<perf_name>, all}`` | ``field_name=<field_name>`` | ``field_value=<field_value>`` |
-    +------------------------+----------------------------------+-----------------------------+-------------------------------+
+    +------------------------+---------------+----------------+-----------------+
+    | ``Add Perfdata Field`` | ``perf_name`` | ``field_name`` | ``field_value`` |
+    +------------------------+---------------+----------------+-----------------+
+
+    * Value types: ``perf_name={<perf name>, all}``, ``field_name=<field name>``, ``field_value=<field value>``
 
 Example:
 
-    +------------------------+-------------------------------+---------------------------+-----------------------+
-    | ``Add Perfdata Field`` | ``perf_name=ax12_home_ready`` | ``field_name=aos_name``   | ``field_value=bla01`` |
-    +------------------------+-------------------------------+---------------------------+-----------------------+
-    | ``Add Perfdata Field`` | ``perf_name=all``             | ``field_name=id_session`` | ``field_value=1``     |
-    +------------------------+-------------------------------+---------------------------+-----------------------+
+    +------------------------+--------------------------------+----------------------------+------------------------+
+    | ``Add Perfdata Field`` | ``perf_name =ax12_home_ready`` | ``field_name =aos_name``   | ``field_value =bla01`` |
+    +------------------------+--------------------------------+----------------------------+------------------------+
+
+    +------------------------+--------------------------------+----------------------------+------------------------+
+    | ``Add Perfdata Field`` | ``perf_name =all``             | ``field_name =id_session`` | ``field_value =1``     |
+    +------------------------+--------------------------------+----------------------------+------------------------+
 
 *Add Perfdata Field* **adds a custom field to** a performance point or to all **performance points** of a test case. It could be useful for publishing performance in :ref:`NATS mode<system_keywords-performance_keywords-publish_perfdata-nats_mode>`.
 
@@ -698,9 +791,11 @@ Example:
 Delete Perfdata
 ---------------
 
-    +---------------------+-----------------------------+
-    | ``Delete Perfdata`` | ``name=<performance_name>`` |
-    +---------------------+-----------------------------+
+    +---------------------+----------+
+    | ``Delete Perfdata`` | ``name`` |
+    +---------------------+----------+
+
+    * Value types: ``name=<perfname>``
 
 Example:
 
@@ -722,9 +817,11 @@ Timestamp keywords
 Check Date Today
 ----------------
 
-    +----------------------+-------------------------------------+
-    | ``Check Date Today`` | ``scraped_string=<scraped_string>`` |
-    +----------------------+-------------------------------------+
+    +----------------------+--------------------+
+    | ``Check Date Today`` | ``scraped_string`` |
+    +----------------------+--------------------+
+
+    * Value types: ``scraped_string=<scraped string>``
 
 Example:
 
@@ -742,11 +839,17 @@ Example:
 Check Hms Time Proximity
 ------------------------
 
-    +------------------------------+-------------------------------------+----------------------------------------+
-    | ``Check Hms Time Proximity`` | ``scraped_string=<scraped_string>`` | ``proximity_minutes=<sanity_minutes>`` |
-    +------------------------------+-------------------------------------+----------------------------------------+
+    +------------------------------+--------------------+
+    | ``Check Hms Time Proximity`` | ``scraped_string`` |
+    +------------------------------+--------------------+
 
-    * Default values: ``proximity_minutes=60``
+    * Default values:
+
+        +--------------------------+
+        | ``proximity_minutes=60`` |
+        +--------------------------+
+
+    * Value types: ``scraped_string=<scraped string>``, ``proximity_minutes=<sanity minutes>``
 
 Example:
 
@@ -774,32 +877,38 @@ Network keywords
 Get Mstsc Hostname
 ------------------
 
-    +------------------------+--------------------------------------------+--------------------------------------+
-    | ``Get Mstsc Hostname`` | ``customer_name=<prefix_ip_hostname_map>`` | ``path_json=<path_ip_hostname_map>`` |
-    +------------------------+--------------------------------------------+--------------------------------------+
+    +------------------------+-------------------+
+    | ``Get Mstsc Hostname`` | ``customer_name`` |
+    +------------------------+-------------------+
 
-    * Default values: ``path_json=<testcase_path>``
+    * Default values:
+
+        +-------------------------------+
+        | ``path_json=<testcase path>`` |
+        +-------------------------------+
+
+    * Value types: ``customer_name=<prefix ip hostname map>``
 
 Example:
 
-    +-----------------------+-----------------------------+-----------------------+---------------------------------+
-    | ``${mstsc_hostname}`` | ``Get Mstsc Hostname``      | ``probename``         |                                 |
-    +-----------------------+-----------------------------+-----------------------+---------------------------------+
-    | ``Add Perfdata Tag``  | ``perf_name=desktop_ready`` | ``tag_name=hostname`` | ``tag_value=${mstsc_hostname}`` |
-    +-----------------------+-----------------------------+-----------------------+---------------------------------+
+    +-----------------------+------------------------+---------------+-----------------------+
+    | ``${mstsc_hostname}`` | ``Get Mstsc Hostname`` | ``probename`` |                       |
+    +-----------------------+------------------------+---------------+-----------------------+
+    | ``Add Perfdata Tag``  | ``desktop_ready``      | ``hostname``  | ``${mstsc_hostname}`` |
+    +-----------------------+------------------------+---------------+-----------------------+
 
-    +-----------------------+------------------------+---------------+------------------------------------------------------------------------------+
-    | ``${mstsc_hostname}`` | ``Get Mstsc Hostname`` | ``probename`` | ``C:\\Python27\\Lib\\site-packages\\alyvix\\robotproxy\\alyvix_testcases\\`` |
-    +-----------------------+------------------------+---------------+------------------------------------------------------------------------------+
+    +-----------------------+------------------------+---------------+-----------------------------------------------------------------------------------+
+    | ``${mstsc_hostname}`` | ``Get Mstsc Hostname`` | ``probename`` | ``C:\\Python27\\ Lib\\ site-packages\\ alyvix\\ robotproxy\\ alyvix_testcases\\`` |
+    +-----------------------+------------------------+---------------+-----------------------------------------------------------------------------------+
 
 .. warning::
-  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_ip_hostname_map>\\``).
+  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path ip hostname map>\\``).
 
 *Get Mstsc Hostname* **provides the** ``mstsc`` **hostname of an ongoing RDP connection**. :download:`probename_ip_hostname_map.json <./probename_ip_hostname_map.json>` is the **needed map between the desired names and the IP addresses of possible RDP servers**.
 
-The ``probename`` **filename suffix**, that can be changed (e.g. ``customername_ip_hostname_map.json``), is the **keyword argument to use the map** (e.g. ``${mstsc_hostname} |`` ``Get Mstsc Hostname`` ``| customername``). The file has to be saved in a given folder, which can be passed as the second keyword argument: the test case path (e.g. ``C:\Python27\`` ``Lib\site-packages\`` ``alyvix\robotproxy\`` ``alyvix_testcases\``) is already set by default.
+The ``probename`` **filename suffix**, that can be changed (e.g. ``customername_ip_hostname_map.json``), is the **keyword argument to use the map** (e.g. ``${mstsc_hostname} |`` ``Get Mstsc Hostname`` ``| customername``). The file has to be saved in a given folder, which can be passed as the second keyword argument: the test case path (e.g. ``C:\Python27\ Lib\ site-packages\ alyvix\ robotproxy\ alyvix_testcases\``) is already set by default.
 
-Define the map as a list of ip and name associations ``"<ip_rdp_host>": "<name_rdp_host>"`` as follows:
+Define the map as a list of ip and name associations ``"<ip rdp host>": "<name rdp host>"`` as follows:
 
     .. code-block:: json
 
@@ -814,30 +923,36 @@ Define the map as a list of ip and name associations ``"<ip_rdp_host>": "<name_r
 Get Aos Id
 ----------
 
-    +----------------+-------------------------------------+----------------------------------------------+----------------------------------------+
-    | ``Get Aos Id`` | ``scraped_string=<scraped_string>`` | ``customer_name=<prefix_customer_settings>`` | ``path_json=<path_customer_settings>`` |
-    +----------------+-------------------------------------+----------------------------------------------+----------------------------------------+
+    +----------------+--------------------+-------------------+
+    | ``Get Aos Id`` | ``scraped_string`` | ``customer_name`` |
+    +----------------+--------------------+-------------------+
 
-    * Default values: ``path_json=<testcase_path>``
+    * Default values:
+
+        +-------------------------------+
+        | ``path_json=<testcase path>`` |
+        +-------------------------------+
+
+    * Value types: ``scraped_string=<scraped string>``, ``customer_name=<prefix customer settings>``.
 
 Example:
 
-    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
-    | ``${scraped_string}`` | ``aos_id_scraper``     |                         |                             |                |
-    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
-    | ``${aos_name}``       | ``${session_id}``      | ``Get Aos Id``          | ``${scraped_string}``       | ``probename``  |
-    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
-    | ``Add Perfdata Tag``  | ``perf_name=ax_ready`` | ``tag_name=aos_name``   | ``tag_value=${aos_name}``   |                |
-    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
-    | ``Add Perfdata Tag``  | ``perf_name=ax_ready`` | ``tag_name=session_id`` | ``tag_value=${session_id}`` |                |
-    +-----------------------+------------------------+-------------------------+-----------------------------+----------------+
+    +----------------------+--------------+----------------+--------------+---------------+
+    | ``${scrap}``         | ``scraper``  |                |              |               |
+    +----------------------+--------------+----------------+--------------+---------------+
+    | ``${aos}``           | ``${sid}``   | ``Get Aos Id`` | ``${scrap}`` | ``probename`` |
+    +----------------------+--------------+----------------+--------------+---------------+
+    | ``Add Perfdata Tag`` | ``ax_ready`` | ``aos_name``   | ``${aos}``   |               |
+    +----------------------+--------------+----------------+--------------+---------------+
+    | ``Add Perfdata Tag`` | ``ax_ready`` | ``session_id`` | ``${sid}``   |               |
+    +----------------------+--------------+----------------+--------------+---------------+
 
-    +-----------------+-------------------+----------------+-----------------------+---------------+------------------------------------------------------------------------------+
-    | ``${aos_name}`` | ``${session_id}`` | ``Get Aos Id`` | ``${scraped_string}`` | ``probename`` | ``C:\\Python27\\Lib\\site-packages\\alyvix\\robotproxy\\alyvix_testcases\\`` |
-    +-----------------+-------------------+----------------+-----------------------+---------------+------------------------------------------------------------------------------+
+    +----------------+--------------+---------------+-----------------------------+
+    | ``Get Aos Id`` | ``${scrap}`` | ``probename`` | ``C:\\ alyvix_testcases\\`` |
+    +----------------+--------------+---------------+-----------------------------+
 
 .. warning::
-  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_customer_settings>\\``).
+  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path customer settings>\\``).
 
 *Get Aos Id* **extract and map a name** (e.g. `AOS <https://en.wikipedia.org/wiki/Application_server>`_ name) **and a number** (e.g. session ID) **from a scraped string** that comes from a :ref:`visual scraper <visual_keywords-alyvix_scrapers>`. :download:`probename_customer_settings.json <./probename_customer_settings.json>` bla.
 
@@ -847,7 +962,7 @@ Example:
 
     .. image:: pictures/ax_aos_id_scraped_title.png
 
-The ``probename`` **filename suffix**, that can be changed (e.g. ``customername_customer_settings.json``), is the **keyword argument to use the map** (e.g. ``${aos_name} |`` ``${session_id} |`` ``Get Aos Id`` ``| ${scraped_string}`` ``| customername``). The file has to be saved in a given folder, which can be passed as the second keyword argument: the test case path (e.g. ``C:\Python27\`` ``Lib\site-packages\`` ``alyvix\robotproxy\`` ``alyvix_testcases\``) is already set by default.
+The ``probename`` **filename suffix**, that can be changed (e.g. ``customername_customer_settings.json``), is the **keyword argument to use the map** (e.g. ``${aos_name} |`` ``${session_id} |`` ``Get Aos Id`` ``| ${scraped_string}`` ``| customername``). The file has to be saved in a given folder, which can be passed as the second keyword argument: the test case path (e.g. ``C:\Python27\ Lib\ site-packages\ alyvix\ robotproxy\ alyvix_testcases\``) is already set by default.
 
 In the setting file, define ``"ax_title_marks"`` as the list of **text anchors** between which extracting the name and the number; define ``"aos_names"`` as the list of **text labels** on which mapping the extracted name:
 
@@ -880,9 +995,11 @@ Screenshot keywords
 Alyvix Screenshot
 -----------------
 
-    +-----------------------+----------------------------------------------------+
-    | ``Alyvix Screenshot`` | ``filename_arg=<screenshot_filename>{.png, .jpg}`` |
-    +-----------------------+----------------------------------------------------+
+    +-----------------------+------------------+
+    | ``Alyvix Screenshot`` | ``filename_arg`` |
+    +-----------------------+------------------+
+
+    * Value types: ``filename_arg=<screenshot filename>{.png, .jpg}``.
 
 Example:
 
@@ -890,7 +1007,7 @@ Example:
     | ``Alyvix Screenshot`` | ``login_screen.jpg`` |
     +-----------------------+----------------------+
 
-*Alyvix Screenshot* **grabs a screenshot and saves it into the output folder**, which can be specified as an argument ``--outputdir <output_folder_path>`` (e.g. ``--outputdir "C:\alyvix_reports\login_testcase"``) of the Alyvix :ref:`test case script <commandline_output>`. By default the extension of the screenshot file is ``.png``, but it is also possible to specify ``.jpg`` as the image compression.
+*Alyvix Screenshot* **grabs a screenshot and saves it into the output folder**, which can be specified as an argument ``--outputdir <output folder path>`` (e.g. ``--outputdir "C:\alyvix_reports\ login_testcase"``) of the Alyvix :ref:`test case script <commandline_output>`. By default the extension of the screenshot file is ``.png``, but it is also possible to specify ``.jpg`` as the image compression.
 
 
 .. _system_keywords-debug_keywords:
@@ -904,18 +1021,20 @@ Debug keywords
 Alyvix Config
 -------------
 
-    +-------------------+------------------------------------------+
-    | ``Alyvix Config`` | ``full_filename=<config.xml_file_path>`` |
-    +-------------------+------------------------------------------+
+    +-------------------+-------------------+
+    | ``Alyvix Config`` | ``full_filename`` |
+    +-------------------+-------------------+
+
+    * Value types: ``full_filename=<config.xml file path>``.
 
 Example:
 
-    +-------------------+---------------------------------------------------+
-    | ``Alyvix Config`` | ``full_filename=C:\\alyvix_logbooks\\config.xml`` |
-    +-------------------+---------------------------------------------------+
+    +-------------------+--------------------------------------+
+    | ``Alyvix Config`` | ``C:\\alyvix_logbooks\\ config.xml`` |
+    +-------------------+--------------------------------------+
 
 .. warning::
-  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path_to>\\config.xml``).
+  Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path to>\\ config.xml``).
 
 *Alyvix Config* **links the** :download:`config.xml <./config.xml>` **file to set some Alyvix custom settings**.
 
@@ -938,7 +1057,7 @@ Example:
             </log>
         </config>
 
-Edit ``config.xml`` to enable the Alyvix **debugging mode** (``<log><enable>True``) and set in which folder storing the **detection screenshots** of Alyvix objects (``<log><home>C:\<path_to_folder>``). It is also possible to set the **time periods of the frame grabber** ``<finder><finder_thread_interval>0.5`` (0.5s by default) and **of the object detector** ``<finder><check_diff_interval>0.1`` (0.1s by default).
+Edit ``config.xml`` to enable the Alyvix **debugging mode** (``<log><enable>True``) and set in which folder storing the **detection screenshots** of Alyvix objects (``<log><home>C:\<path to folder>``). It is also possible to set the **time periods of the frame grabber** ``<finder><finder_thread_interval>0.5`` (0.5s by default) and **of the object detector** ``<finder><check_diff_interval>0.1`` (0.1s by default).
 
 .. note::
   It is recommended to **leave the default values** (i.e. ``0.5`` for the detector and ``0.1`` for the grabber), in order to avoid overloading the hardware. But you can **increase the measurement accuracy** decreasing the detector period ``<finder><finder_thread_interval>`` and you can **increase the measurement precision** decreasing the grabber period ``<finder><check_diff_interval>``.
@@ -949,25 +1068,29 @@ Edit ``config.xml`` to enable the Alyvix **debugging mode** (``<log><enable>True
 Set Alyvix Info
 ---------------
 
-    +---------------------+-------------------------+---------------------------+
-    | ``Set Alyvix Info`` | ``name=<setting_name>`` | ``value=<setting_value>`` |
-    +---------------------+-------------------------+---------------------------+
+    +---------------------+----------+-----------+
+    | ``Set Alyvix Info`` | ``name`` | ``value`` |
+    +---------------------+----------+-----------+
+
+    * Value types: ``name={CHECK DIFF INTERVAL, FINDER THREAD INTERVAL, CHECK DIFF INTERVAL DISAPPEAR, FINDER THREAD INTERVAL DISAPPEAR, ACTIONS DELAY, channel}``, ``value={<milliseconds>, r, g, b}``.
+
+CHECK DIFF INTERVAL, FINDER THREAD INTERVAL, CHECK DIFF INTERVAL DISAPPEAR, FINDER THREAD INTERVAL DISAPPEAR, ACTIONS DELAY, channel``
 
 Example:
 
-    +---------------------+-------------------------------------------+---------------+
-    | ``Set Alyvix Info`` | ``name=CHECK DIFF INTERVAL``              | ``value=0.1`` |
-    +---------------------+-------------------------------------------+---------------+
-    | ``Set Alyvix Info`` | ``name=FINDER THREAD INTERVAL``           | ``value=0.5`` |
-    +---------------------+-------------------------------------------+---------------+
-    | ``Set Alyvix Info`` | ``name=CHECK DIFF INTERVAL DISAPPEAR``    | ``value=0.1`` |
-    +---------------------+-------------------------------------------+---------------+
-    | ``Set Alyvix Info`` | ``name=FINDER THREAD INTERVAL DISAPPEAR`` | ``value=0.5`` |
-    +---------------------+-------------------------------------------+---------------+
-    | ``Set Alyvix Info`` | ``name=ACTIONS DELAY``                    | ``value=0.5`` |
-    +---------------------+-------------------------------------------+---------------+
-    | ``Set Alyvix Info`` | ``name=channel``                          | ``value=r``   |
-    +---------------------+-------------------------------------------+---------------+
+    +---------------------+---------------------------------------------+-----------------+
+    | ``Set Alyvix Info`` | ``name = CHECK DIFF INTERVAL``              | ``value = 0.1`` |
+    +---------------------+---------------------------------------------+-----------------+
+    | ``Set Alyvix Info`` | ``name = FINDER THREAD INTERVAL``           | ``value = 0.5`` |
+    +---------------------+---------------------------------------------+-----------------+
+    | ``Set Alyvix Info`` | ``name = CHECK DIFF INTERVAL DISAPPEAR``    | ``value = 0.1`` |
+    +---------------------+---------------------------------------------+-----------------+
+    | ``Set Alyvix Info`` | ``name = FINDER THREAD INTERVAL DISAPPEAR`` | ``value = 0.5`` |
+    +---------------------+---------------------------------------------+-----------------+
+    | ``Set Alyvix Info`` | ``name = ACTIONS DELAY``                    | ``value = 0.5`` |
+    +---------------------+---------------------------------------------+-----------------+
+    | ``Set Alyvix Info`` | ``name = channel``                          | ``value = r``   |
+    +---------------------+---------------------------------------------+-----------------+
 
 *Set Alyvix Info* **sets values of the Alyvix engine settings**. *Set Alyvix Info* acts from its call point until the end of the test case (or until another setup).
 
