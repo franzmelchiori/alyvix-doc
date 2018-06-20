@@ -45,21 +45,23 @@ Typically, a **declared performance measure** corresponds to the name of an :ref
 
 The **declaration of a performance measure** should be done properly using the :ref:`Add Perfdata <system_keywords-performance_keywords-add_perfdata>` keyword and setting the :ref:`keyword detection_settings <visual_keywords-detection_settings>` as *Performance* and *Break*.
 
-.. |unchecked_box| image:: pictures/break_unchecked.png
-.. |checked_box| image:: pictures/break_checked.png
+.. |break_unchecked_box| image:: pictures/break_unchecked.png
+.. |break_checked_box| image:: pictures/break_checked.png
+.. |performance_unchecked_box| image:: pictures/performance_unchecked.png
+.. |performance_checked_box| image:: pictures/performance_checked.png
 
 +-------------------------------------------------------+-------------------------------+-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | *Declaration* in the test                             | *Break* option in the keyword | *Performance* option in the keyword | *Description*                                                                                                                                                                                   |
 +-------------------------------------------------------+-------------------------------+-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``Add Perfdata | <keyword_name>``                     | |checked_box|                 | |checked_box|                       | **Blocking** transaction, with **latency**: I **do not solve** it, I **break** the test and I report ``CRITICAL``                                                                               |
+| ``Add Perfdata | <keyword_name>``                     | |break_checked_box|           | |performance_checked_box|           | **Blocking** transaction, with **latency**: I **do not solve** it, I **break** the test and I report ``CRITICAL``                                                                               |
 +-------------------------------------------------------+-------------------------------+-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``Add Perfdata | <keyword_name> | <timeout_seconds>`` | |unchecked_box|               | |checked_box|                       | **Blocking** transaction, with **latency**: I **solve** it, in any case I **continue** the test and I report ``CRITICAL``; ``<timeout_seconds>`` should be bigger than ``<critical_threshold>`` |
+| ``Add Perfdata | <keyword_name> | <timeout_seconds>`` | |break_unchecked_box|         | |performance_checked_box|           | **Blocking** transaction, with **latency**: I **solve** it, in any case I **continue** the test and I report ``CRITICAL``; ``<timeout_seconds>`` should be bigger than ``<critical_threshold>`` |
 +-------------------------------------------------------+-------------------------------+-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ``Add Perfdata | <keyword_name> | 0``                 | |unchecked_box|               | |checked_box|                       | **Possible** transaction, with **latency**: I **try to solve** it, in any case I **continue** the test and I report ``OK``; it has to be inserted in the row right before the declared keyword  |
+| ``Add Perfdata | <keyword_name> | 0``                 | |break_unchecked_box|         | |performance_checked_box|           | **Possible** transaction, with **latency**: I **try to solve** it, in any case I **continue** the test and I report ``OK``; it has to be inserted in the row right before the declared keyword  |
 +-------------------------------------------------------+-------------------------------+-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                                       | |checked_box|                 | |unchecked_box|                     | **Blocking** transaction, with **no latency**: I **do not solve** it, I **break** the test; it has not to be insert it as the last keyword                                                      |
+|                                                       | |break_checked_box|           | |performance_unchecked_box|         | **Blocking** transaction, with **no latency**: I **do not solve** it, I **break** the test; it has not to be insert it as the last keyword                                                      |
 +-------------------------------------------------------+-------------------------------+-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                                       | |unchecked_box|               | |unchecked_box|                     | **Possible** transaction, with **no latency**: I **try to solve** it, in any case I **continue** the test                                                                                       |
+|                                                       | |break_unchecked_box|         | |performance_unchecked_box|         | **Possible** transaction, with **no latency**: I **try to solve** it, in any case I **continue** the test                                                                                       |
 +-------------------------------------------------------+-------------------------------+-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 .. warning::
@@ -68,13 +70,13 @@ The **declaration of a performance measure** should be done properly using the :
 +---------------------+-----------------------------------+-------------------------------+-------------------------------------+------------------------+
 |                     | *Declaration* in the test         | *Break* option in the keyword | *Performance* option in the keyword | *Description*          |
 +---------------------+-----------------------------------+-------------------------------+-------------------------------------+------------------------+
-| **Do not do this!** | ``Add Perfdata | <keyword_name>`` | |unchecked_box|               | |unchecked_box|                     | **It makes no sense!** |
+| **Do not do this!** | ``Add Perfdata | <keyword_name>`` | |break_unchecked_box|         | |performance_unchecked_box|         | **It makes no sense!** |
 +---------------------+-----------------------------------+-------------------------------+-------------------------------------+------------------------+
-| **Do not do this!** | ``Add Perfdata | <keyword_name>`` | |checked_box|                 | |unchecked_box|                     | **It makes no sense!** |
+| **Do not do this!** | ``Add Perfdata | <keyword_name>`` | |break_checked_box|           | |performance_unchecked_box|         | **It makes no sense!** |
 +---------------------+-----------------------------------+-------------------------------+-------------------------------------+------------------------+
-| **Do not do this!** |                                   | |unchecked_box|               | |checked_box|                       | **It makes no sense!** |
+| **Do not do this!** |                                   | |break_unchecked_box|         | |performance_checked_box|           | **It makes no sense!** |
 +---------------------+-----------------------------------+-------------------------------+-------------------------------------+------------------------+
-| **Do not do this!** |                                   | |checked_box|                 | |checked_box|                       | **It makes no sense!** |
+| **Do not do this!** |                                   | |break_checked_box|           | |performance_checked_box|           | **It makes no sense!** |
 +---------------------+-----------------------------------+-------------------------------+-------------------------------------+------------------------+
 
 
