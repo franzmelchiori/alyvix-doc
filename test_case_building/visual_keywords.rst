@@ -17,11 +17,9 @@ The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector o
 
 ..
 
-    .. image:: pictures/ride_05a_keyword_selector.png
+    .. image:: pictures/ride_05a_2-7-0_keyword_selector.png
 
 The **New** button opens the selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>`. The **Edit** button brings to the Finder dialog of the selected keyword in order to modify its properties (e.g. component selections and region of interests, detection and interaction settings, performance thresholds). The **Remove** button deletes the selected keywords or, in case of :ref:`Object Finders <visual_keywords-object_finder>` or :ref:`Object Scrapers <visual_keywords-object_scraper>`, crumbles them into its basic components (IF, RF, TF, TS).
-
-    .. image:: pictures/ride_05b_finder_selector.png
 
 The selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>` allows you to select the type (image, rectangle, text, object) of a new keyword to define. The **Delay** spin control delays of a given amount of seconds the subsequent selection of components on screen. The graphic definition a visual keyword freezes your screen in order to select components. Increase the delay if you need time to trigger a certain state of the screen (e.g. opening a menu in an app dialog).
 
@@ -60,10 +58,35 @@ To correctly define a unique keyword, it is necessary to **select the green sign
     4. eventually repeat 2. and 3. to add more sub components;
     5. press :kbd:`CTRL+O` to set the :ref:`IF keyword properties <visual_keywords-image_finder>`.
 
+``LEFT CLICK`` the mouse, hold and release to manually **select components**, to **stretch and move them**.
+
     .. image:: pictures/image_finder_selection_edge_stretching.gif
 
-.. note::
-    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`. You can even **move and resize selections and ROIs** stretching their edges with the mouse.
+..
+
+``RIGHT CLICK`` the mouse to **autocontour components**.
+
+    .. image:: pictures/image_finder_selection_autocontour.gif
+
+..
+
+Press ``SPACE`` to **highlight component candidates** and then ``RIGHT CLICK`` the mouse to **autocontour them**.
+
+    .. image:: pictures/image_finder_selection_autocontour_highlight.gif
+
+Other **shortcuts**:
+
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`RIGHT CLICK`         | component ROI edges  | **Push component ROI edges to infinity**                           |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + LEFT CLICK`   | component SELections | **Reset component ROI edges** near around selections inside        |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + RIGHT CLICK`  | selected components  | **Remove components** both SELections and ROIs                     |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+Z`              | visual definition    | **Undo visual selections** in the visual selection mode            |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+Y`              | visual definition    | **Redo visual selections** in the visual selection mode            |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
 
 
 .. _visual_keywords-rect_definition:
@@ -94,10 +117,35 @@ To correctly define a unique keyword, it is necessary to **select the OK button 
     4. eventually repeat 2. and 3. to add more sub components;
     5. press :kbd:`CTRL+O` to set the :ref:`RF keyword properties <visual_keywords-rect_finder>`.
 
+``LEFT CLICK`` the mouse, hold and release to manually **select components**, to **stretch and move them**.
+
     .. image:: pictures/rect_finder_selection_edge_stretching.gif
 
-.. note::
-    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`. You can even **move and resize selections and ROIs** stretching their edges with the mouse.
+..
+
+``RIGHT CLICK`` the mouse to **autocontour components**.
+
+    .. image:: pictures/rect_finder_selection_autocontour.gif
+
+..
+
+Press ``SPACE`` to **highlight component candidates** and then ``RIGHT CLICK`` the mouse to **autocontour them**.
+
+    .. image:: pictures/rect_finder_selection_autocontour_highlight.gif
+
+Other **shortcuts**:
+
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`RIGHT CLICK`         | component ROI edges  | **Push component ROI edges to infinity**                           |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + LEFT CLICK`   | component SELections | **Reset component ROI edges** near around selections inside        |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + RIGHT CLICK`  | selected components  | **Remove components** both SELections and ROIs                     |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+Z`              | visual definition    | **Undo visual selections** in the visual selection mode            |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+Y`              | visual definition    | **Redo visual selections** in the visual selection mode            |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
 
 
 .. _visual_keywords-text_definition:
@@ -132,10 +180,35 @@ To correctly define a unique keyword, it is necessary to **select the Franz text
     5. eventually repeat 3. and 4. to add more sub components;
     6. press :kbd:`CTRL+O` to set the :ref:`TF keyword properties <visual_keywords-text_finder>`.
 
+``LEFT CLICK`` the mouse, hold and release to manually **select components**, to **stretch and move them**.
+
     .. image:: pictures/text_finder_selection_edge_stretching.gif
 
-.. note::
-    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`. You can even **move and resize selections and ROIs** stretching their edges with the mouse.
+..
+
+``RIGHT CLICK`` the mouse to **autocontour components**.
+
+    .. image:: pictures/text_finder_selection_autocontour.gif
+
+..
+
+Press ``SPACE`` to **highlight component candidates** and then ``RIGHT CLICK`` the mouse to **autocontour them**.
+
+    .. image:: pictures/text_finder_selection_autocontour_highlight.gif
+
+Other **shortcuts**:
+
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`RIGHT CLICK`         | component ROI edges  | **Push component ROI edges to infinity**                           |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + LEFT CLICK`   | component SELections | **Reset component ROI edges** near around selections inside        |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + RIGHT CLICK`  | selected components  | **Remove components** both SELections and ROIs                     |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+Z`              | visual definition    | **Undo visual selections** in the visual selection mode            |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+Y`              | visual definition    | **Redo visual selections** in the visual selection mode            |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
 
 
 .. _visual_keywords-object_definition:
@@ -166,10 +239,25 @@ To correctly define a unique keyword, it is necessary to **select the Franz text
     4. eventually repeat 2. and 3. to add more sub components;
     5. press :kbd:`CTRL+O` to set the :ref:`OF keyword properties <visual_keywords-object_finder>`.
 
-    .. image:: pictures/object_finder_selection.gif
+The **ROI** of added components is **autoselected** (also after component editing).
 
-.. note::
-    It is possible to **unlimited extend ROI boundaries** towards one or more directions pressing :kbd:`ARROWS` and **undo selections** with :kbd:`CTRL+Z`.
+    .. image:: pictures/object_finder_autoselect.gif
+
+..
+
+``LEFT CLICK`` the mouse, hold and release to manually **redraw component ROIs** or to **stretch it**.
+
+    .. image:: pictures/object_finder_roiredraw.gif
+
+Other **shortcuts**:
+
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`RIGHT CLICK`         | component ROI edges  | **Push component ROI edges to infinity**                           |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + LEFT CLICK`   | component SELections | **Reset component ROI edges** near around selections inside        |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL + RIGHT CLICK`  | selected components  | **Remove components** both SELections and ROIs                     |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
 
 
 .. _visual_keywords-name_components:
@@ -224,7 +312,7 @@ Example:
 
 In the *left pane of keyword dialogs* there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* (region of interests) on screen. Click on each component to set its own **detection and interaction properties**.
 
-    .. image:: pictures/ride_11b_alyvix_2-4-1_gui_components.png
+    .. image:: pictures/ride_11b_alyvix_2-7-0_gui_components.png
 
 
 .. _visual_keywords-detection_settings:
@@ -258,7 +346,7 @@ Interaction settings
 
 In the interaction section of each *Alyvix Finder*, you can set an **interaction mode** for the :ref:`selected main or sub component <visual_keywords-name_components>` of the keyword that you are defining.
 
-    .. image:: pictures/ride_11d_alyvix_2-5-2_gui_interaction.png
+    .. image:: pictures/ride_11d_alyvix_2-7-0_gui_interaction.png
 
 Selecting **Click** or **Right Click**, Alyvix will bring the mouse pointer over the detected component and press the left or the right button of the mouse respectively. It is possible to set the number of **Clicks** and adjust **Delays** as the amount of milliseconds between clicks.
 
@@ -295,7 +383,7 @@ Click on the **Reset Point** button to reset the interaction point at the center
 
 For the latter 4 modes, select the amount of **pixel displacement** thanks to the spin box on the right: double click and insert the desired number of pixels as the release distance.
 
-    .. image:: pictures/ride_11de_alyvix_2-4-1_gui_interaction.png
+    .. image:: pictures/ride_11e_2-7-0_gui_interaction.png
 
 **Move** will bring the mouse pointer over the detected component without pressing anything.
 
@@ -341,7 +429,7 @@ Image Finder
 
 *Image Finders* produce Alyvix visual keywords that are able to detect and interact with **images** (i.e. pixel matrixes). This is the *Image Finder* dialog:
 
-    .. image:: pictures/ride_06b_image_finder.png
+    .. image:: pictures/ride_06a_2-7-0_image_finder.png
 
 To define such keywords follow these steps:
 
@@ -370,7 +458,7 @@ Rect Finder
 
 *Rect Finders* produce Alyvix visual keywords that are able to detect and interact with **rectangles** (e.g. text boxes, rectangle buttons). This is the *Rect Finder* dialog:
 
-    .. image:: pictures/ride_08b_rect_finder.png
+    .. image:: pictures/ride_08a_2-7-0_rect_finder.png
 
 To define such keywords follow these steps:
 
@@ -409,7 +497,7 @@ Text Finder
 
 *Text Finders* produce Alyvix visual keywords that are able to **detect and interact with text** (e.g. button text, icon text). This is the *Text Finder* dialog:
 
-    .. image:: pictures/ride_09b_text_finder.png
+    .. image:: pictures/ride_09a_2-7-0_text_finder.png
 
 To define such keywords follow these steps:
 
@@ -437,7 +525,7 @@ To define such keywords follow these steps:
 
         * The characters from ROI pass through the **WhiteList** filter: the OCR scanner will limit the recognition to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the **Lang** box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
 
-            .. image:: pictures/ride_09ab_text_finder.png
+            .. image:: pictures/ride_09ab_2-7-0_text_finder.png
 
     5. set the :ref:`detection properties <visual_keywords-detection_settings>`;
     6. set the :ref:`interaction properties <visual_keywords-interaction_settings>`;
@@ -451,7 +539,7 @@ Object Finder
 
 The *Object Finder* is probably the most useful Alyvix Finder, because it **links together multiple types of Alyvix visual keywords** defining complex graphic objects to detect: **an Object Finder considers its basic visual keywords as its main and sub components to search**, inheriting their arguments as well. This is the *Object Finder* dialog:
 
-    .. image:: pictures/ride_10_object_finder.png
+    .. image:: pictures/ride_10a_2-7-0_object_finder.png
 
 To define such keywords follow these steps:
 
@@ -507,7 +595,7 @@ Text Scraper
 
 *Text Scrapers* produce Alyvix visual keywords that are able to **scrap text** (e.g. window titles, text chunks). This is the *Text Scraper* dialog:
 
-    .. image:: pictures/ride_09ac_text_scraper.png
+    .. image:: pictures/ride_09b_2-7-0_text_scraper.png
 
 To define such keywords follow these steps:
 
@@ -529,7 +617,7 @@ To define such keywords follow these steps:
 
         * The characters from ROI pass through the **WhiteList** filter: the OCR scanner will limit the scraping to that set of characters. Moreover, the OCR scanner will interpret entire words from the language dictionary specified in the **Lang** box (type ``eng`` for English, ``ita`` for Italian and ``deu`` for German);
 
-            .. image:: pictures/ride_09ad_text_scraper.png
+            .. image:: pictures/ride_09bb_2-7-0_text_scraper.png
 
     5. click the **OK** button to save the keyword.
 
