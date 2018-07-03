@@ -22,7 +22,7 @@ Description
 
     ``alyvix_pybot`` is an **Alyvix CLI tool**, stored in ``C:\Python27\Scripts\``, that is able to **run a test case** out of :ref:`RIDE <testcase_editor>` **for scripting purposes**.
 
-    It needs a valid **Alyvix test case** ``.robot`` file (build with :ref:`RIDE <testcase_editor>`) providing its ``<testcase_path>`` (e.g. ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\test.robot``)
+    It needs a valid **Alyvix test case** ``.robot`` file (build with :ref:`RIDE <testcase_editor>`) providing its ``<testcase_path>`` (e.g. ``C:\Python27\ Lib\ site-packages\ alyvix\ robotproxy\ alyvix_testcases\ test.robot``)
 
     At the end of a test case execution, ``alyvix_pybot`` prints out the :ref:`performance message <commandline_output>` in the Command Prompt.
 

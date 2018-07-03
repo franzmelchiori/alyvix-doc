@@ -7,10 +7,10 @@ Backup
 
 *1 test case* is made by *4 ingredients*:
 
-    * ``C:\Python27\Lib\site-packages\alyvix\robotproxy\AlyvixProxy<test_case_name>.py``
-    * ``C:\Python27\Lib\site-packages\alyvix\robotproxy\Alyvix<test_case_name>Objects_extra\``
-    * ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\<test_case_name>.robot``
-    * ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\Alyvix<test_case_name>Objects\``
+    * ``C:\Python27\`` ``Lib\`` ``site-packages\`` ``alyvix\`` ``robotproxy\`` ``AlyvixProxy<test_case_name>.py``
+    * ``C:\Python27\`` ``Lib\`` ``site-packages\`` ``alyvix\`` ``robotproxy\`` ``Alyvix<test_case_name>Objects_extra\``
+    * ``C:\Python27\`` ``Lib\`` ``site-packages\`` ``alyvix\`` ``robotproxy\`` ``alyvix_testcases\`` ``<test_case_name>.robot``
+    * ``C:\Python27\`` ``Lib\`` ``site-packages\`` ``alyvix\`` ``robotproxy\`` ``alyvix_testcases\`` ``Alyvix<test_case_name>Objects\``
 
     .. note::
         It is recommended to save your test cases in ``C:\Python27\Lib\site-packages\alyvix\robotproxy\alyvix_testcases\``.

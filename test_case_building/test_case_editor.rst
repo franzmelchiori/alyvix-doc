@@ -50,40 +50,54 @@ Editor buttons and shortcuts
 
 The most useful **editor buttons**:
 
-  +-------------------------------------------------+
-  | .. image:: pictures/ride_01e_toolbar_alyvix.png |
-  +-------------------------------------------------+
+  .. image:: pictures/ride_01e_toolbar_alyvix.png
 
-    *Alyvix button* opens the **Alyvix selector**, where the :ref:`visual keyword <visual_keywords>` for the current project are listed. Visual keywords can be edited and new ones can be added: click on the **New** button to open the *Alyvix selector*.
+..
 
-  +-----------------------------------------------+
-  | .. image:: pictures/ride_01d_toolbar_save.png |
-  +-----------------------------------------------+
+     *Alyvix button* opens the **Alyvix selector**, where the :ref:`visual keyword <visual_keywords>` for the current project are listed. Visual keywords can be edited and new ones can be added: click on the **New** button to open the *Alyvix selector*.
 
-    **Save** buttons allows to save the *current* ``.robot`` file or *all* ``.robot`` project files. Remember to click on the disk-with-star icon to apply all changes you have done on a test case for running the up-to-date version of the test case.
+  .. image:: pictures/ride_01d_toolbar_save.png
 
-  +------------------------------------------------+
-  | .. image:: pictures/ride_01f_toolbar_start.png |
-  +------------------------------------------------+
+..
 
-    **Run** and **stop** buttons can respectively execute (play button) or terminate (stop button) the current project.
+     **Save** buttons allows to save the *current* ``.robot`` file or *all* ``.robot`` project files. Remember to click on the disk-with-star icon to apply all changes you have done on a test case for running the up-to-date version of the test case.
+
+  .. image:: pictures/ride_01f_toolbar_start.png
+
+..
+
+     **Run** and **stop** buttons can respectively execute (play button) or terminate (stop button) the current project.
+
+  ..
 
 
 The **Alyvix shortcuts**:
 
-  +---------------------+--------------------------------------------------------------------+
-  | :kbd:`CTRL+O`       | Accept and **exit the Alyvix visual selection mode**               |
-  +---------------------+--------------------------------------------------------------------+
-  | :kbd:`ARROWS`       | **Extend unlimitedly ROI boundaries** in the visual selection mode |
-  +---------------------+--------------------------------------------------------------------+
-  | :kbd:`CTRL+Z`       | **Undo visual selections** in the visual selection mode            |
-  +---------------------+--------------------------------------------------------------------+
-  | :kbd:`CTRL+C`       | **Copy** selected **keyword name** in Alyvix selector              |
-  +---------------------+--------------------------------------------------------------------+
-  | :kbd:`CTRL+V`       | **Paste** copied **keyword name** from Alyvix selector             |
-  +---------------------+--------------------------------------------------------------------+
-  | :kbd:`CTRL+D`       | **Delete** selected **keyword** in Alyvix selector                 |
-  +---------------------+--------------------------------------------------------------------+
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL+O`              | visual definition    | Accept and **exit the Alyvix visual selection mode**               |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`SPACE + RIGHT CLICK` | visual definition    | **Highlight and autocontour visual component candidates**          |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`RIGHT CLICK`         | visual components    | **Autocontour visual component candidates**                        |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`RIGHT CLICK`         | component ROI edges  | **Push component ROI edges to infinity**                           |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL + LEFT CLICK`   | component SELections | **Reset component ROI edges** near around selections inside        |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL + RIGHT CLICK`  | selected components  | **Remove components** both SELections and ROIs                     |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`ARROWS`              | ROI selection        | **Extend unlimitedly ROI boundaries** in the visual selection mode |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL+Z`              | visual definition    | **Undo visual selections** in the visual selection mode            |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL+Y`              | visual definition    | **Redo visual selections** in the visual selection mode            |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL+C`              | keyword selector     | **Copy** selected **keyword name** in Alyvix selector              |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL+V`              | keyword selector     | **Paste** copied **keyword name** from Alyvix selector             |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
+  | :kbd:`CTRL+D`              | keyword selector     | **Delete** selected **keywords** in Alyvix selector                |
+  +----------------------------+----------------------+--------------------------------------------------------------------+
 
 
 The most useful **editor shortcuts**:

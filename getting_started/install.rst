@@ -9,25 +9,25 @@ Your Alyvix probe must satisfy the :ref:`system requirements<system_requirements
 
     1. Install Python
 
-        * download `Python 2.7.14 64bit Windows installer <https://www.python.org/ftp/python/2.7.14/python-2.7.14.amd64.msi>`_
+        * download `Python 2.7.15 64bit Windows installer <https://www.python.org/ftp/python/2.7.15/python-2.7.15.amd64.msi>`_
 
-        * run ``python-2.7.14.amd64.msi`` **as administrator**
+        * run ``python-2.7.15.amd64.msi`` **as administrator**
 
             install Python **for all users**
 
-                .. image:: pictures/python_2-7-14_install_01.PNG
+                .. image:: pictures/python_2-7-15_install_01.PNG
 
             ..
 
             in ``C:\Python27``
 
-                .. image:: pictures/python_2-7-14_install_02.PNG
+                .. image:: pictures/python_2-7-15_install_02.PNG
 
             ..
 
             and add ``python.exe`` to the system PATH environment variable
 
-                .. image:: pictures/python_2-7-14_install_03a.PNG
+                .. image:: pictures/python_2-7-15_install_03a.PNG
 
             ..
 
