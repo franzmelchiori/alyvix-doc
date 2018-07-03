@@ -96,7 +96,7 @@ The **Alyvix shortcuts**:
   +----------------------------+----------------------+--------------------------------------------------------------------+
   | :kbd:`CTRL+V`              | keyword selector     | **Paste** copied **keyword name** from Alyvix selector             |
   +----------------------------+----------------------+--------------------------------------------------------------------+
-  | :kbd:`CTRL+D`              | keyword selector     | **Delete** selected **keyword** in Alyvix selector                 |
+  | :kbd:`CTRL+D`              | keyword selector     | **Delete** selected **keywords** in Alyvix selector                |
   +----------------------------+----------------------+--------------------------------------------------------------------+
 
 

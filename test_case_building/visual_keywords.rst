@@ -19,15 +19,25 @@ The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector o
 
     .. image:: pictures/ride_05a_2-7-0_keyword_selector.png
 
-The **New** button opens the selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>`. The **Edit** button brings to the Finder dialog of the selected keyword in order to modify its properties (e.g. component selections and region of interests, detection and interaction settings, performance thresholds). The **Remove** button deletes the selected keywords or, in case of :ref:`Object Finders <visual_keywords-object_finder>` or :ref:`Object Scrapers <visual_keywords-object_scraper>`, crumbles them into its basic components (IF, RF, TF, TS).
+The selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>` allows you to select the type (image, rectangle, text, object) of a new keyword to define. The **Delay** spin control delays of a given amount of seconds the subsequent selection of components on screen. The graphic definition a visual keyword freezes your screen in order to select components. Increase the delay if you need time to trigger a certain state of the screen (e.g. opening a menu in an app dialog). You can **sort and search keywords** through the respective bars.
 
-The selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>` allows you to select the type (image, rectangle, text, object) of a new keyword to define. The **Delay** spin control delays of a given amount of seconds the subsequent selection of components on screen. The graphic definition a visual keyword freezes your screen in order to select components. Increase the delay if you need time to trigger a certain state of the screen (e.g. opening a menu in an app dialog).
+The **Edit** button brings to the Finder dialog of the selected keyword in order to modify its properties (e.g. component selections and region of interests, detection and interaction settings, performance thresholds). The **Remove** button deletes the selected keywords or, in case of :ref:`Object Finders <visual_keywords-object_finder>` or :ref:`Object Scrapers <visual_keywords-object_scraper>`, crumbles them into its basic components (IF, RF, TF, TS).
 
 Start defining a *visual keyword* means selecting its components on screen: one **main selection** is necessary, but then multiple **sub selections** are possible. Sub components are selected within their **region of interests**. The latter *ROI* are useful to link sub components to the main component. Each Alyvix Finder has a procedure to select its components and ROI. The important reasons for sub components and their ROI follow below. The detection of application transactions can be:
 
 * more *complete*: GUI rendering could be element-by-element, so it could be necessary to detect several components to check a completed transaction; moreover, it is possible to interact with several GUI elements and not just with one;
 * more *robust*: the same GUI element could be used twice, so it could be necessary to define a unique transaction selecting more components;
 * more *flexible*: the same GUI element could be rendered in a different position, so it is necessary to link sub to main components through ROI; moreover, ROI are also useful to restrict the screen area to process, in order to filter out the rest and to save computation time.
+
+**Shortcuts**:
+
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+C`              | keyword selector     | **Copy** selected **keyword name** in Alyvix selector              |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+V`              | keyword selector     | **Paste** copied **keyword name** from Alyvix selector             |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
+    | :kbd:`CTRL+D`              | keyword selector     | **Delete** selected **keywords** in Alyvix selector                |
+    +----------------------------+----------------------+--------------------------------------------------------------------+
 
 
 .. _visual_keywords-image_definition:
@@ -310,7 +320,7 @@ Example:
 
         .. image:: pictures/ride_11ab_alyvix_2-4-1_gui_name.png
 
-In the *left pane of keyword dialogs* there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* (region of interests) on screen. Click on each component to set its own **detection and interaction properties**.
+In the *left pane of keyword dialogs* there are all the **components** previously selected on screen: tick (or untick) them to visualize (or not) their *selection* and *ROI* (region of interests) on screen. Click on each component to set its own **detection and interaction properties**. **Tick one or more components** to **remove them** clicking the ``Remove`` button: click ``Select all`` or ``Deselect all`` for a quicker selection.
 
     .. image:: pictures/ride_11b_alyvix_2-7-0_gui_components.png
 
@@ -357,6 +367,8 @@ You can also set an **Interaction Point** in order to click somewhere else from 
 Click on the **Reset Point** button to reset the interaction point at the center of the component.
 
     .. image:: pictures/ride_11dc_alyvix_2-4-1_gui_interaction.png
+
+Set the amount and direction of **Scrolls** to scroll at the cursor and/or focus position (e.g. web page).
 
 **Hold and Release** is useful to drag and drop or slide GUI elements. There are 6 modes that you can select from the drop-down list on the right. The keyword execution will work as follows:
 
