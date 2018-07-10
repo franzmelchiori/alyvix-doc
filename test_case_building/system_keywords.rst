@@ -417,17 +417,17 @@ Get Dictionary Value
 
     * Default values:
 
-        +-----------------------+--------------------------+------------------------+
-        | path_file_json='init' | name_dict_json='dict_01' | name_key_json='key_01' |
-        +-----------------------+--------------------------+------------------------+
+        +---------------------------+------------------------------+----------------------------+
+        | ``path_file_json='init'`` | ``name_dict_json='dict_01'`` | ``name_key_json='key_01'`` |
+        +---------------------------+------------------------------+----------------------------+
 
 Example:
 
-    +----------+--------------------------+------------------+-------------+---------+
-    | ${value} | ``Get Dictionary Value`` | ``translations`` | ``italian`` | ``sky`` |
-    +----------+--------------------------+------------------+-------------+---------+
+    +--------------+--------------------------+------------------+-------------+---------+
+    | ``${value}`` | ``Get Dictionary Value`` | ``translations`` | ``italian`` | ``sky`` |
+    +--------------+--------------------------+------------------+-------------+---------+
 
-*Get Dictionary Value* **provides a value** (e.g. a text string) **associated with a dictionary** in a specified JSON file. The dictionary has to be defined **in a JSON file** like :download:`probename_customer_settings.json <./probename_customer_settings.json>`. The JSON file has to be saved in a given folder: the folder path can be passed together with the file name. The test case path (e.g. ``C:\Python27\ Lib\ site-packages\ alyvix\ robotproxy\ alyvix_testcases\``) is already set by default (e.g. set ``translations`` to get values from the ``translations.json`` in the test case folder).
+*Get Dictionary Value* **provides a value** (e.g. a text string) **associated with a dictionary** in a specified JSON file. The dictionary has to be defined **in a JSON file** like :download:`probename_customer_settings.json <./probename_customer_settings.json>`. The JSON file has to be saved in a given folder: the folder path can be passed together with the file name. The test case path (e.g. ``C:\Python27\`` ``Lib\`` ``site-packages\`` ``alyvix\`` ``robotproxy\`` ``alyvix_testcases\``) is already set by default (e.g. set ``translations`` to get values from the ``translations.json`` in the test case folder).
 
 In the JSON file, define a dictionary (e.g. ``"italian"``) as a list of keys and their values (e.g. ``"sky": "cielo"``):
 
