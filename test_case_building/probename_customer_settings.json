@@ -1,4 +1,12 @@
 {
+    "dict_01": {
+        "key_01": "value_01",
+        "key_02": "value_02"
+    },
+    "dict_02": {
+        "key_03": "value_03",
+        "key_04": "value_04"
+    },
     "ax_title_marks": {
         "aos_stop": ": Session", 
         "aos_start": "Inc. [", 

@@ -10,5 +10,6 @@ Test case building
    test_case_building/test_case_sections.rst
    test_case_building/system_keywords.rst
    test_case_building/visual_keywords.rst
+   test_case_building/test_case_logic.rst
    test_case_building/common_transactions.rst
    test_case_building/encryption_tool.rst

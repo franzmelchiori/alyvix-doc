@@ -406,6 +406,45 @@ Example:
     Keep in mind that the **positive verse of the horizontal screen coordinate** x is from left to right. The **positive verse of the vertical screen coordinate** y is from top to bottom. So that, the **origin of screen axes** is at the point ``x = 0`` ``y = 0`` in the top-left corner. Sometimes leaving the mouse pointer in a certain position after a transaction can cause unintended interactions that can follow.
 
 
+.. _system_keywords-io_keywords-get_dictionary_value:
+
+Get Dictionary Value
+--------------------
+
+    +--------------------------+-----------------+-----------------+----------------+
+    | ``Get Dictionary Value`` | ``<file json>`` | ``<dict name>`` | ``<key name>`` |
+    +--------------------------+-----------------+-----------------+----------------+
+
+    * Default values:
+
+        +---------------------------+------------------------------+----------------------------+
+        | ``path_file_json='init'`` | ``name_dict_json='dict_01'`` | ``name_key_json='key_01'`` |
+        +---------------------------+------------------------------+----------------------------+
+
+Example:
+
+    +--------------+--------------------------+------------------+-------------+---------+
+    | ``${value}`` | ``Get Dictionary Value`` | ``translations`` | ``italian`` | ``sky`` |
+    +--------------+--------------------------+------------------+-------------+---------+
+
+*Get Dictionary Value* **provides a value** (e.g. a text string) **associated with a dictionary** in a specified JSON file. The dictionary has to be defined **in a JSON file** like :download:`probename_customer_settings.json <./probename_customer_settings.json>`. The JSON file has to be saved in a given folder: the folder path can be passed together with the file name. The test case path (e.g. ``C:\Python27\`` ``Lib\`` ``site-packages\`` ``alyvix\`` ``robotproxy\`` ``alyvix_testcases\``) is already set by default (e.g. set ``translations`` to get values from the ``translations.json`` in the test case folder).
+
+In the JSON file, define a dictionary (e.g. ``"italian"``) as a list of keys and their values (e.g. ``"sky": "cielo"``):
+
+    .. code-block:: json
+
+        {
+            "dict_01": {
+                "key_01": "value_01",
+                "key_02": "value_02"
+            },
+            "dict_02": {
+                "key_03": "value_03",
+                "key_04": "value_04"
+            }
+        }
+
+
 .. _system_keywords-performance_keywords:
 
 Performance keywords
@@ -954,7 +993,7 @@ Example:
 .. warning::
   Type the **folder path with double backslashes** ``\\`` instead of single backslashes ``\`` (e.g. ``C:\\<path customer settings>\\``).
 
-*Get Aos Id* **extract and map a name** (e.g. `AOS <https://en.wikipedia.org/wiki/Application_server>`_ name) **and a number** (e.g. session ID) **from a scraped string** that comes from a :ref:`visual scraper <visual_keywords-alyvix_scrapers>`. :download:`probename_customer_settings.json <./probename_customer_settings.json>` bla.
+*Get Aos Id* **extract and map a name** (e.g. `AOS <https://en.wikipedia.org/wiki/Application_server>`_ name) **and a number** (e.g. session ID) **from a scraped string** that comes from a :ref:`visual scraper <visual_keywords-alyvix_scrapers>`. The AOS map has to be defined in a JSON file like :download:`probename_customer_settings.json <./probename_customer_settings.json>`.
 
     .. image:: pictures/ax_aos_id_hompage_gui.png
 
