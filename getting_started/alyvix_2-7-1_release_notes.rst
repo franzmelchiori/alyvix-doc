@@ -33,8 +33,8 @@ Get Dictionary Value
 Bug fixes
 =========
 
-    * :ref:`Edge stretching <alyvix_2-6-2_release_notes_edge_stretching>` is disabled during the :ref:`Autocontour mode <alyvix_2-7-0_release_notes_autocontour>`
+    * :ref:`Edge stretching <alyvix_2-6-2_release_notes_edge_stretching>` is disabled in the :ref:`Autocontour mode <alyvix_2-7-0_release_notes_autocontour>`
     * ``CTRL+Z`` and ``CTRL+Y`` shortcuts are disabled in the :ref:`Autocontour mode <alyvix_2-7-0_release_notes_autocontour>`
     * The cross cursor is visible in the :ref:`Interaction Point mode <visual_keywords-interaction_settings>`
     * The :ref:`keyword columns <visual_keywords-keyword_definition>` in the selector are always filled, autoadapted and adaptable
-    * Test cases built with previous Alyvix 2.x versions can be properly migrated, edited and executed with Alyvix 2.7.1
+    * Test cases that have been built with previous Alyvix 2.x versions can be properly :ref:`migrated <backup>`, :ref:`edited <visual_keywords-keyword_definition>` and :ref:`executed <commandline_scripting>` with Alyvix 2.7.1
