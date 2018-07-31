@@ -44,3 +44,27 @@ Your Alyvix probe must satisfy the :ref:`system requirements<system_requirements
 
         .. note::
             ``pip`` is now the only package manager for Alyvix. ``conda`` has been deprecated.
+
+
+.. _offline_install:
+
+===============
+Offline Install
+===============
+
+
+Your Alyvix probe must satisfy the :ref:`system requirements<system_requirements>`.
+
+    1. Create a temporary ``alyvix_offline_install`` folder on another machine which runs Windows 64bit, has a properly installed Python 2.7 and is connected to the Internet
+
+    2. Browse the ``alyvix_offline_install`` folder through ``cmd`` and run the following command:
+
+            ``pip download alyvix``
+
+    3. Move the ``alyvix_offline_install`` folder to the probe without Internet connection, together with the `Python 2.7.15 64bit Windows installer <https://www.python.org/ftp/python/2.7.15/python-2.7.15.amd64.msi>`_
+
+    4. Install Python on the probe (add ``python.exe`` to the system PATH environment variable) and restart it
+
+    5. Browse the ``alyvix_offline_install`` folder on the probe through ``cmd`` and run the following command:
+
+            ``pip install alyvix-2.7.1.tar.gz --no-index --find-links .``
