@@ -48,9 +48,8 @@ Your Alyvix probe must satisfy the :ref:`system requirements<system_requirements
 
 .. _offline_install:
 
-===============
-Offline Install
-===============
+Offline install
+---------------
 
 
 Your Alyvix probe must satisfy the :ref:`system requirements<system_requirements>`.
