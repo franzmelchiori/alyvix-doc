@@ -11,7 +11,7 @@ Process keywords
 ================
 
 
-.. _system_keywords-debug_keywords-create_process:
+.. _system_keywords-process_keywords-create_process:
 
 Create Process
 --------------
@@ -38,7 +38,7 @@ Example:
 *Create Process* **runs executable files** (reachable to the given path, e.g. browser application, batch file) **with its optional arguments** (e.g. website address, browser options). This keyword is useful, for example, to run a browser (e.g. Internet Explorer, Chrome) with a website address to point and eventually the option for private browsing.
 
 
-.. _system_keywords-debug_keywords-kill_process:
+.. _system_keywords-process_keywords-kill_process:
 
 Kill Process
 ------------
@@ -56,6 +56,42 @@ Example:
 *Kill Process* **kills a process** of which you provide its executable filename. Have a look at the *Windows Task Manager*, in the *Detail* tab, to know the ongoing programs.
 
     .. image:: pictures/task_manager.png
+
+
+.. _system_keywords-process_keywords-wait_process_close:
+
+Wait Process Close
+------------------
+
+    +------------------------+------------------------+
+    | ``Wait Process Close`` | ``<process filename>`` |
+    +------------------------+------------------------+
+
+    * Default arguments:
+
+        +--------------+----------------+--------------------+
+        | ``pid=None`` | ``timeout=60`` | ``exception=True`` |
+        +--------------+----------------+--------------------+
+
+    * Value types: ``pid=<pid number>``, ``timeout=<seconds>``, ``exception={True, False}``.
+
+Example:
+
+    +------------------------+---------------+
+    | ``Wait Process Close`` | ``mstsc.exe`` |
+    +------------------------+---------------+
+
+    +------------------------+---------------+--------------+
+    | ``Wait Process Close`` | ``mstsc.exe`` | ``pid=5123`` |
+    +------------------------+---------------+--------------+
+
+    +------------------+------------------------+---------------+-------+-----------+
+    | ``${wait time}`` | ``Wait Process Close`` | ``mstsc.exe`` | ``3`` | ``False`` |
+    +------------------+------------------------+---------------+-------+-----------+
+
+*Wait Process Close* **waits until an ongoing process is terminated**. The keyword waits a given **timeout** (an **amount of seconds**) for the termination of a process with a given **filename** (with its extension, e.g. ``mstsc.exe``). When the timeout is expired, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
+
+The keyword can return ``${wait time}``, which is the **amount of seconds** before the keyword has correctly **match the given regular expression** with an ongoing window.
 
 
 .. _system_keywords-window_keywords:

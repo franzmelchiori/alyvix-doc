@@ -17,7 +17,7 @@ The :ref:`Alyvix button <testcase_editor-editor_buttons>` opens the **selector o
 
 ..
 
-    .. image:: pictures/ride_05a_2-7-0_keyword_selector.png
+    .. image:: pictures/ride_05a_2-7-2_keyword_selector.png
 
 The selector of :ref:`Alyvix Finders <visual_keywords-alyvix_finders>` allows you to select the type (image, rectangle, text, object) of a new keyword to define. The **Delay** spin control delays of a given amount of seconds the subsequent selection of components on screen. The graphic definition a visual keyword freezes your screen in order to select components. Increase the delay if you need time to trigger a certain state of the screen (e.g. opening a menu in an app dialog). You can **sort and search keywords** through the respective bars.
 
