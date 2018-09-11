@@ -85,13 +85,13 @@ Example:
     | ``Wait Process Close`` | ``mstsc.exe`` | ``pid=5123`` |
     +------------------------+---------------+--------------+
 
-    +------------------+------------------------+---------------+-------+-----------+
-    | ``${wait time}`` | ``Wait Process Close`` | ``mstsc.exe`` | ``3`` | ``False`` |
-    +------------------+------------------------+---------------+-------+-----------+
+    +------------------+------------------------+---------------+---------------+---------------------+
+    | ``${wait time}`` | ``Wait Process Close`` | ``mstsc.exe`` | ``timeout=3`` | ``exception=False`` |
+    +------------------+------------------------+---------------+---------------+---------------------+
 
 *Wait Process Close* **waits until an ongoing process is terminated**. The keyword waits a given **timeout** (an **amount of seconds**) for the termination of a process with a given **filename** (with its extension, e.g. ``mstsc.exe``). When the timeout is expired, then the test case breaks if the exception is ``True``, otherwise (in case the exception is ``False``) the test case continues its execution with the next command.
 
-The keyword can return ``${wait time}``, which is the **amount of seconds** before the keyword has correctly **match the given regular expression** with an ongoing window.
+The keyword can return ``${wait time}``, which is the **amount of seconds** before the keyword has correctly **detect the termination of the given process**.
 
 
 .. _system_keywords-window_keywords:
