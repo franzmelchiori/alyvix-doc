@@ -156,7 +156,7 @@ Click on the test case name you visualize its **main table** on the right (as an
 
 This is the space where to edit the test case, typing keywords in different kind of syntaxes. The **main syntax for Alyvix keywords** is as follows: a keyword in a cell of the first column and the keyword arguments (one or more) in the subsequent cells.
 
-For example, in the following test case script there is one single Alyvix basic keyword which is :ref:`Create Process <system_keywords-debug_keywords-create_process>` from ``alyvixlib``: it takes two arguments, the first one is the process you want to run (e.g. Internet Explorer) and the second one is the Internet address you want to browse (e.g. the Alyvix website).
+For example, in the following test case script there is one single Alyvix basic keyword which is :ref:`Create Process <system_keywords-process_keywords-create_process>` from ``alyvixlib``: it takes two arguments, the first one is the process you want to run (e.g. Internet Explorer) and the second one is the Internet address you want to browse (e.g. the Alyvix website).
 
   .. image:: pictures/ride_03a_test_case.png
 

@@ -89,7 +89,7 @@ Teardown section
 
 ..
 
-The ``teardown`` section codes the **termination procedures from every possible broken state** of the test case: the test must always (re)start from the same beginning state (e.g. a clean desktop of the probe). For building a proper termination procedure you can :ref:`use visual keywords <visual_keywords>`, :ref:`close windows <system_keywords-window_keywords-close_window>`, :ref:`send shortcuts <system_keywords-io_keywords-send_keys>` and :ref:`kill processes <system_keywords-debug_keywords-kill_process>`.
+The ``teardown`` section codes the **termination procedures from every possible broken state** of the test case: the test must always (re)start from the same beginning state (e.g. a clean desktop of the probe). For building a proper termination procedure you can :ref:`use visual keywords <visual_keywords>`, :ref:`close windows <system_keywords-window_keywords-close_window>`, :ref:`send shortcuts <system_keywords-io_keywords-send_keys>` and :ref:`kill processes <system_keywords-process_keywords-kill_process>`.
 
 Finally, you have to :ref:`print the performance Nagios output <system_keywords-performance_keywords-print_perfdata>`.
 
