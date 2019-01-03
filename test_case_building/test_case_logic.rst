@@ -42,9 +42,9 @@ Global variable
 
 Set a **global variable name** to use its **value in more than one position** within a **test case**:
 
-    +------------------------+-------------------+-----------------+
-    | ``Set Suite Variable`` | ``${<var name>}`` | ``<var value>`` |
-    +------------------------+-------------------+-----------------+
+    +-------------------------+-------------------+-----------------+
+    | ``Set Global Variable`` | ``${<var name>}`` | ``<var value>`` |
+    +-------------------------+-------------------+-----------------+
 
 
 .. _testcase_editor-global_list:
@@ -54,9 +54,9 @@ Global list
 
 Set a **global list name** to use its **value in more than one position** within a **test case** and eventually in a **loop**:
 
-    +------------------------+------------------+---------------+---------------+---------------+
-    | ``Set Suite Variable`` | ``@{list name}`` | ``<value 1>`` | ``<value 2>`` | ``<value n>`` |
-    +------------------------+------------------+---------------+---------------+---------------+
+    +-------------------------+------------------+---------------+---------------+---------------+
+    | ``Set Global Variable`` | ``@{list name}`` | ``<value 1>`` | ``<value 2>`` | ``<value n>`` |
+    +-------------------------+------------------+---------------+---------------+---------------+
 
 
 .. _testcase_editor-catenate:

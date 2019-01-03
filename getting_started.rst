@@ -10,6 +10,8 @@ Getting started
    getting_started/upgrade.rst
    getting_started/backup.rst
    getting_started/deployment_check.rst
+   getting_started/alyvix_2-7-4_release_notes.rst
+   getting_started/alyvix_2-7-3_release_notes.rst
    getting_started/alyvix_2-7-2_release_notes.rst
    getting_started/alyvix_2-7-1_release_notes.rst
    getting_started/alyvix_2-7-0_release_notes.rst
