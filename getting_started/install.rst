@@ -66,4 +66,4 @@ Your Alyvix probe must satisfy the :ref:`system requirements<system_requirements
 
     5. Browse the ``alyvix_offline_install`` folder on the probe through ``cmd`` and run the following command:
 
-            ``pip install alyvix-2.7.1.tar.gz --no-index --find-links .``
+            ``pip install alyvix-2.7.5.tar.gz --no-index --find-links .``
