@@ -18,4 +18,4 @@ Alyvix does :ref:`visual synthetic monitoring <home>`. If your machine matches t
 Bug fixes
 =========
 
-    * time and date checks (e.g., the ``Check Hms Time Proximity`` system keyword) take into account leap years
+    * time and date checks (e.g., the :ref:`Check Hms Time Proximity <system_keywords-timestamp_keywords-check_hms_time_proximity>` system keyword) take into account leap years
